@@ -74,6 +74,26 @@ if minetest.get_modpath("mm") ~= nil then
 overwrite("mm:tool", 50,"mm:tool",nil,50)
 end
 ]]
+if minetest.get_modpath("mobs_mc") ~= nil then
+overwrite("mobs:meat", 8)
+overwrite("mobs:meat_raw", 2)
+overwrite("mobs:chicken_cooked", 6)
+overwrite("mobs:chicken_raw", 2)
+overwrite("mobs:chicken_egg_fried", 2)
+overwrite("mobs:rotten_flesh", -6)
+overwrite("mobs:chicken_egg_fried", 3)
+overwrite("mobs:mutton_cooked", 6)
+overwrite("mobs:mutton_raw", 3)
+overwrite("mobs:pork_raw", 6)
+overwrite("mobs:pork_cooked", 3)
+overwrite("mobs:beef_raw", 6)
+overwrite("mobs:beef_cooked", 3)
+overwrite("mobs:cheese", 4)
+overwrite("mobs:rat_cooked", 3)
+overwrite("mobs:rat", 1)
+overwrite("mobs:bucket_milk", 8,"bucket:bucket_empty")
+end
+
 if minetest.get_modpath("mobs") ~= nil then
 overwrite("mobs:meat", 8)
 overwrite("mobs:meat_raw", 2)
@@ -92,7 +112,26 @@ overwrite("mobs:cheese", 4)
 overwrite("mobs:rat_cooked", 3)
 overwrite("mobs:rat", 1)
 overwrite("mobs:bucket_milk", 8,"bucket:bucket_empty")
+end
 
+if minetest.get_modpath("mobs") and mobs.mod == "redo" then
+overwrite("mobs:meat", 8)
+overwrite("mobs:meat_raw", 2)
+overwrite("mobs:chicken_cooked", 6)
+overwrite("mobs:chicken_raw", 2)
+overwrite("mobs:chicken_egg_fried", 2)
+overwrite("mobs:rotten_flesh", -6)
+overwrite("mobs:chicken_egg_fried", 3)
+overwrite("mobs:mutton_cooked", 6)
+overwrite("mobs:mutton_raw", 3)
+overwrite("mobs:pork_raw", 6)
+overwrite("mobs:pork_cooked", 3)
+overwrite("mobs:beef_raw", 6)
+overwrite("mobs:beef_cooked", 3)
+overwrite("mobs:cheese", 4)
+overwrite("mobs:rat_cooked", 3)
+overwrite("mobs:rat", 1)
+overwrite("mobs:bucket_milk", 8,"bucket:bucket_empty")
 end
 
 if minetest.get_modpath("moretrees") ~= nil then
