@@ -12,7 +12,7 @@ mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
 	hp_max = 30,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.6, 0.4},
-	
+
 	visual = "mesh",
 	visual_size = {x=.75, y=.75, z=.75},
 	mesh = "mobs_creeper.x",
@@ -30,7 +30,7 @@ mobs:register_mob("mobs_mc:creeper", {
 	walk_velocity = 1.5,
 	run_velocity = 3,
 	damage = 1,
-	armor = 200,
+	armor = 100,
 	maxdrops = 3,
 	drops = {
 		{name = "tnt:gunpowder",
@@ -69,6 +69,10 @@ mobs:register_mob("mobs_mc:creeper", {
 		chance = 10,
 		min = 1,
 		max = 1,},
+		{name = "default:acacia_wood",
+		chance = 10,
+		min = 0,
+		max = 2,},
 	},
 	animation = {
 		speed_normal = 24,

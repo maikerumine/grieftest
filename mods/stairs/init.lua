@@ -172,7 +172,7 @@ function stairs.register_slab(subname, recipeitem, groups, images, description, 
 				end
 				return itemstack
 			end
-			
+
 			-- Upside down slabs
 			if p0.y - 1 == p1.y then
 				-- Turn into full block if pointing at a existing slab
@@ -344,7 +344,7 @@ stairs.register_stair_and_slab("sandstone", "default:sandstone",
 		"Sandstone Stair",
 		"Sandstone Slab",
 		default.node_sound_stone_defaults())
-		
+
 stairs.register_stair_and_slab("sandstonebrick", "default:sandstonebrick",
 		{cracky = 2},
 		{"default_sandstone_brick.png"},
@@ -387,23 +387,45 @@ stairs.register_stair_and_slab("steelblock", "default:steelblock",
 		"Steel Block Slab",
 		default.node_sound_stone_defaults())
 
-stairs.register_stair_and_slab("copperblock", "default:copperblock",
-		{cracky = 1, level = 2},
-		{"default_copper_block.png"},
-		"Copper Block Stair",
-		"Copper Block Slab",
-		default.node_sound_stone_defaults())
-
-stairs.register_stair_and_slab("bronzeblock", "default:bronzeblock",
-		{cracky = 1, level = 2},
-		{"default_bronze_block.png"},
-		"Bronze Block Stair",
-		"Bronze Block Slab",
-		default.node_sound_stone_defaults())
-
 stairs.register_stair_and_slab("goldblock", "default:goldblock",
 		{cracky = 1},
 		{"default_gold_block.png"},
 		"Gold Block Stair",
 		"Gold Block Slab",
+		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("Emerald", "default:emeraldblock",
+		{cracky = 1},
+		{"emerald_block.png"},
+		"Emerald Block Stair",
+		"Emerald Block Slab",
+		default.node_sound_stone_defaults())
+
+--TECHNIC STAIRS
+stairs.register_stair_and_slab("granite", "default:granite",
+		{cracky = 1},
+		{"technic_granite.png"},
+		"Granite Block Stair",
+		"Granite Block Slab",
+		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("marble", "default:marble",
+		{cracky = 1},
+		{"technic_marble.png"},
+		"Marble Block Stair",
+		"Marble Block Slab",
+		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("marblebricks", "default:marble_bricks",
+		{cracky = 1},
+		{"technic_marble_bricks.png" },
+		"Marble Brick Block Stair",
+		"Marble Brick Block Slab",
+		default.node_sound_stone_defaults())
+
+stairs.register_stair_and_slab("granitebricks", "default:granite_bricks",
+		{cracky = 1},
+		{"technic_granite_bricks.png" },
+		"Granite Brick Block Stair",
+		"Granite Brick Block Slab",
 		default.node_sound_stone_defaults())

@@ -16,7 +16,7 @@ mobs:register_mob("mobs_mc:pigman", {
 	},
 	visual = "mesh",
 	mesh = "mobs_zombie.x",
-	
+
 	--Tried to get a sword in pig hand
 	--collisionbox = {-0.3, -1.0, -0.3, 0.3, 0.8, 0.3},
 	--visual = "mesh",
@@ -40,7 +40,7 @@ mobs:register_mob("mobs_mc:pigman", {
 		chance = 13,
 		min = 0,
 		max = 2,},
-		{name = "default:sword_mese",
+		{name = "default:sword_gold",
 		chance = 8,
 		min = 1,
 		max = 1,},

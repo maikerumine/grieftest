@@ -27,7 +27,7 @@ mobs:register_mob("mobs_mc:zombie", {
 	walk_velocity = .8,
 	run_velocity = 1.6,
 	damage = 1,
-	armor = 200,
+	armor = 100,
 	drops = {
 		{name = "mobs:rotten_flesh",
 		chance = 1,

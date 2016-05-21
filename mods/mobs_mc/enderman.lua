@@ -11,7 +11,7 @@ mobs:register_mob("mobs_mc:enderman", {
 	type = "monster",
 	hp_max = 39,
 	collisionbox = {-0.4, -2.4, -0.4, 0.4, 1.8, 0.4},
-	
+
 	visual = "mesh",
 	mesh = "mobs_sand_monster.b3d",
 	textures = {
@@ -27,15 +27,15 @@ mobs:register_mob("mobs_mc:enderman", {
 	walk_velocity = 3.2,
 	run_velocity = 5.4,
 	damage = 1,
-	armor = 200,
+	armor = 80,
 	drops = {
 		{name = "default:obsidian",
-		chance = 4,
+		chance = 9,
 		min = 0,
 		max = 2,},
 		{name = "default:diamond",
 		chance = 11,
-		min = 1,
+		min = 0,
 		max = 1,},
 		{name = "farorb:farorb",
 		chance = 3,

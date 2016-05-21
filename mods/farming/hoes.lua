@@ -107,6 +107,7 @@ function farming.hoe_on_use(itemstack, user, pointed_thing, uses)
 end
 
 -- Define Hoes
+minetest.register_alias(":farming:hoe_mese", ":farming:hoe_gold")
 
 farming.register_hoe(":farming:hoe_wood", {
 	description = "Wooden Hoe",
@@ -136,11 +137,11 @@ farming.register_hoe(":farming:hoe_bronze", {
 	material = "default:bronze_ingot"
 })
 ]]
-farming.register_hoe(":farming:hoe_mese", {
-	description = "Mese Hoe",
+farming.register_hoe(":farming:hoe_gold", {
+	description = "Gold Hoe",
 	inventory_image = "farming_tool_mesehoe.png",
 	max_uses = 350,
-	material = "default:mese_crystal"
+	material = "default:gold_ingot"
 })
 
 farming.register_hoe(":farming:hoe_diamond", {

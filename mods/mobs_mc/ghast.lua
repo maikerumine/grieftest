@@ -15,7 +15,7 @@ mobs:register_mob("mobs_mc:ghast", {
 	visual_size = {x=3.0, y=3.0},
 --	textures = {
 --	{"ghast_top.png", "ghast_bottom.png", "ghast_front.png", "ghast_sides.png", "ghast_sides.png", "ghast_sides.png"}
---	},	
+--	},
 	textures = {
 	{"ghast_white.png", "ghast_white.png", "ghast_front.png", "ghast_white.png", "ghast_white.png", "ghast_white.png"}
 	},
@@ -33,14 +33,14 @@ mobs:register_mob("mobs_mc:ghast", {
 	walk_velocity = .8,
 	run_velocity = 2.6,
 	damage = 1,
-	armor = 100,
+	armor = 90,
 	drops = {
 		{name = "default:lava_source 1",
 		chance = 3,
-		min = 1,
+		min = 0,
 		max = 4,},
 		{name = "default:diamond",
-		chance = 1,
+		chance = 2,
 		min = 1,
 		max = 5,},
 	},
@@ -79,7 +79,7 @@ mobs:register_mob("mobs_mc:ghast", {
 	floats=1,
 	fly = true,
 	jump_chance = 98,
-	fear_height = 120,	
+	fear_height = 120,
 })
 
 

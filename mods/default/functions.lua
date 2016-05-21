@@ -475,3 +475,20 @@ minetest.register_abm({
 		minetest.set_node(pos, {name = "default:mossycobble"})
 	end
 })
+
+
+-- added plzadam minitest code:
+-- Global environment step function
+function on_step(dtime)
+	-- print("on_step")
+end
+minetest.register_globalstep(on_step)
+
+function on_placenode(pos, newnode, placer, oldnode, itemstack)
+	if pos.y > 192 then
+		minetest.env:set_node(pos, oldnode)
+		return true
+	end
+end
+minetest.register_on_placenode(on_placenode)
+

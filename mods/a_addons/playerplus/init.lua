@@ -23,20 +23,20 @@ minetest.register_globalstep(function(dtime)
 
 		-- check players
 		for _,player in ipairs(minetest.get_connected_players()) do
-			
+
 			-- where am I?
 			local pos = player:getpos()
-				
+
 			-- what is around me?
 			pos.y = pos.y - 0.1 -- standing on
 			local nod_stand = minetest.get_node(pos).name
 
 			pos.y = pos.y + 1.5 -- head level
 			local nod_head = minetest.get_node(pos).name
-	
+
 			pos.y = pos.y - 1.2 -- feet level
 			local nod_feet = minetest.get_node(pos).name
-	
+
 			pos.y = pos.y - 0.2 -- reset pos
 
 			-- is 3d_armor mod active? if so make armor physics default
@@ -60,10 +60,11 @@ minetest.register_globalstep(function(dtime)
 			or nod_stand == "nether:sand"
 			-- wading in water? if so walk slower
 			or nod_feet == "default:water_flowing"
+			or nod_feet == "nether:sand"
 			or nod_feet ==  "default:water_source" then
-				pp.speed = pp.speed - 0.4
+				pp.speed = pp.speed - 0.6
 			end
-				
+
 			-- set player physics
 			player:set_physics_override(pp.speed, pp.jump, pp.gravity)
 			--print ("Speed:", pp.speed, "Jump:", pp.jump, "Gravity:", pp.gravity)
@@ -94,6 +95,6 @@ minetest.register_globalstep(function(dtime)
 			end
 
 		end
-		
+
 	end
 end)

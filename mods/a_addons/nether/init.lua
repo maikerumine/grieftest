@@ -217,7 +217,7 @@ minetest.register_abm({
 							if n and n.name ~= "nether:portal" then
 								build_portal(target, pos)
 								minetest.after(1, check_and_build_portal, pos, target)
-								--minetest.after(4, check_and_build_portal, pos, target)
+								minetest.after(4, check_and_build_portal, pos, target)
 							elseif not n then
 								minetest.after(1, check_and_build_portal, pos, target)
 							end
@@ -434,7 +434,7 @@ minetest.register_craftitem(":fire:flint_and_steel", {
 	end
 })
 
-
+--[[
 minetest.register_node("nether:bedrock", {
 	description = "Bedrock",
 	tiles = {"bedrock2_bedrock.png"},
@@ -447,7 +447,7 @@ minetest.register_node("nether:bedrock", {
 	diggable = false,
 	drop = "",
 })
-
+]]
 minetest.register_node("nether:rack", {
 	description = "Netherrack",
 	tiles = {"nether_rack.png"},
@@ -469,12 +469,12 @@ minetest.register_node("nether:sand", {
 	tiles = {"nether_sand.png"},
 	is_ground_content = true,
 	light_source = NETHER_AMBIENT,
-	groups = {crumbly=3,level=2,falling_node=1},
+	groups = {crumbly=1,level=2,falling_node=1},
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.45},
 	}),
 })
-
+--[[
 minetest.register_node("nether:glowstone", {
 	description = "Glowstone",
 	tiles = {"nether_glowstone.png"},
@@ -483,6 +483,42 @@ minetest.register_node("nether:glowstone", {
 	groups = {cracky=3,oddly_breakable_by_hand=3},
 	sounds = default.node_sound_glass_defaults(),
 })
+]]
+
+minetest.register_craftitem("nether:glowstone_dust", {
+	description = "Glowstone Dust",
+	inventory_image = "nether_glowstone_dust.png",
+	stack_max = 64,
+})
+
+minetest.register_node("nether:glowstone", {
+	description = "Glowstone",
+	tiles = {"nether_glowstone.png"},
+	is_ground_content = true,
+	light_source = 15,
+	stack_max = 64,
+	drop = {
+		items = {
+			{items = {'nether:glowstone_dust'}},
+			{items = {'nether:glowstone_dust'}},
+			{items = {'nether:glowstone_dust'},rarity=2},
+			{items = {'nether:glowstone_dust'},rarity=0},
+		}
+	},
+	--groups = {dig=default.dig.glowstone},
+	groups = {cracky=3,oddly_breakable_by_hand=3},
+	sounds = default.node_sound_glass_defaults(),
+})
+
+minetest.register_craft{
+	output = "nether:glowstone",
+	recipe = {
+		{"nether:glowstone_dust", "nether:glowstone_dust"},
+		{"nether:glowstone_dust", "nether:glowstone_dust"},
+	}
+}
+
+
 
 minetest.register_node("nether:brick", {
 	description = "Nether Brick",
@@ -731,7 +767,7 @@ minetest.register_ore({
 		--depth_top = ,
 		--node_filler = "nether:bedrock",
 		--depth_filler = ,
-		node_stone =  "nether:bedrock",
+		node_stone =  "default:bedrock",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
@@ -785,7 +821,7 @@ minetest.register_ore({
 		--depth_top = ,
 		--node_filler = "nether:bedrock2",
 		--depth_filler = ,
-		node_stone =  "nether:bedrock",
+		node_stone =  "default:bedrock",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",

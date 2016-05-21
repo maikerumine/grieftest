@@ -39,6 +39,7 @@ minetest.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_sandstonebr
 
 --maikerumine
 minetest.register_alias("default:stone_with_copper", "default:stone_with_iron")
+minetest.register_alias("nether:bedrock", "default:bedrock")
 
 --
 -- Register ores
@@ -48,9 +49,93 @@ minetest.register_alias("default:stone_with_copper", "default:stone_with_iron")
 -- Blob ore first to avoid other ores inside blobs
 
 function default.register_ores()
+--liquids
+minetest.register_ore({
+		ore_type       = "blob",
+		ore            = "default:lava_source",
+		wherein        = "default:desert_stone",
+		clust_scarcity = 15*15*10,
+		clust_num_ores = 2,
+		clust_size     = 2,
+		y_min          = 2,
+		y_max          = 1140,
+	})
 
+minetest.register_ore({
+		ore_type       = "blob",
+		ore            = "default:lava_source",
+		wherein        = "default:stone",
+		clust_scarcity = 25*25*20,
+		clust_num_ores = 2,
+		clust_size     = 2,
+		y_min          = 2,
+		y_max          = 1140,
+	})
+
+minetest.register_ore({
+		ore_type       = "blob",
+		ore            = "default:water_source",
+		wherein        = "default:stone",
+		clust_scarcity = 15*15*10,
+		clust_num_ores = 2,
+		clust_size     = 2,
+		y_min          = 2,
+		y_max          = 1140,
+	})
 
 --Maikerumine added for nicer looking deserts
+
+minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:desert_stone_with_coal",
+		wherein        = "default:desert_stone",
+		clust_scarcity = 6 * 6 * 6,
+		clust_num_ores = 9,
+		clust_size     = 6,
+		y_min          = -31000,
+		y_max          = 200,
+	})
+
+	-- Iron
+minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:desert_stone_with_iron",
+		wherein        = "default:desert_stone",
+		clust_scarcity = 6 * 6 * 7,
+		clust_num_ores = 3,
+		clust_size     = 2,
+		y_min          = -150,
+		y_max          = 200,
+	})
+
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "default:marble",
+	wherein        = "default:stone",
+	clust_scarcity = 1,
+	clust_num_ores = 1,
+	clust_size     = 3,
+	height_min     = -31000,
+	height_max     = 50,
+	noise_threshhold = 0.4,
+	noise_params = {offset=0, scale=15, spread={x=150, y=150, z=150}, seed=23, octaves=3, persist=0.70}
+})
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "default:granite",
+	wherein        = "default:stone",
+	clust_scarcity = 1,
+	clust_num_ores = 1,
+	clust_size     = 4,
+	height_min     = -31000,
+	height_max     = 50,
+	noise_threshhold = 0.4,
+	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
+})
+
+
 --DEFAULT STRATA
 minetest.register_ore({
 	ore_type       = "sheet",
@@ -152,149 +237,153 @@ minetest.register_ore({
 		y_min          = -20000,
 		y_max          = 2140,
 	})
---[[
-	-- nether
 
-	minetest.register_ore({
-		ore_type        = "blob",
-		ore             = "nether:sand",
-		wherein         = {"nether:rack"},
-		clust_scarcity  = 16 * 16 * 16,
-		clust_size      = 5,
-		y_min           = -15,
-		y_max           = 0,
-		noise_threshold = 0.0,
-		noise_params    = {
-			offset = 0.5,
-			scale = 0.2,
-			spread = {x = 5, y = 5, z = 5},
-			seed = -316,
-			octaves = 1,
-			persist = 0.0
-		},
-	})
 
-	minetest.register_ore({
-		ore_type        = "blob",
-		ore             = "nether:glowstone",
-		wherein         = {"nether:rack"},
-		clust_scarcity  = 16 * 16 * 16,
-		clust_size      = 5,
-		y_min           = -31000,
-		y_max           = -2000,
-		noise_threshold = 0.0,
-		noise_params    = {
-			offset = 0.5,
-			scale = 0.2,
-			spread = {x = 5, y = 5, z = 5},
-			seed = -316,
-			octaves = 1,
-			persist = 0.0
-		},
-	})
 
-		minetest.register_ore({
-		ore_type        = "blob",
-		ore             = "nether:brick",
-		wherein         = {"nether:rack"},
-		clust_scarcity  = 16 * 16 * 16,
-		clust_size      = 5,
-		y_min           = -31000,
-		y_max           = -2000,
-		noise_threshold = 0.0,
-		noise_params    = {
-			offset = 0.5,
-			scale = 0.2,
-			spread = {x = 5, y = 5, z = 5},
-			seed = -316,
-			octaves = 1,
-			persist = 0.0
-		},
-	})
-
-	minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "default:lava_source",
-		wherein        = "nether:rack",
-		clust_scarcity = 14 * 14 * 14,
-		clust_num_ores = 5,
-		clust_size     = 3,
-		y_min           = -31000,
-		y_max           = -2100,
-	})
-
-	minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nether:rack_with_diamond",
-		wherein        = "nether:rack",
-		clust_scarcity = 14 * 14 * 14,
-		clust_num_ores = 12,
-		clust_size     = 5,
-		y_min           = -31000,
-		y_max           = -2150,
-	})
-
-	minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nether:glowstone",
-		wherein        = "nether:rack",
-		clust_scarcity = 14 * 14 * 14,
-		clust_num_ores = 5,
-		clust_size     = 3,
-		y_min           = -31000,
-		y_max           = -2000,
-	})
-
+--plzadamcode from minitest
+--
+-- Coal
+--
 minetest.register_ore({
-	ore_type       = "sheet",
-	ore            = "default:gravel",
-	wherein        = {"nether:rack"},
-	clust_scarcity = 1,
-	clust_num_ores = 12,
-	clust_size     = 8,
-	height_min     = -31000,
-	height_max     = -2000,
-	noise_threshhold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
+	ore_type       = "scatter",
+	ore            = "default:stone_with_coal",
+	wherein        = "default:stone",
+	clust_scarcity = 500,
+	clust_num_ores = 8,
+	clust_size     = 3,
+	height_min     = -59,
+	height_max     = -12,
+})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_coal",
+	wherein        = "default:stone",
+	clust_scarcity = 1000,
+	clust_num_ores = 6,
+	clust_size     = 3,
+	height_min     = -11,
+	height_max     = 64,
+})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_coal",
+	wherein        = "default:stone",
+	clust_scarcity = 5000,
+	clust_num_ores = 4,
+	clust_size     = 2,
+	height_min     = 65,
+	height_max     = 67,
 })
 
+--
+-- Iron
+--
 minetest.register_ore({
-	ore_type       = "sheet",
-	ore            = "nether:sand",
-	wherein        = {"nether:rack"},
-	clust_scarcity = 1,
-	clust_num_ores = 12,
-	clust_size     = 8,
-	height_min     = -31000,
-	height_max     = -2000,
-	noise_threshhold = 0.9,
-	noise_params = {offset=0, scale=1, spread={x=30, y=30, z=30}, seed=24, octaves=3, persist=0.70}
+	ore_type       = "scatter",
+	ore            = "default:stone_with_iron",
+	wherein        = "default:stone",
+	clust_scarcity = 830,
+	clust_num_ores = 5,
+	clust_size     = 3,
+	height_min     = -59,
+	height_max     = -10,
+})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_iron",
+	wherein        = "default:stone",
+	clust_scarcity = 1660,
+	clust_num_ores = 3,
+	clust_size     = 2,
+	height_min     = -9,
+	height_max     = 0,
 })
 
-	minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "fire:permanent_flame",
-		--ore            = "fire:basic_flame",
-		wherein        = "nether:rack",
-		clust_scarcity = 8 * 8 * 8,
-		clust_num_ores = 8,
-		clust_size     = 3,
-		y_min          = -31000,
-		y_max          = -2000,
+--
+-- Gold
+--
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_gold",
+	wherein        = "default:stone",
+	clust_scarcity = 5000,
+	clust_num_ores = 5,
+	clust_size     = 3,
+	height_min     = -59,
+	height_max     = -35,
+})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_gold",
+	wherein        = "default:stone",
+	clust_scarcity = 10000,
+	clust_num_ores = 3,
+	clust_size     = 2,
+	height_min     = -35,
+	height_max     = -33,
+})
+
+--
+-- Diamond
+--
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_diamond",
+	wherein        = "default:stone",
+	clust_scarcity = 5000,
+	clust_num_ores = 4,
+	clust_size     = 3,
+	height_min     = -59,
+	height_max     = -52,
+})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_diamond",
+	wherein        = "default:stone",
+	clust_scarcity = 10000,
+	clust_num_ores = 3,
+	clust_size     = 2,
+	height_min     = -55,
+	height_max     = -53,
+})
+
+--
+-- Mese
+--
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_mese",
+	wherein        = "default:stone",
+	clust_scarcity = 600,
+	clust_num_ores = 6,
+	clust_size     = 3,
+	height_min     = -59,
+	height_max     = -52,
+})
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:stone_with_mese",
+	wherein        = "default:stone",
+	clust_scarcity = 1200,
+	clust_num_ores = 4,
+	clust_size     = 3,
+	height_min     = -55,
+	height_max     = -53,
+})
+
+--ES Node Registration and location
+minetest.register_ore({
+		    ore_type       = "scatter",
+		    ore            = "default:stone_with_emerald",
+		    wherein        = "default:stone",
+		    clust_scarcity = 34*34*34,
+		    clust_num_ores = 1,
+		    clust_size     = 2,
+		    height_min     = -60,
+		    height_max     = -54,
 	})
 
-		minetest.register_ore({
-		ore_type       = "scatter",
-		ore            = "nether:glowstone",
-		wherein        = "nether:rack",
-		clust_scarcity = 8 * 8 * 8,
-		clust_num_ores = 8,
-		clust_size     = 3,
-		y_min          = -31000,
-		y_max          = -2000,
-	})
-	
-	]]
+
 	-- Clay
 
 	minetest.register_ore({
@@ -403,7 +492,7 @@ minetest.register_ore({
 		y_min          = -31000,
 		y_max          = 0,
 	})
-
+--[[
 	-- Iron
 
 	minetest.register_ore({
@@ -556,9 +645,11 @@ minetest.register_ore({
 		y_min          = -31000,
 		y_max          = -64,
 	})
+
+
+]]
+
 end
-
-
 --
 -- Register biomes
 --
@@ -1105,7 +1196,7 @@ function default.register_biomes()
 		heat_point = 50,
 		humidity_point = 50,
 	})
-	
+
 		minetest.register_biome({
 		name = "Nunderground",
 		--node_dust = "",
@@ -1141,7 +1232,7 @@ function default.register_biomes()
 		heat_point = 50,
 		humidity_point = 50,
 	})
-	
+
 		minetest.register_biome({
 		name = "bedrock_lower",
 		--node_dust = "",
@@ -1159,8 +1250,8 @@ function default.register_biomes()
 		heat_point = 50,
 		humidity_point = 50,
 	})
-]]	
-	
+]]
+
 end
 
 
@@ -1745,3 +1836,65 @@ elseif mg_params.mgname ~= "singlenode" then
 	default.register_decorations()
 	minetest.register_on_generated(default.generate_nyancats)
 end
+
+
+
+local function replace(old, new, min, max)
+	for i=1,8 do
+		minetest.register_ore({
+			ore_type       = "scatter",
+			ore            = new,
+			wherein        = old,
+			clust_scarcity = 1,
+			clust_num_ores = 1,
+			clust_size     = 1,
+			height_min     = min,
+			height_max     = max,
+		})
+	end
+end
+replace("air", "default:bedrock", -80, -64)
+replace("air", "default:lava_source", -64, -54)
+replace("default:stone", "default:bedrock", -80, -64)
+replace("default:gravel", "default:bedrock", -80, -64)
+replace("default:dirt", "default:bedrock", -80, -64)
+replace("default:sand", "default:bedrock", -80, -64)
+replace("default:cobble", "default:bedrock", -80, -64)
+replace("default:desert_cobble", "default:bedrock", -80, -64)
+replace("default:mossycobble", "default:bedrock", -80, -64)
+replace("stairs:stair_cobble", "default:bedrock", -80, -64)
+replace("default:lava_source", "default:bedrock", -80, -64)
+replace("default:lava_flowing", "default:bedrock", -80, -64)
+replace("default:water_source", "default:bedrock", -80, -64)
+replace("default:water_flowing", "default:bedrock", -80, -64)
+replace("default:sandstone", "default:bedrock", -80, -64)
+replace("default:desert_stone", "default:bedrock", -80, -64)
+replace("default:desert_sand", "default:bedrock", -80, -64)
+
+local function bedrock(old)
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:bedrock",
+		wherein        = old,
+		clust_scarcity = 5,
+		clust_num_ores = 3,
+		clust_size     = 2,
+		height_min     = -64,
+		height_max     = -60,
+	})
+end
+bedrock("air")
+bedrock("default:stone")
+bedrock("default:desert_stone")
+bedrock("default:gravel")
+bedrock("default:dirt")
+bedrock("default:sand")
+bedrock("default:desert_sand")
+bedrock("default:desert_cobble")
+bedrock("default:cobble")
+bedrock("default:mossycobble")
+bedrock("stairs:stair_cobble")
+bedrock("default:lava_source")
+bedrock("default:lava_flowing")
+bedrock("default:water_source")
+bedrock("default:water_flowing")
