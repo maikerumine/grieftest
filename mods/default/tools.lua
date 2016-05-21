@@ -515,7 +515,7 @@ minetest.register_item(":", {
 		max_drop_level = 0,
 		groupcaps = {
 			cracky = {times={[2]=148.00, [3]=66.70}, uses=0, maxlevel=3},
-			crumbly = {times={[3]=53.00, [3]=0.70}, uses=0, maxlevel=3},
+			crumbly = {times={[2]=53.00, [3]=4.70}, uses=0, maxlevel=3},
 			snappy = {times={[3]=0.40}, uses=0, maxlevel=1},
 			oddly_breakable_by_hand = {times={[1]=3.50,[2]=2.00,[3]=0.70}, uses=0}
 		},

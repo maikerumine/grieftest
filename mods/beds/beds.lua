@@ -1,5 +1,5 @@
 -- Fancy shaped bed
-
+--[[
 beds.register_bed("beds:fancy_bed", {
 	description = "Fancy Bed",
 	inventory_image = "beds_bed_fancy.png",
@@ -48,7 +48,7 @@ beds.register_bed("beds:fancy_bed", {
 		{"group:wood", "group:wood", "group:wood"},
 	},
 })
-
+]]
 -- Simple shaped bed
 
 beds.register_bed("beds:bed", {
@@ -66,7 +66,7 @@ beds.register_bed("beds:bed", {
 		},
 		top = {
 			"beds_bed_top_top.png^[transformR90",
-			"default_wood.png", 
+			"default_wood.png",
 			"beds_bed_side_top_r.png",
 			"beds_bed_side_top_r.png^[transformfx",
 			"beds_bed_side_top.png",

@@ -352,13 +352,13 @@ mobs:register_spawn("mobs_mc:lavabig", {"nether:rack", "default:lava"}, 7, -1, 5
 mobs:alias_mob("mobs:lavasmall", "mobs_mc:lavasmall")
 mobs:alias_mob("mobs:lavabig", "mobs_mc:lavabig")
 mobs:alias_mob("mobs:greensmall", "mobs_mc:greensmall")
-mobs:alias_mob("mobs:greenmediuml", "mobs_mc:greenmedium")
+mobs:alias_mob("mobs:greenmedium", "mobs_mc:greenmedium")
 mobs:alias_mob("mobs:greenbig", "mobs_mc:greenbig")
 
 mobs:alias_mob("slimes:lavasmall", "mobs_mc:lavasmall")
 mobs:alias_mob("slimes:lavabig", "mobs_mc:lavabig")
 mobs:alias_mob("slimes:greensmall", "mobs_mc:greensmall")
-mobs:alias_mob("slimes:greenmediuml", "mobs_mc:greenmedium")
+mobs:alias_mob("slimes:greenmedium", "mobs_mc:greenmedium")
 mobs:alias_mob("slimes:greenbig", "mobs_mc:greenbig")
 
 
