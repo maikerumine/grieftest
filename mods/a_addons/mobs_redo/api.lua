@@ -13,8 +13,8 @@ local spawn_protected = tonumber(minetest.setting_get("mobs_spawn_protected")) o
 local remove_far = minetest.setting_getbool("remove_far_mobs")
 
 -- pathfinding settings
-local enable_pathfinding = true
-local enable_pathfind_digging = false
+local enable_pathfinding = false
+local enable_pathfind_digging = true
 local stuck_timeout = 3 -- how long before mob gets stuck in place and starts searching
 local stuck_path_timeout = 10 -- how long will mob follow path before giving up
 

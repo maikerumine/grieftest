@@ -1176,7 +1176,7 @@ minetest.register_node("default:goldblock", {
 minetest.register_node("default:stone_with_diamond", {
 	description = "Diamond Ore",
 	tiles = {"default_stone.png^default_mineral_diamond.png"},
-	groups = {cracky = 1},
+	groups = {cracky = 2},
 	drop = "default:diamond",
 	sounds = default.node_sound_stone_defaults(),
 	stack_max = 64,
@@ -1195,7 +1195,7 @@ minetest.register_node("default:desert_stone_with_iron", {
 	description = "Iron Ore",
 	tiles = {"default_desert_stone.png^default_mineral_iron.png"},
 	groups = {cracky = 2},
-	drop = 'default:iron_lump',
+	drop = 'default:stone_with_iron',
 	sounds = default.node_sound_stone_defaults(),
 })
 

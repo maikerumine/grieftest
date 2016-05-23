@@ -172,10 +172,13 @@ minetest.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv
 	itemstack:set_metadata(copymeta)
 	-- put the book with metadata back in the craft grid
 	craft_inv:set_stack("craft", index, original)
-end)minetest.register_craftitem("default:coal_lump", {
+end)
+
+minetest.register_craftitem("default:coal_lump", {
 	description = "Coal Lump",
 	inventory_image = "default_coal_lump.png",
-	groups = {coal = 1}
+	groups = {coal = 1},
+	stack_max = 64,
 })
 
 

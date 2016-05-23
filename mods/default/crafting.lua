@@ -44,6 +44,15 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
+	output = 'default:stick 1',
+	recipe = {
+		{'group:leaves'},
+		{'group:leaves'},
+		{'group:leaves'},
+	}
+})
+
+minetest.register_craft({
 	output = 'default:sign_wall_wood 2',
 	recipe = {
 		{'group:wood', 'group:wood', 'group:wood'},
@@ -602,6 +611,30 @@ minetest.register_craft({
 	additional_wear = -0.02,
 })
 
+minetest.register_craft({
+	output = 'default:stick 1',
+	recipe = {
+		{'default:shovel_wood'},
+	}
+})
+minetest.register_craft({
+	output = 'default:stick 1',
+	recipe = {
+		{'default:shovel_stone'},
+	}
+})
+minetest.register_craft({
+	output = 'default:stick 1',
+	recipe = {
+		{'default:shovel_steel'},
+	}
+})
+minetest.register_craft({
+	output = 'default:stick 1',
+	recipe = {
+		{'default:shovel_diamond'},
+	}
+})
 --
 -- Cooking recipes
 --

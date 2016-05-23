@@ -78,3 +78,6 @@ minetest.register_alias("default:pinewood", "default:pine_wood")
 minetest.register_alias("default:ladder", "default:ladder_wood")
 minetest.register_alias("default:sign_wall", "default:sign_wall_wood")
 
+
+minetest.register_alias("esmobs:bones", "default:chest")
+
