@@ -279,8 +279,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:sword_gold',
 	recipe = {
-		{'default:mese_crystal'},
-		{'default:mese_crystal'},
+		{'default:gold_ingot'},
+		{'default:gold_ingot'},
 		{'group:stick'},
 	}
 })
@@ -288,8 +288,8 @@ minetest.register_craft({
 minetest.register_craft({
 	output = 'default:sword_diamond',
 	recipe = {
-		{'default:gold_ingot'},
-		{'default:gold_ingot'},
+		{'default:diamond'},
+		{'default:diamond'},
 		{'group:stick'},
 	}
 })

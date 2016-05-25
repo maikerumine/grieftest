@@ -18,6 +18,7 @@ minetest.register_node("quartz:quartz_ore", {
  	 tiles = {"nether_rack.png^quartz_ore.png"},
 	 groups = {cracky=3, stone=1},
 	 drop = 'quartz:quartz_crystal',
+	 light_source = 6,  --light_source = NETHER_AMBIENT,
          sounds = default.node_sound_stone_defaults(),
 })
 

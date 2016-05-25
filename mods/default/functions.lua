@@ -379,6 +379,39 @@ minetest.register_abm({
 })
 
 
+--from 413
+--
+-- Grass growing on well-lit dirt makes dirt with grass  --mm
+--
+
+minetest.register_abm({
+	nodenames = {"default:dirt"},
+	neighbors = {"air"},
+	interval = 6,
+	chance = 67,
+	catch_up = false,
+	action = function(pos, node)
+		local above = {x = pos.x, y = pos.y + 1, z = pos.z}
+		local name = minetest.get_node(above).name
+		local nodedef = minetest.registered_nodes[name]
+		if nodedef and (nodedef.sunlight_propagates or nodedef.paramtype == "light") and
+				nodedef.liquidtype == "none" and
+				(minetest.get_node_light(above) or 0) >= 13 then
+			if name == "default:snow" or name == "default:snowblock" then
+				minetest.set_node(pos, {name = "default:dirt_with_snow"})
+			else
+			if name == "default:grass_1" or name == "default:grass_2"or name == "default:grass_3"or name == "default:grass_4" then
+				minetest.set_node(pos, {name = "default:dirt_with_grass"})
+			end
+			end
+		end
+	end
+})
+
+
+
+
+
 --
 -- Convert dirt to something that fits the environment
 --
@@ -399,7 +432,7 @@ minetest.register_abm({
 	action = function(pos, node)
 		-- Most likely case, half the time it's too dark for this.
 		local above = {x = pos.x, y = pos.y + 1, z = pos.z}
-		if (minetest.get_node_light(above) or 0) < 13 then
+		if (minetest.get_node_light(above) or 0) < 12 then
 			return
 		end
 

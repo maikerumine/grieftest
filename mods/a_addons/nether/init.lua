@@ -419,9 +419,10 @@ minetest.register_craftitem(":fire:flint_and_steel", {
 			itemstack:add_wear(1000)
 			local node_under = minetest.get_node(pt.under).name
 
-			if minetest.get_item_group(node_under, "flammable") >= 1 then
+			if minetest.get_item_group(node_under, "flammable") >= 0 then
 				if not minetest.is_protected(pt.above, player_name) then
-					minetest.set_node(pt.above, {name = "fire:basic_flame"})
+					--minetest.set_node(pt.above, {name = "fire:basic_flame"})
+					minetest.set_node(pt.above, {name = "fire:permanent_flame"})
 				else
 					minetest.chat_send_player(player_name, "This area is protected")
 				end
