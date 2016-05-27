@@ -11,6 +11,12 @@ if minetest.get_modpath("flowers") ~= nil then
 		register_food("flowers:mushroom_red", 1, "", 3)
 end
 
+if minetest.get_modpath("cake") ~= nil then
+		register_food("cake:cake", 2)
+		
+end
+
+
 if minetest.get_modpath("mobs") ~= nil then
 	if mobs.mod ~= nil and mobs.mod == "redo" then
 		register_food("mobs:cheese", 4)
