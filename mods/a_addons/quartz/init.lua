@@ -25,12 +25,13 @@ minetest.register_node("quartz:quartz_ore", {
 minetest.register_ore({
     ore_type       = "scatter",
     ore            = "quartz:quartz_ore",
-    wherein        = "nether:rack",
+    --wherein        = "nether:rack",
+    wherein        = "default:stone",
     clust_scarcity = 10*10*10,
     clust_num_ores = 6,
     clust_size     = 5,
     height_min     = -31000,
-    height_max     = -5,
+    height_max     = -75,
 })
 
 --Quartz Block

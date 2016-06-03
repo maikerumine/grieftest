@@ -68,7 +68,7 @@ minetest.register_ore({
 		clust_scarcity = 25*25*20,
 		clust_num_ores = 2,
 		clust_size     = 2,
-		y_min          = 2,
+		y_min          = -31000,
 		y_max          = 1140,
 	})
 
@@ -230,7 +230,7 @@ minetest.register_ore({
 	minetest.register_ore({
 		ore_type       = "blob",
 		ore            = "default:lava_source",
-		wherein        = "nether:rack",
+		wherein        = "default:stone",
 		clust_scarcity = 15*15*10,
 		clust_num_ores = 2,
 		clust_size     = 2,
@@ -414,7 +414,7 @@ minetest.register_ore({
 			"default:desert_stone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_min           = -31,
+		y_min           = -31000,
 		y_max           = 4,
 		noise_threshold = 0.0,
 		noise_params    = {
@@ -435,7 +435,7 @@ minetest.register_ore({
 		wherein         = {"default:stone", "default:sandstone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_min           = -31,
+		y_min           = -31000,
 		y_max           = 31000,
 		noise_threshold = 0.0,
 		noise_params    = {
@@ -492,7 +492,7 @@ minetest.register_ore({
 		y_min          = -31000,
 		y_max          = 0,
 	})
---[[
+--orig def
 	-- Iron
 
 	minetest.register_ore({
@@ -646,8 +646,9 @@ minetest.register_ore({
 		y_max          = -64,
 	})
 
+	--nether defs
 
-]]
+
 
 end
 --
@@ -1173,30 +1174,14 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -2280,
+		y_min = -5000,
 		y_max = -113,
 		heat_point = 50,
 		humidity_point = 50,
 	})
---[[
-		minetest.register_biome({
-		name = "bedrock_upper",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		node_filler = "nether:bedrock",
-		--depth_filler = ,
-		node_stone =  "nether:bedrock",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -2500,
-		y_max = -2281,
-		heat_point = 50,
-		humidity_point = 50,
-	})
 
+
+--[[
 		minetest.register_biome({
 		name = "Nunderground",
 		--node_dust = "",
@@ -1214,7 +1199,7 @@ function default.register_biomes()
 		heat_point = 50,
 		humidity_point = 50,
 	})
-
+]]
 		minetest.register_biome({
 		name = "lava",
 		--node_dust = "",
@@ -1227,30 +1212,13 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -5000,
-		y_max = -4501,
-		heat_point = 50,
-		humidity_point = 50,
-	})
-
-		minetest.register_biome({
-		name = "bedrock_lower",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		node_filler = "nether:bedrock2",
-		--depth_filler = ,
-		node_stone =  "nether:bedrock2",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
 		y_min = -31000,
 		y_max = -5001,
 		heat_point = 50,
 		humidity_point = 50,
 	})
-]]
+
+
 
 end
 
