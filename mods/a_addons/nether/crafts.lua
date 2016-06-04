@@ -1,16 +1,10 @@
 -- Minetest 0.4 Mod: Nether
-local nether_created = false
-
-
-
 
 minetest.register_craftitem("nether:glowstone_dust", {
 	description = "Glowstone Dust",
 	inventory_image = "nether_glowstone_dust.png",
 	stack_max = 64,
 })
-
-
 
 minetest.register_craft{
 	output = "nether:glowstone",
@@ -19,10 +13,6 @@ minetest.register_craft{
 		{"nether:glowstone_dust", "nether:glowstone_dust"},
 	}
 }
-
-
-
-
 
 local fencenether_texture = "default_fence_overlay.png^nether_brick.png^default_fence_overlay.png^[makealpha:255,126,126"
 minetest.register_node("nether:fence", {
@@ -55,7 +45,6 @@ minetest.register_craft({
 })
 
 
-
 -- Register stair and slab
 
 stairs.register_stair_and_slab(
@@ -67,8 +56,6 @@ stairs.register_stair_and_slab(
 	"nether slab",
 	default.node_sound_stone_defaults()
 )
-
-
 
 
 -- Crafting
@@ -88,4 +75,3 @@ minetest.register_craft({
 		{"nether:brick", "nether:brick", "nether:brick"},
 	},
 })
-

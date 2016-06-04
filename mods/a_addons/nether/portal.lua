@@ -31,7 +31,6 @@ local nbuf_cave
 
 
 -- Craftitems
-
 minetest.register_craftitem(":default:mese_crystal_fragment", {
 	description = "Mese Crystal Fragment",
 	inventory_image = "default_mese_crystal_fragment.png",
@@ -46,7 +45,6 @@ minetest.register_craftitem(":default:mese_crystal_fragment", {
 		return stack
 	end,
 })
-
 
 minetest.register_craftitem(":fire:flint_and_steel", {
 	description = "Flint -n- Steel",
@@ -84,26 +82,6 @@ minetest.register_craftitem(":fire:flint_and_steel", {
 		end
 	end
 })
-
-
-
-
---[[
--- 3D noise
-
-local np_cave = {
-	offset = 0,
-	scale = 1,
-	spread = {x = 384, y = 128, z = 384}, -- squashed 3:1
-	seed = 59033,
-	octaves = 5,
-	persist = 0.7
-}
-]]
-
--- Stuff
-
-local yblmax = NETHER_DEPTH - BLEND * 2
 
 
 -- Functions
@@ -321,8 +299,8 @@ minetest.register_abm({
 			"nether_particle.png" --texture
 		)
 		--for _, obj in ipairs(minetest.get_objects_inside_radius(pos, 1)) do
-		for _,obj in ipairs(minetest.get_objects_inside_radius(pos,1)) do
-		local lua_entity = obj:get_luaentity()
+		for _,obj in ipairs(minetest.get_objects_inside_radius(pos,1)) do		--maikerumine added for objects to travel
+		local lua_entity = obj:get_luaentity()							--maikerumine added for objects to travel
 			--if obj:is_player() then
 			if obj:is_player() or lua_entity then
 				local meta = minetest.get_meta(pos)
@@ -336,14 +314,14 @@ minetest.register_abm({
 					end
 					-- teleport the player
 					minetest.after(3, function(obj, pos, target)
-						local objpos = obj:getpos()   if objpos == nil then return end
+						local objpos = obj:getpos()   if objpos == nil then return end	--maikerumine added for objects to travel
 						objpos.y = objpos.y + 0.1 -- Fix some glitches at -8000
 						if minetest.get_node(objpos).name ~= "nether:portal" then
 							return
 						end
 
 						obj:setpos(target)
-						minetest.sound_play("tng_transporter1", {pos=target,gain=0.5,max_hear_distance = 8,})
+						minetest.sound_play("tng_transporter1", {pos=target,gain=0.5,max_hear_distance = 8,})	--maikerumine added sound when travel
 
 						local function check_and_build_portal(pos, target)
 							local n = minetest.get_node_or_nil(target)

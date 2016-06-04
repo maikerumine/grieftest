@@ -3,7 +3,7 @@
 local NETHER_AMBIENT = 6
 
 
---[[
+--[[	--moved to default
 minetest.register_node("nether:bedrock", {
 	description = "Bedrock",
 	tiles = {"bedrock2_bedrock.png"},
@@ -44,8 +44,6 @@ minetest.register_node("nether:sand", {
 	}),
 })
 
-
-
 minetest.register_node("nether:glowstone", {
 	description = "Glowstone",
 	tiles = {"nether_glowstone.png"},
@@ -64,10 +62,6 @@ minetest.register_node("nether:glowstone", {
 	groups = {cracky=3,oddly_breakable_by_hand=3},
 	sounds = default.node_sound_glass_defaults(),
 })
-
-
-
-
 
 minetest.register_node("nether:brick", {
 	description = "Nether Brick",
@@ -113,4 +107,3 @@ minetest.register_node("nether:permanent_flame", {
 	on_blast = function()
 	end,
 })
-

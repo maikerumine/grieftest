@@ -18,22 +18,9 @@ local nether_created = false
 		y_max           = -3100,
 	})
 
-	-- nether
---[[
-	minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "air",
-	wherein        = {"nether:rack"},
-	clust_scarcity = 1,
-	clust_num_ores = 20,  --per node  laggy
-	clust_size     = 3, --thick
-	height_min     = -3005,
-	height_max     = -2990,
-	noise_threshhold = 1,
-	--noise_params = {offset=0, scale=1, spread={x=0.5, y=2, z=0.5}, seed=24, octaves=2, persist=1.0}  --solid
-	noise_params = {offset=0, scale=1, spread={x=1, y=2, z=1}, seed=24, octaves=2, persist=0.8}
-})
-]]
+-- maikerumines hackish nether
+--The following will generate nether and bedrock limits without mapgen function.
+--it is a bit slow
 --[[
 	minetest.register_ore({
 		ore_type        = "blob",
@@ -261,6 +248,8 @@ minetest.register_ore({
 	})
 
 ]]
+
+
 --paramats cavegen
 --hacked by maikerumine
 
@@ -328,6 +317,7 @@ local c_netherrack = minetest.get_content_id("nether:rack")
 local c_netherfire = minetest.get_content_id("nether:permanent_flame")
 local c_netherdiamond = minetest.get_content_id("nether:rack_with_diamond")
 local c_quartz = minetest.get_content_id("quartz:quartz_ore")
+local c_netherquartz = minetest.get_content_id("nether:quartz_ore")
 
 
 
@@ -426,8 +416,10 @@ minetest.register_on_generated(function(minp, maxp, seed)
 						data[vi] = c_netherdiamond
 					elseif id ==  c_lava_source then --LAVA!!
 						data[vi] =  c_lava_source
-					elseif id ==  c_quartz then --LAVA!!
+					elseif id ==  c_quartz then --Quartz
 						data[vi] =  c_quartz
+					elseif id ==  c_netherquartz then --Quartz
+						data[vi] =  c_netherquartz
 					elseif id == c_stone_with_gold or -- Precious ores to glowstone
 						id == c_stone_with_mese then
 						data[vi] = c_glowstone
@@ -457,6 +449,3 @@ minetest.register_on_generated(function(minp, maxp, seed)
 	local chugent = math.ceil((os.clock() - t1) * 1000)
 	print ("[nether] generate chunk " .. chugent .. " ms")
 end)
-
-
-
