@@ -1,5 +1,14 @@
 dofile(minetest.get_modpath("nether").."/settings.txt")
-
+--[[
+--alias to remove old quartz from maps
+minetest.register_alias("quartz:quartz_crystal", "nether:quartz_crystal")
+minetest.register_alias("quartz:quartz_ore", "nether:quartz_ore")
+minetest.register_alias("quartz:block", "nether:block")
+minetest.register_alias("quartz:chiseled", "nether:chiseled")
+minetest.register_alias("quartz:pillar", "nether:pillar")
+minetest.register_alias("quartz:pillar_horizontal", "nether:pillar_horizontal")
+minetest.register_alias("quartz:pillar_horizontal", "nether:pillar_horizontal")
+]]
 
 --Node Registration
 
