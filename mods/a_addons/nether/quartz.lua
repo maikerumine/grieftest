@@ -1,5 +1,5 @@
 dofile(minetest.get_modpath("nether").."/settings.txt")
---[[
+
 --alias to remove old quartz from maps
 minetest.register_alias("quartz:quartz_crystal", "nether:quartz_crystal")
 minetest.register_alias("quartz:quartz_ore", "nether:quartz_ore")
@@ -8,7 +8,9 @@ minetest.register_alias("quartz:chiseled", "nether:chiseled")
 minetest.register_alias("quartz:pillar", "nether:pillar")
 minetest.register_alias("quartz:pillar_horizontal", "nether:pillar_horizontal")
 minetest.register_alias("quartz:pillar_horizontal", "nether:pillar_horizontal")
-]]
+
+
+
 
 --Node Registration
 
@@ -73,14 +75,14 @@ minetest.register_node("nether:pillar", {
 
 
 --Stairs & Slabs
-stairs.register_stair_and_slab("quartzblock", "nether:block",
+stairs.register_stair_and_slab("netherblock", "nether:block",
 		{cracky=3, oddly_breakable_by_hand=1},
 		{"quartz_block.png"},
 		"Quartz stair",
 		"Quartz slab",
 		default.node_sound_glass_defaults())
 
-stairs.register_slab("quartzstair", "nether:pillar",
+stairs.register_slab("netherstair", "nether:pillar",
 		{cracky=3, oddly_breakable_by_hand=1},
 		{"quartz_pillar_top.png", "quartz_pillar_top.png", "quartz_pillar_side.png"},
 		"Quartz Pillar stair",
