@@ -1,11 +1,12 @@
+
 hud = {}
-local modpath = minetest.get_modpath("hud")
 
-dofile(modpath .. "/api.lua")
-dofile(modpath .. "/functions.lua")
-dofile(modpath .. "/builtin.lua")
-dofile(modpath .. "/legacy.lua")
+local path = minetest.get_modpath("hud")
+
+dofile(path .. "/api.lua")
+dofile(path .. "/builtin.lua")
+dofile(path .. "/legacy.lua")
+
 if hud.item_wheel then
-	dofile(modpath .. "/itemwheel.lua")
+	dofile(path .. "/itemwheel.lua")
 end
-

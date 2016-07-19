@@ -37,7 +37,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 		chance = 11,
 		min = 1,
 		max = 1,},
-		{name = "bones:bones",
+		{name = "bones:single_bone",
 		chance = 1,
 		min = 0,
 		max = 2,},

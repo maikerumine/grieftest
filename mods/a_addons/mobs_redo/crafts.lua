@@ -1,7 +1,9 @@
 
+local S = mobs.intllib
+
 -- name tag
 minetest.register_craftitem("mobs:nametag", {
-	description = "Nametag",
+	description = S("Nametag"),
 	inventory_image = "mobs_nametag.png",
 })
 
@@ -13,20 +15,20 @@ core.register_craft({
 
 -- leather
 minetest.register_craftitem("mobs:leather", {
-	description = "Leather",
+	description = S("Leather"),
 	inventory_image = "mobs_leather.png",
 })
 
 -- raw meat
 minetest.register_craftitem("mobs:meat_raw", {
-	description = "Raw Meat",
+	description = S("Raw Meat"),
 	inventory_image = "mobs_meat_raw.png",
 	on_use = minetest.item_eat(3),
 })
 
 -- cooked meat
 minetest.register_craftitem("mobs:meat", {
-	description = "Meat",
+	description = S("Meat"),
 	inventory_image = "mobs_meat.png",
 	on_use = minetest.item_eat(8),
 })
@@ -40,7 +42,7 @@ minetest.register_craft({
 
 -- golden lasso
 minetest.register_tool("mobs:magic_lasso", {
-	description = "Magic Lasso (right-click animal to put in inventory)",
+	description = S("Magic Lasso (right-click animal to put in inventory)"),
 	inventory_image = "mobs_magic_lasso.png",
 })
 
@@ -55,7 +57,7 @@ minetest.register_craft({
 
 -- net
 minetest.register_tool("mobs:net", {
-	description = "Net (right-click animal to put in inventory)",
+	description = S("Net (right-click animal to put in inventory)"),
 	inventory_image = "mobs_net.png",
 })
 
@@ -70,7 +72,7 @@ minetest.register_craft({
 
 -- shears (right click to shear animal)
 minetest.register_tool("mobs:shears", {
-	description = "Steel Shears (right-click to shear)",
+	description = S("Steel Shears (right-click to shear)"),
 	inventory_image = "mobs_shears.png",
 })
 

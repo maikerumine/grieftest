@@ -1,5 +1,5 @@
 
-MOB API
+MOB API (23rd May 2016)
 
 The mob api is a function that can be called on by other mods to add new animals or monsters into minetest.
 
@@ -73,7 +73,7 @@ This functions registers a new mob as a Minetest entity.
         'on_die' a function that is called when the mob is killed the parameters are (self, pos)
         'floats' 1 to float in water, 0 to sink
         'on_rightclick' its same as in minetest.register_entity()
-        'pathfinding' when true mobs will use pathfinder feature to locate player (only works with dogfight attack)
+        'pathfinding' set to 1 for mobs to use pathfinder feature to locate player, set to 2 so they can build/break also (only works with dogfight attack)
         'attack_type' the attack type of a monster
             'dogfight' follows player in range and attacks when in reach
             'shoot' shoots defined arrows when player is within range
@@ -131,7 +131,7 @@ The mob api also has some preset variables and functions that it will remember f
     'self.owner' string used to set owner of npc mobs, typically used for dogs
     'self.order' set to "follow" or "stand" so that npc will follow owner or stand it's ground
     'on_die' a function that is called when mob is killed
-    'do_custom' a custom function that is called while mob is active and which has access to all of the self.* variables e.g. (self.health for health or self.standing_in for node status)
+    'do_custom' a custom function that is called while mob is active and which has access to all of the self.* variables e.g. (self.health for health or self.standing_in for node status), return with 'false' to skip remainder of mob API.
 
 
 mobs:register_spawn(name, nodes, max_light, min_light, chance, active_object_count, max_height, day_toggle)

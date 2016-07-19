@@ -1,2 +1,2 @@
-name = "Pink Kitty Girl",
+name = "Man in Red Shirt",
 author = "",

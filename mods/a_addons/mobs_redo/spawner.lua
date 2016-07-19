@@ -1,4 +1,6 @@
 
+local S = mobs.intllib
+
 -- mob spawner
 
 local spawner_default = "mobs_animal:pumba 10 15 0 0"
@@ -8,7 +10,7 @@ minetest.register_node("mobs:spawner", {
 	drawtype = "glasslike",
 	paramtype = "light",
 	walkable = true,
-	description = "Mob Spawner",
+	description = S("Mob Spawner"),
 	groups = {cracky = 1},
 
 	on_construct = function(pos)
@@ -16,8 +18,9 @@ minetest.register_node("mobs:spawner", {
 		local meta = minetest.get_meta(pos)
 
 		-- text entry formspec
-		meta:set_string("formspec", "field[text;Mob MinLight MaxLight Amount PlayerDist;${command}]")
-		meta:set_string("infotext", "Spawner Not Active (enter settings)")
+		meta:set_string("formspec",
+			"field[text;" .. S("Mob MinLight MaxLight Amount PlayerDist") .. ";${command}]")
+		meta:set_string("infotext", S("Spawner Not Active (enter settings)"))
 		meta:set_string("command", spawner_default)
 	end,
 
@@ -48,21 +51,22 @@ minetest.register_node("mobs:spawner", {
 		local xlig = tonumber(comm[3]) -- max light
 		local num = tonumber(comm[4]) -- total mobs in area
 		local pla = tonumber(comm[5]) -- player distance (0 to disable)
-		local yof = tonumber(comm[6]) -- Y offset to spawn mob
+		local yof = tonumber(comm[6]) or 0 -- Y offset to spawn mob
 
 		if mob and mob ~= "" and mobs.spawning_mobs[mob] == true
 		and num and num >= 0 and num <= 10
 		and mlig and mlig >= 0 and mlig <= 15
 		and xlig and xlig >= 0 and xlig <= 15
 		and pla and pla >=0 and pla <= 20
-		and yof > -10 and yof < 10 then
+		and yof and yof > -10 and yof < 10 then
 
 			meta:set_string("command", fields.text)
-			meta:set_string("infotext", "Spawner Active (" .. mob .. ")")
+			meta:set_string("infotext", S("Spawner Active (@1)", mob))
 
 		else
-			minetest.chat_send_player(name, "Mob Spawner settings failed!")
-			minetest.chat_send_player(name, "> name min_light[0-14] max_light[0-14] max_mobs_in_area[0 to disable] distance[1-20] y_offset[-10 to 10]")
+			minetest.chat_send_player(name, S("Mob Spawner settings failed!"))
+			minetest.chat_send_player(name,
+				S("> name min_light[0-14] max_light[0-14] max_mobs_in_area[0 to disable] distance[1-20] y_offset[-10 to 10]"))
 		end
 	end,
 })
@@ -75,9 +79,6 @@ minetest.register_abm({
 	catch_up = false,
 
 	action = function(pos, node, active_object_count, active_object_count_wider)
-
-		-- check objects inside 9x9 area around spawner
-		local objs = minetest.get_objects_inside_radius(pos, 9)
 
 		-- get meta and command
 		local meta = minetest.get_meta(pos)
@@ -96,6 +97,8 @@ minetest.register_abm({
 			return
 		end
 
+		-- check objects inside 9x9 area around spawner
+		local objs = minetest.get_objects_inside_radius(pos, 9)
 		local count = 0
 		local ent = nil
 

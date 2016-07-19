@@ -88,18 +88,21 @@ Supported food/mods:
 - Creatures
 - Dwarves (beer and such)
 - Docfarming
+- Ethereal
 - Fishing
 - Farming plus
-- Farming (default and Tenplus1's fork)
+- Farming (default and Farming Redo)
 - Food
 - fruit
 - Glooptest
 - JKMod
 - kpgmobs
 - Mobfcooking
+- Mobs Redo
 - Mooretrees
 - Mtfoods
 - mushroom
 - mush45
 - Seaplants (sea)
 - Simple mobs
+- Wine

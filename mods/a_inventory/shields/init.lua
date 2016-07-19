@@ -54,6 +54,29 @@ local craft_ingreds = {
 	gold = "default:gold_ingot",
 }
 
+
+minetest.register_tool("shields:shield_veteran", {
+	description = "Veteran Shield",
+	inventory_image = "shields_inv_shield_veteran.png",
+	groups = {armor_shield=15, armor_heal=12, armor_use=100},
+	wear = 0,
+})
+
+minetest.register_tool("shields:shield_rusher", {
+	description = "Rusher Shield",
+	inventory_image = "shields_inv_shield_rusher.png",
+	groups = {armor_shield=15, armor_heal=12, armor_use=100},
+	wear = 0,
+})
+
+minetest.register_tool("shields:shield_nomad", {
+	description = "Nomad Shield",
+	inventory_image = "shields_inv_shield_nomad.png",
+	groups = {armor_shield=15, armor_heal=12, armor_use=100},
+	wear = 0,
+})
+
+
 if use_moreores then
 	craft_ingreds.mithril = "moreores:mithril_ingot"
 end
@@ -68,6 +91,35 @@ for k, v in pairs(craft_ingreds) do
 		},
 	})
 end
+
+minetest.register_craft({
+	output = 'shields:shield_nomad',
+	recipe = {
+		{'default:steel_ingot', 'dye:blue', 'default:steel_ingot'},
+		{'default:steel_ingot', 'shields:shield_diamond', 'default:steel_ingot'},
+		{'default:steel_ingot', 'flowers:flower_dandelion_white', 'default:steel_ingot'},
+	}
+})
+
+minetest.register_craft({
+	output = 'shields:shield_rusher',
+	recipe = {
+		{'default:steel_ingot', 'dye:white', 'default:steel_ingot'},
+		{'default:steel_ingot', 'shields:shield_diamond', 'default:steel_ingot'},
+		{'default:steel_ingot', 'flowers:flower_dandelion_white', 'default:steel_ingot'},
+	}
+})
+
+minetest.register_craft({
+	output = 'shields:shield_veteran',
+	recipe = {
+		{'default:steel_ingot', 'dye:black', 'default:steel_ingot'},
+		{'default:steel_ingot', 'shields:shield_diamond', 'default:steel_ingot'},
+		{'default:steel_ingot', 'flowers:flower_dandelion_white', 'default:steel_ingot'},
+	}
+})
+
+
 
 minetest.after(0, function()
 	table.insert(armor.elements, "shield")

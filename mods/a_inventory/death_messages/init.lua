@@ -35,6 +35,9 @@ messages.lava = {
 	" melted into a ball of fire.",
 	" couldn't resist that warm glow of lava.",
 	" dug straight down.",
+	" went into the lava curtain.",
+	" thought it was a hottub.",
+	" is melted.",
 	" didn't know lava was hot."
 }
 
@@ -45,6 +48,8 @@ messages.water = {
 	" failed at swimming lessons.",
 	" tried to impersonate an anchor.",
 	" forgot he wasn't a fish.",
+	" drank themselves to death.",
+	" failed to achieve the underwater challenge.",
 	" blew one too many bubbles."
 }
 
@@ -63,6 +68,15 @@ messages.other = {
 	" did something fatal.",
 	" gave up on life.",
 	" is somewhat dead now.",
+	" kinda screwed up.",
+	" couldn't fight very well.",
+	" got 0wn3d.",
+	" got SMOKED.",
+	" got hurted by Oerkki.",
+	" got blowed up.",
+	" forgot about gravity.",
+	" is a Rusher.",
+	" loves 2b2t.",
 	" passed out -permanently."
 }
 

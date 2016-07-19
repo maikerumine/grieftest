@@ -12,6 +12,7 @@ https://forum.minetest.net/viewtopic.php?f=11&t=9917
 
 Changelog:
 
+- 1.30- Added support for invisibility mod (mobs cant attack what they cant see), tweaked and tidied code
 - 1.29- Split original Mobs Redo into a modpack to make it easier to disable mob sets (animal, monster, npc) or simply use the Api itself for your own mod
 - 1.28- New damage system added with ability for mob to be immune to weapons or healed by them :)
 - 1.27- Added new sheep, lava flan and spawn egg textures.  New Lava Pick tool smelts what you dig.  New atan checking function.

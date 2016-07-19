@@ -102,70 +102,70 @@ local function update_wheel(player)
 end
 
 minetest.register_on_joinplayer(function(player)
-    local name = player:get_player_name()
-    hb[name]= {}
-    hb[name].id = {}
-    hb[name].item = "wheel_init"
-    hb[name].index = 1
+	local name = player:get_player_name()
+	hb[name]= {}
+	hb[name].id = {}
+	hb[name].item = "wheel_init"
+	hb[name].index = 1
 
-    minetest.after(0.1, function()
+	minetest.after(0.1, function()
 
-	-- hide builtin hotbar
-	local hud_flags = player:hud_get_flags()
-	hud_flags.hotbar = false
-	player:hud_set_flags(hud_flags)
+		-- hide builtin hotbar
+		local hud_flags = player:hud_get_flags()
+		hud_flags.hotbar = false
+		player:hud_set_flags(hud_flags)
 
-	player:hud_add({
-		hud_elem_type = "image",
-		text = "hud_new.png",
-		position = {x = 0.5, y = 1},
-		scale = {x = 1*scale, y = 1*scale},
-		alignment = {x = 0, y = -1},
-		offset = {x = 0, y = 0}
-	})
+		player:hud_add({
+			hud_elem_type = "image",
+			text = "hud_new.png",
+			position = {x = 0.5, y = 1},
+			scale = {x = 1*scale, y = 1*scale},
+			alignment = {x = 0, y = -1},
+			offset = {x = 0, y = 0}
+		})
 
-	hb[name].id[1] = player:hud_add({
-		hud_elem_type = "image",
-		text = "hud_wielded.png",
-		position = {x = 0.5, y = 1},
-		scale = {x = 1*scale, y = 1*scale},
-		alignment = {x = 0, y = -1},
-		offset = {x = -75*scale, y = -8*scale}
-	})
+		hb[name].id[1] = player:hud_add({
+			hud_elem_type = "image",
+			text = "hud_wielded.png",
+			position = {x = 0.5, y = 1},
+			scale = {x = 1*scale, y = 1*scale},
+			alignment = {x = 0, y = -1},
+			offset = {x = -75*scale, y = -8*scale}
+		})
 
-	hb[name].id[2] = player:hud_add({
-		hud_elem_type = "image",
-		text = "hud_wielded.png",
-		position = {x = 0.5, y = 1},
-		scale = {x = 3*scale, y = 3*scale},
-		alignment = {x = 0, y = -1},
-		offset = {x = 0, y = -12*scale}
-	})
+		hb[name].id[2] = player:hud_add({
+			hud_elem_type = "image",
+			text = "hud_wielded.png",
+			position = {x = 0.5, y = 1},
+			scale = {x = 3*scale, y = 3*scale},
+			alignment = {x = 0, y = -1},
+			offset = {x = 0, y = -12*scale}
+		})
 
-	hb[name].id[3] = player:hud_add({
-		hud_elem_type = "image",
-		text = "hud_wielded.png",
-		position = {x = 0.5, y = 1},
-		scale = {x = 1*scale, y = 1*scale},
-		alignment = {x = 0, y = -1},
-		offset = {x = 75*scale, y = -8*scale}
-	})
+		hb[name].id[3] = player:hud_add({
+			hud_elem_type = "image",
+			text = "hud_wielded.png",
+			position = {x = 0.5, y = 1},
+			scale = {x = 1*scale, y = 1*scale},
+			alignment = {x = 0, y = -1},
+			offset = {x = 75*scale, y = -8*scale}
+		})
 
-	hb[name].id[4] = player:hud_add({
-		hud_elem_type = "text",
-		position = {x = 0.5, y = 1},
-		offset = {x = 35*scale, y = -55*scale},
-		alignment = {x = 0, y = -1},
-		number = 0xffffff,
-		text = "",
-	})
+		hb[name].id[4] = player:hud_add({
+			hud_elem_type = "text",
+			position = {x = 0.5, y = 1},
+			offset = {x = 35*scale, y = -55*scale},
+			alignment = {x = 0, y = -1},
+			number = 0xffffff,
+			text = "",
+		})
 
-	-- init item wheel
-	minetest.after(0, function()
-		hb[name].item = "wheel_init"
-		update_wheel(player)
+		-- init item wheel
+		minetest.after(0, function()
+			hb[name].item = "wheel_init"
+			update_wheel(player)
+		end)
 	end)
-    end)
 end)
 
 local function update_wrapper(a, b, player)
