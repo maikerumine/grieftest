@@ -1687,6 +1687,10 @@ minetest.register_node("default:lava_flowing", {
 --
 -- Tools / "Advanced" crafting / Non-"natural"
 --
+minetest.register_alias("torches:wall", "default:torch")
+minetest.register_alias("torches:floor", "default:torch")
+minetest.register_alias("torches:ceiling", "default:torch")
+minetest.register_alias("torches:wand", "default:torch")
 
 minetest.register_node("default:torch", {
 	description = "Torch",
