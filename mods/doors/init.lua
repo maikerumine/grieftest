@@ -420,7 +420,7 @@ minetest.register_craft({
 		{"default:obsidian_glass", "default:obsidian_glass"}
 	}
 })
-
+]]
 
 ----trapdoor----
 
@@ -500,4 +500,4 @@ minetest.register_craft({
 		{'', '', ''},
 	}
 })
-]]
+
