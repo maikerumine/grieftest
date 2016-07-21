@@ -53,13 +53,13 @@ function doors.register_door(name, def)
 			then
 				return itemstack
 			end
-
+--[[
 			if minetest.is_protected(pt, placer:get_player_name()) or
 					minetest.is_protected(pt2, placer:get_player_name()) then
 				minetest.record_protection_violation(pt, placer:get_player_name())
 				return itemstack
 			end
-
+]]
 			local p2 = minetest.dir_to_facedir(placer:get_look_dir())
 			local pt3 = {x=pt.x, y=pt.y, z=pt.z}
 			if p2 == 0 then
@@ -80,7 +80,7 @@ function doors.register_door(name, def)
 				minetest.get_meta(pt):set_int("right", 1)
 				minetest.get_meta(pt2):set_int("right", 1)
 			end
-
+--[[
 			if def.only_placer_can_open then
 				local pn = placer:get_player_name()
 				local meta = minetest.get_meta(pt)
@@ -90,7 +90,7 @@ function doors.register_door(name, def)
 				meta:set_string("doors_owner", pn)
 				meta:set_string("infotext", "Owned by "..pn)
 			end
-
+]]
 			if not minetest.setting_getbool("creative_mode") then
 				itemstack:take_item()
 			end
@@ -153,7 +153,7 @@ function doors.register_door(name, def)
 			minetest.sound_play(snd_2, {pos = pos, gain = 0.3, max_hear_distance = 10})
 		end
 	end
-
+--[[
 	local function check_player_priv(pos, player)
 		if not def.only_placer_can_open then
 			return true
@@ -162,11 +162,11 @@ function doors.register_door(name, def)
 		local pn = player:get_player_name()
 		return meta:get_string("doors_owner") == pn
 	end
-
+]]
 	local function on_rotate(pos, node, dir, user, check_name, mode, new_param2)
-		if not check_player_priv(pos, user) then
-			return false
-		end
+		--if not check_player_priv(pos, user) then
+			--return false
+		--end
 		if mode ~= screwdriver.ROTATE_FACE then
 			return false
 		end
@@ -213,16 +213,17 @@ function doors.register_door(name, def)
 		end,
 
 		on_rightclick = function(pos, node, clicker)
-			if check_player_priv(pos, clicker) then
+			--if check_player_priv(pos, clicker) then
 				on_rightclick(pos, 1, name.."_t_1", name.."_b_2", name.."_t_2", {1,2,3,0})
-			end
+			--end
 		end,
 
 		on_rotate = function(pos, node, user, mode, new_param2)
 			return on_rotate(pos, node, 1, user, name.."_t_1", mode)
 		end,
 
-		can_dig = check_player_priv,
+		--can_dig = check_player_priv,
+		--can_dig = true,
 		sounds = def.sounds,
 		sunlight_propagates = def.sunlight,
 		on_blast = make_on_blast(name, 1, "_b_1", "_t_1")
@@ -251,16 +252,17 @@ function doors.register_door(name, def)
 		end,
 
 		on_rightclick = function(pos, node, clicker)
-			if check_player_priv(pos, clicker) then
+			--if check_player_priv(pos, clicker) then
 				on_rightclick(pos, -1, name.."_b_1", name.."_t_2", name.."_b_2", {1,2,3,0})
-			end
+			--end
 		end,
 
 		on_rotate = function(pos, node, user, mode, new_param2)
 			return on_rotate(pos, node, -1, user, name.."_b_1", mode)
 		end,
 
-		can_dig = check_player_priv,
+		--can_dig = check_player_priv,
+		--can_dig = true,
 		sounds = def.sounds,
 		sunlight_propagates = def.sunlight,
 		on_blast = make_on_blast(name, -1, "_t_1", "_b_1")
@@ -289,16 +291,17 @@ function doors.register_door(name, def)
 		end,
 
 		on_rightclick = function(pos, node, clicker)
-			if check_player_priv(pos, clicker) then
+			--if check_player_priv(pos, clicker) then
 				on_rightclick(pos, 1, name.."_t_2", name.."_b_1", name.."_t_1", {3,0,1,2})
-			end
+			--end
 		end,
 
 		on_rotate = function(pos, node, user, mode, new_param2)
 			return on_rotate(pos, node, 1, user, name.."_t_2", mode)
 		end,
 
-		can_dig = check_player_priv,
+		--can_dig = check_player_priv,
+		--can_dig = true,
 		sounds = def.sounds,
 		sunlight_propagates = def.sunlight,
 		on_blast = make_on_blast(name, 1, "_b_2", "_t_2")
@@ -327,16 +330,17 @@ function doors.register_door(name, def)
 		end,
 
 		on_rightclick = function(pos, node, clicker)
-			if check_player_priv(pos, clicker) then
+			--if check_player_priv(pos, clicker) then
 				on_rightclick(pos, -1, name.."_b_2", name.."_t_1", name.."_b_1", {3,0,1,2})
-			end
+			--end
 		end,
 
 		on_rotate = function(pos, node, user, mode, new_param2)
 			return on_rotate(pos, node, -1, user, name.."_b_2", mode)
 		end,
 
-		can_dig = check_player_priv,
+		--can_dig = check_player_priv,
+		--can_dig = true,
 		sounds = def.sounds,
 		sunlight_propagates = def.sunlight,
 		on_blast = make_on_blast(name, -1, "_t_2", "_b_2")
@@ -362,14 +366,14 @@ minetest.register_craft({
 		{"group:wood", "group:wood"}
 	}
 })
---[[
+--[[]]
 doors.register_door("doors:door_steel", {
 	description = "Steel Door",
 	inventory_image = "doors_steel.png",
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
 	tiles_bottom = {"doors_steel_b.png", "doors_grey.png"},
 	tiles_top = {"doors_steel_a.png", "doors_grey.png"},
-	only_placer_can_open = true,
+	only_placer_can_open = false,
 	sounds = default.node_sound_wood_defaults(),
 	sunlight = false,
 })
@@ -382,7 +386,7 @@ minetest.register_craft({
 		{"default:steel_ingot", "default:steel_ingot"}
 	}
 })
-
+--[[
 doors.register_door("doors:door_glass", {
 	description = "Glass Door",
 	inventory_image = "doors_glass.png",
@@ -492,6 +496,19 @@ doors.register_trapdoor("doors:trapdoor", {
 	sound_close = "doors_door_close"
 })
 
+
+doors.register_trapdoor("doors:trapdoor_steel", {
+	description = "Steel Trapdoor",
+	inventory_image = "doors_trapdoor_steel.png",
+	wield_image = "doors_trapdoor_steel.png",
+	tile_front = "doors_trapdoor_steel.png",
+	tile_side = "doors_trapdoor_steel_side.png",
+	protected = true,
+	sound_open = "doors_steel_door_open",
+	sound_close = "doors_steel_door_close",
+	groups = {snappy=1, bendy=2, cracky=1, melty=2, level=2, door=1},
+})
+
 minetest.register_craft({
 	output = 'doors:trapdoor 2',
 	recipe = {
@@ -500,4 +517,112 @@ minetest.register_craft({
 		{'', '', ''},
 	}
 })
+minetest.register_craft({
+	output = 'doors:trapdoor_steel',
+	recipe = {
+		{'default:steel_ingot', 'default:steel_ingot'},
+		{'default:steel_ingot', 'default:steel_ingot'},
+	}
+})
 
+
+----fence gate----
+
+function doors.register_fencegate(name, def)
+	local fence = {
+		description = def.description,
+		drawtype = "mesh",
+		tiles = { def.texture },
+		paramtype = "light",
+		paramtype2 = "facedir",
+		sunlight_propagates = true,
+		is_ground_content = false,
+		drop = name .. "_closed",
+		connect_sides = { "left", "right" },
+		groups = def.groups,
+		sounds = def.sounds,
+		on_rightclick = function(pos, clicker)
+			local node = minetest.get_node(pos)
+			local node_def = minetest.registered_nodes[node.name]
+			minetest.swap_node(pos, {name = node_def.gate, param2 = node.param2})
+			minetest.sound_play(node_def.sound, {pos = pos, gain = 0.3,
+				max_hear_distance = 8})
+		end,
+		selection_box = {
+			type = "fixed",
+			fixed = {-1/2, -1/2, -1/4, 1/2, 1/2, 1/4},
+		},
+	}
+
+	if not fence.sounds then
+		fence.sounds = default.node_sound_wood_defaults()
+	end
+
+	fence.groups.fence = 1
+
+	local fence_closed = table.copy(fence)
+	fence_closed.mesh = "doors_fencegate_closed.obj"
+	fence_closed.gate = name .. "_open"
+	fence_closed.sound = "doors_fencegate_open"
+	fence_closed.collision_box = {
+		type = "fixed",
+		fixed = {-1/2, -1/2, -1/4, 1/2, 1/2, 1/4},
+	}
+
+	local fence_open = table.copy(fence)
+	fence_open.mesh = "doors_fencegate_open.obj"
+	fence_open.gate = name .. "_closed"
+	fence_open.sound = "doors_fencegate_close"
+	fence_open.groups.not_in_creative_inventory = 1
+	fence_open.collision_box = {
+		type = "fixed",
+		fixed = {{-1/2, -1/2, -1/4, -3/8, 1/2, 1/4},
+			{-5/8, -3/8, -14/16, -3/8, 3/8, 0}},
+	}
+
+	minetest.register_node(":" .. name .. "_closed", fence_closed)
+	minetest.register_node(":" .. name .. "_open", fence_open)
+
+	minetest.register_craft({
+		output = name .. "_closed",
+		recipe = {
+			{"default:stick", def.material, "default:stick"},
+			{"default:stick", def.material, "default:stick"}
+		}
+	})
+end
+
+doors.register_fencegate("doors:gate_wood", {
+	description = "Wooden Fence Gate",
+	texture = "default_wood.png",
+	material = "default:wood",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
+})
+
+doors.register_fencegate("doors:gate_acacia_wood", {
+	description = "Acacia Fence Gate",
+	texture = "default_acacia_wood.png",
+	material = "default:acacia_wood",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
+})
+
+doors.register_fencegate("doors:gate_junglewood", {
+	description = "Junglewood Fence Gate",
+	texture = "default_junglewood.png",
+	material = "default:junglewood",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
+})
+
+doors.register_fencegate("doors:gate_pine_wood", {
+	description = "Pine Fence Gate",
+	texture = "default_pine_wood.png",
+	material = "default:pine_wood",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
+})
+
+doors.register_fencegate("doors:gate_aspen_wood", {
+	description = "Aspen Fence Gate",
+	texture = "default_aspen_wood.png",
+	material = "default:aspen_wood",
+	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
+})

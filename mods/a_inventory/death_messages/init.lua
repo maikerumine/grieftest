@@ -91,22 +91,31 @@ end
 minetest.register_on_dieplayer(function(player)
 	local player_name = player:get_player_name()
 	local node = minetest.registered_nodes[minetest.get_node(player:getpos()).name]
+	local pos = player:getpos()
+	local death = {x=0, y=-60, z=0}
 	if minetest.is_singleplayer() then
 		player_name = "You"
 	end
+	
+
+	
+	
 	-- Death by lava
 	if node.groups.lava ~= nil then
-		minetest.chat_send_all(player_name .. get_message("lava"))
+		minetest.chat_send_all(player_name .. get_message("lava")) 
 	-- Death by drowning
 	elseif player:get_breath() == 0 then
-		minetest.chat_send_all(player_name .. get_message("water"))
+		minetest.chat_send_all(player_name .. get_message("water")) 
 	-- Death by fire
 	elseif node.name == "fire:basic_flame" then
-		minetest.chat_send_all(player_name .. get_message("fire"))
+		minetest.chat_send_all(player_name .. get_message("fire")) 
 	-- Death by something else
 	else
-		minetest.chat_send_all(player_name .. get_message("other"))
+		minetest.chat_send_all(player_name .. get_message("other")) 
 	end
+	
+	player:setpos(death)
+	minetest.chat_send_all(player_name ..(" GG"))
 
 end)
 

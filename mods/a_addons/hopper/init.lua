@@ -1,28 +1,33 @@
 
+-- formspec
+local function get_hopper_formspec(pos)
 
-local chest = minetest.get_content_id("default:chest")
+	local spos = pos.x .. "," .. pos.y .. "," ..pos.z
+	local formspec =
+		"size[8,9]"
+		.. default.gui_bg
+		.. default.gui_bg_img
+		.. default.gui_slots
+		.. "list[nodemeta:" .. spos .. ";main;0,0.3;8,4;]"
+		.. "list[current_player;main;0,4.85;8,1;]"
+		.. "list[current_player;main;0,6.08;8,3;8]"
+		.. "listring[nodemeta:" .. spos .. ";main]"
+		.. "listring[current_player;main]"
 
-local chest_formspec =
-	"size[8,9]"..
-	--default.gui_bg..
-	--default.gui_bg_img..
-	--default.gui_slots..
-	"list[current_name;main;0,0.3;8,4;]"..
-	"list[current_player;main;0,4.85;8,1;]"..
-	"list[current_player;main;0,6.08;8,3;8]"
-	--default.get_hotbar_bg(0,4.85)
+	return formspec
+end
 
+-- hopper
 minetest.register_node("hopper:hopper", {
-	drop = "hopper:hopper_item",
-	description = "I think you broke something",
-	groups = {cracky=1,level=2},
+	description = "Hopper",
+	groups = {cracky = 3},
 	drawtype = "nodebox",
 	paramtype = "light",
-	tiles = {"default_coal_block.png"},
-	selection_box = {type="regular"},
+	tiles = {"hopper_top.png", "hopper_top.png", "hopper_front.png"},
+	inventory_image = "hopper_inv.png",
 	node_box = {
-			type = "fixed",
-			fixed = {
+		type = "fixed",
+		fixed = {
 			--funnel walls
 			{-0.5, 0.0, 0.4, 0.5, 0.5, 0.5},
 			{0.4, 0.0, -0.5, 0.5, 0.5, 0.5},
@@ -33,47 +38,72 @@ minetest.register_node("hopper:hopper", {
 			--spout
 			{-0.3, -0.3, -0.3, 0.3, 0.0, 0.3},
 			{-0.15, -0.3, -0.15, 0.15, -0.5, 0.15},
-			},
 		},
+	},
 
 	on_construct = function(pos)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec", chest_formspec)
-		meta:set_string("infotext", "Chest")
-		local inv = meta:get_inventory()
-		inv:set_size("main", 8*4)
+
+		local inv = minetest.get_meta(pos):get_inventory()
+
+		inv:set_size("main", 4*4)
 	end,
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
+
+	can_dig = function(pos, player)
+
+		local inv = minetest.get_meta(pos):get_inventory()
+
 		return inv:is_empty("main")
 	end,
+
+	on_rightclick = function(pos, node, clicker, itemstack)
+
+		if minetest.is_protected(pos, clicker:get_player_name()) then
+			return
+		end
+
+		minetest.show_formspec(clicker:get_player_name(),
+			"hopper:hopper", get_hopper_formspec(pos))
+	end,
+
 	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		minetest.log("action", player:get_player_name()..
-				" moves stuff in hopper at "..minetest.pos_to_string(pos))
+
+		minetest.log("action", player:get_player_name()
+			.." moves stuff in hopper at "
+			..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name()..
-				" moves stuff to hopper at "..minetest.pos_to_string(pos))
+
+	on_metadata_inventory_put = function(pos, listname, index, stack, player)
+
+		minetest.log("action", player:get_player_name()
+			.." moves stuff to hopper at "
+			..minetest.pos_to_string(pos))
 	end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name()..
-				" takes stuff from hopper at "..minetest.pos_to_string(pos))
+
+	on_metadata_inventory_take = function(pos, listname, index, stack, player)
+
+		minetest.log("action", player:get_player_name()
+			.." takes stuff from hopper at "
+			..minetest.pos_to_string(pos))
 	end,
+
+	on_rotate = screwdriver.disallow,
 })
 
+-- side hopper
 minetest.register_node("hopper:hopper_side", {
-	description = "I think you broke something",
-	drop = "hopper:hopper_item",
-	groups = {cracky=1,level=2},
+	description = "Side Hopper",
+	groups = {cracky = 3},
 	drawtype = "nodebox",
 	paramtype = "light",
 	paramtype2 = "facedir",
-	tiles = {"default_coal_block.png"},
-	selection_box = {type="regular"},
+	tiles = {
+		"hopper_top.png", "hopper_top.png", "hopper_back.png",
+		"hopper_side.png", "hopper_back.png", "hopper_back.png"
+	},
+	inventory_image = "hopper_side_inv.png",
 	node_box = {
-			type = "fixed",
-			fixed = {
+		type = "fixed",
+		fixed = {
 			--funnel walls
 			{-0.5, 0.0, 0.4, 0.5, 0.5, 0.5},
 			{0.4, 0.0, -0.5, 0.5, 0.5, 0.5},
@@ -84,424 +114,281 @@ minetest.register_node("hopper:hopper_side", {
 			--spout
 			{-0.3, -0.3, -0.3, 0.3, 0.0, 0.3},
 			{-0.7, -0.3, -0.15, 0.15, 0.0, 0.15},
-			},
 		},
+	},
 
 	on_construct = function(pos)
-		local meta = minetest.get_meta(pos)
-		meta:set_string("formspec", chest_formspec)
-		meta:set_string("infotext", "Chest")
-		local inv = meta:get_inventory()
-		inv:set_size("main", 8*4)
+
+		local inv = minetest.get_meta(pos):get_inventory()
+
+		inv:set_size("main", 4*4)
 	end,
-	can_dig = function(pos,player)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
+
+	can_dig = function(pos, player)
+
+		local inv = minetest.get_meta(pos):get_inventory()
+
 		return inv:is_empty("main")
 	end,
+
+	on_rightclick = function(pos, node, clicker, itemstack)
+
+		if minetest.is_protected(pos, clicker:get_player_name()) then
+			return
+		end
+
+		minetest.show_formspec(clicker:get_player_name(),
+			"hopper:hopper_side", get_hopper_formspec(pos))
+	end,
+
 	on_metadata_inventory_move = function(pos, from_list, from_index, to_list, to_index, count, player)
-		minetest.log("action", player:get_player_name()..
-				" moves stuff in hopper at "..minetest.pos_to_string(pos))
-	end,
-    on_metadata_inventory_put = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name()..
-				" moves stuff to hopper at "..minetest.pos_to_string(pos))
-	end,
-    on_metadata_inventory_take = function(pos, listname, index, stack, player)
-		minetest.log("action", player:get_player_name()..
-				" takes stuff from hopper at "..minetest.pos_to_string(pos))
-	end,
-})
---make hoppers suck in blocks
-minetest.register_abm({
-	nodenames = {"hopper:hopper","hopper:hopper_side"},
-	interval = 1.0,
-	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
-		local meta = minetest.get_meta(pos);
-		local inv = meta:get_inventory()
 
-		for _,object in ipairs(minetest.get_objects_inside_radius(pos, 1)) do
-			if not object:is_player() and object:get_luaentity() and object:get_luaentity().name == "__builtin:item" then
-				if inv and inv:room_for_item("main", ItemStack(object:get_luaentity().itemstring)) then
-					local posob = object:getpos()
-					if math.abs(posob.x-pos.x) <= 0.5 and (posob.y-pos.y <= 0.85 and posob.y-pos.y >= 0.3) then
-						inv:add_item("main", ItemStack(object:get_luaentity().itemstring))
-						object:get_luaentity().itemstring = ""
-						object:remove()
-					end
-				end
-			end
-		end
+		minetest.log("action", player:get_player_name()
+			.." moves stuff in hopper at "
+			..minetest.pos_to_string(pos))
 	end,
+
+	on_metadata_inventory_put = function(pos, listname, index, stack, player)
+
+		minetest.log("action", player:get_player_name()
+			.." moves stuff to hopper at "
+			..minetest.pos_to_string(pos))
+	end,
+
+	on_metadata_inventory_take = function(pos, listname, index, stack, player)
+
+		minetest.log("action", player:get_player_name()
+			.." takes stuff from hopper at "
+			..minetest.pos_to_string(pos))
+	end,
+
+	on_rotate = screwdriver.rotate_simple,
 })
 
+-- suck in items on top of hopper
 minetest.register_abm({
-	nodenames = {"hopper:hopper"},
-	neighbors = {"default:chest","hopper:hopper","hopper:hopper_side","default:furnace","default:furnace_active"},
+
+	nodenames = {"hopper:hopper", "hopper:hopper_side"},
 	interval = 1.0,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
+	catch_up = false,
 
-		local min = {x=pos.x-1,y=pos.y-1,z=pos.z-1}
-		local max = {x=pos.x+1,y=pos.y+1,z=pos.z+1}
-		local vm = minetest.get_voxel_manip()	
-		local emin, emax = vm:read_from_map(min,max)
-		local area = VoxelArea:new{MinEdge=emin, MaxEdge=emax}
-		local data = vm:get_data()	
+	action = function(pos, node)
 
-		local a = vm:get_node_at({x=pos.x,y=pos.y-1,z=pos.z}).name
-		local b = vm:get_node_at({x=pos.x,y=pos.y+1,z=pos.z}).name
+		local inv = minetest.get_meta(pos):get_inventory()
+		local posob
 
-		--the hopper input
-		if b == "default:chest" then
-			--hopper inventory
-			local meta = minetest.get_meta(pos);
-			local inv = meta:get_inventory()
-			local invsize = inv:get_size("main")
+		for _,object in pairs(minetest.get_objects_inside_radius(pos, 1)) do
 
-			--chest/hopper/furnace inventory
-			local meta2 = minetest.get_meta({x=pos.x,y=pos.y+1,z=pos.z});
-			local inv2 = meta2:get_inventory()
-			local invsize2 = inv2:get_size("main")
-			if inv2:is_empty("main") == false then
-				for i = 1,invsize2 do
-					local stack = inv2:get_stack("main", i)
-					local item = stack:get_name()
-					if item ~= "" then
-						if inv:room_for_item("main", item) == false then
-							--print("no room for items 2")
-							--return
-						end
-						--print(stack:to_string())
-						stack:take_item(1)
-						inv2:set_stack("main", i, stack)
-						--add to hopper
-						--print("adding item")
-						inv:add_item("main", item)
-						break
-					
-					end
-				end
-			end
-		end
-		if b == "default:furnace" or b == "default:furnace_active" then
-			--hopper inventory
-			local meta = minetest.get_meta(pos);
-			local inv = meta:get_inventory()
-			local invsize = inv:get_size("main")
+			if not object:is_player()
+			and object:get_luaentity()
+			and object:get_luaentity().name == "__builtin:item"
+			and inv
+			and inv:room_for_item("main",
+				ItemStack(object:get_luaentity().itemstring)) then
 
-			--chest/hopper/furnace inventory
-			local meta2 = minetest.get_meta({x=pos.x,y=pos.y+1,z=pos.z});
-			local inv2 = meta2:get_inventory()
-			local invsize2 = inv2:get_size("dst")
-			if inv2:is_empty("dst") == true then
-				--print("furnace is empty")
-				return
-			end
-		
-			for i = 1,invsize2 do
-				local stack = inv2:get_stack("dst", i)
-				local item = stack:get_name()
-				if item ~= "" then
-					if inv:room_for_item("main", item) == false then
-						--print("no room for items")
-						return
-					end
-					--print(stack:to_string())
-					stack:take_item(1)
-					inv2:set_stack("dst", i, stack)
-					--add to hopper
-					--print("adding item")
-					inv:add_item("main", item)
-					break
-					
-				end
-			end
-		end
-	
-		--the hopper output
-		if a == "default:chest" or a == "hopper:hopper" or a == "hopper:hopper_side" then
-			--hopper inventory
-			local meta = minetest.get_meta(pos);
-			local inv = meta:get_inventory()
-			if inv:is_empty("main") == true then
-				return
-			end
-			local invsize = inv:get_size("main")
+				posob = object:getpos()
 
-			--chest/hopper/furnace inventory
-			local meta2 = minetest.get_meta({x=pos.x,y=pos.y-1,z=pos.z});
-			local inv2 = meta2:get_inventory()
-			local invsize2 = inv2:get_size("main")
-		
-			for i = 1,invsize do
-				local stack = inv:get_stack("main", i)
-				local item = stack:get_name()
-				if item ~= "" then
-					if inv2:room_for_item("main", item) == false then
-						--print("no room for items")
-						return
-					end
-					stack:take_item(1)
-					inv:set_stack("main", i, stack)
-					--add to hopper or chest
-					--print("adding item")
-					inv2:add_item("main", item)
-					break
-					
-				end
-			end
-			--print(inv)
-		elseif a == "default:furnace" or a == "default:furnace_active" then
-			--print("test")
-			--room_for_item(listname, stack)
-			--hopper inventory
-			local meta = minetest.get_meta(pos);
-			--print(dump(meta:to_table()))
-			local inv = meta:get_inventory()
-			if inv:is_empty("main") == true then
-				return
-			end
-			local invsize = inv:get_size("main")
+				if math.abs(posob.x - pos.x) <= 0.5
+				and posob.y - pos.y <= 0.85
+				and posob.y - pos.y >= 0.3 then
 
-			--chest/hopper/furnace inventory
-			local meta2 = minetest.get_meta({x=pos.x,y=pos.y-1,z=pos.z});
-			local inv2 = meta2:get_inventory()
-			local invsize2 = inv2:get_size("src")
-		
-			for i = 1,invsize do
-				local stack = inv:get_stack("main", i)
-				local item = stack:get_name()
-				if item ~= "" then
-					if inv2:room_for_item("src", item) == false then
-						--print("no room for items")
-						return
-					end
-					stack:take_item(1)
-					inv:set_stack("main", i, stack)
-					--add to hopper or chest
-					--print("adding item")
-					inv2:add_item("src", item)
-					break
-					
+					inv:add_item("main",
+						ItemStack(object:get_luaentity().itemstring))
+
+					object:get_luaentity().itemstring = ""
+					object:remove()
 				end
 			end
 		end
 	end,
 })
 
+-- transfer function
+local transfer = function(src, srcpos, dst, dstpos, name)
 
+	-- source inventory
+	local inv = minetest.get_meta(srcpos):get_inventory()
+
+	-- destination inventory
+	local inv2 = minetest.get_meta(dstpos):get_inventory()
+
+	-- check for empty source or no inventory
+	if not inv or not inv2 or inv:is_empty(src) == true then
+		return
+	end
+
+	local stack, item
+
+	-- transfer item
+	for i = 1, inv:get_size(src) do
+
+		stack = inv:get_stack(src, i)
+		item = stack:get_name()
+
+		-- if slot not empty
+		if item ~= "" then
+
+			-- room in destination?
+			if inv2:room_for_item(dst, item) == false then
+				return
+			end
+
+			-- is item a tool
+			if stack:get_wear() > 0 then
+				inv2:add_item(dst, stack:take_item(stack:get_count()))
+				inv:set_stack(src, i, nil)
+			else -- not a tool
+				stack:take_item(1)
+				inv2:add_item(dst, item)
+				inv:set_stack(src, i, stack)
+			end
+
+			return
+
+		end
+	end
+
+end
+
+-- hopper workings
 minetest.register_abm({
-	nodenames = {"hopper:hopper_side"},
-	neighbors = {"default:chest","hopper:hopper","hopper:hopper_side","default:furnace","default:furnace_active"},
+
+	nodenames = {"hopper:hopper", "hopper:hopper_side"},
+	neighbors = {
+		"default:chest","default:chest_locked","protector:chest",
+		"hopper:hopper","hopper:hopper_side","default:furnace",
+		"default:furnace_active", "wine:wine_barrel"
+	},
 	interval = 1.0,
 	chance = 1,
-	action = function(pos, node, active_object_count, active_object_count_wider)
+	catch_up = false,
 
-		local min = {x=pos.x-1,y=pos.y-1,z=pos.z-1}
-		local max = {x=pos.x+1,y=pos.y+1,z=pos.z+1}
-		local vm = minetest.get_voxel_manip()	
-		local emin, emax = vm:read_from_map(min,max)
-		local area = VoxelArea:new{MinEdge=emin, MaxEdge=emax}
-		local data = vm:get_data()	
-		local face = vm:get_node_at(pos).param2
+	action = function(pos, node)
+
 		local front = {}
-		--print(face)
-		if face == 0 then
-			front = {x=pos.x-1,y=pos.y,z=pos.z}
-		elseif face == 1 then
-			front = {x=pos.x,y=pos.y,z=pos.z+1}
-		elseif face == 2 then
-			front = {x=pos.x+1,y=pos.y,z=pos.z}
-		elseif face == 3 then
-			front = {x=pos.x,y=pos.y,z=pos.z-1}
-		end
-		local a = vm:get_node_at(front).name
-		local b = vm:get_node_at({x=pos.x,y=pos.y+1,z=pos.z}).name
 
-		--the hopper input
-		if b == "default:chest" then
-			--hopper inventory
-			local meta = minetest.get_meta(pos);
-			local inv = meta:get_inventory()
-			local invsize = inv:get_size("main")
+		-- if side hopper check which way it's facing
+		if node.name == "hopper:hopper_side" then
 
-			--chest/hopper/furnace inventory
-			local meta2 = minetest.get_meta({x=pos.x,y=pos.y+1,z=pos.z});
-			local inv2 = meta2:get_inventory()
-			local invsize2 = inv2:get_size("main")
-			if inv2:is_empty("main") == false then
-				for i = 1,invsize2 do
-					local stack = inv2:get_stack("main", i)
-					local item = stack:get_name()
-					if item ~= "" then
-						if inv:room_for_item("main", item) == false then
-							--print("no room for items 2")
-							--return
-						end
-						--print(stack:to_string())
-						stack:take_item(1)
-						inv2:set_stack("main", i, stack)
-						--add to hopper
-						--print("adding item")
-						inv:add_item("main", item)
-						break
-					
-					end
-				end
-			end
-		end
-		if b == "default:furnace" or b == "default:furnace_active" then
-			--hopper inventory
-			local meta = minetest.get_meta(pos);
-			local inv = meta:get_inventory()
-			local invsize = inv:get_size("main")
+			local face = minetest.get_node(pos).param2
 
-			--chest/hopper/furnace inventory
-			local meta2 = minetest.get_meta({x=pos.x,y=pos.y+1,z=pos.z});
-			local inv2 = meta2:get_inventory()
-			local invsize2 = inv2:get_size("dst")
-			if inv2:is_empty("dst") == true then
-				--print("furnace is empty")
+			if face == 0 then
+				front = {x = pos.x - 1, y = pos.y, z = pos.z}
+
+			elseif face == 1 then
+				front = {x = pos.x, y = pos.y, z = pos.z + 1}
+
+			elseif face == 2 then
+				front = {x = pos.x + 1, y = pos.y, z = pos.z}
+
+			elseif face == 3 then
+				front = {x = pos.x, y = pos.y, z = pos.z - 1}
+			else
 				return
 			end
-		
-			for i = 1,invsize2 do
-				local stack = inv2:get_stack("dst", i)
-				local item = stack:get_name()
-				if item ~= "" then
-					if inv:room_for_item("main", item) == false then
-						--print("no room for items")
-						return
-					end
-					--print(stack:to_string())
-					stack:take_item(1)
-					inv2:set_stack("dst", i, stack)
-					--add to hopper
-					--print("adding item")
-					inv:add_item("main", item)
-					break
-					
-				end
-			end
-		end
-	
-		--the hopper output
-		if a == "default:chest" or a == "hopper:hopper" or a == "hopper:hopper_side" then
-			--print("test")
-			--room_for_item(listname, stack)
-			--hopper inventory
-			local meta = minetest.get_meta(pos);
-			--print(dump(meta:to_table()))
-			local inv = meta:get_inventory()
-			if inv:is_empty("main") == true then
-				return
-			end
-			local invsize = inv:get_size("main")
-
-			--chest/hopper/furnace inventory
-			local meta2 = minetest.get_meta(front);
-			local inv2 = meta2:get_inventory()
-			local invsize2 = inv2:get_size("main")
-		
-			for i = 1,invsize do
-				local stack = inv:get_stack("main", i)
-				local item = stack:get_name()
-				if item ~= "" then
-					if inv2:room_for_item("main", item) == false then
-						--print("no room for items")
-						return
-					end
-					stack:take_item(1)
-					inv:set_stack("main", i, stack)
-					--add to hopper or chest
-					--print("adding item")
-					inv2:add_item("main", item)
-					break
-					
-				end
-			end
-			--print(inv)
-		elseif a == "default:furnace" or a == "default:furnace_active" then
-			--print("test")
-			--room_for_item(listname, stack)
-			--hopper inventory
-			local meta = minetest.get_meta(pos);
-			--print(dump(meta:to_table()))
-			local inv = meta:get_inventory()
-			if inv:is_empty("main") == true then
-				return
-			end
-			local invsize = inv:get_size("main")
-
-			--chest/hopper/furnace inventory
-			local meta2 = minetest.get_meta(front);
-			local inv2 = meta2:get_inventory()
-			local invsize2 = inv2:get_size("fuel")
-		
-			for i = 1,invsize do
-				local stack = inv:get_stack("main", i)
-				local item = stack:get_name()
-				if item ~= "" then
-					if inv2:room_for_item("fuel", item) == false then
-						--print("no room for items")
-						return
-					end
-					stack:take_item(1)
-					inv:set_stack("main", i, stack)
-					--add to hopper or chest
-					--print("adding item")
-					inv2:add_item("fuel", item)
-					break
-					
-				end
-			end
-		end
-	end,
-})
-
-minetest.register_craftitem("hopper:hopper_item", {
-	description = "Hopper",
-	inventory_image = "hopper_item.png",
-	on_place = function(itemstack, placer, pointed_thing)
-		local pos  = pointed_thing.under
-		local pos2 = pointed_thing.above
-
-		local x = pos.x - pos2.x
-		local y = pos.y - pos2.y
-		local z = pos.z - pos2.z
-		
-		local placed = false
-
-		if x == -1 then
-			minetest.set_node(pos2, {name="hopper:hopper_side", param2=0})
-			placed = true
-		elseif x == 1 then
-			minetest.set_node(pos2, {name="hopper:hopper_side", param2=2})
-			placed = true
-		elseif z == -1 then
-			minetest.set_node(pos2, {name="hopper:hopper_side", param2=3})
-			placed = true
-		elseif z == 1 then
-			minetest.set_node(pos2, {name="hopper:hopper_side", param2=1})
-			placed = true
 		else
-			minetest.set_node(pos2, {name="hopper:hopper"})
-			placed = true
+			-- otherwise normal hopper, output downwards
+			front = {x = pos.x, y = pos.y - 1, z = pos.z}
 		end
-		if placed == true then
-			if not minetest.setting_getbool("creative_mode") then
-				itemstack:take_item()
+
+		-- what is above hopper and on other end of funnel
+		local a = minetest.get_node({x = pos.x, y = pos.y + 1, z = pos.z}).name
+		local b = minetest.get_node(front).name
+
+		-- funnel input
+
+		if a == "default:chest"
+		or a == "default:chest_locked"
+		or a == "protector:chest"
+		or a == "hopper:hopper"
+		or a == "hopper:hopper_side" then
+
+			transfer("main", {
+				x = pos.x,
+				y = pos.y + 1,
+				z = pos.z
+			}, "main", pos)
+
+		elseif a == "default:furnace"
+		or a == "default:furnace_active"
+		or a == "wine:wine_barrel" then
+
+			transfer("dst", {
+				x = pos.x,
+				y = pos.y + 1,
+				z = pos.z
+			}, "main", pos)
+
+			-- re-start furnace timer
+			if a == "default:furnace"
+			or a == "default:furnace_active" then
+
+				minetest.get_node_timer({
+					x = pos.x,
+					y = pos.y + 1,
+					z = pos.z
+				}):start(1.0)
 			end
-			return itemstack
+
 		end
+
+		-- spout output
+
+		if b == "default:chest"
+		or b == "default:chest_locked"
+		or b == "protector:chest"
+		or b == "hopper:hopper"
+		or b == "hopper:hopper_side" then
+
+			transfer("main", pos, "main", front)
+			
+		elseif b == "default:furnace"
+		or b == "default:furnace_active" then
+
+			if node.name == "hopper:hopper" then
+				-- hopper above to furnace source below
+				transfer("main", pos, "src", front)
+			else
+				-- hopper to furnace fuel beside
+				transfer("main", pos, "fuel", front)
+			end
+
+			-- re-start furnace timer
+			minetest.get_node_timer(pos):start(1.0)
+
+		elseif b == "wine:wine_barrel" then
+
+			-- hopper to wine source beside
+			transfer("main", pos, "src", front)
+		end
+		
 	end,
 })
+
+-- hopper recipe
 minetest.register_craft({
-	output = "hopper:hopper_item",
+	output = "hopper:hopper",
 	recipe = {
-		{"default:steel_ingot","default:chest","default:steel_ingot"},
-		{"","default:steel_ingot",""},
-	}
+		{"default:steel_ingot", "default:chest", "default:steel_ingot"},
+		{"", "default:steel_ingot", ""},
+	},
 })
+
+-- hopper to side hopper recipe
+minetest.register_craft({
+	output = "hopper:hopper",
+	recipe = {
+		{"hopper:hopper_side"},
+	},
+})
+
+-- side hopper back to hopper recipe
+minetest.register_craft({
+	output = "hopper:hopper_side",
+	recipe = {
+		{"hopper:hopper"},
+	},
+})
+
+print ("[MOD] Hopper loaded")

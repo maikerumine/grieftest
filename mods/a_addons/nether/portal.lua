@@ -51,7 +51,7 @@ minetest.register_craftitem(":fire:flint_and_steel", {
 	inventory_image = "fire_flint_steel.png",
 	on_place = function(stack,_, pt)
 		if pt.under and minetest.get_node(pt.under).name == "default:obsidian" then
-			local done = make_portal(pt.under)
+			local done = make_portal(pt.under)  --broken please fix for y
 			if done and not minetest.setting_getbool("creative_mode") then
 				stack:take_item()
 			end
