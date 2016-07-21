@@ -37,7 +37,13 @@ minetest.register_node( "mobs_mc:enderman_head", {
 		"mobs_endermen.png"
 	},
 	paramtype2 = "facedir",
-	visual_scale = 0.5,
+			node_box = {
+				type = "fixed",
+				fixed = {-0.25, -0.49, -0.25, 0.25, 0.01, 0.25},
+			},
+			
+	drawtype = "nodebox",
+	paramtype = "light",
 	is_ground_content = true,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -55,7 +61,13 @@ minetest.register_node( "mobs_mc:ghast_head", {
 		"ghast_front.png"
 	},
 	paramtype2 = "facedir",
-	visual_scale = 0.5,
+			node_box = {
+				type = "fixed",
+				fixed = {-0.25, -0.49, -0.25, 0.25, 0.01, 0.25},
+			},
+			
+	drawtype = "nodebox",
+	paramtype = "light",
 	is_ground_content = true,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -73,7 +85,13 @@ minetest.register_node( "mobs_mc:skeleton_head", {
 		"mobs_skeleton.png"
 	},
 	paramtype2 = "facedir",
-	visual_scale = 0.5,
+			node_box = {
+				type = "fixed",
+				fixed = {-0.25, -0.49, -0.25, 0.25, 0.01, 0.25},
+			},
+			
+	drawtype = "nodebox",
+	paramtype = "light",
 	is_ground_content = false,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -91,7 +109,13 @@ minetest.register_node( "mobs_mc:skeleton2_head", {
 		"mobs_skeleton2.png"
 	},
 	paramtype2 = "facedir",
-	visual_scale = 0.5,
+			node_box = {
+				type = "fixed",
+				fixed = {-0.25, -0.49, -0.25, 0.25, 0.01, 0.25},
+			},
+			
+	drawtype = "nodebox",
+	paramtype = "light",
 	is_ground_content = true,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -109,7 +133,13 @@ minetest.register_node( "mobs_mc:spider_head", {
 		"mobs_spider.png"
 	},
 	paramtype2 = "facedir",
-	visual_scale = 0.5,
+			node_box = {
+				type = "fixed",
+				fixed = {-0.25, -0.49, -0.25, 0.25, 0.01, 0.25},
+			},
+			
+	drawtype = "nodebox",
+	paramtype = "light",
 	is_ground_content = true,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -127,7 +157,13 @@ minetest.register_node( "mobs_mc:zombie_head", {
 		"mobs_zombie.png"
 	},
 	paramtype2 = "facedir",
-	visual_scale = 0.5,
+			node_box = {
+				type = "fixed",
+				fixed = {-0.25, -0.49, -0.25, 0.25, 0.01, 0.25},
+			},
+			
+	drawtype = "nodebox",
+	paramtype = "light",
 	is_ground_content = true,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
@@ -145,7 +181,13 @@ minetest.register_node( "mobs_mc:zombiepig_head", {
 		"Original_Zombiepig_Man_by_Fedora_P.png"
 	},
 	paramtype2 = "facedir",
-	visual_scale = 0.5,
+			node_box = {
+				type = "fixed",
+				fixed = {-0.25, -0.49, -0.25, 0.25, 0.01, 0.25},
+			},
+			
+	drawtype = "nodebox",
+	paramtype = "light",
 	is_ground_content = true,
 	groups = {cracky=2},
 	sounds = default.node_sound_stone_defaults(),
