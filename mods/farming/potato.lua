@@ -12,6 +12,7 @@ minetest.register_craftitem("farming:potato", {
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:potato_1")
 	end,
 	on_use = minetest.item_eat(1),
+	stack_max = 64,
 })
 
 -- baked potato
@@ -19,6 +20,7 @@ minetest.register_craftitem("farming:baked_potato", {
 	description = "Baked Potato",
 	inventory_image = "farming_baked_potato.png",
 	on_use = minetest.item_eat(6),
+	stack_max = 64,
 })
 
 minetest.register_craft({

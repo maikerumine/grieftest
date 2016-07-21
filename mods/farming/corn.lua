@@ -12,6 +12,7 @@ minetest.register_craftitem("farming:corn", {
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:corn_1")
 	end,
 	on_use = minetest.item_eat(3),
+	stack_max = 64,
 })
 
 -- corn on the cob (texture by TenPlus1)
@@ -19,6 +20,7 @@ minetest.register_craftitem("farming:corn_cob", {
 	description = "Corn on the Cob",
 	inventory_image = "farming_corn_cob.png",
 	on_use = minetest.item_eat(5),
+	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -32,6 +34,7 @@ minetest.register_craft({
 minetest.register_craftitem("farming:bottle_ethanol", { 
 	description = "Bottle of Ethanol",
 	inventory_image = "farming_bottle_ethanol.png",
+	stack_max = 64,
 })
 
 minetest.register_craft( {

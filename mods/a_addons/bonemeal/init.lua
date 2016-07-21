@@ -57,6 +57,7 @@ minetest.register_alias("fertiliser:fertiliser", "bonemeal:bonemeal")
 minetest.register_craftitem("bonemeal:bone", {
 	description = ("Bone"),
 	inventory_image = "fertiliser_bone.png",
+	stack_max = 64,
 })
 
 -- bonemeal recipes
@@ -316,6 +317,7 @@ end
 minetest.register_craftitem("bonemeal:bonemeal", {
 	description = ("Bone Meal"),
 	inventory_image = "bonemeal.png",
+	stack_max = 64,
 
 	on_use = function(itemstack, user, pointed_thing)
 

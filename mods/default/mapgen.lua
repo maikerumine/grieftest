@@ -140,7 +140,7 @@ minetest.register_ore({
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:stone",
-	wherein        = {"default:desert_stone","default:desert_sand"},
+	wherein        = {"default:desert_stone","default:desert_sand","hardenedclay:hardened_clay_brown"},
 	clust_scarcity = 1,
 	clust_num_ores = 3,
 	clust_size     = 4,
@@ -153,7 +153,7 @@ minetest.register_ore({
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:clay",
-	wherein        = {"default:desert_stone","default:desert_sand","default:stone"},
+	wherein        = {"default:desert_stone","default:desert_sand","default:stone","hardenedclay:hardened_clay_brown"},
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 8,
@@ -166,7 +166,7 @@ minetest.register_ore({
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:sandstone",
-	wherein        ={"default:desert_stone","default:desert_sand","default:stone"},
+	wherein        ={"default:desert_stone","default:desert_sand","default:stone","hardenedclay:hardened_clay_brown"},
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 10,
@@ -179,7 +179,7 @@ minetest.register_ore({
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:dirt",
-	wherein        = {"default:desert_stone","default:desert_sand"},
+	wherein        = {"default:desert_stone","default:desert_sand","hardenedclay:hardened_clay_brown"},
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 4,
@@ -205,7 +205,7 @@ minetest.register_ore({
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:coalblock",
-	wherein        = {"default:desert_stone","default:stone"},
+	wherein        = {"default:desert_stone","default:stone","hardenedclay:hardened_clay_brown"},
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 4,
@@ -237,6 +237,149 @@ minetest.register_ore({
 		y_min          = -20000,
 		y_max          = 2140,
 	})
+
+--HARDENED CLAY FOR MESA :)
+--maikerumine
+
+--MESA STRATA
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_gray",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 27,
+	clust_size     = 1,
+	height_min     = 5,
+	height_max     = 14,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_black",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores =27,
+	clust_size     = 1,
+	height_min     = 15,
+	height_max     = 17,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70}, 
+})
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_orange",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 27,
+	clust_size     = 6,
+	height_min     = 20,
+	height_max     = 29,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_red",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 8,
+	clust_size     = 3,
+	height_min     = 34,
+	height_max     = 37,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_yellow",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 1,
+	height_min     = 42,
+	height_max     = 43,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_blue",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 1,
+	height_min     = 43,
+	height_max     = 44,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_yellow",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 1,
+	height_min     = 44,
+	height_max     = 45,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_yellow",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 1,
+	height_min     = 45,
+	height_max     = 47,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_light_gray",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 1,
+	height_min     = 49,
+	height_max     = 52,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_yellow",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 4,
+	height_min     = 53,
+	height_max     = 59,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_white",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 8,
+	height_min     = 61,
+	height_max     = 70,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+
+
 
 
 
@@ -380,7 +523,7 @@ minetest.register_ore({
 		    clust_num_ores = 1,
 		    clust_size     = 2,
 		    height_min     = -60,
-		    height_max     = -54,
+		    height_max     = -44,
 	})
 
 
@@ -1013,7 +1156,26 @@ function default.register_biomes()
 	})
 
 	-- Hot
-
+--maikerumine added :)
+		minetest.register_biome({
+		name = "mesa",
+		--node_dust = "",
+		node_top = "hardenedclay:hardened_clay_brown",
+		depth_top = 1,
+		node_filler = "hardenedclay:hardened_clay_brown",
+		depth_filler = 1,
+		node_stone = "hardenedclay:hardened_clay_brown",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -35,
+		y_max = 31000,
+		heat_point = 45,
+		humidity_point = 50,
+	})
+	
+	
 	minetest.register_biome({
 		name = "desert",
 		--node_dust = "",
@@ -1259,7 +1421,7 @@ function default.register_mgv6_decorations()
 
 	minetest.register_decoration({
 		deco_type = "simple",
-		place_on = {"default:desert_sand"},
+		place_on = {"default:desert_sand","hardenedclay:hardened_clay_brown"},
 		sidelen = 16,
 		noise_params = {
 			offset = -0.012,
@@ -1301,7 +1463,7 @@ function default.register_mgv6_decorations()
 
 	minetest.register_decoration({
 		deco_type = "simple",
-		place_on = {"default:desert_sand", "default:dirt_with_snow"},
+		place_on = {"default:desert_sand", "default:dirt_with_snow","hardenedclay:hardened_clay_brown"},
 		sidelen = 16,
 		noise_params = {
 			offset = 0,
@@ -1716,7 +1878,7 @@ function default.register_decorations()
 
 	minetest.register_decoration({
 		deco_type = "simple",
-		place_on = {"default:desert_sand", "default:dirt_with_snow"},
+		place_on = {"default:desert_sand", "default:dirt_with_snow","hardenedclay:hardened_clay_brown"},
 		sidelen = 16,
 		noise_params = {
 			offset = 0,
@@ -1726,7 +1888,7 @@ function default.register_decorations()
 			octaves = 3,
 			persist = 0.6
 		},
-		biomes = {"desert", "tundra"},
+		biomes = {"desert", "tundra","mesa"},
 		y_min = 2,
 		y_max = 31000,
 		decoration = "default:dry_shrub",
@@ -1838,6 +2000,7 @@ replace("default:water_flowing", "default:bedrock", -80, -64)
 replace("default:sandstone", "default:bedrock", -80, -64)
 replace("default:desert_stone", "default:bedrock", -80, -64)
 replace("default:desert_sand", "default:bedrock", -80, -64)
+replace("hardenedclay:hardened_clay_brown", "default:bedrock", -80, -64)
 
 local function bedrock(old)
 	minetest.register_ore({

@@ -36,6 +36,7 @@ minetest.register_node("enderchest:enderchest", {
 	legacy_facedir_simple = true,
 	is_ground_content = false,
 	sounds = default.node_sound_wood_defaults(),
+	stack_max = 64,
 
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)

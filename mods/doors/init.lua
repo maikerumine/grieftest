@@ -352,6 +352,7 @@ doors.register_door("doors:door_wood", {
 	description = "Wooden Door",
 	inventory_image = "doors_wood.png",
 	groups = {snappy=1,choppy=2,oddly_breakable_by_hand=2,flammable=2,door=1},
+	stack_max = 64,
 	tiles_bottom = {"doors_wood_b.png", "doors_brown.png"},
 	tiles_top = {"doors_wood_a.png", "doors_brown.png"},
 	sounds = default.node_sound_wood_defaults(),
@@ -371,6 +372,7 @@ doors.register_door("doors:door_steel", {
 	description = "Steel Door",
 	inventory_image = "doors_steel.png",
 	groups = {snappy=1,bendy=2,cracky=1,melty=2,level=2,door=1},
+	stack_max = 64,
 	tiles_bottom = {"doors_steel_b.png", "doors_grey.png"},
 	tiles_top = {"doors_steel_a.png", "doors_grey.png"},
 	only_placer_can_open = false,
@@ -491,6 +493,7 @@ doors.register_trapdoor("doors:trapdoor", {
 	tile_front = "doors_trapdoor.png",
 	tile_side = "doors_trapdoor_side.png",
 	groups = {snappy=1, choppy=2, oddly_breakable_by_hand=2, flammable=2, door=1},
+	stack_max = 64,
 	sounds = default.node_sound_wood_defaults(),
 	sound_open = "doors_door_open",
 	sound_close = "doors_door_close"
@@ -507,6 +510,7 @@ doors.register_trapdoor("doors:trapdoor_steel", {
 	sound_open = "doors_steel_door_open",
 	sound_close = "doors_steel_door_close",
 	groups = {snappy=1, bendy=2, cracky=1, melty=2, level=2, door=1},
+	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -596,6 +600,7 @@ doors.register_fencegate("doors:gate_wood", {
 	description = "Wooden Fence Gate",
 	texture = "default_wood.png",
 	material = "default:wood",
+	stack_max = 64,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
@@ -603,6 +608,7 @@ doors.register_fencegate("doors:gate_acacia_wood", {
 	description = "Acacia Fence Gate",
 	texture = "default_acacia_wood.png",
 	material = "default:acacia_wood",
+	stack_max = 64,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
@@ -610,6 +616,7 @@ doors.register_fencegate("doors:gate_junglewood", {
 	description = "Junglewood Fence Gate",
 	texture = "default_junglewood.png",
 	material = "default:junglewood",
+	stack_max = 64,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
@@ -617,6 +624,7 @@ doors.register_fencegate("doors:gate_pine_wood", {
 	description = "Pine Fence Gate",
 	texture = "default_pine_wood.png",
 	material = "default:pine_wood",
+	stack_max = 64,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
@@ -624,5 +632,6 @@ doors.register_fencegate("doors:gate_aspen_wood", {
 	description = "Aspen Fence Gate",
 	texture = "default_aspen_wood.png",
 	material = "default:aspen_wood",
+	stack_max = 64,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })

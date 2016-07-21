@@ -81,6 +81,7 @@ minetest.register_node("farming:straw", {
 	tiles = {"farming_straw.png"},
 	is_ground_content = false,
 	groups = {snappy=3, flammable=4},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 })
 

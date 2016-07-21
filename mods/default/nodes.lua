@@ -354,6 +354,7 @@ minetest.register_node( "default:granite", {
 	tiles = { "technic_granite.png" },
 	is_ground_content = true,
 	groups = {cracky=2},
+	stack_max = 64,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -362,6 +363,7 @@ minetest.register_node( "default:granite_bricks", {
 	tiles = { "technic_granite_bricks.png",},
 	is_ground_content = true,
 	groups = {cracky=2},
+	stack_max = 64,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -370,6 +372,7 @@ minetest.register_node( "default:marble", {
 	tiles = { "technic_marble.png" },
 	is_ground_content = true,
 	groups = {cracky=2},
+	stack_max = 64,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -378,6 +381,7 @@ minetest.register_node( "default:marble_bricks", {
 	tiles = { "technic_marble_bricks.png" },
 	is_ground_content = true,
 	groups = {cracky=2},
+	stack_max = 64,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -387,6 +391,7 @@ minetest.register_node("default:stone_with_emerald", {
 	tiles = {"default_stone.png^emerald_ore.png"},
 	is_ground_content = true,
 	groups = {cracky=1},
+	stack_max = 64,
 	drop = "es:emerald_crystal",
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -398,6 +403,7 @@ minetest.register_node("default:emeraldblock", {
 	light_source = 7,
 	is_ground_content = true,
 	groups = {cracky=1,level=2},
+	stack_max = 64,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -979,6 +985,7 @@ minetest.register_node("default:acacia_wood", {
 	tiles = {"default_acacia_wood.png"},
 	is_ground_content = false,
 	groups = {choppy = 2,  flammable = 3, wood = 1,cracky = 1},
+	stack_max = 64,
 	--groups = {choppy=default.dig.wood,flammable=3,wood=1},
 	sounds = default.node_sound_wood_defaults(),
 })
@@ -1122,6 +1129,7 @@ minetest.register_node("default:stone_with_iron", {
 	description = "Iron Ore",
 	tiles = {"default_stone.png^default_mineral_iron.png"},
 	groups = {cracky = 2},
+	stack_max = 64,
 	drop = 'default:stone_with_iron',
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -1195,6 +1203,7 @@ minetest.register_node("default:desert_stone_with_iron", {
 	description = "Iron Ore",
 	tiles = {"default_desert_stone.png^default_mineral_iron.png"},
 	groups = {cracky = 2},
+	stack_max = 64,
 	drop = 'default:stone_with_iron',
 	sounds = default.node_sound_stone_defaults(),
 })
@@ -1203,6 +1212,7 @@ minetest.register_node("default:desert_stone_with_coal", {
 	description = "Coal Ore",
 	tiles = {"default_desert_stone.png^default_mineral_coal.png"},
 	groups = {cracky = 3},
+	stack_max = 64,
 	drop = 'default:coal_lump',
 	sounds = default.node_sound_stone_defaults(),
 })

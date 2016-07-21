@@ -7,6 +7,7 @@ minetest.register_craftitem("farming:raspberries", {
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:raspberry_1")
 	end,
 	on_use = minetest.item_eat(1),
+	stack_max = 64,
 })
 
 -- raspberry smoothie
@@ -14,6 +15,7 @@ minetest.register_craftitem("farming:smoothie_raspberry", {
 	description = "Raspberry Smoothie",
 	inventory_image = "farming_raspberry_smoothie.png",
 	on_use = minetest.item_eat(2, "vessels:drinking_glass"),
+	stack_max = 64,
 })
 
 minetest.register_craft({

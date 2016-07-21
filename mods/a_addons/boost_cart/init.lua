@@ -334,6 +334,7 @@ minetest.register_craftitem(":carts:cart", {
 	description = "Cart (Sneak+Click to pick up)",
 	inventory_image = minetest.inventorycube("cart_top.png", "cart_side.png", "cart_side.png"),
 	wield_image = "cart_side.png",
+	stack_max = 64,
 	on_place = function(itemstack, placer, pointed_thing)
 		if not pointed_thing.type == "node" then
 			return

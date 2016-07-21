@@ -11,6 +11,7 @@ minetest.register_node("vines:rope_block", {
     "default_wood.png^vines_rope.png",
   },
   groups = { flammable=2, choppy=2, oddly_breakable_by_hand=1 },
+  stack_max = 64,
   after_place_node = function(pos)
     local p = {x=pos.x, y=pos.y-1, z=pos.z}
     local n = minetest.get_node(p)
@@ -39,6 +40,7 @@ minetest.register_node("vines:rope", {
   tiles = { "vines_rope.png" },
   drawtype = "plantlike",
   groups = {flammable=2, not_in_creative_inventory=1},
+  stack_max = 64,
   sounds =  default.node_sound_leaves_defaults(),
   selection_box = {
     type = "fixed",

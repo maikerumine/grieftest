@@ -7,6 +7,7 @@ minetest.register_node("farming:seed_cotton", {
 	wield_image = "farming_cotton_seed.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1},
+	stack_max = 64,
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	walkable = false,
@@ -22,6 +23,7 @@ minetest.register_node("farming:seed_cotton", {
 minetest.register_craftitem("farming:cotton", {
 	description = "Cotton",
 	inventory_image = "farming_cotton.png",
+	stack_max = 64,
 })
 
 minetest.register_alias("farming:string", "farming:cotton")

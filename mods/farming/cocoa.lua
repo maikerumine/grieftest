@@ -49,6 +49,7 @@ end
 minetest.register_craftitem("farming:cocoa_beans", {
 	description = "Cocoa Beans",
 	inventory_image = "farming_cocoa_beans.png",
+	stack_max = 64,
 	on_place = function(itemstack, placer, pointed_thing)
 		return place_cocoa(itemstack, placer, pointed_thing, "farming:cocoa_1")
 	end,
@@ -66,6 +67,7 @@ minetest.register_craftitem("farming:cookie", {
 	description = "Cookie",
 	inventory_image = "farming_cookie.png",
 	on_use = minetest.item_eat(2),
+	stack_max = 64,
 })
 
 minetest.register_craft( {
@@ -80,6 +82,7 @@ minetest.register_craftitem("farming:chocolate_dark", {
 	description = "Bar of Dark Chocolate",
 	inventory_image = "farming_chocolate_dark.png",
 	on_use = minetest.item_eat(3),
+	stack_max = 64,
 })
 
 minetest.register_craft( {
@@ -95,6 +98,7 @@ local crop_def = {
 	tiles = {"farming_cocoa_1.png"},
 	paramtype = "light",
 	walkable = true,
+	stack_max = 64,
 	drop = {
 		items = {
 			{items = {'farming:cocoa_beans 1'}, rarity = 2},

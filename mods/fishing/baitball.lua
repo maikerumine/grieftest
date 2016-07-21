@@ -3,7 +3,7 @@
 minetest.register_craftitem("fishing:baitball", {
 	description = fishing_setting.func.S("Bait Ball"),
 	inventory_image = "fishing_baitball.png",
-	stack_max = 99,
+	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -18,7 +18,7 @@ minetest.register_craft({
 minetest.register_craftitem("fishing:baitball_shark", {
 	description = fishing_setting.func.S("Shark Bait Ball"),
 	inventory_image = "fishing_baitball_shark.png",
-	stack_max = 99,
+	stack_max = 64,
 })
 
 minetest.register_craft({

@@ -12,6 +12,7 @@ minetest.register_craftitem("fishing:fish_raw", {
 	groups = {},
 	inventory_image = "fishing_fish_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 	-----------------------------------------------------
 	-- Roasted Fish
@@ -21,6 +22,7 @@ minetest.register_craftitem("fishing:fish_raw", {
 		groups = {},
 		inventory_image = "fishing_fish_cooked.png",
 		on_use = minetest.item_eat(4),
+		stack_max = 64,
 	})
 	-----------------------------------------------------
 	-- Sushi
@@ -30,6 +32,7 @@ minetest.register_craftitem("fishing:fish_raw", {
 		groups = {},
 		inventory_image = "fishing_sushi.png",
 		on_use = minetest.item_eat(6),
+		stack_max = 64,
 	})
 
 -----------------------------------------------------------------------------------------------
@@ -40,6 +43,7 @@ minetest.register_craftitem("fishing:clownfish_raw", {
 	groups = {},
 	inventory_image = "fishing_clownfish_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 
 -----------------------------------------------------------------------------------------------
@@ -50,6 +54,7 @@ minetest.register_craftitem("fishing:bluewhite_raw", {
 	groups = {},
 	inventory_image = "fishing_bluewhite_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 -----------------------------------------------------------------------------------------------
 -- exoticfish
@@ -59,6 +64,7 @@ minetest.register_craftitem("fishing:exoticfish_raw", {
 	groups = {},
 	inventory_image = "fishing_exoticfish_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 
 -----------------------------------------------------------------------------------------------
@@ -69,6 +75,7 @@ minetest.register_craftitem("fishing:carp_raw", {
 	groups = {},
 	inventory_image = "fishing_carp_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 
 -----------------------------------------------------------------------------------------------
@@ -79,6 +86,7 @@ minetest.register_craftitem("fishing:perch_raw", {
 	groups = {},
 	inventory_image = "fishing_perch_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 
 -----------------------------------------------------------------------------------------------
@@ -89,6 +97,7 @@ minetest.register_craftitem("fishing:catfish_raw", {
 	groups = {},
 	inventory_image = "fishing_catfish_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 
 
@@ -100,6 +109,7 @@ minetest.register_craftitem("fishing:shark_raw", {
 	groups = {},
 	inventory_image = "fishing_shark_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 	-----------------------------------------------------
 	-- Roasted Shark
@@ -109,6 +119,7 @@ minetest.register_craftitem("fishing:shark_raw", {
 		groups = {},
 		inventory_image = "fishing_shark_cooked.png",
 		on_use = minetest.item_eat(6),
+		stack_max = 64,
 	})
 
 -----------------------------------------------------------------------------------------------
@@ -119,6 +130,7 @@ minetest.register_craftitem("fishing:pike_raw", {
 	groups = {},
 	inventory_image = "fishing_pike_raw.png",
 	 on_use = minetest.item_eat(2),
+	 stack_max = 64,
 })
 	-----------------------------------------------------
 	-- Roasted Pike
@@ -128,4 +140,5 @@ minetest.register_craftitem("fishing:pike_raw", {
 		groups = {},
 		inventory_image = "fishing_pike_cooked.png",
 		on_use = minetest.item_eat(6),
+		stack_max = 64,
 	})

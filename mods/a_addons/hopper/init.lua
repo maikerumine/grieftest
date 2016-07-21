@@ -23,6 +23,7 @@ minetest.register_node("hopper:hopper", {
 	groups = {cracky = 3},
 	drawtype = "nodebox",
 	paramtype = "light",
+	stack_max = 64,
 	tiles = {"hopper_top.png", "hopper_top.png", "hopper_front.png"},
 	inventory_image = "hopper_inv.png",
 	node_box = {
@@ -95,6 +96,7 @@ minetest.register_node("hopper:hopper_side", {
 	groups = {cracky = 3},
 	drawtype = "nodebox",
 	paramtype = "light",
+	stack_max = 64,
 	paramtype2 = "facedir",
 	tiles = {
 		"hopper_top.png", "hopper_top.png", "hopper_back.png",

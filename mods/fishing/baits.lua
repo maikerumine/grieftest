@@ -4,6 +4,7 @@
 minetest.register_craftitem("fishing:bait_corn", {
 	description = fishing_setting.func.S("Bait Corn"),
 	inventory_image = "fishing_bait_corn.png",
+	stack_max = 64,
 })
 
 fishing_setting.baits["fishing:bait_corn"] = { ["bait"] = "fishing:bait_corn", ["bobber"] = "fishing:bobber_fish_entity",["texture"] = "fishing_bait_corn.png", ["hungry"] = 50 }
@@ -12,6 +13,7 @@ fishing_setting.baits["fishing:bait_corn"] = { ["bait"] = "fishing:bait_corn", [
 minetest.register_craftitem("fishing:bait_bread", {
 	description = fishing_setting.func.S("Bait Bread"),
 	inventory_image = "fishing_bait_bread.png",
+	stack_max = 64,
 })
 
 fishing_setting.baits["fishing:bait_bread"] = { ["bait"] = "fishing:bait_bread", ["bobber"] = "fishing:bobber_fish_entity",["texture"] = "fishing_bait_bread.png", ["hungry"] = 50 }

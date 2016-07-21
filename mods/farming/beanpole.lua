@@ -9,6 +9,7 @@ minetest.register_craftitem("farming:beans", {
 	description = "Green Beans",
 	inventory_image = "farming_beans.png",
 	on_use = minetest.item_eat(1),
+	stack_max = 64,
 
 	on_place = function(itemstack, placer, pointed_thing)
 
@@ -68,6 +69,7 @@ minetest.register_node("farming:beanpole", {
 	drop = "farming:beanpole",
 	selection_box = farming.select,
 	groups = {snappy = 3, flammable = 2, attached_node = 1},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 
 	on_place = function(itemstack, placer, pointed_thing)
@@ -138,6 +140,7 @@ local crop_def = {
 		snappy = 3, flammable = 3, not_in_creative_inventory = 1,
 		attached_node = 1, growing = 1
 	},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults()
 }
 

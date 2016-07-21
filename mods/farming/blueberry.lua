@@ -7,6 +7,7 @@ minetest.register_craftitem("farming:blueberries", {
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:blueberry_1")
 	end,
 	on_use = minetest.item_eat(1),
+	stack_max = 64,
 })
 
 -- blueberry muffin (thanks to sosogirl123 @ deviantart.com for muffin image)
@@ -15,6 +16,7 @@ minetest.register_craftitem("farming:muffin_blueberry", {
 	description = "Blueberry Muffin",
 	inventory_image = "farming_blueberry_muffin.png",
 	on_use = minetest.item_eat(2),
+	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -38,6 +40,7 @@ local crop_def = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults()
 }
 

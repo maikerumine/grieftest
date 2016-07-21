@@ -21,6 +21,7 @@ minetest.register_node("farming:pumpkin", {
 		}
 	},
 	sounds = default.node_sound_wood_defaults(),
+	stack_max = 64,
 })
 
 -- pumpkin slice
@@ -31,6 +32,7 @@ minetest.register_craftitem("farming:pumpkin_slice", {
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:pumpkin_1")
 	end,
 	on_use = minetest.item_eat(2),
+	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -62,6 +64,7 @@ minetest.register_node("farming:jackolantern", {
 	},
 	paramtype2 = "facedir",
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
+	stack_max = 64,
 	sounds = default.node_sound_wood_defaults(),
 	on_punch = function(pos, node, puncher)
 		node.name = "farming:jackolantern_on"
@@ -103,7 +106,8 @@ minetest.register_craft({
 minetest.register_craftitem("farming:pumpkin_bread", {
 	description = ("Pumpkin Bread"),
 	inventory_image = "farming_pumpkin_bread.png",
-	on_use = minetest.item_eat(8)
+	on_use = minetest.item_eat(8),
+	stack_max = 64,
 })
 
 minetest.register_craftitem("farming:pumpkin_dough", {

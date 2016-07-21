@@ -7,6 +7,7 @@ minetest.register_node("farming:seed_wheat", {
 	wield_image = "farming_wheat_seed.png",
 	drawtype = "signlike",
 	groups = {seed = 1, snappy = 3, attached_node = 1},
+	stack_max = 64,
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	walkable = false,
@@ -21,6 +22,7 @@ minetest.register_node("farming:seed_wheat", {
 minetest.register_craftitem("farming:wheat", {
 	description = "Wheat",
 	inventory_image = "farming_wheat.png",
+	stack_max = 64,
 })
 
 -- straw
@@ -29,6 +31,7 @@ minetest.register_node("farming:straw", {
 	tiles = {"farming_straw.png"},
 	is_ground_content = false,
 	groups = {snappy = 3, flammable = 4},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 })
 
@@ -52,6 +55,7 @@ minetest.register_craft({
 minetest.register_craftitem("farming:flour", {
 	description = "Flour",
 	inventory_image = "farming_flour.png",
+	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -75,6 +79,7 @@ minetest.register_craftitem("farming:bread", {
 	description = "Bread",
 	inventory_image = "farming_bread.png",
 	on_use = minetest.item_eat(5),
+	stack_max = 64,
 })
 
 minetest.register_craft({

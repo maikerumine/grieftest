@@ -3,10 +3,10 @@ local MINE_DEEP_MAX = tonumber(minetest.setting_get("mines_deep_max"))
 local MINE_FACTOR = tonumber(minetest.setting_get("mines_spawnfactor"))
 
 if not MINE_DEEP_MIN then
-    MINE_DEEP_MIN = -30
+    MINE_DEEP_MIN = -20
 end
 if not MINE_DEEP_MAX then
-    MINE_DEEP_MAX = -57
+    MINE_DEEP_MAX = -59
 end
 if not MINE_FACTOR then
     MINE_FACTOR = 2.5

@@ -383,6 +383,7 @@ minetest.register_node("tnt:boom", {
 	walkable = false,
 	drop = "",
 	groups = {dig_immediate = 3},
+	stack_max = 64,
 	on_construct = function(pos)
 		minetest.get_node_timer(pos):start(0.4)
 	end,
@@ -408,6 +409,7 @@ minetest.register_node("tnt:gunpowder", {
 		fixed = {-1/2, -1/2, -1/2, 1/2, -1/2+1/16, 1/2},
 	},
 	groups = {dig_immediate = 2, attached_node = 1, connect_to_raillike = minetest.raillike_group("gunpowder")},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 
 	on_punch = function(pos, node, puncher)

@@ -7,6 +7,7 @@ minetest.register_craftitem("farming:melon_slice", {
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:melon_1")
 	end,
 	on_use = minetest.item_eat(2),
+	stack_max = 64,
 })
 
 minetest.register_craft({

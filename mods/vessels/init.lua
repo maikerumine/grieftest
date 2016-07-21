@@ -18,6 +18,7 @@ minetest.register_node("vessels:shelf", {
 	tiles = {"default_wood.png", "default_wood.png", "default_wood.png^vessels_shelf.png"},
 	is_ground_content = false,
 	groups = {choppy=3,oddly_breakable_by_hand=2,flammable=3},
+	stack_max = 64,
 	sounds = default.node_sound_wood_defaults(),
 
 	on_construct = function(pos)
@@ -98,6 +99,7 @@ minetest.register_node("vessels:glass_bottle", {
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
 	},
 	groups = {vessel=1,dig_immediate=3,attached_node=1},
+	stack_max = 64,
 	sounds = default.node_sound_glass_defaults(),
 })
 
@@ -124,6 +126,7 @@ minetest.register_node("vessels:drinking_glass", {
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
 	},
 	groups = {vessel=1,dig_immediate=3,attached_node=1},
+	stack_max = 64,
 	sounds = default.node_sound_glass_defaults(),
 })
 
@@ -150,6 +153,7 @@ minetest.register_node("vessels:steel_bottle", {
 		fixed = {-0.25, -0.5, -0.25, 0.25, 0.4, 0.25}
 	},
 	groups = {vessel=1,dig_immediate=3,attached_node=1},
+	stack_max = 64,
 	sounds = default.node_sound_defaults(),
 })
 

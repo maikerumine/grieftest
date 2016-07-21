@@ -24,6 +24,7 @@ minetest.register_node("jdukebox:box", {
 	description = "Jukebox",
 	tiles = {"jdukebox_top.png", "jdukebox_side.png"},
 	groups = {oddly_breakable_by_hand=1, flammable=1, choppy=3},
+	stack_max = 64,
 	on_rightclick = function(pos, node, clicker, itemstack)	
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()

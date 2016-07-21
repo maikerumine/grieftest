@@ -85,6 +85,7 @@ minetest.register_entity( 'farorb:farorb_ent', farorb_ent )
 minetest.register_craftitem( 'farorb:farorb', {
 	description	= 'Ender Pearl',
 	inventory_image	= 'ender_pearl.png',
+	stack_max = 64,
 	on_use		= throw_orb
 })
 

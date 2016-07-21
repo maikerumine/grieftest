@@ -3,6 +3,7 @@ minetest.register_craftitem("farming:donut", {
 	description = "Donut",
 	inventory_image = "farming_donut.png",
 	on_use = minetest.item_eat(4),
+	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -19,6 +20,7 @@ minetest.register_craftitem("farming:donut_chocolate", {
 	description = "Chocolate Donut",
 	inventory_image = "farming_donut_chocolate.png",
 	on_use = minetest.item_eat(6),
+	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -34,6 +36,7 @@ minetest.register_craftitem("farming:donut_apple", {
 	description = "Apple Donut",
 	inventory_image = "farming_donut_apple.png",
 	on_use = minetest.item_eat(6),
+	stack_max = 64,
 })
 
 minetest.register_craft({

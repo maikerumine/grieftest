@@ -8,6 +8,7 @@ minetest.register_node("golden_apple:golden_apple", {
 	sunlight_propagates = true,
 	walkable = false,
 	groups = {fleshy=3,dig_immediate=3,flammable=2},
+	stack_max = 64,
 	on_use = minetest.item_eat(20),
 })
 

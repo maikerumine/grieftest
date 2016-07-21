@@ -30,6 +30,7 @@ minetest.register_node("nether:rack", {
 	},
 	light_source = NETHER_AMBIENT,
 	groups = {cracky=3,level=0},
+	stack_max = 64,
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -39,6 +40,7 @@ minetest.register_node("nether:sand", {
 	is_ground_content = true,
 	light_source = NETHER_AMBIENT,
 	groups = {crumbly=1,level=2,falling_node=1},
+	stack_max = 64,
 	sounds = default.node_sound_dirt_defaults({
 		footstep = {name="default_gravel_footstep", gain=0.45},
 	}),
@@ -67,6 +69,7 @@ minetest.register_node("nether:brick", {
 	description = "Nether Brick",
 	tiles = {"nether_brick.png"},
 	groups = {cracky=2,level=2},
+	stack_max = 64,
 	light_source = NETHER_AMBIENT-2,
 	sounds = default.node_sound_stone_defaults(),
 })

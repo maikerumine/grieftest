@@ -18,10 +18,12 @@ minetest.register_alias("quartz:pillar_horizontal", "nether:pillar_horizontal")
 minetest.register_craftitem("nether:quartz_crystal", {
 	description = "Quartz Crystal",
 	inventory_image = "quartz_crystal_full.png",
+	stack_max = 64,
 })
 minetest.register_craftitem("nether:quartz_crystal_piece", {
 	description = "Quartz Crystal Piece",
 	inventory_image = "quartz_crystal_piece.png",
+	stack_max = 64,
 })
 
 --Ore
@@ -29,6 +31,7 @@ minetest.register_node("nether:quartz_ore", {
          description = "Quartz Ore",
  	 tiles = {"nether_rack.png^quartz_ore.png"},
 	 groups = {cracky=3, stone=1},
+	 stack_max = 64,
 	 drop = 'nether:quartz_crystal',
 	 light_source = 6,  --light_source = NETHER_AMBIENT,
          sounds = default.node_sound_stone_defaults(),
@@ -52,6 +55,7 @@ minetest.register_node("nether:block", {
 	description = "Quartz Block",
 	tiles = {"quartz_block.png"},
 	groups = {cracky=3, oddly_breakable_by_hand=1},
+	stack_max = 64,
 	sounds = default.node_sound_glass_defaults(),
 })
 
@@ -60,6 +64,7 @@ minetest.register_node("nether:chiseled", {
 	description = "Chiseled Quartz",
 	tiles = {"quartz_chiseled.png"},
 	groups = {cracky=3, oddly_breakable_by_hand=1},
+	stack_max = 64,
 	sounds = default.node_sound_glass_defaults(),
 })
 
@@ -68,6 +73,7 @@ minetest.register_node("nether:pillar", {
 	description = "Quartz Pillar",
 	paramtype2 = "facedir",
 	tiles = {"quartz_pillar_top.png", "quartz_pillar_top.png", "quartz_pillar_side.png"},
+	stack_max = 64,
 	groups = {cracky=3, oddly_breakable_by_hand=1},
 	sounds = default.node_sound_glass_defaults(),
 	on_place = minetest.rotate_node
@@ -77,6 +83,7 @@ minetest.register_node("nether:pillar", {
 --Stairs & Slabs
 stairs.register_stair_and_slab("netherblock", "nether:block",
 		{cracky=3, oddly_breakable_by_hand=1},
+		
 		{"quartz_block.png"},
 		"Quartz stair",
 		"Quartz slab",
@@ -84,6 +91,7 @@ stairs.register_stair_and_slab("netherblock", "nether:block",
 
 stairs.register_slab("netherstair", "nether:pillar",
 		{cracky=3, oddly_breakable_by_hand=1},
+		
 		{"quartz_pillar_top.png", "quartz_pillar_top.png", "quartz_pillar_side.png"},
 		"Quartz Pillar stair",
 		"Quartz Pillar slab",
@@ -180,6 +188,7 @@ end
 if minetest.get_modpath("moreblocks") and enable_stairsplus then
 	register_stair_slab_panel_micro("quartz", "block", "nether:block",
 	{cracky=3},
+	
 	{"quartz_block.png"},
 	"Quartz Block",
 	"block",
@@ -187,6 +196,7 @@ if minetest.get_modpath("moreblocks") and enable_stairsplus then
 
 	register_stair_slab_panel_micro("quartz", "chiseled", "nether:chiseled",
 	{cracky=3},
+	
 	{"quartz_chiseled.png"},
 	"Chiseled Quartz",
 	"chiseled",
@@ -194,6 +204,7 @@ if minetest.get_modpath("moreblocks") and enable_stairsplus then
 
 	register_stair_slab_panel_micro("quartz", "pillar", "nether:pillar",
 	{cracky=3},
+	
 	{"quartz_pillar_top.png", "quartz_pillar_top.png", "quartz_pillar_side.png"},
 	"Quartz Pillar",
 	"pillar",

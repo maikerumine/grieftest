@@ -46,7 +46,7 @@ local function add_simple_flower(name, desc, box, f_groups)
 		paramtype = "light",
 		walkable = false,
 		buildable_to = true,
-		stack_max = 99,
+		stack_max = 64,
 		groups = f_groups,
 		sounds = default.node_sound_leaves_defaults(),
 		selection_box = {
@@ -134,6 +134,7 @@ minetest.register_node("flowers:mushroom_red", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy = 3, attached_node = 1},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 	on_use = minetest.item_eat(-5),
 	selection_box = {
@@ -153,6 +154,7 @@ minetest.register_node("flowers:mushroom_brown", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy = 3, attached_node = 1},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 	on_use = minetest.item_eat(1),
 	selection_box = {
@@ -218,6 +220,7 @@ minetest.register_node("flowers:waterlily", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy = 3, flower = 1},
+	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 	node_box = {
 		type = "fixed",
