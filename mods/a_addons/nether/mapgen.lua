@@ -1,6 +1,6 @@
 -- Minetest 0.4 Mod: Nether
 
-local NETHER_DEPTH = -2000
+local NETHER_DEPTH = -3100
 local NETHER_AMBIENT = 6
 local nether_created = false
 
@@ -15,7 +15,7 @@ local nether_created = false
 		clust_num_ores = 12,
 		clust_size     = 5,
 		y_min           = -31000,
-		y_max           = -3100,
+		y_max           = -3130,
 	})
 
 -- maikerumines hackish nether

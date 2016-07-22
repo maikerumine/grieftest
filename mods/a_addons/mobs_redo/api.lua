@@ -1380,7 +1380,7 @@ local do_states = function(self, dtime)
 			do_jump(self)
 		end
 
-	-- attack routines (explode, dogfight, shoot, dogshoot)
+	-- attack routines (, dogfight, shoot, dogshoot)
 	elseif self.state == "attack" then
 
 		-- calculate distance from mob and enemy
@@ -2564,7 +2564,7 @@ function mobs:explosion(pos, radius, fire, smoke, sound)
 
 					minetest.set_node(p, {name = "fire:basic_flame"})
 				else
-					minetest.set_node(p, {name = "air"})
+					minetest.set_node(p, {name = "air"})  --hmmm would like actual blocks left over.
 
 					if smoke > 0 then
 						effect(p, 2, "tnt_smoke.png", 5)

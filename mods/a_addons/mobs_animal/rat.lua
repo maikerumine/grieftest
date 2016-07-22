@@ -73,6 +73,6 @@ minetest.register_craftitem(":mobs:rat_cooked", {
 minetest.register_craft({
 	type = "cooking",
 	output = "mobs:rat_cooked",
-	recipe = "mobs:rat",
+	recipe = "mobs_animal:rat",
 	cooktime = 5,
 })

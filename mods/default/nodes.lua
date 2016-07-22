@@ -428,6 +428,16 @@ minetest.register_node("default:stone", {
 	stack_max = 64,
 })
 
+minetest.register_node("default:savannastone", {
+	description = "Stone",
+	tiles = {"default_stone.png"},
+	groups = {cracky = 3, stone = 1},
+	drop = 'default:cobble',
+	legacy_mineral = true,
+	sounds = default.node_sound_stone_defaults(),
+	stack_max = 64,
+})
+
 minetest.register_node("default:cobble", {
 	description = "Cobblestone",
 	tiles = {"default_cobble.png"},
@@ -1110,7 +1120,14 @@ minetest.register_node("default:stone_with_coal", {
 	description = "Coal Ore",
 	tiles = {"default_stone.png^default_mineral_coal.png"},
 	groups = {cracky = 3},
-	drop = 'default:coal_lump',
+	--drop = 'default:coal_lump',
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {'default:coal_lump 3'}, rarity = 10},
+			{items = {'default:coal_lump'}}
+		}
+	},
 	sounds = default.node_sound_stone_defaults(),
 	stack_max = 64,
 })
@@ -1213,7 +1230,14 @@ minetest.register_node("default:desert_stone_with_coal", {
 	tiles = {"default_desert_stone.png^default_mineral_coal.png"},
 	groups = {cracky = 3},
 	stack_max = 64,
-	drop = 'default:coal_lump',
+	--drop = 'default:coal_lump',
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {'default:coal_lump 3'}, rarity = 10},
+			{items = {'default:coal_lump'}}
+		}
+	},
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -1270,6 +1294,13 @@ minetest.register_node("default:dry_shrub", {
 	walkable = false,
 	buildable_to = true,
 	groups = {snappy = 3, flammable = 3, attached_node = 1},
+	drop = {
+		max_items = 1,
+		items = {
+			{items = {'default:stick'}, rarity = 5},
+			{items = {'default:dry_shrub'}}
+		}
+	},
 	sounds = default.node_sound_leaves_defaults(),
 	selection_box = {
 		type = "fixed",
@@ -2088,7 +2119,7 @@ minetest.register_node("default:cloud", {
 	sounds = default.node_sound_defaults(),
 	groups = {not_in_creative_inventory = 1},
 })
-
+--[[  --removed 20160718
 minetest.register_node("default:nyancat", {
 	description = "Nyan Cat",
 	tiles = {"default_nc_side.png", "default_nc_side.png", "default_nc_side.png",
@@ -2113,3 +2144,4 @@ minetest.register_node("default:nyancat_rainbow", {
 	sounds = default.node_sound_defaults(),
 	stack_max = 64,
 })
+]]

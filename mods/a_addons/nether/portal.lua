@@ -1,6 +1,6 @@
 -- Parameters
 
-local NETHER_DEPTH = -3000
+local NETHER_DEPTH = -3100
 local TCAVE = 0.6
 local BLEND = 128
 
@@ -137,11 +137,11 @@ end
 
 local function find_nether_target_y(target_x, target_z)
 	--local start_y = NETHER_DEPTH - math.random(500, 1500) -- Search start
-	local start_y = NETHER_DEPTH - math.random(10, 110) -- Search start
+	local start_y = NETHER_DEPTH - math.random(30,130) -- Search start
 	local nobj_cave_point = minetest.get_perlin(np_cave)
 	local air = 0 -- Consecutive air nodes found
 
-	for y = start_y, start_y - 1096, -1 do  --was 4096
+	for y = start_y, start_y -4096, -1 do  --was 4096  then -1096
 		local nval_cave = nobj_cave_point:get3d({x = target_x, y = y, z = target_z})
 
 		if nval_cave > TCAVE then -- Cavern

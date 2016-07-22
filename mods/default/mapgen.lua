@@ -523,21 +523,30 @@ minetest.register_ore({
 		    clust_num_ores = 1,
 		    clust_size     = 2,
 		    height_min     = -60,
-		    height_max     = -44,
+		    height_max     = -24,
 	})
 
 	minetest.register_ore({
 		    ore_type       = "scatter",
 		    ore            = "default:stone_with_emerald",
 		    wherein        = "default:stone",
-		    clust_scarcity = 24*24*24,
-		    clust_num_ores = 4,
+		    clust_scarcity = 14*14*14,
+		    clust_num_ores = 2,
 		    clust_size     = 4,
 		    height_min     = -60,
-		    height_max     = -54,
+		    height_max     = -44,
 	})
 	
-	
+	minetest.register_ore({
+		    ore_type       = "scatter",
+		    ore            = "default:stone_with_emerald",
+		    wherein        = "default:savannastone",
+		    clust_scarcity = 14*14*14,
+		    clust_num_ores = 4,
+		    clust_size     = 4,
+		    height_min     = 12,
+		    height_max     = 70,
+	})	
 
 	-- Clay
 
@@ -1232,12 +1241,12 @@ function default.register_biomes()
 		depth_top = 1,
 		node_filler = "default:dirt",
 		depth_filler = 1,
-		--node_stone = "",
+		node_stone = "default:savannastone",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = 1,
+		y_min = 12,
 		y_max = 31000,
 		heat_point = 85,
 		humidity_point = 50,
@@ -1337,6 +1346,24 @@ function default.register_biomes()
 	-- Underground
 
 	minetest.register_biome({
+		name = "void",
+		--node_dust = "",
+		--node_top = "",
+		--depth_top = ,
+		node_filler = "default:bedrock",
+		--depth_filler = ,
+		node_stone =  "default:bedrock",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -3000,
+		y_max = -200,
+		heat_point = 50,
+		humidity_point = 50,
+	})
+--[[	
+	minetest.register_biome({
 		name = "underground",
 		--node_dust = "",
 		--node_top = "",
@@ -1348,12 +1375,12 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -5000,
-		y_max = -113,
+		y_min = -3300,
+		y_max = -3113,
 		heat_point = 50,
 		humidity_point = 50,
 	})
-
+]]
 
 --[[
 		minetest.register_biome({
@@ -1374,7 +1401,7 @@ function default.register_biomes()
 		humidity_point = 50,
 	})
 ]]
-		minetest.register_biome({
+	minetest.register_biome({
 		name = "lava",
 		--node_dust = "",
 		--node_top = "",
@@ -1386,13 +1413,29 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -31000,
-		y_max = -5001,
+		y_min = -4800,
+		y_max = -4701,
 		heat_point = 50,
 		humidity_point = 50,
 	})
 
-
+	minetest.register_biome({
+		name = "lavabottom",
+		--node_dust = "",
+		--node_top = "",
+		--depth_top = ,
+		node_filler = "default:bedrock",
+		--depth_filler = ,
+		node_stone =  "default:bedrock",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -6050,
+		y_max = -4801,
+		heat_point = 50,
+		humidity_point = 50,
+	})
 
 end
 
@@ -1907,7 +1950,7 @@ function default.register_decorations()
 	})
 end
 
-
+--[[  --removed 20160718
 --
 -- Generate nyan cats
 --
@@ -1958,7 +2001,7 @@ function default.generate_nyancats(minp, maxp, seed)
 		end
 	end
 end
-
+]]
 
 --
 -- Detect mapgen to select functions
@@ -1971,12 +2014,12 @@ local mg_params = minetest.get_mapgen_params()
 if mg_params.mgname == "v6" then
 	default.register_ores()
 	default.register_mgv6_decorations()
-	minetest.register_on_generated(default.generate_nyancats)
+	--minetest.register_on_generated(default.generate_nyancats)
 elseif mg_params.mgname ~= "singlenode" then
 	default.register_biomes()
 	default.register_ores()
 	default.register_decorations()
-	minetest.register_on_generated(default.generate_nyancats)
+	--minetest.register_on_generated(default.generate_nyancats)
 end
 
 
@@ -1995,6 +2038,11 @@ local function replace(old, new, min, max)
 		})
 	end
 end
+
+
+
+
+--the -64 bedrock
 replace("air", "default:bedrock", -80, -64)
 replace("air", "default:lava_source", -64, -54)
 replace("default:stone", "default:bedrock", -80, -64)
@@ -2012,7 +2060,80 @@ replace("default:water_flowing", "default:bedrock", -80, -64)
 replace("default:sandstone", "default:bedrock", -80, -64)
 replace("default:desert_stone", "default:bedrock", -80, -64)
 replace("default:desert_sand", "default:bedrock", -80, -64)
+replace("default:mese", "default:bedrock", -80, -64)
+replace("default:stone_with_gold", "default:bedrock", -80, -64)
+--replace("default:stone_with_diamond", "default:bedrock", -80, -64)
+replace("default:stone_with_iron", "default:bedrock",  -80, -64)
+replace("default:stone_with_mese", "default:bedrock",  -80, -64)
+replace("default:stone_with_coal", "default:bedrock", -80, -64)
+replace("default:desert_stone_with_iron", "default:bedrock",  -80, -64)
+replace("default:granite", "default:bedrock", -80, -64)
+replace("default:marble", "default:bedrock", -80, -64)
 replace("hardenedclay:hardened_clay_brown", "default:bedrock", -80, -64)
+--[[
+--the -3060test
+--replace("air", "air", -2000, -81)
+--replace("air", "air", -2000, -81)
+replace("default:stone", "air", -3060, -81)
+replace("default:gravel", "air",-3060, -81)
+replace("default:dirt", "air", -3060, -81)
+replace("default:sand", "air", -3060, -81)
+replace("default:cobble", "air", -3060, -81)
+replace("default:desert_cobble", "air", -3060, -81)
+replace("default:mossycobble", "air",-3060, -81)
+replace("stairs:stair_cobble", "air", -3060, -81)
+replace("default:lava_source", "air",-3060, -81)
+replace("default:lava_flowing", "air", -3060, -81)
+replace("default:water_source", "air", -3060, -81)
+replace("default:water_flowing", "air", -3060, -81)
+replace("default:sandstone", "air", -3060, -81)
+replace("default:desert_stone", "air", -3060, -81)
+replace("default:desert_sand", "air", -3060, -81)
+replace("default:mese", "air", -3060, -81)
+replace("default:stone_with_gold", "air", -3060, -81)
+replace("default:stone_with_diamond", "air", -3060, -81)
+replace("default:stone_with_iron", "air", -3060, -81)
+replace("default:stone_with_mese", "air", -3060, -81)
+replace("default:stone_with_coal", "air", -3060, -81)
+replace("default:desert_stone_with_iron", "air", -3060, -81)
+replace("default:granite", "air", -3060, -81)
+replace("default:marble", "air", -3060, -81)
+replace("nether:rack", "default:bedrock", -3060, -81)
+replace("default:desert_stone_with_coal", "air", -3060, -81)
+replace("hardenedclay:hardened_clay_brown", "air", -3060, -81)
+
+
+--the nether ceiling test
+replace("default:stone", "default:bedrock", -3072, -3060)
+replace("air", "default:bedrock", -3072, -3060)
+replace("default:gravel", "default:bedrock",-3072, -3060)
+replace("default:dirt", "default:bedrock", -3072, -3060)
+replace("default:sand", "default:bedrock",-3072, -3060)
+replace("default:cobble", "default:bedrock", -3072, -3060)
+replace("default:desert_cobble", "default:bedrock",-3072, -3060)
+replace("default:mossycobble", "default:bedrock",-3072, -3060)
+replace("stairs:stair_cobble", "default:bedrock", -3072, -3060)
+replace("default:lava_source", "default:bedrock",-3072, -3060)
+replace("default:lava_flowing", "default:bedrock", -3072, -3060)
+replace("default:water_source", "default:bedrock", -3072, -3060)
+replace("default:water_flowing", "default:bedrock", -3072, -3060)
+replace("default:sandstone", "default:bedrock",-3072, -3060)
+replace("default:desert_stone", "default:bedrock", -3072, -3060)
+replace("default:desert_sand", "default:bedrock", -3072, -3060)
+replace("default:mese", "default:bedrock",-3072, -3060)
+replace("default:stone_with_gold", "default:bedrock",-3072, -3060)
+replace("default:stone_with_diamond", "default:bedrock",-3072, -3060)
+replace("default:stone_with_iron", "default:bedrock", -3072, -3060)
+replace("default:stone_with_mese", "default:bedrock", -3072, -3060)
+replace("default:stone_with_coal", "default:bedrock",-3072, -3060)
+replace("default:desert_stone_with_iron", "default:bedrock", -3072, -3060)
+replace("default:granite", "default:bedrock", -3072, -3060)
+replace("default:marble", "default:bedrock", -3072, -3060)
+replace("nether:rack", "default:bedrock", -3072, -3060)
+replace("default:desert_stone_with_coal", "default:bedrock", -3072, -3060)
+replace("hardenedclay:hardened_clay_brown", "default:bedrock",-3072, -3060)
+]]
+
 
 local function bedrock(old)
 	minetest.register_ore({
