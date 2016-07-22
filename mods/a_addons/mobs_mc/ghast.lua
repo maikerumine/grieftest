@@ -44,7 +44,7 @@ mobs:register_mob("mobs_mc:ghast", {
 		min = 1,
 		max = 5,},
 		{name = "mobs_mc:ghast_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},

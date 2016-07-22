@@ -56,7 +56,7 @@ mobs:register_mob("mobs_mc:zombie", {
 		min = 1,
 		max = 1,},
 		{name = "mobs_mc:zombie_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},

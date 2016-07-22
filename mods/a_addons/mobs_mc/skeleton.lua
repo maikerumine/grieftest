@@ -41,7 +41,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 		min = 0,
 		max = 2,},
 		{name = "mobs_mc:skeleton_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},

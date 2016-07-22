@@ -55,7 +55,7 @@ mobs:register_mob("mobs_mc:pigman", {
 		min = 1,
 		max = 1,},
 		{name = "mobs_mc:zombiepig_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},

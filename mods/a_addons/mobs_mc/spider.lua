@@ -45,7 +45,7 @@ mobs:register_mob("mobs_mc:spider", {
 		{name = "mobs:meat_raw",
 		chance = 1, min = 0, max = 1,},
 		{name = "mobs_mc:spider_head",
-		chance = 10,
+		chance = 50,
 		min = 0,
 		max = 1,},
 	},

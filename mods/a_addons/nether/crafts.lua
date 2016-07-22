@@ -67,7 +67,7 @@ minetest.register_craft({
 		{"nether:rack", "nether:rack"},
 	}
 })
-
+--[[
 minetest.register_craft({
 	output = "nether:fence_nether_brick 6",
 	recipe = {
@@ -75,3 +75,5 @@ minetest.register_craft({
 		{"nether:brick", "nether:brick", "nether:brick"},
 	},
 })
+
+]]

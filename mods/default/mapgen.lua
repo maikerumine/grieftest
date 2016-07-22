@@ -287,7 +287,7 @@ minetest.register_ore({
 	wherein        = {"hardenedclay:hardened_clay_brown"},
 	--clust_scarcity = 1,
 	--clust_num_ores = 8,
-	clust_size     = 3,
+	clust_size     = 2,
 	height_min     = 34,
 	height_max     = 37,
 	noise_threshhold = 0.0,
@@ -526,6 +526,18 @@ minetest.register_ore({
 		    height_max     = -44,
 	})
 
+	minetest.register_ore({
+		    ore_type       = "scatter",
+		    ore            = "default:stone_with_emerald",
+		    wherein        = "default:stone",
+		    clust_scarcity = 24*24*24,
+		    clust_num_ores = 4,
+		    clust_size     = 4,
+		    height_min     = -60,
+		    height_max     = -54,
+	})
+	
+	
 
 	-- Clay
 

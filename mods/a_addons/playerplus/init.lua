@@ -80,7 +80,32 @@ minetest.register_globalstep(function(dtime)
 					player:set_hp(player:get_hp()-1)
 				end
 			end
-
+			
+			-- is player suffocating inside node? (only nodes found in nether game)
+			if minetest.registered_nodes[nod_head]
+			and minetest.registered_nodes[nod_head].walkable
+			and nod_head:find("nether:")
+			and minetest.setting_getbool("enable_damage")
+			and not minetest.check_player_privs(player:get_player_name(), {noclip=true}) then
+				if player:get_hp() > 0 then
+					minetest.sound_play("damage", {pos=pos})
+					player:set_hp(player:get_hp()-1)
+				end
+			end
+			
+						-- is player suffocating inside node? (only nodes found in clay game)
+			if minetest.registered_nodes[nod_head]
+			and minetest.registered_nodes[nod_head].walkable
+			and nod_head:find("hardenedclay:")
+			and minetest.setting_getbool("enable_damage")
+			and not minetest.check_player_privs(player:get_player_name(), {noclip=true}) then
+				if player:get_hp() > 0 then
+					minetest.sound_play("damage", {pos=pos})
+					player:set_hp(player:get_hp()-1)
+				end
+			end
+			
+			
 			-- am I near a cactus?
 			local near = minetest.find_node_near(pos, 1, "default:cactus")
 			if near and minetest.setting_getbool("enable_damage") then

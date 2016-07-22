@@ -71,7 +71,7 @@ for i = 1, #discs do
 		inventory_image = "jdukebox_disc_"..i..".png",
 		stack_max = 1,
 	})
-
+--[[
 	minetest.register_craft({
 		output = "jdukebox:disc_"..i,
 		recipe = {
@@ -80,6 +80,7 @@ for i = 1, #discs do
 			{"default:coal_lump", "default:coal_lump", "default:coal_lump"},
 		}
 	})
+	]]
 end
 
 minetest.register_craft({
