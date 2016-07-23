@@ -10,7 +10,7 @@
 
 mobs:register_mob("mobs_mc:zombie", {
 	type = "monster",
-	hp_max = 35,
+	hp_max = 65,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	textures = {
 	{"mobs_zombie.png"}
@@ -26,7 +26,7 @@ mobs:register_mob("mobs_mc:zombie", {
 	},
 	walk_velocity = .8,
 	run_velocity = 1.6,
-	damage = 1,
+	damage = 2,
 	pathfinding = true,
 	group_attack = true,
 	armor = 200,

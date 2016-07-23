@@ -9,7 +9,7 @@
 
 mobs:register_mob("mobs_mc:pigman", {
 	type = "monster",
-	hp_max = 35,
+	hp_max = 75,
 	--old zombie mesh code
 	--collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	--textures = {

@@ -8,7 +8,7 @@
 
 mobs:register_mob("mobs_mc:skeleton", {
 	type = "monster",
-	hp_max = 30,
+	hp_max = 80,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	pathfinding = true,
 	group_attack = true,
@@ -25,7 +25,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 	},
 	walk_velocity = 1.2,
 	run_velocity = 2.4,
-	damage = 1,
+	damage = 2,
 	armor = 200,
 	drops = {
 		{name = "mobs:arrow",
@@ -80,7 +80,7 @@ mobs:register_spawn("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group
 
 mobs:register_mob("mobs_mc:skeleton2", {
 	type = "monster",
-	hp_max = 60,
+	hp_max = 160,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	pathfinding = true,
 	group_attack = true,

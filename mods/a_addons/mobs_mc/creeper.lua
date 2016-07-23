@@ -10,7 +10,7 @@
 
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
-	hp_max = 30,
+	hp_max = 50,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.6, 0.4},
 	pathfinding = true,
 	group_attack = true,
@@ -30,7 +30,7 @@ mobs:register_mob("mobs_mc:creeper", {
 	},
 	walk_velocity = 1.5,
 	run_velocity = 3,
-	damage = 1,
+	damage = 2,
 	explosion_radius = 3,
 	armor = 200,
 	maxdrops = 3,
