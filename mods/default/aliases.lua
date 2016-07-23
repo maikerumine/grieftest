@@ -2,6 +2,7 @@
 
 -- Aliases to support loading worlds using nodes following the old naming convention
 -- These can also be helpful when using chat commands, for example /giveme
+minetest.register_alias("es:emerald_crystal", "default:emerald_crystal")
 minetest.register_alias("stone", "default:stone")
 minetest.register_alias("stone_with_coal", "default:stone_with_coal")
 minetest.register_alias("stone_with_iron", "default:stone_with_iron")

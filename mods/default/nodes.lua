@@ -392,7 +392,7 @@ minetest.register_node("default:stone_with_emerald", {
 	is_ground_content = true,
 	groups = {cracky=1},
 	stack_max = 64,
-	drop = "es:emerald_crystal",
+	drop = "default:emerald_crystal",
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -557,7 +557,10 @@ minetest.register_node("default:dirt", {
 	tiles = {"default_dirt.png"},
 	groups = {crumbly = 2, soil = 1},
 	--groups = {crumbly=default.dig.dirt_with_grass,soil=1},
-	sounds = default.node_sound_dirt_defaults(),
+		sounds = default.node_sound_dirt_defaults({
+		footstep = {name = "default_grass_footstep", gain = 0.25},
+
+	}),
 	stack_max = 64,
 })
 
