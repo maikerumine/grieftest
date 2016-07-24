@@ -181,173 +181,7 @@ default:nyancat
 default:nyancat_rainbow
 
 --]]
---[[
---=======================
---plzadam
-minetest.register_node("default:stone", {
-	description = "Stone",
-	tiles = {"default_stone.png"},
-	is_ground_content = true,
-	groups = {cracky=default.dig.stone, stone=1},
-	drop = 'default:cobble',
-	legacy_mineral = true,
-	stack_max = 64,
-	sounds = default.node_sound_stone_defaults(),
-})
 
-minetest.register_node("default:stone_with_coal", {
-	description = "Coal Ore",
-	tiles = {"default_stone.png^default_mineral_coal.png"},
-	is_ground_content = true,
-	groups = {cracky=default.dig.coal},
-	drop = 'default:coal',
-	stack_max = 64,
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:stone_with_iron", {
-	description = "Iron Ore",
-	tiles = {"default_stone.png^default_mineral_iron.png"},
-	is_ground_content = true,
-	groups = {cracky=default.dig.iron},
-	stack_max = 64,
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:stone_with_gold", {
-	description = "Gold Ore",
-	tiles = {"default_stone.png^default_mineral_gold.png"},
-	is_ground_content = true,
-	groups = {cracky=default.dig.gold},
-	stack_max = 64,
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:stone_with_diamond", {
-	description = "Diamonds in Stone",
-	tiles = {"default_stone.png^default_mineral_diamond.png"},
-	is_ground_content = true,
-	groups = {cracky=default.dig.diamond},
-	drop = "default:diamond",
-	stack_max = 64,
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:stonebrick", {
-	description = "Stone Brick",
-	tiles = {"default_stone_brick.png"},
-	groups = {cracky=default.dig.stone, stone=1},
-	stack_max = 64,
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:sandstone", {
-	description = "Sandstone",
-	tiles = {"default_sandstone.png"},
-	groups = {crumbly = 2, cracky = 3},
-	sounds = default.node_sound_stone_defaults(),
-	stack_max = 64,
-})
-
-minetest.register_node("default:sandstonebrick", {
-	description = "Sandstone Brick",
-	tiles = {"default_sandstone_brick.png"},
-	is_ground_content = false,
-	--groups = {cracky = 2},
-	groups = {cracky=default.dig.stone, stone=1},
-	sounds = default.node_sound_stone_defaults(),
-	stack_max = 64,
-})
-
-minetest.register_node("default:desert_stonebrick", {
-	description = "Sandstone Brick",
-	tiles = {"default_sandstone_brick.png"},
-	is_ground_content = false,
-	--groups = {cracky = 2},
-	groups = {cracky=default.dig.stone, stone=1},
-	sounds = default.node_sound_stone_defaults(),
-	stack_max = 64,
-})
-
-
-
-minetest.register_node("default:cobble", {
-	description = "Cobblestone",
-	tiles = {"default_cobble.png"},
-	is_ground_content = true,
-	stack_max = 64,
-	groups = {cracky=default.dig.cobble, stone=2},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:mossycobble", {
-	description = "Mossy Cobblestone",
-	tiles = {"default_mossycobble.png"},
-	is_ground_content = true,
-	stack_max = 64,
-	groups = {cracky=default.dig.cobble},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:desert_stone", {
-	description = "Desert Stone",
-	tiles = {"default_desert_stone.png"},
-	--groups = {cracky = 3, stone = 1},
-	groups = {cracky=default.dig.stone, stone=1},
-	drop = 'default:desert_cobble',
-	legacy_mineral = true,
-	sounds = default.node_sound_stone_defaults(),
-	stack_max = 64,
-})
-
-minetest.register_node("default:desert_cobble", {
-	description = "Desert Cobblestone",
-	tiles = {"default_desert_cobble.png"},
-	is_ground_content = false,
-	--groups = {cracky = 3, stone = 2},
-	groups = {cracky=default.dig.cobble},
-	sounds = default.node_sound_stone_defaults(),
-	stack_max = 64,
-})
-
-minetest.register_node("default:steelblock", {
-	description = "Iron Block",
-	tiles = {"default_iron_block.png"},
-	is_ground_content = true,
-	stack_max = 64,
-	groups = {cracky=default.dig.ironblock},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:goldblock", {
-	description = "Gold Block",
-	tiles = {"default_gold_block.png"},
-	is_ground_content = true,
-	stack_max = 64,
-	groups = {cracky=default.dig.goldblock},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:diamondblock", {
-	description = "Diamond Block",
-	tiles = {"default_diamond_block.png"},
-	is_ground_content = true,
-	stack_max = 64,
-	groups = {cracky=default.dig.diamondblock},
-	sounds = default.node_sound_stone_defaults(),
-})
-
-minetest.register_node("default:obsidian", {
-	description = "Obsidian",
-	tiles = {"default_obsidian.png"},
-	is_ground_content = true,
-	stack_max = 64,
-	sounds = default.node_sound_stone_defaults(),
-	groups = {cracky=default.dig.obsidian},
-})
-
---======================================
-]]
 
 minetest.register_node( "default:granite", {
 	description = "Granite",
@@ -1209,6 +1043,15 @@ minetest.register_node("default:stone_with_diamond", {
 	sounds = default.node_sound_stone_defaults(),
 	stack_max = 64,
 })
+minetest.register_node("default:sand_with_diamond", {
+	description = "Diamond Ore",
+	tiles = {"default_sand.png^default_mineral_diamond.png"},
+	groups = {crumbly = 1, falling_node = 1, sand = 1},
+	drop = "default:diamond 2",
+	sounds = default.node_sound_stone_defaults(),
+	stack_max = 64,
+})
+
 
 minetest.register_node("default:diamondblock", {
 	description = "Diamond Block",

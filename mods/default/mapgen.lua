@@ -378,8 +378,30 @@ minetest.register_ore({
 	noise_threshhold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
-
-
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "hardenedclay:hardened_clay_purple",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 8,
+	height_min     = 66,
+	height_max     = 75,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "default:obsidian",
+	wherein        = {"hardenedclay:hardened_clay_brown"},
+	--clust_scarcity = 1,
+	--clust_num_ores = 100,
+	clust_size     = 8,
+	height_min     = 161,
+	height_max     = 170,
+	noise_threshhold = 0.0,
+	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
+})
 
 
 
@@ -489,7 +511,16 @@ minetest.register_ore({
 	height_min     = -55,
 	height_max     = -48,
 })
-
+minetest.register_ore({
+	ore_type       = "scatter",
+	ore            = "default:sand_with_diamond",
+	wherein        = "default:sand",
+	clust_scarcity = 10000,
+	clust_num_ores = 3,
+	clust_size     = 2,
+	height_min     = 85,
+	height_max     = 448,
+})
 --
 -- Mese
 --
@@ -542,7 +573,7 @@ minetest.register_ore({
 		    ore            = "default:stone_with_emerald",
 		    wherein        = "default:savannastone",
 		    clust_scarcity = 14*14*14,
-		    clust_num_ores = 4,
+		    clust_num_ores = 2,
 		    clust_size     = 4,
 		    height_min     = 12,
 		    height_max     = 70,

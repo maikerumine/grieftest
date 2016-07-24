@@ -807,7 +807,7 @@ minetest.register_craft({
 	recipe = "default:chest_locked",
 	burntime = 30,
 })
-
+--[[
 minetest.register_craft({
 	type = "fuel",
 	recipe = "default:nyancat",
@@ -819,7 +819,7 @@ minetest.register_craft({
 	recipe = "default:nyancat_rainbow",
 	burntime = 1,
 })
-
+]]
 minetest.register_craft({
 	type = "fuel",
 	recipe = "group:sapling",
