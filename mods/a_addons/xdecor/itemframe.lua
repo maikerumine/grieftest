@@ -53,9 +53,9 @@ end
 
 function itemframe.after_place(pos, placer, itemstack)
 	local meta = minetest.get_meta(pos)
-	local name = placer:get_player_name()
-	meta:set_string("owner", name)
-	meta:set_string("infotext", "Item Frame (owned by "..name..")")
+	--local name = placer:get_player_name()
+	--meta:set_string("owner", name)
+	--meta:set_string("infotext", "Item Frame (owned by "..name..")")
 end
 
 function itemframe.timer(pos)
@@ -72,8 +72,8 @@ end
 function itemframe.rightclick(pos, node, clicker, itemstack)
 	local meta = minetest.get_meta(pos)
 	local player = clicker:get_player_name()
-	local owner = meta:get_string("owner")
-	if player ~= owner or not itemstack then return end
+	--local owner = meta:get_string("owner")
+	--if player ~= owner or not itemstack then return end
 
 	drop_item(pos, node)
 	local itemstring = itemstack:take_item():to_string()
@@ -86,18 +86,18 @@ end
 function itemframe.punch(pos, node, puncher)
 	local meta = minetest.get_meta(pos)
 	local player = puncher:get_player_name()
-	local owner = meta:get_string("owner")
+	--local owner = meta:get_string("owner")
 
-	if player ~= owner then return end
+	--if player ~= owner then return end
 	drop_item(pos, node)
 end
 
 function itemframe.dig(pos, player)
 	local meta = minetest.get_meta(pos)
 	local pname = player:get_player_name()
-	local owner = meta:get_string("owner")
+	--local owner = meta:get_string("owner")
 
-	return player and pname == owner
+	return player-- and pname == owner
 end
 
 xdecor.register("itemframe", {
