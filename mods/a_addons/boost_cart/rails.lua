@@ -14,7 +14,7 @@ minetest.register_node(":default:rail", {
 	},
 	groups = {dig_immediate = 2, attached_node = 1, rail = 1, connect_to_raillike = 1},
 })
-
+--[[
 if minetest.get_modpath("moreores") then
 	-- Moreores' copper rail
 	minetest.register_alias("carts:copperrail", "moreores:copper_rail")
@@ -35,7 +35,7 @@ else
 		}
 	})
 end
-
+]]
 -- Speed up
 
 boost_cart:register_rail(":carts:powerrail", {

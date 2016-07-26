@@ -21,13 +21,13 @@ minetest.register_node("nether:rack", {
 	description = "Netherrack",
 	tiles = {"nether_rack.png"},
 	is_ground_content = true,
-	drop = {
-		max_items = 1,
-		items = {{
-			rarity = 3,
-			items = {"nether:rack"},
-		}}
-	},
+	--drop = {
+	--	max_items = 1,
+	--	items = {{
+	--		rarity = 3,
+	--		items = {"nether:rack"},
+	--	}}
+	--},
 	light_source = NETHER_AMBIENT,
 	groups = {cracky=3,level=0},
 	stack_max = 64,

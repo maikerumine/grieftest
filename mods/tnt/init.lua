@@ -155,7 +155,7 @@ local function entity_physics(pos, radius, drops)
 			-- player velocity. See #2960
 			-- instead, we knock the player back 1.0 node, and slightly upwards
 			local dir = vector.normalize(vector.subtract(obj_pos, pos))
-			local moveoff = vector.multiply(dir, dist + 1.0)
+			local moveoff = vector.multiply(dir, dist + 5.0)  --maikerumine changed for realism
 			local newpos = vector.add(pos, moveoff)
 			local newpos = vector.add(newpos, {x = 0, y = 0.2, z = 0})
 			obj:setpos(newpos)

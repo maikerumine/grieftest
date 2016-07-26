@@ -2503,7 +2503,7 @@ local c_brick = minetest.get_content_id("default:obsidianbrick")
 local c_chest = minetest.get_content_id("default:chest_locked")
 
 -- explosion (cannot break protected or unbreakable nodes)
-function mobs:explosion(pos, radius, fire, smoke, sound)
+function mobs:explosion(pos, radius, fire, smoke, sound)  
 
 	radius = radius or 0
 	fire = fire or 0
@@ -2565,7 +2565,9 @@ function mobs:explosion(pos, radius, fire, smoke, sound)
 					minetest.set_node(p, {name = "fire:basic_flame"})
 				else
 					minetest.set_node(p, {name = "air"})  --hmmm would like actual blocks left over.
-
+					--minetest.set_node(p, {name = "tnt:boom"})
+					--minetest.set_node(pos, {name = "tnt:boom"})
+					 --tnt.explode(pos, radius, ignore_protection, ignore_on_blast)
 					if smoke > 0 then
 						effect(p, 2, "tnt_smoke.png", 5)
 					end

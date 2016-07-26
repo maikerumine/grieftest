@@ -27,86 +27,69 @@ end
 -- 'is snow nearby' function
 
 local function is_snow_nearby(pos)
-	local x, y, z = pos.x, pos.y, pos.z
-	local c_snow = minetest.get_content_id("default:snow")
-	local c_snowblock = minetest.get_content_id("default:snowblock")
-	local c_dirtsnow = minetest.get_content_id("default:dirt_with_snow")
-
-	local vm = minetest.get_voxel_manip()
-	local minp, maxp = vm:read_from_map(
-		{x = x - 1, y = y - 1, z = z - 1},
-		{x = x + 1, y = y + 1, z = z + 1}
-	)
-	local a = VoxelArea:new({MinEdge = minp, MaxEdge = maxp})
-	local data = vm:get_data()
-
-	for yy = y - 1, y + 1 do
-	for zz = z - 1, z + 1 do
-		local vi  = a:index(x - 1, yy, zz)
-		for xx = x - 1, x + 1 do
-			local nodid = data[vi]
-			if nodid == c_snow or nodid == c_snowblock or nodid == c_dirtsnow then
-				return true
-			end
-			vi  = vi + 1
-		end
-	end
-	end
-
-	return false
+	return #minetest.find_nodes_in_area(
+		{x = pos.x - 1, y = pos.y - 1, z = pos.z - 1},
+		{x = pos.x + 1, y = pos.y + 1, z = pos.z + 1},
+		{"default:snow", "default:snowblock", "default:dirt_with_snow"}) > 0
 end
 
 
 -- Sapling ABM
 
-minetest.register_abm({
-	nodenames = {"default:sapling", "default:junglesapling",
-		"default:pine_sapling", "default:acacia_sapling",
-		"default:aspen_sapling"},
-	interval = 10,
-	chance = 50,
-	action = function(pos, node)
-		if not default.can_grow(pos) then
-			return
-		end
+function default.grow_sapling(pos)
+	if not default.can_grow(pos) then
+		-- try a bit later again
+		minetest.get_node_timer(pos):start(math.random(240, 600))
+		return
+	end
 
-		local mapgen = minetest.get_mapgen_params().mgname
-		if node.name == "default:sapling" then
-			minetest.log("action", "A sapling grows into a tree at "..
-				minetest.pos_to_string(pos))
-			if mapgen == "v6" then
-				default.grow_tree(pos, random(1, 4) == 1)
-			else
-				default.grow_new_apple_tree(pos)
-			end
-		elseif node.name == "default:junglesapling" then
-			minetest.log("action", "A jungle sapling grows into a tree at "..
-				minetest.pos_to_string(pos))
-			if mapgen == "v6" then
-				default.grow_jungle_tree(pos)
-			else
-				default.grow_new_jungle_tree(pos)
-			end
-		elseif node.name == "default:pine_sapling" then
-			minetest.log("action", "A pine sapling grows into a tree at "..
-				minetest.pos_to_string(pos))
-			local snow = is_snow_nearby(pos)
-			if mapgen == "v6" then
-				default.grow_pine_tree(pos, snow)
-			elseif snow then
-				default.grow_new_snowy_pine_tree(pos)
-			else
-				default.grow_new_pine_tree(pos)
-			end
-		elseif node.name == "default:acacia_sapling" then
-			minetest.log("action", "An acacia sapling grows into a tree at "..
-				minetest.pos_to_string(pos))
-			default.grow_new_acacia_tree(pos)
-		elseif node.name == "default:aspen_sapling" then
-			minetest.log("action", "An aspen sapling grows into a tree at "..
-				minetest.pos_to_string(pos))
-			default.grow_new_aspen_tree(pos)
+	local mg_name = minetest.get_mapgen_setting("mg_name")
+	local node = minetest.get_node(pos)
+	if node.name == "default:sapling" then
+		minetest.log("action", "A sapling grows into a tree at "..
+			minetest.pos_to_string(pos))
+		if mg_name == "v6" then
+			default.grow_tree(pos, random(1, 4) == 1)
+		else
+			default.grow_new_apple_tree(pos)
 		end
+	elseif node.name == "default:junglesapling" then
+		minetest.log("action", "A jungle sapling grows into a tree at "..
+			minetest.pos_to_string(pos))
+		if mg_name == "v6" then
+			default.grow_jungle_tree(pos)
+		else
+			default.grow_new_jungle_tree(pos)
+		end
+	elseif node.name == "default:pine_sapling" then
+		minetest.log("action", "A pine sapling grows into a tree at "..
+			minetest.pos_to_string(pos))
+		local snow = is_snow_nearby(pos)
+		if mg_name == "v6" then
+			default.grow_pine_tree(pos, snow)
+		elseif snow then
+			default.grow_new_snowy_pine_tree(pos)
+		else
+			default.grow_new_pine_tree(pos)
+		end
+	elseif node.name == "default:acacia_sapling" then
+		minetest.log("action", "An acacia sapling grows into a tree at "..
+			minetest.pos_to_string(pos))
+		default.grow_new_acacia_tree(pos)
+	elseif node.name == "default:aspen_sapling" then
+		minetest.log("action", "An aspen sapling grows into a tree at "..
+			minetest.pos_to_string(pos))
+		default.grow_new_aspen_tree(pos)
+	end
+end
+
+minetest.register_lbm({
+	name = "default:convert_saplings_to_node_timer",
+	nodenames = {"default:sapling", "default:junglesapling",
+			"default:pine_sapling", "default:acacia_sapling",
+			"default:aspen_sapling"},
+	action = function(pos)
+		minetest.get_node_timer(pos):start(math.random(1200, 2400))
 	end
 })
 

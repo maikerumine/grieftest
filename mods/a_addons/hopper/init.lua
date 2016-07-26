@@ -46,7 +46,8 @@ minetest.register_node("hopper:hopper", {
 
 		local inv = minetest.get_meta(pos):get_inventory()
 
-		inv:set_size("main", 4*4)
+		--inv:set_size("main", 4*4)
+		inv:set_size("main", 1*5)
 	end,
 
 	can_dig = function(pos, player)
@@ -123,7 +124,8 @@ minetest.register_node("hopper:hopper_side", {
 
 		local inv = minetest.get_meta(pos):get_inventory()
 
-		inv:set_size("main", 4*4)
+		--inv:set_size("main", 4*4)
+		inv:set_size("main", 1*5)
 	end,
 
 	can_dig = function(pos, player)

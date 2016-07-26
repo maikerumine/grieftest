@@ -181,6 +181,13 @@ minetest.register_craftitem("default:coal_lump", {
 	stack_max = 64,
 })
 
+--Charcoal :)
+minetest.register_craftitem("default:charcoal", {
+	description = "Charcoal",
+	inventory_image = "charcoal.png",
+	groups = {coal = 1},
+	stack_max = 64,
+})
 
 minetest.register_alias("default:iron_lump", "default:stone_with_iron")
 --minetest.register_craftitem("default:stone_with_iron", {

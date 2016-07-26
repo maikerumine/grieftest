@@ -8,6 +8,7 @@
 
 
 
+
 mobs:register_mob("mobs_mc:creeper", {
 	type = "monster",
 	hp_max = 50,
@@ -98,6 +99,13 @@ mobs:register_mob("mobs_mc:creeper", {
 	light_damage = 0,
 	view_range = 16,
 	attack_type = "explode",
+	
+	--[[
+		on_die =function(self, pos)
+		tnt = minetest.add_entity(self.object:getpos(), ":tnt:boom")
+			ent = tnt:get_luaentity()
+			end
+			]]
 })
 mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
 

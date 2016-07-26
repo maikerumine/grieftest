@@ -58,8 +58,15 @@ stairs.register_stair_and_slab(
 )
 
 
--- Crafting
+-- Crafting / Cooking
+minetest.register_craft({
+	type = "cooking",
+	output = "nether:brick",
+	recipe = "nether:rack",
+})
 
+
+--[[
 minetest.register_craft({
 	output = "nether:brick 4",
 	recipe = {
@@ -67,13 +74,4 @@ minetest.register_craft({
 		{"nether:rack", "nether:rack"},
 	}
 })
---[[
-minetest.register_craft({
-	output = "nether:fence_nether_brick 6",
-	recipe = {
-		{"nether:brick", "nether:brick", "nether:brick"},
-		{"nether:brick", "nether:brick", "nether:brick"},
-	},
-})
-
 ]]
