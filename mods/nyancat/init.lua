@@ -1,12 +1,12 @@
 
 --maikerumine added particles and light
 minetest.register_abm({
-	nodenames = {"nyancat:nyancat","nyancat:nyancat_rainbow"},
-	interval = 1,
+	nodenames = {"nyancat:nyancat_rainbow"},
+	interval = 10,
 	chance = 2,
 	action = function(pos, node)
 		minetest.add_particlespawner(
-			16, --amount
+			3, --amount was 16
 			4, --time
 			{x=pos.x-0.5, y=pos.y-0.5, z=pos.z-0.5}, --minpos
 			{x=pos.x+0.5, y=pos.y+0.5, z=pos.z+0.5}, --maxpos
@@ -25,19 +25,180 @@ minetest.register_abm({
 	end,
 })
 
+minetest.register_abm({
+	nodenames = {"nyancat:nyancat"},
+	interval = 10,
+	chance = 2,
+	action = function(pos, node)
+		minetest.add_particlespawner(
+			1, --amount was16
+			4, --time
+			{x=pos.x-0.5, y=pos.y-0.5, z=pos.z-0.5}, --minpos
+			{x=pos.x+0.5, y=pos.y+0.5, z=pos.z+0.5}, --maxpos
+			{x=-0.5, y=-0.5, z=-0.5}, --minvel
+			{x=0.5, y=0.5, z=0.5}, --maxvel
+			{x=0,y=0,z=0}, --minacc
+			{x=0,y=0,z=0}, --maxacc
+			0.5, --minexptime
+			3, --maxexptime
+			1, --minsize
+			2, --maxsize
+			false, --collisiondetection
+			--"nether_particle.png" --texture
+			"nyancat_front.png" --texture
+		)
+	end,
+})
+
+
+--Stationary Liquid code
+minetest.register_node("nyancat:nyancat", {
+	description = "Nyan Cat",
+	drawtype = "liquid",
+	tiles = {"nyancat_side.png", "nyancat_side.png", "nyancat_side.png",
+		"nyancat_side.png", "nyancat_back.png", "nyancat_front.png"},
+		
+	special_tiles = {"nyancat_side.png", "nyancat_side.png", "nyancat_side.png",
+		"nyancat_side.png", "nyancat_back.png", "nyancat_front.png"},
+	alpha = 230,
+	paramtype2 = "facedir",
+	paramtype = "light",
+	light_source = default.LIGHT_MAX - 1,
+	sunlight_propagates = true,
+	walkable = true,
+	--climbable = true,
+	is_ground_content = false,
+	drop = "nyancat:nyancat",
+	drowning = 0,
+	liquidtype = "",
+	liquid_alternative_flowing = "nyancat:nyancat",
+	liquid_alternative_source = "nyancat:nyancat",
+	liquid_viscosity = 15,
+	post_effect_color = {a = 244, r = 190, g = 20, b = 70},
+	groups = {cracky = 2},
+	is_ground_content = false,
+	legacy_facedir_simple = true,
+	iquid_renewable = false,
+	liquid_range = 0,
+	sounds = default.node_sound_glass_defaults(),
+})
+
+minetest.register_node("nyancat:nyancat_rainbow", {
+	description = "Nyan Cat Rainbow",
+	drawtype = "liquid",
+	tiles = {
+		"nyancat_rainbow.png^[transformR90",
+		"nyancat_rainbow.png^[transformR90",
+		"nyancat_rainbow.png"
+	},
+		
+	special_tiles = {
+		"nyancat_rainbow.png^[transformR90",
+		"nyancat_rainbow.png^[transformR90",
+		"nyancat_rainbow.png"
+	},
+	alpha = 230,
+	paramtype2 = "facedir",
+	paramtype = "light",
+	light_source = default.LIGHT_MAX - 1,
+	sunlight_propagates = true,
+	walkable = true,
+	--climbable = true,
+	is_ground_content = false,
+	drop = "nyancat:nyancat_rainbow",
+	drowning = 0,
+	liquidtype = "",
+	liquid_alternative_flowing = "nyancat:nyancat_rainbow",
+	liquid_alternative_source = "nyancat:nyancat_rainbow",
+	liquid_viscosity = 15,
+	post_effect_color = {a = 244, r = 190, g = 20, b = 70},
+	groups = {cracky = 2},
+	is_ground_content = false,
+	legacy_facedir_simple = true,
+	iquid_renewable = false,
+	liquid_range = 0,
+	sounds = default.node_sound_glass_defaults(),
+})
 
 
 
 
+--Flowing water code
+--[[
+minetest.register_node("nyancat:nyancat", {
+	description = "Nyan Cat",
+	drawtype = "liquid",
+	tiles = {"nyancat_side.png", "nyancat_side.png", "nyancat_side.png",
+		"nyancat_side.png", "nyancat_back.png", "nyancat_front.png"},
+		
+	special_tiles = {"nyancat_side.png", "nyancat_side.png", "nyancat_side.png",
+		"nyancat_side.png", "nyancat_back.png", "nyancat_front.png"},
+	alpha = 160,
+	paramtype2 = "facedir",
+	paramtype = "light",
+	walkable = true,
+	pointable = true,
+	diggable = true,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "nyancat:nyancat",
+	drowning = 0,
+	liquidtype = "source",
+	liquid_alternative_flowing = "nyancat:nyancat_rainbow",
+	liquid_alternative_source = "nyancat:nyancat",
+	liquid_viscosity = 1,
+	post_effect_color = {a = 103, r = 90, g = 60, b = 30},
+	groups = {cracky = 2},
+	is_ground_content = false,
+	legacy_facedir_simple = true,
+	sounds = default.node_sound_defaults(),
+})
+
+minetest.register_node("nyancat:nyancat_rainbow", {
+	description = "Nyan Cat Rainbow",
+	--drawtype = "liquid",
+	drawtype = "flowingliquid",
+	tiles = {
+		"nyancat_rainbow.png^[transformR90",
+		"nyancat_rainbow.png^[transformR90",
+		"nyancat_rainbow.png"
+	},
+		
+	special_tiles = {
+		"nyancat_rainbow.png^[transformR90",
+		"nyancat_rainbow.png^[transformR90",
+		"nyancat_rainbow.png"
+	},
+	alpha = 160,
+	paramtype2 = "facedir",
+	paramtype = "light",
+	walkable = true,
+	pointable = true,
+	diggable = true,
+	buildable_to = true,
+	is_ground_content = false,
+	drop = "nyancat:nyancat_rainbow",
+	drowning = 0,
+	liquidtype = "flowing",
+	liquid_alternative_flowing = "nyancat:nyancat_rainbow",
+	liquid_alternative_source = "nyancat:nyancat",
+	liquid_viscosity = 1,
+	post_effect_color = {a = 103, r = 90, g = 60, b = 30},
+	groups = {cracky = 2},
+	is_ground_content = false,
+	legacy_facedir_simple = true,
+	sounds = default.node_sound_defaults(),
+})
+]]
+
+
+--Good code
+--[[
 minetest.register_node("nyancat:nyancat", {
 	description = "Nyan Cat",
 	tiles = {"nyancat_side.png", "nyancat_side.png", "nyancat_side.png",
 		"nyancat_side.png", "nyancat_back.png", "nyancat_front.png"},
 	paramtype2 = "facedir",
-	
-	drawtype = "liquid",
-	light_source = default.LIGHT_MAX - 1,
-	
 	groups = {cracky = 2},
 	is_ground_content = false,
 	legacy_facedir_simple = true,
@@ -52,14 +213,15 @@ minetest.register_node("nyancat:nyancat_rainbow", {
 		"nyancat_rainbow.png"
 	},
 	paramtype2 = "facedir",
-	
-	drawtype = "liquid",
-	light_source = default.LIGHT_MAX - 1,
-	
 	groups = {cracky = 2},
 	is_ground_content = false,
 	sounds = default.node_sound_defaults(),
 })
+]]
+
+
+
+
 
 minetest.register_craft({
 	type = "fuel",
