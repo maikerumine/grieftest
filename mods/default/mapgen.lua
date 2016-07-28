@@ -39,7 +39,15 @@ minetest.register_alias("mapgen_stair_sandstonebrick", "stairs:stair_sandstonebr
 
 --maikerumine
 minetest.register_alias("default:stone_with_copper", "default:stone_with_iron")
-minetest.register_alias("nether:bedrock", "default:bedrock")
+minetest.register_alias("default:bedrock", "default:bedrock")
+
+
+local NETHER_DEPTH = -3100
+local NETHER_AMBIENT = 7
+local nether_created = false
+
+
+
 
 --
 -- Register ores
@@ -68,7 +76,7 @@ minetest.register_ore({
 		clust_scarcity = 25*25*20,
 		clust_num_ores = 2,
 		clust_size     = 2,
-		y_min          = -31000,
+		y_min          = -80,
 		y_max          = 1140,
 	})
 
@@ -92,7 +100,7 @@ minetest.register_ore({
 		clust_scarcity = 6 * 6 * 6,
 		clust_num_ores = 9,
 		clust_size     = 6,
-		y_min          = -31000,
+		y_min          = -80,
 		y_max          = 200,
 	})
 
@@ -104,7 +112,7 @@ minetest.register_ore({
 		clust_scarcity = 6 * 6 * 7,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		y_min          = -150,
+		y_min          = -80,
 		y_max          = 200,
 	})
 
@@ -116,7 +124,7 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 1,
 	clust_size     = 3,
-	height_min     = -31000,
+	height_min     = -80,
 	height_max     = 50,
 	noise_threshhold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=150, y=150, z=150}, seed=23, octaves=3, persist=0.70}
@@ -129,7 +137,7 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 1,
 	clust_size     = 4,
-	height_min     = -31000,
+	height_min     = -80,
 	height_max     = 50,
 	noise_threshhold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
@@ -234,7 +242,7 @@ minetest.register_ore({
 		clust_scarcity = 15*15*10,
 		clust_num_ores = 2,
 		clust_size     = 2,
-		y_min          = -20000,
+		y_min          = -62,
 		y_max          = 2140,
 	})
 
@@ -564,7 +572,7 @@ minetest.register_ore({
 		    clust_scarcity = 14*14*14,
 		    clust_num_ores = 2,
 		    clust_size     = 4,
-		    height_min     = -60,
+		    height_min     = -70,
 		    height_max     = -44,
 	})
 	
@@ -609,7 +617,7 @@ minetest.register_ore({
 			"default:desert_stone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_min           = -31000,
+		y_min           = -70,
 		y_max           = 4,
 		noise_threshold = 0.0,
 		noise_params    = {
@@ -630,7 +638,7 @@ minetest.register_ore({
 		wherein         = {"default:stone", "default:sandstone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_min           = -31000,
+		y_min           = -70,
 		y_max           = 31000,
 		noise_threshold = 0.0,
 		noise_params    = {
@@ -651,7 +659,7 @@ minetest.register_ore({
 		wherein         = {"default:stone"},
 		clust_scarcity  = 16 * 16 * 16,
 		clust_size      = 5,
-		y_min           = -31000,
+		y_min           = -62,
 		y_max           = 31000,
 		noise_threshold = 0.0,
 		noise_params    = {
@@ -673,7 +681,7 @@ minetest.register_ore({
 		clust_scarcity = 8 * 8 * 8,
 		clust_num_ores = 8,
 		clust_size     = 3,
-		y_min          = -31000,
+		y_min          = -70,
 		y_max          = 64,
 	})
 
@@ -684,7 +692,7 @@ minetest.register_ore({
 		clust_scarcity = 24 * 24 * 24,
 		clust_num_ores = 27,
 		clust_size     = 6,
-		y_min          = -31000,
+		y_min          = -70,
 		y_max          = 0,
 	})
 --orig def
@@ -719,7 +727,7 @@ minetest.register_ore({
 		clust_scarcity = 7 * 7 * 7,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_min          = -31000,
+		y_min          = -70,
 		y_max          = -64,
 	})
 
@@ -730,7 +738,7 @@ minetest.register_ore({
 		clust_scarcity = 24 * 24 * 24,
 		clust_num_ores = 27,
 		clust_size     = 6,
-		y_min          = -31000,
+		y_min          = -70,
 		y_max          = -64,
 	})
 
@@ -743,7 +751,7 @@ minetest.register_ore({
 		clust_scarcity = 18 * 18 * 18,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		y_min          = -255,
+		y_min          = -70,
 		y_max          = -64,
 	})
 
@@ -754,8 +762,8 @@ minetest.register_ore({
 		clust_scarcity = 14 * 14 * 14,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_min          = -31000,
-		y_max          = -256,
+		y_min          = -70,
+		y_max          = -56,
 	})
 
 	minetest.register_ore({
@@ -765,8 +773,8 @@ minetest.register_ore({
 		clust_scarcity = 36 * 36 * 36,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		y_min          = -31000,
-		y_max          = -1024,
+		y_min          = -70,
+		y_max          = -60,
 	})
 
 	-- Gold
@@ -778,7 +786,7 @@ minetest.register_ore({
 		clust_scarcity = 15 * 15 * 15,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		y_min          = -255,
+		y_min          = -70,
 		y_max          = -64,
 	})
 
@@ -789,8 +797,8 @@ minetest.register_ore({
 		clust_scarcity = 13 * 13 * 13,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_min          = -31000,
-		y_max          = -256,
+		y_min          = -70,
+		y_max          = -56,
 	})
 
 	-- Diamond
@@ -802,8 +810,8 @@ minetest.register_ore({
 		clust_scarcity = 17 * 17 * 17,
 		clust_num_ores = 4,
 		clust_size     = 3,
-		y_min          = -255,
-		y_max          = -128,
+		y_min          = -70,
+		y_max          = -28,
 	})
 
 	minetest.register_ore({
@@ -813,8 +821,8 @@ minetest.register_ore({
 		clust_scarcity = 15 * 15 * 15,
 		clust_num_ores = 4,
 		clust_size     = 3,
-		y_min          = -31000,
-		y_max          = -256,
+		y_min          = -70,
+		y_max          = -56,
 	})
 
 	-- Copper
@@ -837,14 +845,143 @@ minetest.register_ore({
 		clust_scarcity = 9 * 9 * 9,
 		clust_num_ores = 5,
 		clust_size     = 3,
-		y_min          = -31000,
+		y_min          = -70,
 		y_max          = -64,
 	})
 
-	--nether defs
+	
+--NETHER GENERATION	
+--nether defs
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:rack_with_diamond",
+		wherein        = {"default:lava_source","default:rack","default:stone"},
+		clust_scarcity = 14 * 14 * 14,
+		clust_num_ores = 12,
+		clust_size     = 5,
+		y_min           = -3390,
+		y_max           = -3130,
+	})
+	
+	minetest.register_ore({
+	    ore_type       = "scatter",
+	    ore            = "default:quartz_ore",
+	    --wherein        = "default:rack",
+	    wherein        = {"default:rack","default:stone"},
+	    clust_scarcity = 10*10*10,
+	    clust_num_ores = 6,
+	    clust_size     = 5,
+	    height_min     = -3390,
+	    height_max     = -3000,
+	    --height_max     = NETHER_DEPTH,
+	})
+
+	-- Slow Sand
+
+	minetest.register_ore({
+		ore_type        = "blob",
+		ore             = "default:slowsand",
+		wherein         = {"default:rack", "default:lava_source",
+			"default:desert_stone"},
+		clust_scarcity  = 13 * 13 * 13,
+		clust_size      = 5,
+		y_min           = -3390,
+		y_max           = -3000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.1,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 2316,
+			octaves = 1,
+			persist = 0.0
+		},
+	})
+
+	-- Glowstone
+
+	minetest.register_ore({
+		ore_type        = "blob",
+		ore             = "default:glowstone",
+		wherein         = {"default:rack", "air"},
+		clust_scarcity  = 26 * 26 * 26,
+		clust_size      = 5,
+		y_min           = -3390,
+		y_max           = -3000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.1,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 17676,
+			octaves = 1,
+			persist = 0.0
+		},
+	})
+
+	-- Gravel
+
+	minetest.register_ore({
+		ore_type        = "blob",
+		ore             = "default:gravel",
+		wherein         = {"default:rack"},
+		clust_scarcity  = 16 * 16 * 16,
+		clust_size      = 5,
+		y_min           = -3390,
+		y_max           = -3000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.2,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 766,
+			octaves = 1,
+			persist = 0.0
+		},
+	})
+
+	--Lava
+	
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:lava_source",
+		wherein        = "default:rack",
+		clust_scarcity =12 *12 * 12,
+		clust_num_ores = 2,
+		clust_size     = 2,
+		y_min           = -3390,
+		y_max           = -3000,
+	})	
+	
+	
+	--Fire
+	
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "fire:permanent_flame",
+		wherein        = "default:rack",
+		clust_scarcity =12 *22 * 12,
+		clust_num_ores = 5,
+		clust_size     = 5,
+		y_min           = -3390,
+		y_max           = -3000,
+	})
 
 
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "default:nitherbrick",
+	wherein        ={"default:rack"},
+	clust_scarcity = 1,
+	clust_num_ores = 12,
+	clust_size     = 10,
+	height_min     = -3050,
+	height_max     = -4000,
+	noise_threshhold = 0.2,
+	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
+})
 
+	
 end
 --
 -- Register biomes
@@ -887,7 +1024,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = -9,
 		heat_point = 0,
 		humidity_point = 50,
@@ -943,7 +1080,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = -4,
 		heat_point = 15,
 		humidity_point = 35,
@@ -980,7 +1117,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = 1,
 		heat_point = 15,
 		humidity_point = 65,
@@ -1036,7 +1173,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = 4,
 		heat_point = 40,
 		humidity_point = 35,
@@ -1091,7 +1228,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = 4,
 		heat_point = 40,
 		humidity_point = 65,
@@ -1146,7 +1283,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = 4,
 		heat_point = 60,
 		humidity_point = 35,
@@ -1201,7 +1338,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = -4,
 		heat_point = 60,
 		humidity_point = 65,
@@ -1258,7 +1395,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = 4,
 		heat_point = 85,
 		humidity_point = 20,
@@ -1313,7 +1450,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = -4,
 		heat_point = 85,
 		humidity_point = 50,
@@ -1368,20 +1505,56 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -112,
+		y_min = -82,
 		y_max = -4,
 		heat_point = 85,
 		humidity_point = 80,
 	})
 
 	-- Underground
-
+	--MAPGEN REALMS
+	minetest.register_biome({
+		name = "dropzone",
+		--node_dust = "",
+		--node_top = "",
+		--depth_top = 1,
+		--node_filler = "default:dummy",
+		--depth_filler = 3,
+		node_stone =  "default:dummy",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -2974,
+		y_max = -82,
+		heat_point = 50,
+		humidity_point = 50,
+	})
+	
+		minetest.register_biome({
+		name = "airworld",
+		--node_dust = "",
+		--node_top = "",
+		--depth_top = 1,
+		--node_filler = "air",
+		--depth_filler = 3,
+		node_stone =  "air",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -2979,
+		y_max = -2975,
+		heat_point = 50,
+		humidity_point = 50,
+	})
+	
 	minetest.register_biome({
 		name = "void",
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
-		node_filler = "default:bedrock",
+		--node_filler = "default:bedrock",
 		--depth_filler = ,
 		node_stone =  "default:bedrock",
 		--node_water_top = "",
@@ -1389,63 +1562,43 @@ function default.register_biomes()
 		--node_water = "",
 		--node_river_water = "",
 		y_min = -3000,
-		y_max = -200,
+		y_max = -2980,
 		heat_point = 50,
 		humidity_point = 50,
 	})
---[[	
+
 	minetest.register_biome({
 		name = "underground",
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
-		--node_filler = "nether:rack",
+		--node_filler = "default:rack",
 		--depth_filler = ,
-		--node_stone =  "nether:rack",
+		node_stone =  "default:rack",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -3300,
-		y_max = -3113,
+		y_min = -3330,
+		y_max = -3001,
 		heat_point = 50,
 		humidity_point = 50,
 	})
-]]
 
---[[
-		minetest.register_biome({
-		name = "Nunderground",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		node_filler = "nether:rack",
-		--depth_filler = ,
-		node_stone =  "nether:rack",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -4500,
-		y_max = -2501,
-		heat_point = 50,
-		humidity_point = 50,
-	})
-]]
 	minetest.register_biome({
 		name = "lava",
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
-		node_filler = "default:lava_source",
+		--node_filler = "default:lava_source",
 		--depth_filler = ,
 		node_stone =  "default:lava_source",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -4800,
-		y_max = -4701,
+		y_min = -3399,
+		y_max = -3331,
 		heat_point = 50,
 		humidity_point = 50,
 	})
@@ -1455,19 +1608,38 @@ function default.register_biomes()
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
-		node_filler = "default:bedrock",
+		--node_filler = "default:bedrock",
 		--depth_filler = ,
 		node_stone =  "default:bedrock",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -6050,
-		y_max = -4801,
+		y_min = -3420,
+		y_max = -3400,
 		heat_point = 50,
 		humidity_point = 50,
 	})
 
+	minetest.register_biome({
+		name = "airworldlow",
+		--node_dust = "",
+		--node_top = "",
+		--depth_top = ,
+		--node_filler = "default:dummy",
+		--depth_filler = ,
+		node_stone =  "default:dummy",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -5000,
+		y_max = -3421,
+		heat_point = 50,
+		humidity_point = 50,
+	})	
+	
+	
 end
 
 
@@ -1979,60 +2151,55 @@ function default.register_decorations()
 		y_max = 31000,
 		decoration = "default:dry_shrub",
 	})
+	
+	--Nether Decorations
+	--Red Mushroom
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = {"default:rack"},
+		sidelen = 80,
+		fill_ratio = 0.4,
+		biomes = {"underground"},
+		y_min = -6000,
+		y_max = 31000,
+		decoration = "flowers:mushroom_red",
+	})
+	--Brown Mushroom
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = {"default:rack"},
+		sidelen = 80,
+		fill_ratio = 0.3,
+		biomes = {"underground"},
+		y_min = -6000,
+		y_max = 31000,
+		decoration = "flowers:mushroom_brown",
+	})
+	--Fire
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = {"default:rack"},
+		sidelen = 8,
+		fill_ratio = 0.9,
+		biomes = {"underground"},
+		y_min = -6000,
+		y_max = 31000,
+		decoration = "fire:permanent_flame",
+	})
+	--Wart
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = {"default:slowsand"},
+		sidelen = 80,
+		fill_ratio = 0.1,
+		biomes = {"underground"},
+		y_min = -6000,
+		y_max = 31000,
+		decoration = "default:wart",
+	})
+	
+	
 end
-
---[[  --removed 20160718
---
--- Generate nyan cats
---
-
--- All mapgens except singlenode
-
-function default.make_nyancat(pos, facedir, length)
-	local tailvec = {x = 0, y = 0, z = 0}
-	if facedir == 0 then
-		tailvec.z = 1
-	elseif facedir == 1 then
-		tailvec.x = 1
-	elseif facedir == 2 then
-		tailvec.z = -1
-	elseif facedir == 3 then
-		tailvec.x = -1
-	else
-		facedir = 0
-		tailvec.z = 1
-	end
-	local p = {x = pos.x, y = pos.y, z = pos.z}
-	minetest.set_node(p, {name = "default:nyancat", param2 = facedir})
-	for i = 1, length do
-		p.x = p.x + tailvec.x
-		p.z = p.z + tailvec.z
-		minetest.set_node(p, {name = "default:nyancat_rainbow", param2 = facedir})
-	end
-end
-
-function default.generate_nyancats(minp, maxp, seed)
-	local height_min = -31000
-	local height_max = -32
-	if maxp.y < height_min or minp.y > height_max then
-		return
-	end
-	local y_min = math.max(minp.y, height_min)
-	local y_max = math.min(maxp.y, height_max)
-	local volume = (maxp.x - minp.x + 1) * (y_max - y_min + 1) * (maxp.z - minp.z + 1)
-	local pr = PseudoRandom(seed + 9324342)
-	local max_num_nyancats = math.floor(volume / (16 * 16 * 16))
-	for i = 1, max_num_nyancats do
-		if pr:next(0, 1000) == 0 then
-			local x0 = pr:next(minp.x, maxp.x)
-			local y0 = pr:next(minp.y, maxp.y)
-			local z0 = pr:next(minp.z, maxp.z)
-			local p0 = {x = x0, y = y0, z = z0}
-			default.make_nyancat(p0, pr:next(0, 3), pr:next(3, 15))
-		end
-	end
-end
-]]
 
 --
 -- Detect mapgen to select functions
@@ -2045,12 +2212,10 @@ local mg_params = minetest.get_mapgen_params()
 if mg_params.mgname == "v6" then
 	default.register_ores()
 	default.register_mgv6_decorations()
-	--minetest.register_on_generated(default.generate_nyancats)
 elseif mg_params.mgname ~= "singlenode" then
 	default.register_biomes()
 	default.register_ores()
 	default.register_decorations()
-	--minetest.register_on_generated(default.generate_nyancats)
 end
 
 
@@ -2101,69 +2266,13 @@ replace("default:desert_stone_with_iron", "default:bedrock",  -80, -64)
 replace("default:granite", "default:bedrock", -80, -64)
 replace("default:marble", "default:bedrock", -80, -64)
 replace("hardenedclay:hardened_clay_brown", "default:bedrock", -80, -64)
---[[
---the -3060test
---replace("air", "air", -2000, -81)
---replace("air", "air", -2000, -81)
-replace("default:stone", "air", -3060, -81)
-replace("default:gravel", "air",-3060, -81)
-replace("default:dirt", "air", -3060, -81)
-replace("default:sand", "air", -3060, -81)
-replace("default:cobble", "air", -3060, -81)
-replace("default:desert_cobble", "air", -3060, -81)
-replace("default:mossycobble", "air",-3060, -81)
-replace("stairs:stair_cobble", "air", -3060, -81)
-replace("default:lava_source", "air",-3060, -81)
-replace("default:lava_flowing", "air", -3060, -81)
-replace("default:water_source", "air", -3060, -81)
-replace("default:water_flowing", "air", -3060, -81)
-replace("default:sandstone", "air", -3060, -81)
-replace("default:desert_stone", "air", -3060, -81)
-replace("default:desert_sand", "air", -3060, -81)
-replace("default:mese", "air", -3060, -81)
-replace("default:stone_with_gold", "air", -3060, -81)
-replace("default:stone_with_diamond", "air", -3060, -81)
-replace("default:stone_with_iron", "air", -3060, -81)
-replace("default:stone_with_mese", "air", -3060, -81)
-replace("default:stone_with_coal", "air", -3060, -81)
-replace("default:desert_stone_with_iron", "air", -3060, -81)
-replace("default:granite", "air", -3060, -81)
-replace("default:marble", "air", -3060, -81)
-replace("nether:rack", "default:bedrock", -3060, -81)
-replace("default:desert_stone_with_coal", "air", -3060, -81)
-replace("hardenedclay:hardened_clay_brown", "air", -3060, -81)
 
 
---the nether ceiling test
-replace("default:stone", "default:bedrock", -3072, -3060)
-replace("air", "default:bedrock", -3072, -3060)
-replace("default:gravel", "default:bedrock",-3072, -3060)
-replace("default:dirt", "default:bedrock", -3072, -3060)
-replace("default:sand", "default:bedrock",-3072, -3060)
-replace("default:cobble", "default:bedrock", -3072, -3060)
-replace("default:desert_cobble", "default:bedrock",-3072, -3060)
-replace("default:mossycobble", "default:bedrock",-3072, -3060)
-replace("stairs:stair_cobble", "default:bedrock", -3072, -3060)
-replace("default:lava_source", "default:bedrock",-3072, -3060)
-replace("default:lava_flowing", "default:bedrock", -3072, -3060)
-replace("default:water_source", "default:bedrock", -3072, -3060)
-replace("default:water_flowing", "default:bedrock", -3072, -3060)
-replace("default:sandstone", "default:bedrock",-3072, -3060)
-replace("default:desert_stone", "default:bedrock", -3072, -3060)
-replace("default:desert_sand", "default:bedrock", -3072, -3060)
-replace("default:mese", "default:bedrock",-3072, -3060)
-replace("default:stone_with_gold", "default:bedrock",-3072, -3060)
-replace("default:stone_with_diamond", "default:bedrock",-3072, -3060)
-replace("default:stone_with_iron", "default:bedrock", -3072, -3060)
-replace("default:stone_with_mese", "default:bedrock", -3072, -3060)
-replace("default:stone_with_coal", "default:bedrock",-3072, -3060)
-replace("default:desert_stone_with_iron", "default:bedrock", -3072, -3060)
-replace("default:granite", "default:bedrock", -3072, -3060)
-replace("default:marble", "default:bedrock", -3072, -3060)
-replace("nether:rack", "default:bedrock", -3072, -3060)
-replace("default:desert_stone_with_coal", "default:bedrock", -3072, -3060)
-replace("hardenedclay:hardened_clay_brown", "default:bedrock",-3072, -3060)
-]]
+--dungeon swap
+replace("default:cobblestone", "default:nitherbrick", -3900, -2400)
+replace("default:mossycobble", "default:nitherbrick", -3900, -2400)
+replace("stairs:stair_cobble", "stairs:stair_nitherbrick", -3900, -2400)
+replace("stairs:stair_mossycobble", "stairs:stair_nitherbrick", -3900, -2400)
 
 
 local function bedrock(old)
@@ -2193,3 +2302,205 @@ bedrock("default:lava_source")
 bedrock("default:lava_flowing")
 bedrock("default:water_source")
 bedrock("default:water_flowing")
+
+
+--[[
+--paramats cavegen
+--hacked by maikerumine
+
+
+--params
+local TCAVE = 0.6
+local BLEND = 128
+
+-- 3D noise
+
+local np_cave = {
+	offset = 0,
+	scale = 1,
+	spread = {x = 384, y = 128, z = 384}, -- squashed 3:1
+	seed = 59033,
+	octaves = 5,
+	persist = 0.7
+}
+
+-- Stuff
+
+local yblmax = NETHER_DEPTH - BLEND * 2
+
+
+-- Mapgen
+
+-- Initialize noise object and localise noise buffer
+
+local nobj_cave = nil
+local nbuf_cave
+
+
+-- Content ids
+
+local c_air = minetest.get_content_id("air")
+
+local c_stone_with_coal = minetest.get_content_id("default:stone_with_coal")
+local c_stone_with_iron = minetest.get_content_id("default:stone_with_iron")
+local c_stone_with_mese = minetest.get_content_id("default:stone_with_mese")
+local c_stone_with_diamond = minetest.get_content_id("default:stone_with_diamond")
+local c_stone_with_gold = minetest.get_content_id("default:stone_with_gold")
+local c_stone_with_copper = minetest.get_content_id("default:stone_with_copper")
+local c_mese = minetest.get_content_id("default:mese")
+
+local c_gravel = minetest.get_content_id("default:gravel")
+local c_dirt = minetest.get_content_id("default:dirt")
+local c_sand = minetest.get_content_id("default:sand")
+
+local c_cobble = minetest.get_content_id("default:cobble")
+local c_mossycobble = minetest.get_content_id("default:mossycobble")
+local c_marble = minetest.get_content_id("default:marble")
+local c_granite = minetest.get_content_id("default:granite")
+local c_stair_cobble = minetest.get_content_id("stairs:stair_cobble")
+
+local c_lava_source = minetest.get_content_id("default:lava_source")
+local c_lava_flowing = minetest.get_content_id("default:lava_flowing")
+local c_water_source = minetest.get_content_id("default:water_source")
+local c_water_flowing = minetest.get_content_id("default:water_flowing")
+
+local c_glowstone = minetest.get_content_id("default:glowstone")
+local c_nethersand = minetest.get_content_id("default:slowsand")
+local c_netherbrick = minetest.get_content_id("default:nitherbrick")
+local c_netherrack = minetest.get_content_id("default:rack")
+local c_netherfire = minetest.get_content_id("default:permanent_flame")
+local c_netherdiamond = minetest.get_content_id("default:rack_with_diamond")
+local c_quartz = minetest.get_content_id("default:quartz_ore")
+local c_netherquartz = minetest.get_content_id("default:quartz_ore")
+
+
+
+
+
+
+-- On-generated function
+
+minetest.register_on_generated(function(minp, maxp, seed)
+	if minp.y > NETHER_DEPTH then
+		return
+	end
+
+	local t1 = os.clock()
+
+	local x1 = maxp.x
+	local y1 = maxp.y
+	local z1 = maxp.z
+	local x0 = minp.x
+	local y0 = minp.y
+	local z0 = minp.z
+
+	local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
+	local area = VoxelArea:new{MinEdge = emin, MaxEdge = emax}
+	local data = vm:get_data()
+
+	local x11 = emax.x -- Limits of mapchunk plus mapblock shell
+	local y11 = emax.y
+	local z11 = emax.z
+	local x00 = emin.x
+	local y00 = emin.y
+	local z00 = emin.z
+
+	local ystride = x1 - x0 + 1
+	local zstride = ystride * ystride
+	local chulens = {x = ystride, y = ystride, z = ystride}
+	local minposxyz = {x = x0, y = y0, z = z0}
+
+	nobj_cave = nobj_cave or minetest.get_perlin_map(np_cave, chulens)
+	local nvals_cave = nobj_cave:get3dMap_flat(minposxyz, nbuf_cave)
+
+	for y = y00, y11 do -- Y loop first to minimise tcave calculations
+		local tcave
+		local in_chunk_y = false
+		if y >= y0 and y <= y1 then
+			if y > yblmax then
+				tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2
+			else
+				tcave = TCAVE
+			end
+			in_chunk_y = true
+		end
+
+		for z = z00, z11 do
+			local vi = area:index(x00, y, z) -- Initial voxelmanip index
+			local ni
+			local in_chunk_yz = in_chunk_y and z >= z0 and z <= z1
+
+			for x = x00, x11 do
+				if in_chunk_yz and x == x0 then
+					-- Initial noisemap index
+					ni = (z - z0) * zstride + (y - y0) * ystride + 1
+				end
+				local in_chunk_yzx = in_chunk_yz and x >= x0 and x <= x1 -- In mapchunk
+
+				local id = data[vi] -- Existing node
+				-- Cave air, cave liquids and dungeons are overgenerated,
+				-- convert these throughout mapchunk plus shell
+				if id == c_air or -- Air and liquids to air
+				--		id == c_lava_source or
+				--		id == c_lava_flowing or
+						id == c_water_source or
+						id == c_water_flowing then
+					data[vi] = c_air
+				-- Dungeons are preserved so we don't need
+				-- to check for cavern in the shell
+				elseif id == c_cobble or -- Dungeons (preserved) to netherbrick
+						id == c_mossycobble or
+						id == c_stair_cobble then
+					data[vi] = c_netherbrick
+				end
+
+				if in_chunk_yzx then -- In mapchunk
+					if nvals_cave[ni] > tcave then -- Only excavate cavern in mapchunk
+						data[vi] = c_air
+						
+					elseif id == c_mese then -- Mese block to lava
+						data[vi] = c_lava_source
+					elseif id == c_stone_with_iron then -- Iron block to fire
+						data[vi] = c_netherfire
+					elseif id == c_dirt then --Dirt block to Glowstone
+						data[vi] = c_glowstone
+					elseif id == c_granite then --Dirt block to Glowstone
+						data[vi] = c_netherbrick
+					elseif id == c_stone_with_diamond then --Netherdiamonds
+						data[vi] = c_netherdiamond
+					elseif id ==  c_lava_source then --LAVA!!
+						data[vi] =  c_lava_source
+					elseif id ==  c_quartz then --Quartz
+						data[vi] =  c_quartz
+					elseif id ==  c_netherquartz then --Quartz
+						data[vi] =  c_netherquartz
+					elseif id == c_stone_with_gold or -- Precious ores to glowstone
+						id == c_stone_with_mese then
+						data[vi] = c_glowstone
+					elseif id == c_gravel or -- Blob ore to nethersand
+							id == c_marble or
+							id == c_sand then
+						data[vi] = c_nethersand
+					else -- All else to netherstone
+						data[vi] = c_netherrack
+						
+					end
+
+					ni = ni + 1 -- Only increment noise index in mapchunk
+				end
+
+				vi = vi + 1
+			end
+		end
+	end
+
+	vm:set_data(data)
+	vm:set_lighting({day = 0, night = 0})
+	vm:calc_lighting()
+	vm:update_liquids()
+	vm:write_to_map()
+
+	local chugent = math.ceil((os.clock() - t1) * 1000)
+	print ("[nether] generate chunk " .. chugent .. " ms")
+end)
+]]

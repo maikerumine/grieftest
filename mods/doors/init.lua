@@ -628,10 +628,19 @@ doors.register_fencegate("doors:gate_pine_wood", {
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
 })
 
+
 doors.register_fencegate("doors:gate_aspen_wood", {
 	description = "Aspen Fence Gate",
 	texture = "default_aspen_wood.png",
 	material = "default:aspen_wood",
 	stack_max = 64,
 	groups = {choppy = 2, oddly_breakable_by_hand = 2, flammable = 2}
+})
+
+doors.register_fencegate("doors:gate_nitherbrick", {
+	description = "Nitherbrick Fence Gate",
+	texture = "default_nitherbrick.png",
+	material = "default:nitherbrick",
+	stack_max = 64,
+	groups = {choppy = 2, }
 })

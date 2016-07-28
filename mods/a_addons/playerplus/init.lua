@@ -60,7 +60,7 @@ minetest.register_globalstep(function(dtime)
 			or nod_stand == "nether:sand"
 			-- wading in water? if so walk slower
 			or nod_feet == "default:water_flowing"
-			or nod_feet == "nether:sand"
+			or nod_feet == "default:slowsand"
 			or nod_feet ==  "default:water_source" then
 				pp.speed = pp.speed - 0.6
 			end

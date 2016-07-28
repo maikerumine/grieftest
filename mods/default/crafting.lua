@@ -428,7 +428,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:sandstonebrick 4',
+	output = 'default:sandstonenitherbrick 4',
 	recipe = {
 		{'default:sandstone', 'default:sandstone'},
 		{'default:sandstone', 'default:sandstone'},
@@ -460,22 +460,22 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:brick',
+	output = 'default:nitherbrick',
 	recipe = {
-		{'default:clay_brick', 'default:clay_brick'},
-		{'default:clay_brick', 'default:clay_brick'},
+		{'default:clay_nitherbrick', 'default:clay_nitherbrick'},
+		{'default:clay_nitherbrick', 'default:clay_nitherbrick'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:clay_brick 4',
+	output = 'default:clay_nitherbrick 4',
 	recipe = {
-		{'default:brick'},
+		{'default:nitherbrick'},
 	}
 })
 
 minetest.register_craft({
-	output = 'default:marble_bricks',
+	output = 'default:marble_nitherbricks',
 	recipe = {
 		{"default:marble", "default:marble"},
 		{"default:marble", "default:marble"},
@@ -483,7 +483,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:granite_bricks',
+	output = 'default:granite_nitherbricks',
 	recipe = {
 		{"default:granite", "default:granite"},
 		{"default:granite", "default:granite"},
@@ -582,7 +582,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:obsidianbrick 4',
+	output = 'default:obsidiannitherbrick 4',
 	recipe = {
 		{'default:obsidian', 'default:obsidian'},
 		{'default:obsidian', 'default:obsidian'}
@@ -599,7 +599,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:stonebrick 4',
+	output = 'default:stonenitherbrick 4',
 	recipe = {
 		{'default:stone', 'default:stone'},
 		{'default:stone', 'default:stone'},
@@ -616,7 +616,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:desert_stonebrick 4',
+	output = 'default:desert_stonenitherbrick 4',
 	recipe = {
 		{'default:desert_stone', 'default:desert_stone'},
 		{'default:desert_stone', 'default:desert_stone'},
@@ -736,7 +736,7 @@ minetest.register_craft({
 
 minetest.register_craft({
 	type = "cooking",
-	output = "default:clay_brick",
+	output = "default:clay_nitherbrick",
 	recipe = "default:clay_lump",
 })
 
@@ -851,19 +851,7 @@ minetest.register_craft({
 	recipe = "default:chest_locked",
 	burntime = 30,
 })
---[[
-minetest.register_craft({
-	type = "fuel",
-	recipe = "default:nyancat",
-	burntime = 1,
-})
 
-minetest.register_craft({
-	type = "fuel",
-	recipe = "default:nyancat_rainbow",
-	burntime = 1,
-})
-]]
 minetest.register_craft({
 	type = "fuel",
 	recipe = "group:sapling",
@@ -907,3 +895,92 @@ minetest.register_craft({
 	burntime = 2,
 })
 
+-- Minetest 0.4 Mod: default
+
+minetest.register_craftitem("default:glowstone_dust", {
+	description = "Glowstone Dust",
+	inventory_image = "default_glowstone_dust.png",
+	stack_max = 64,
+})
+
+minetest.register_craft{
+	output = "default:glowstone",
+	recipe = {
+		{"default:glowstone_dust", "default:glowstone_dust"},
+		{"default:glowstone_dust", "default:glowstone_dust"},
+	}
+}
+
+
+minetest.register_craft({
+	output = 'default:fence_nither 6',
+	recipe = {
+		{'default:nitherbrick', 'default:nitherbrick', 'default:nitherbrick'},
+		{'default:nitherbrick', 'default:nitherbrick', 'default:nitherbrick'},
+	}
+})
+
+
+
+
+-- Crafting / Cooking
+minetest.register_craft({
+	type = "cooking",
+	output = "default:nitherbrick",
+	recipe = "default:rack",
+})
+
+
+
+--Quartz
+
+
+--Crafting
+
+--Quartz Crystal Piece
+minetest.register_craft({
+	output = '"default:quartz_crystal_piece" 3',
+	recipe = {
+		{'default:quartz_crystal'}
+	}
+})
+
+--Quartz Block
+minetest.register_craft({
+	output = '"default:block" 4',
+	recipe = {
+		{'default:quartz_crystal', 'default:quartz_crystal', ''},
+		{'default:quartz_crystal', 'default:quartz_crystal', ''},
+		{'', '', ''}
+	}
+})
+
+--Chiseled Quartz
+minetest.register_craft({
+	output = 'default:chiseled 2',
+	recipe = {
+		{'stairs:slab_quartzblock', '', ''},
+		{'stairs:slab_quartzblock', '', ''},
+		{'', '', ''},
+	}
+})
+
+--Chiseled Quartz(for stairsplus)
+minetest.register_craft({
+	output = 'default:chiseled 2',
+	recipe = {
+		{'default:slab_block', '', ''},
+		{'default:slab_block', '', ''},
+		{'', '', ''},
+	}
+})
+
+--Quartz Pillar
+minetest.register_craft({
+	output = 'default:pillar 2',
+	recipe = {
+		{'default:block', '', ''},
+		{'default:block', '', ''},
+		{'', '', ''},
+	}
+})

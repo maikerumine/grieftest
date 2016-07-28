@@ -553,6 +553,35 @@ stairs.register_stair_and_slab("granite_bricks", "default:granite_bricks",
 		"Granite Bricks Stair",
 		"Granite Bricks Slab",
 		default.node_sound_stone_defaults())
+	
+--emerald
+stairs.register_stair_and_slab("emeraldblock", "default:emeraldblock",
+		{cracky = 1},
+		{"emerald_block.png"},
+		"Emerald Block Stair",
+		"Emerald Block Slab",
+		default.node_sound_stone_defaults())		
 		
+--nether stuff
+stairs.register_stair_and_slab("nitherbrick", "default:nitherbrick",
+		{cracky = 2},
+		{"default_nitherbrick.png"},
+		"Nitherbrick Stair",
+		"Nitherbrick Slab",
+		default.node_sound_stone_defaults())
+		
+stairs.register_stair_and_slab("quartz_block", "default:quartz_block",
+		{cracky=3, oddly_breakable_by_hand=1},
+		{"quartz_block.png"},
+		"Quartz Stair",
+		"Quartz Slab",
+		default.node_sound_glass_defaults())
+
+stairs.register_stair_and_slab("quartz_pillar", "default:quartz_pillar",
+		{cracky=3, oddly_breakable_by_hand=1},
+		{"quartz_pillar_top.png", "quartz_pillar_top.png", "quartz_pillar_side.png"},
+		"Quartz Pillar Stair",
+		"Quartz Pillar Slab",
+		default.node_sound_glass_defaults())	
 		
 		

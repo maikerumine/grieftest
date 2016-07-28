@@ -256,3 +256,37 @@ minetest.register_craftitem("default:flint", {
 	stack_max = 64,
 })
 
+
+-- Nether Craftitems
+minetest.register_craftitem(":default:mese_crystal_fragment", {
+	description = "Mese Crystal Fragment",
+	inventory_image = "default_mese_crystal_fragment.png",
+	on_place = function(stack, _, pt)
+		if pt.under and minetest.get_node(pt.under).name == "default:obsidian" then
+			local done = make_portal(pt.under)
+			if done and not minetest.setting_getbool("creative_mode") then
+				stack:take_item()
+			end
+		end
+
+		return stack
+	end,
+})
+
+
+
+
+
+--Quartz Crystal
+minetest.register_craftitem("default:quartz_crystal", {
+	description = "Quartz Crystal",
+	inventory_image = "quartz_crystal_full.png",
+	stack_max = 64,
+})
+minetest.register_craftitem("default:quartz_crystal_piece", {
+	description = "Quartz Crystal Piece",
+	inventory_image = "quartz_crystal_piece.png",
+	stack_max = 64,
+})
+
+

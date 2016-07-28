@@ -399,7 +399,7 @@ minetest.register_alias("nether:bedrock", "default:bedrock")
 minetest.register_node("default:bedrock", {
 	description = "Bedrock",
 	tiles = {"bedrock2_bedrock.png"},
-	groups = {immortal=1, not_in_creative_inventory=1},
+	groups = {immortal=1, not_in_creative_inventory=1,nether = 1},
 	sounds = { footstep = { name = "default_gravel_footstep", gain = 1 } },
 	is_ground_content = false,
 	on_blast = function() end,
@@ -1878,6 +1878,32 @@ default.register_fence("default:fence_aspen_wood", {
 	stack_max = 64,
 })
 
+--local fencedefault_texture = "default_fence_overlay.png^default_nitherbrick.png^default_fence_overlay.png^[makealpha:255,126,126"
+minetest.register_node("default:fence_nither", {
+	description = "Nitherbrick Fence",
+	drawtype = "fencelike",
+	tiles = {"default_nitherbrick.png"},
+	--inventory_image = fencedefault_texture,
+	inventory_image =  "default_fence_overlay.png^default_nitherbrick.png^default_fence_overlay.png^[makealpha:255,126,126",
+	--wield_image = fencedefault_texture,
+	wield_image =  "default_fence_overlay.png^default_nitherbrick.png^default_fence_overlay.png^[makealpha:255,126,126",
+	paramtype = "light",
+	is_ground_content = false,
+	selection_box = {
+		type = "fixed",
+		fixed = {-1/7, -1/2, -1/7, 1/7, 1/2, 1/7},
+	},
+	node_box = {
+		type = "fixed",
+		fixed = {
+			{-0.2, -0.5, -0.2, 0.2, 1.0, 0.2},
+		},
+	},
+	groups = {cracky=3},
+	sounds = default.node_sound_stone_defaults(),
+	stack_max = 64,
+})
+
 minetest.register_node("default:glass", {
 	description = "Glass",
 	drawtype = "glasslike_framed_optional",
@@ -1901,7 +1927,6 @@ minetest.register_node("default:obsidian_glass", {
 	groups = {cracky = 3, oddly_breakable_by_hand = 3},
 	stack_max = 64,
 })
-
 
 minetest.register_node("default:rail", {
 	description = "Rail",
@@ -1959,3 +1984,260 @@ minetest.register_node("default:cloud", {
 	sounds = default.node_sound_defaults(),
 	groups = {not_in_creative_inventory = 1},
 })
+
+
+-- Minetest 0.4 Mod: default
+
+
+
+local default_AMBIENT = 4
+
+minetest.register_node("default:dummy", {
+	description = "Air (you hacker you!)",
+	inventory_image = "unknown_node.png",
+	wield_image = "unknown_node.png",
+	drawtype = "airlike",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	air_equivalent = true,
+	drop = "",
+	groups = {not_in_creative_inventory=1},
+})
+
+minetest.register_node("default:rack", {
+	description = "Rack",
+	tiles = {"default_rack.png"},
+	is_ground_content = true,
+	--drop = {
+	--	max_items = 1,
+	--	items = {{
+	--		rarity = 3,
+	--		items = {"default:rack"},
+	--	}}
+	--},
+	light_source = default_AMBIENT,
+	groups = {cracky=3,level=0},
+	stack_max = 64,
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:slowsand", {
+	description = "Slow Sand",
+	tiles = {"default_slowsand.png"},
+	is_ground_content = true,
+	light_source = default_AMBIENT,
+	groups = {crumbly=1,level=2,nether =1},
+	stack_max = 64,
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name="default_gravel_footstep", gain=0.45},
+	}),
+})
+
+minetest.register_node("default:glowstone", {
+	description = "Glowstone",
+	tiles = {"default_glowstone.png"},
+	is_ground_content = true,
+	light_source = 15,
+	stack_max = 64,
+	drop = {
+		items = {
+			{items = {'default:glowstone_dust'}},
+			{items = {'default:glowstone_dust'}},
+			{items = {'default:glowstone_dust'},rarity=2},
+			{items = {'default:glowstone_dust'},rarity=0},
+		}
+	},
+	--groups = {dig=default.dig.glowstone},
+	groups = {cracky=3,oddly_breakable_by_hand=3},
+	sounds = default.node_sound_glass_defaults(),
+})
+
+minetest.register_node("default:nitherbrick", {
+	description = "Nither Brick",
+	tiles = {"default_nitherbrick.png"},
+	groups = {cracky=2,level=2},
+	stack_max = 64,
+	--light_source = default_AMBIENT-2,
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:rack_with_diamond", {
+	description = "Diamond Ore",
+	tiles = {"default_rack.png^default_mineral_diamond.png"},
+	groups = {cracky = 1},
+	drop = "default:diamond",
+	light_source = 10,
+	sounds = default.node_sound_stone_defaults(),
+})
+
+minetest.register_node("default:wart", {
+	description = "Wart",
+	drawtype = "plantlike",
+	walkable = false,
+	paramtype = "light",
+	sunlight_propagates = true,
+	tiles = {"default_wart.png^[colorize:#FF0000:150"},
+	groups = {cracky = 1},
+	drop = "default:wart",
+	light_source = 4,
+	groups = {snappy = 3, attached_node = 1},
+	sounds = default.node_sound_dirt_defaults({
+		footstep = {name = "default_grass_footstep", gain = 0.4},
+	}),
+	stack_max = 64,
+})
+-- wart spread and death
+minetest.register_abm({
+	nodenames = {"default:wart"},
+	interval = 10,
+	chance = 20,
+	action = function(pos, node)
+		if minetest.get_node_light(pos, nil) == 15 then
+			minetest.remove_node(pos)
+		end
+		local random = {
+			x = pos.x + math.random(-2,2),
+			y = pos.y + math.random(-1,1),
+			z = pos.z + math.random(-2,2)
+		}
+		local random_node = minetest.get_node_or_nil(random)
+		if not random_node then
+			return
+		end
+		if random_node.name ~= "air" then
+			return
+		end
+		local node_under = minetest.get_node_or_nil({x = random.x,
+			y = random.y - 1, z = random.z})
+		if not node_under then
+			return
+		end
+		if minetest.get_item_group(node_under.name, "nether") ~= 0 and
+				minetest.get_node_light(pos, nil) <= 7 and
+				minetest.get_node_light(random, nil) <= 11 then
+			minetest.set_node(random, {name = node.name})
+		end
+	end
+})
+
+
+--Quartz
+-- Set this to true to allow usage of the stairsplus mod in moreblocks
+
+enable_stairsplus = true
+
+-- This enables the old horizontal pillar block(deprecated, be sure to convert them back to normal pillars)
+
+enable_horizontal_pillar = true
+
+
+
+
+--Ore
+minetest.register_node("default:quartz_ore", {
+         description = "Quartz Ore",
+ 	 tiles = {"default_rack.png^quartz_ore.png"},
+	 groups = {cracky=3, stone=1},
+	 stack_max = 64,
+	 drop = 'default:quartz_crystal',
+	 light_source = 6,  --light_source = NETHER_AMBIENT,
+         sounds = default.node_sound_stone_defaults(),
+})
+
+
+--Quartz Block
+minetest.register_node("default:quartz_block", {
+	description = "Quartz Block",
+	tiles = {"quartz_block.png"},
+	groups = {cracky=3, oddly_breakable_by_hand=1},
+	stack_max = 64,
+	sounds = default.node_sound_glass_defaults(),
+})
+
+--Chiseled Quartz
+minetest.register_node("default:quartz_chiseled", {
+	description = "Chiseled Quartz",
+	tiles = {"quartz_chiseled.png"},
+	groups = {cracky=3, oddly_breakable_by_hand=1},
+	stack_max = 64,
+	sounds = default.node_sound_glass_defaults(),
+})
+
+--Quartz Pillar
+minetest.register_node("default:quartz_pillar", {
+	description = "Quartz Pillar",
+	paramtype2 = "facedir",
+	tiles = {"quartz_pillar_top.png", "quartz_pillar_top.png", "quartz_pillar_side.png"},
+	stack_max = 64,
+	groups = {cracky=3, oddly_breakable_by_hand=1},
+	sounds = default.node_sound_glass_defaults(),
+	on_place = minetest.rotate_node
+})
+
+
+--abms
+local dirs2 = { 12, 9, 18, 7, 12 }
+
+minetest.register_abm({
+	nodenames = { "default:quartz_pillar_horizontal" },
+	interval = 1,
+	chance = 1,
+	action = function(pos, node, active_object_count, active_object_count_wider)
+		local fdir = node.param2 or 0
+			nfdir = dirs2[fdir+1]
+		minetest.add_node(pos, {name = "default:quartz_pillar", param2 = nfdir})
+	end,
+})
+
+--These are deprecated, don't use them
+
+if enable_horizontal_pillar then
+	--Quartz Pillar (horizontal)
+	minetest.register_node("default:quartz_pillar_horizontal", {
+			description = "Quartz Pillar Horizontal",
+			tiles = {"quartz_pillar_side.png", "quartz_pillar_side.png", "quartz_pillar_side.png^[transformR90",
+			"quartz_pillar_side.png^[transformR90", "quartz_pillar_top.png", "quartz_pillar_top.png"},
+			paramtype2 = "facedir",
+			drop = 'default:quartz_pillar',
+			groups = {cracky=3, oddly_breakable_by_hand=1, not_in_creative_inventory=1},
+			sounds = default.node_sound_glass_defaults(),
+	})
+end
+
+--[[
+--Compatibility with stairsplus
+
+if minetest.get_modpath("moreblocks") and enable_stairsplus then
+	register_stair_slab_panel_micro("quartz", "block", "default:quartz_block",
+	{cracky=3},
+	
+	{"quartz_block.png"},
+	"Quartz Block",
+	"block",
+	0)
+
+	register_stair_slab_panel_micro("quartz", "chiseled", "default:quartz_chiseled",
+	{cracky=3},
+	
+	{"quartz_chiseled.png"},
+	"Chiseled Quartz",
+	"chiseled",
+	0)
+
+	register_stair_slab_panel_micro("quartz", "pillar", "default:quartz_pillar",
+	{cracky=3},
+	
+	{"quartz_pillar_top.png", "quartz_pillar_top.png", "quartz_pillar_side.png"},
+	"Quartz Pillar",
+	"pillar",
+	0)
+
+	table.insert(circular_saw.known_stairs, "default:quartz_block")
+	table.insert(circular_saw.known_stairs, "default:quartz_chiseled")
+	table.insert(circular_saw.known_stairs, "default:quartz_pillar")
+end
+]]

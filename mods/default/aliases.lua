@@ -82,3 +82,31 @@ minetest.register_alias("default:sign_wall", "default:sign_wall_wood")
 
 minetest.register_alias("esmobs:bones", "default:chest")
 
+--alias to remove old quartz from maps
+minetest.register_alias("quartz:quartz_crystal", "default:quartz_crystal")
+minetest.register_alias("quartz:quartz_ore", "default:quartz_ore")
+minetest.register_alias("quartz:block", "default:block")
+minetest.register_alias("quartz:chiseled", "default:chiseled")
+minetest.register_alias("quartz:pillar", "default:pillar")
+minetest.register_alias("quartz:pillar_horizontal", "default:pillar_horizontal")
+
+--alias to merge nether to default
+minetest.register_alias("nether:rack", "default:rack")
+minetest.register_alias("nether:quartz_ore", "default:quartz_ore")
+minetest.register_alias("nether:brick", "default:nitherbrick")
+minetest.register_alias("nether:glowstone", "default:glowstone")
+minetest.register_alias("nether:glowstone_dust", "default:glowstone_dust")
+minetest.register_alias("nether:rack_with_diamond", "default:rack_with_diamond")
+minetest.register_alias("nether:sand", "default:slowsand")
+minetest.register_alias("tsm_mines:dummy", "default:dummy")
+minetest.register_alias("nether:fence", "default:fence_nither")
+minetest.register_alias("nether:permanent_flame", "fire:permanent_flame")
+minetest.register_alias("nether:particle", "default:particle")
+minetest.register_alias("nether:portal", "default:portal")
+
+
+
+
+
+
+

@@ -1,0 +1,2 @@
+# Set to true to hide minimap for all players, regardless of privileges.
+hide_minimap_unconditional (Never show minimap) bool false

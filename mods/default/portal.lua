@@ -31,56 +31,73 @@ local nbuf_cave
 
 
 -- Craftitems
-minetest.register_craftitem(":default:mese_crystal_fragment", {
-	description = "Mese Crystal Fragment",
-	inventory_image = "default_mese_crystal_fragment.png",
-	on_place = function(stack, _, pt)
-		if pt.under and minetest.get_node(pt.under).name == "default:obsidian" then
-			local done = make_portal(pt.under)
-			if done and not minetest.setting_getbool("creative_mode") then
-				stack:take_item()
-			end
-		end
 
-		return stack
-	end,
-})
+-- Flint and steel
 
-minetest.register_craftitem(":fire:flint_and_steel", {
-	description = "Flint -n- Steel",
+minetest.register_tool(":fire:flint_and_steel", {
+	description = "Flint and Steel",
 	inventory_image = "fire_flint_steel.png",
-	on_place = function(stack,_, pt)
-		if pt.under and minetest.get_node(pt.under).name == "default:obsidian" then
-			local done = make_portal(pt.under)  --broken please fix for y
-			if done and not minetest.setting_getbool("creative_mode") then
-				stack:take_item()
-			end
-		end
-		return stack
-	end,
-	
 	on_use = function(itemstack, user, pointed_thing)
-		local player_name = user:get_player_name()
+		itemstack:add_wear(1000)
 		local pt = pointed_thing
-
-		if pt.type == "node" and minetest.get_node(pt.above).name == "air" then
-			itemstack:add_wear(1000)
+		if pt.type == "node" then
 			local node_under = minetest.get_node(pt.under).name
-
-			if minetest.get_item_group(node_under, "flammable") >= 0 then
-				if not minetest.is_protected(pt.above, player_name) then
-					--minetest.set_node(pt.above, {name = "fire:basic_flame"})
-					minetest.set_node(pt.above, {name = "fire:permanent_flame"})
-				else
-					minetest.chat_send_player(player_name, "This area is protected")
+			local is_coalblock = node_under == "default:coalblock"
+			local is_rack = node_under == "default:rack"
+			local is_tnt = node_under == "tnt:tnt"
+			local is_gunpowder = node_under == "tnt:gunpowder"
+			if minetest.get_item_group(node_under, "flammable") >= 1 or
+					is_coalblock or is_rack or is_tnt or is_gunpowder then
+				local flame_pos = pt.above
+				if is_coalblock then
+					flame_pos = {x = pt.under.x, y = pt.under.y + 1, z = pt.under.z}
+				elseif is_tnt or is_gunpowder then
+					flame_pos = pt.under
+				end
+				if minetest.get_node(flame_pos).name == "air" or
+						is_tnt or is_gunpowder then
+					local player_name = user:get_player_name()
+					if not minetest.is_protected(flame_pos, player_name) then
+						if is_coalblock then
+							minetest.set_node(flame_pos,
+								{name = "fire:permanent_flame"})
+						elseif is_rack then
+							minetest.set_node(flame_pos,
+								{name = "fire:permanent_flame"})
+						elseif is_tnt then
+							minetest.set_node(flame_pos,
+								{name = "tnt:tnt_burning"})
+						elseif is_gunpowder then
+							minetest.set_node(flame_pos,
+								{name = "tnt:gunpowder_burning"})
+						else
+							minetest.set_node(flame_pos,
+								{name = "fire:basic_flame"})
+						end
+					else
+						minetest.chat_send_player(player_name, "This area is protected")
+					end
 				end
 			end
 		end
-
 		if not minetest.setting_getbool("creative_mode") then
 			return itemstack
 		end
+	--end
+	--nether
+	
+	on_use = function(stack,_, pt)
+		if pt.under and minetest.get_node(pt.under).name == "default:obsidian" then
+			done = make_portal(pt.under)  --broken please fix for y
+			if done and not minetest.setting_getbool("creative_mode") then
+				stack:take_item()
+			end
+		end
+		return stack
+	--end,
 	end
+	end
+	
 })
 
 
@@ -112,7 +129,7 @@ local function build_portal(pos, target)
 	for y = p1.y, p2.y do
 		p = {x = x, y = y, z = p1.z}
 		if not (x == p1.x or x == p2.x or y == p1.y or y == p2.y) then
-			minetest.set_node(p, {name = "nether:portal", param2 = 0})
+			minetest.set_node(p, {name = "default:portal", param2 = 0})
 		end
 		local meta = minetest.get_meta(p)
 		meta:set_string("p1", minetest.pos_to_string(p1))
@@ -262,7 +279,7 @@ function make_portal(pos)
 			p = {x = p1.x, y = y, z = p1.z + d}
 		end
 		if minetest.get_node(p).name == "air" then
-			minetest.set_node(p, {name = "nether:portal", param2 = param2})
+			minetest.set_node(p, {name = "default:portal", param2 = param2})
 		end
 		local meta = minetest.get_meta(p)
 		meta:set_string("p1", minetest.pos_to_string(p1))
@@ -278,7 +295,7 @@ end
 -- ABMs
 
 minetest.register_abm({
-	nodenames = {"nether:portal"},
+	nodenames = {"default:portal"},
 	interval = 1,
 	chance = 2,
 	action = function(pos, node)
@@ -296,7 +313,7 @@ minetest.register_abm({
 			1, --minsize
 			2, --maxsize
 			false, --collisiondetection
-			"nether_particle.png" --texture
+			"default_particle.png" --texture
 		)
 		--for _, obj in ipairs(minetest.get_objects_inside_radius(pos, 1)) do
 		for _,obj in ipairs(minetest.get_objects_inside_radius(pos,1)) do		--maikerumine added for objects to travel
@@ -316,7 +333,7 @@ minetest.register_abm({
 					minetest.after(3, function(obj, pos, target)
 						local objpos = obj:getpos()   if objpos == nil then return end	--maikerumine added for objects to travel
 						objpos.y = objpos.y + 0.1 -- Fix some glitches at -8000
-						if minetest.get_node(objpos).name ~= "nether:portal" then
+						if minetest.get_node(objpos).name ~= "default:portal" then
 							return
 						end
 
@@ -325,7 +342,7 @@ minetest.register_abm({
 
 						local function check_and_build_portal(pos, target)
 							local n = minetest.get_node_or_nil(target)
-							if n and n.name ~= "nether:portal" then
+							if n and n.name ~= "default:portal" then
 								build_portal(target, pos)
 								minetest.after(2, check_and_build_portal, pos, target)  --was 2
 								minetest.after(4, check_and_build_portal, pos, target)
@@ -346,15 +363,15 @@ minetest.register_abm({
 
 -- Nodes
 
-minetest.register_node("nether:portal", {
+minetest.register_node("default:portal", {
 	description = "Nether Portal",
 	tiles = {
-		"nether_transparent.png",
-		"nether_transparent.png",
-		"nether_transparent.png",
-		"nether_transparent.png",
+		"default_transparent.png",
+		"default_transparent.png",
+		"default_transparent.png",
+		"default_transparent.png",
 		{
-			name = "nether_portal.png",
+			name = "default_portal.png",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
@@ -363,7 +380,7 @@ minetest.register_node("nether:portal", {
 			},
 		},
 		{
-			name = "nether_portal.png",
+			name = "default_portal.png",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
@@ -415,8 +432,8 @@ minetest.register_node(":default:obsidian", {
 		for y = p1.y, p2.y do
 		for z = p1.z, p2.z do
 			local nn = minetest.get_node({x = x, y = y, z = z}).name
-			if nn == "default:obsidian" or nn == "nether:portal" then
-				if nn == "nether:portal" then
+			if nn == "default:obsidian" or nn == "default:portal" then
+				if nn == "default:portal" then
 					minetest.remove_node({x = x, y = y, z = z})
 				end
 				local m = minetest.get_meta({x = x, y = y, z = z})
@@ -442,8 +459,8 @@ minetest.register_node(":default:obsidian", {
 		for y = p1.y, p2.y do
 		for z = p1.z, p2.z do
 			local nn = minetest.get_node({x = x, y = y, z = z}).name
-			if nn == "default:obsidian" or nn == "nether:portal" then
-				if nn == "nether:portal" then
+			if nn == "default:obsidian" or nn == "default:portal" then
+				if nn == "default:portal" then
 					minetest.remove_node({x = x, y = y, z = z})
 				end
 				local m = minetest.get_meta({x = x, y = y, z = z})
