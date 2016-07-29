@@ -1,4 +1,6 @@
 
+local S = mobs.intllib
+
 -- Warthog by KrupnoPavel
 
 mobs:register_mob("mobs_animal:pumba", {
@@ -56,23 +58,21 @@ mobs:register_mob("mobs_animal:pumba", {
 mobs:register_spawn("mobs_animal:pumba",
 	{"ethereal:mushroom_dirt", "default:dirt_with_dry_grass"}, 20, 10, 15000, 1, 31000, true)
 
-mobs:register_egg("mobs_animal:pumba", "Warthog", "wool_pink.png", 1)
+mobs:register_egg("mobs_animal:pumba", S("Warthog"), "wool_pink.png", 1)
 
 -- compatibility
 mobs:alias_mob("mobs:pumba", "mobs_animal:pumba")
-mobs:alias_mob("esmobs:pork_raw", "mobs:pork_raw")
-mobs:alias_mob("esmobs:pork_cooked", "mobs:pork_cooked")
 
 -- raw porkchop
 minetest.register_craftitem(":mobs:pork_raw", {
-	description = "Raw Porkchop",
+	description = S("Raw Porkchop"),
 	inventory_image = "mobs_pork_raw.png",
 	on_use = minetest.item_eat(4),
 })
 
 -- cooked porkchop
 minetest.register_craftitem(":mobs:pork_cooked", {
-	description = "Cooked Porkchop",
+	description = S("Cooked Porkchop"),
 	inventory_image = "mobs_pork_cooked.png",
 	on_use = minetest.item_eat(8),
 })

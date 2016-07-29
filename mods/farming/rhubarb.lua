@@ -1,21 +1,21 @@
 
+local S = farming.intllib
+
 -- rhubarb
 minetest.register_craftitem("farming:rhubarb", {
-	description = "Rhubarb",
+	description = S("Rhubarb"),
 	inventory_image = "farming_rhubarb.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:rhubarb_1")
 	end,
 	on_use = minetest.item_eat(1),
-	stack_max = 64,
 })
 
 -- rhubarb pie
 minetest.register_craftitem("farming:rhubarb_pie", {
-	description = "Rhubarb Pie",
+	description = S("Rhubarb Pie"),
 	inventory_image = "farming_rhubarb_pie.png",
 	on_use = minetest.item_eat(6),
-	stack_max = 64,
 })
 
 minetest.register_craft({

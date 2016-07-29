@@ -1,10 +1,8 @@
 -- Parameters
 
-local NETHER_DEPTH = -3100
+local NETHER_DEPTH = -3000
 local TCAVE = 0.6
-local BLEND = 128
-
-
+local nobj_cave = nil
 -- 3D noise
 
 local np_cave = {
@@ -15,90 +13,6 @@ local np_cave = {
 	octaves = 5,
 	persist = 0.7
 }
-
-
--- Stuff
-
-local yblmax = NETHER_DEPTH - BLEND * 2
-
-
--- Mapgen
-
--- Initialize noise object and localise noise buffer
-
-local nobj_cave = nil
-local nbuf_cave
-
-
--- Craftitems
-
--- Flint and steel
-
-minetest.register_tool(":fire:flint_and_steel", {
-	description = "Flint and Steel",
-	inventory_image = "fire_flint_steel.png",
-	on_use = function(itemstack, user, pointed_thing)
-		itemstack:add_wear(1000)
-		local pt = pointed_thing
-		if pt.type == "node" then
-			local node_under = minetest.get_node(pt.under).name
-			local is_coalblock = node_under == "default:coalblock"
-			local is_rack = node_under == "default:rack"
-			local is_tnt = node_under == "tnt:tnt"
-			local is_gunpowder = node_under == "tnt:gunpowder"
-			if minetest.get_item_group(node_under, "flammable") >= 1 or
-					is_coalblock or is_rack or is_tnt or is_gunpowder then
-				local flame_pos = pt.above
-				if is_coalblock then
-					flame_pos = {x = pt.under.x, y = pt.under.y + 1, z = pt.under.z}
-				elseif is_tnt or is_gunpowder then
-					flame_pos = pt.under
-				end
-				if minetest.get_node(flame_pos).name == "air" or
-						is_tnt or is_gunpowder then
-					local player_name = user:get_player_name()
-					if not minetest.is_protected(flame_pos, player_name) then
-						if is_coalblock then
-							minetest.set_node(flame_pos,
-								{name = "fire:permanent_flame"})
-						elseif is_rack then
-							minetest.set_node(flame_pos,
-								{name = "fire:permanent_flame"})
-						elseif is_tnt then
-							minetest.set_node(flame_pos,
-								{name = "tnt:tnt_burning"})
-						elseif is_gunpowder then
-							minetest.set_node(flame_pos,
-								{name = "tnt:gunpowder_burning"})
-						else
-							minetest.set_node(flame_pos,
-								{name = "fire:basic_flame"})
-						end
-					else
-						minetest.chat_send_player(player_name, "This area is protected")
-					end
-				end
-			end
-		end
-		if not minetest.setting_getbool("creative_mode") then
-			return itemstack
-		end
-	--end
-	--nether
-	
-	on_use = function(stack,_, pt)
-		if pt.under and minetest.get_node(pt.under).name == "default:obsidian" then
-			done = make_portal(pt.under)  --broken please fix for y
-			if done and not minetest.setting_getbool("creative_mode") then
-				stack:take_item()
-			end
-		end
-		return stack
-	--end,
-	end
-	end
-	
-})
 
 
 -- Functions
@@ -158,7 +72,7 @@ local function find_nether_target_y(target_x, target_z)
 	local nobj_cave_point = minetest.get_perlin(np_cave)
 	local air = 0 -- Consecutive air nodes found
 
-	for y = start_y, start_y -4096, -1 do  --was 4096  then -1096
+	for y = start_y, start_y -3096, -1 do  --was 4096  then -1096
 		local nval_cave = nobj_cave_point:get3d({x = target_x, y = y, z = target_z})
 
 		if nval_cave > TCAVE then -- Cavern
@@ -265,7 +179,8 @@ function make_portal(pos)
 	local target = {x = p1.x, y = p1.y, z = p1.z}
 	target.x = target.x + 1
 	if target.y < NETHER_DEPTH then
-		target.y = math.random(-32, 1)
+		--target.y = math.random(-32, 1)
+		target.y = math.random(-52, 100)
 	else
 		target.y = find_nether_target_y(target.x, target.z)
 	end
@@ -313,7 +228,7 @@ minetest.register_abm({
 			1, --minsize
 			2, --maxsize
 			false, --collisiondetection
-			"default_particle.png" --texture
+			"default_particle.png^[colorize:#FF0000:150" --texture
 		)
 		--for _, obj in ipairs(minetest.get_objects_inside_radius(pos, 1)) do
 		for _,obj in ipairs(minetest.get_objects_inside_radius(pos,1)) do		--maikerumine added for objects to travel
@@ -351,7 +266,7 @@ minetest.register_abm({
 							end
 						end
 
-						minetest.after(1, check_and_build_portal, pos, target)
+						minetest.after(1, check_and_build_portal, pos, target) --was 1
 
 					end, obj, pos, target)
 				end
@@ -371,7 +286,7 @@ minetest.register_node("default:portal", {
 		"default_transparent.png",
 		"default_transparent.png",
 		{
-			name = "default_portal.png",
+			name = "default_portal.png^[colorize:#FF0000:150",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
@@ -380,7 +295,7 @@ minetest.register_node("default:portal", {
 			},
 		},
 		{
-			name = "default_portal.png",
+			name = "default_portal.png^[colorize:#FF0000:150",
 			animation = {
 				type = "vertical_frames",
 				aspect_w = 16,
@@ -401,7 +316,7 @@ minetest.register_node("default:portal", {
 	is_ground_content = false,
 	drop = "",
 	light_source = 5,
-	post_effect_color = {a = 180, r = 128, g = 0, b = 128},
+	post_effect_color = {a = 180, r = 128, g = 23, b = 23},
 	alpha = 192,
 	node_box = {
 		type = "fixed",

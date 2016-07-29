@@ -1,13 +1,14 @@
 
+local S = farming.intllib
+
 -- melon
 minetest.register_craftitem("farming:melon_slice", {
-	description = "Melon Slice",
+	description = S("Melon Slice"),
 	inventory_image = "farming_melon_slice.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:melon_1")
 	end,
 	on_use = minetest.item_eat(2),
-	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -72,7 +73,7 @@ minetest.register_node("farming:melon_7", table.copy(crop_def))
 
 -- stage 8 (final)
 crop_def.drawtype = "nodebox"
-crop_def.description = "Melon"
+crop_def.description = S("Melon")
 crop_def.tiles = {"farming_melon_top.png", "farming_melon_top.png", "farming_melon_side.png"}
 crop_def.selection_box = {-.5, -.5, -.5, .5, .5, .5}
 crop_def.walkable = true

@@ -4,23 +4,23 @@
 	http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/wip-mods/1440575-1-2-5-generation-minecraft-beta-1-2-farming-and
 ]]
 
+local S = farming.intllib
+
 -- corn
 minetest.register_craftitem("farming:corn", {
-	description = "Corn",
+	description = S("Corn"),
 	inventory_image = "farming_corn.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:corn_1")
 	end,
 	on_use = minetest.item_eat(3),
-	stack_max = 64,
 })
 
 -- corn on the cob (texture by TenPlus1)
 minetest.register_craftitem("farming:corn_cob", {
-	description = "Corn on the Cob",
+	description = S("Corn on the Cob"),
 	inventory_image = "farming_corn_cob.png",
 	on_use = minetest.item_eat(5),
-	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -32,9 +32,8 @@ minetest.register_craft({
 
 -- ethanol (thanks to JKMurray for this idea)
 minetest.register_craftitem("farming:bottle_ethanol", { 
-	description = "Bottle of Ethanol",
+	description = S("Bottle of Ethanol"),
 	inventory_image = "farming_bottle_ethanol.png",
-	stack_max = 64,
 })
 
 minetest.register_craft( {

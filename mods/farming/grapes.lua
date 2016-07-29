@@ -1,10 +1,11 @@
 
+local S = farming.intllib
+
 -- grapes
 minetest.register_craftitem("farming:grapes", {
-	description = "Grapes",
+	description = S("Grapes"),
 	inventory_image = "farming_grapes.png",
 	on_use = minetest.item_eat(2),
-	stack_max = 64,
 
 	on_place = function(itemstack, placer, pointed_thing)
 
@@ -52,7 +53,7 @@ minetest.register_craft({
 
 -- trellis
 minetest.register_node("farming:trellis", {
-	description = "Trellis (place on soil before planting grapes)",
+	description = S("Trellis (place on soil before planting grapes)"),
 	drawtype = "plantlike",
 	tiles = {"farming_trellis.png"},
 	inventory_image = "farming_trellis.png",
@@ -64,7 +65,6 @@ minetest.register_node("farming:trellis", {
 	drop = "farming:trellis",
 	selection_box = farming.select,
 	groups = {snappy = 3, flammable = 2, attached_node = 1},
-	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 
 	on_place = function(itemstack, placer, pointed_thing)

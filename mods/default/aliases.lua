@@ -2,7 +2,7 @@
 
 -- Aliases to support loading worlds using nodes following the old naming convention
 -- These can also be helpful when using chat commands, for example /giveme
-minetest.register_alias("es:emerald_crystal", "default:emerald_crystal")
+
 minetest.register_alias("stone", "default:stone")
 minetest.register_alias("stone_with_coal", "default:stone_with_coal")
 minetest.register_alias("stone_with_iron", "default:stone_with_iron")
@@ -79,8 +79,11 @@ minetest.register_alias("default:pinewood", "default:pine_wood")
 minetest.register_alias("default:ladder", "default:ladder_wood")
 minetest.register_alias("default:sign_wall", "default:sign_wall_wood")
 
-
+--alias for es stuff and misc
 minetest.register_alias("esmobs:bones", "default:chest")
+minetest.register_alias("es:emerald_crystal", "default:emerald_crystal")
+minetest.register_alias("tsm_mines:dummy", "default:dummy")
+minetest.register_alias("vines:shears", "mobs:shears")
 
 --alias to remove old quartz from maps
 minetest.register_alias("quartz:quartz_crystal", "default:quartz_crystal")
@@ -98,11 +101,16 @@ minetest.register_alias("nether:glowstone", "default:glowstone")
 minetest.register_alias("nether:glowstone_dust", "default:glowstone_dust")
 minetest.register_alias("nether:rack_with_diamond", "default:rack_with_diamond")
 minetest.register_alias("nether:sand", "default:slowsand")
-minetest.register_alias("tsm_mines:dummy", "default:dummy")
 minetest.register_alias("nether:fence", "default:fence_nither")
-minetest.register_alias("nether:permanent_flame", "fire:permanent_flame")
 minetest.register_alias("nether:particle", "default:particle")
 minetest.register_alias("nether:portal", "default:portal")
+
+--Fire
+--minetest.register_alias("nether:permanent_flame", "fire:permanent_flame")
+minetest.register_alias("nether:permanent_flame", "default:underground_fire")
+minetest.register_alias("fire:permanent_flame", "default:underground_fire")
+minetest.register_alias("fire:basic_flame", "default:basic_flame")
+minetest.register_alias("fire:flint_and_steel", "default:flint_and_steel")
 
 
 

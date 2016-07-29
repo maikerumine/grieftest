@@ -1,4 +1,6 @@
 
+local S = farming.intllib
+
 -- Hoe registration function
 
 farming.register_hoe = function(name, def)
@@ -107,45 +109,44 @@ function farming.hoe_on_use(itemstack, user, pointed_thing, uses)
 end
 
 -- Define Hoes
-minetest.register_alias(":farming:hoe_mese", ":farming:hoe_gold")
 
 farming.register_hoe(":farming:hoe_wood", {
-	description = "Wooden Hoe",
+	description = S("Wooden Hoe"),
 	inventory_image = "farming_tool_woodhoe.png",
 	max_uses = 30,
 	material = "group:wood"
 })
 
 farming.register_hoe(":farming:hoe_stone", {
-	description = "Stone Hoe",
+	description = S("Stone Hoe"),
 	inventory_image = "farming_tool_stonehoe.png",
 	max_uses = 90,
 	material = "group:stone"
 })
 
 farming.register_hoe(":farming:hoe_steel", {
-	description = "Steel Hoe",
+	description = S("Steel Hoe"),
 	inventory_image = "farming_tool_steelhoe.png",
 	max_uses = 200,
 	material = "default:steel_ingot"
 })
 --[[
 farming.register_hoe(":farming:hoe_bronze", {
-	description = "Bronze Hoe",
+	description = S("Bronze Hoe"),
 	inventory_image = "farming_tool_bronzehoe.png",
 	max_uses = 220,
 	material = "default:bronze_ingot"
 })
-]]
-farming.register_hoe(":farming:hoe_gold", {
-	description = "Gold Hoe",
+
+farming.register_hoe(":farming:hoe_mese", {
+	description = S("Mese Hoe"),
 	inventory_image = "farming_tool_mesehoe.png",
 	max_uses = 350,
-	material = "default:gold_ingot"
+	material = "default:mese_crystal"
 })
-
+]]
 farming.register_hoe(":farming:hoe_diamond", {
-	description = "Diamond Hoe",
+	description = S("Diamond Hoe"),
 	inventory_image = "farming_tool_diamondhoe.png",
 	max_uses = 500,
 	material = "default:diamond"

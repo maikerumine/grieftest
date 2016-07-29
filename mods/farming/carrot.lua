@@ -4,23 +4,23 @@
 	https://forum.minetest.net/viewtopic.php?id=4990
 ]]
 
+local S = farming.intllib
+
 -- carrot
 minetest.register_craftitem("farming:carrot", {
-	description = "Carrot",
+	description = S("Carrot"),
 	inventory_image = "farming_carrot.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:carrot_1")
 	end,
 	on_use = minetest.item_eat(4),
-	stack_max = 64,
 })
 
 -- golden carrot
 minetest.register_craftitem("farming:carrot_gold", {
-	description = "Golden Carrot",
+	description = S("Golden Carrot"),
 	inventory_image = "farming_carrot_gold.png",
 	on_use = minetest.item_eat(6),
-	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -46,7 +46,6 @@ local crop_def = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
-	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults()
 }
 

@@ -1,4 +1,6 @@
 
+local S = mobs.intllib
+
 -- Bee by KrupnoPavel
 
 mobs:register_mob("mobs_animal:bee", {
@@ -41,21 +43,21 @@ mobs:register_mob("mobs_animal:bee", {
 
 mobs:register_spawn("mobs_animal:bee", {"group:flower"}, 20, 10, 9000, 1, 31000, true)
 
-mobs:register_egg("mobs_animal:bee", "Bee", "mobs_bee_inv.png", 0)
+mobs:register_egg("mobs_animal:bee", S("Bee"), "mobs_bee_inv.png", 0)
 
 -- compatibility
 mobs:alias_mob("mobs:bee", "mobs_animal:bee")
 
 -- honey
 minetest.register_craftitem(":mobs:honey", {
-	description = "Honey",
+	description = S("Honey"),
 	inventory_image = "mobs_honey_inv.png",
 	on_use = minetest.item_eat(6),
 })
 
 -- beehive (when placed spawns bee)
 minetest.register_node(":mobs:beehive", {
-	description = "Beehive",
+	description = S("Beehive"),
 	drawtype = "plantlike",
 	visual_scale = 1.0,
 	tiles = {"mobs_beehive.png"},
@@ -126,7 +128,7 @@ minetest.register_craft({
 
 -- honey block
 minetest.register_node(":mobs:honey_block", {
-	description = "Honey Block",
+	description = S("Honey Block"),
 	tiles = {"mobs_honey_block.png"},
 	groups = {snappy = 3, flammable = 2},
 	sounds = default.node_sound_dirt_defaults(),

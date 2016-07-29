@@ -3,9 +3,11 @@
 	Big thanks to PainterlyPack.net for allowing me to use these textures
 ]]
 
+local S = farming.intllib
+
 -- pumpkin
 minetest.register_node("farming:pumpkin", {
-	description = "Pumpkin",
+	description = S("Pumpkin"),
 	tiles = {
 		"farming_pumpkin_top.png",
 		"farming_pumpkin_top.png",
@@ -21,18 +23,16 @@ minetest.register_node("farming:pumpkin", {
 		}
 	},
 	sounds = default.node_sound_wood_defaults(),
-	stack_max = 64,
 })
 
 -- pumpkin slice
 minetest.register_craftitem("farming:pumpkin_slice", {
-	description = "Pumpkin Slice",
+	description = S("Pumpkin Slice"),
 	inventory_image = "farming_pumpkin_slice.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:pumpkin_1")
 	end,
 	on_use = minetest.item_eat(2),
-	stack_max = 64,
 })
 
 minetest.register_craft({
@@ -53,7 +53,7 @@ minetest.register_craft({
 
 -- jack 'o lantern
 minetest.register_node("farming:jackolantern", {
-	description = "Jack 'O Lantern",
+	description = S("Jack 'O Lantern"),
 	tiles = {
 		"farming_pumpkin_top.png",
 		"farming_pumpkin_top.png",
@@ -64,7 +64,6 @@ minetest.register_node("farming:jackolantern", {
 	},
 	paramtype2 = "facedir",
 	groups = {choppy = 1, oddly_breakable_by_hand = 1, flammable = 2},
-	stack_max = 64,
 	sounds = default.node_sound_wood_defaults(),
 	on_punch = function(pos, node, puncher)
 		node.name = "farming:jackolantern_on"
@@ -73,7 +72,6 @@ minetest.register_node("farming:jackolantern", {
 })
 
 minetest.register_node("farming:jackolantern_on", {
-	description = "Jack 'O Lantern",
 	tiles = {
 		"farming_pumpkin_top.png",
 		"farming_pumpkin_top.png",
@@ -104,14 +102,13 @@ minetest.register_craft({
 
 -- pumpkin bread
 minetest.register_craftitem("farming:pumpkin_bread", {
-	description = ("Pumpkin Bread"),
+	description = S("Pumpkin Bread"),
 	inventory_image = "farming_pumpkin_bread.png",
-	on_use = minetest.item_eat(8),
-	stack_max = 64,
+	on_use = minetest.item_eat(8)
 })
 
 minetest.register_craftitem("farming:pumpkin_dough", {
-	description = "Pumpkin Dough",
+	description = S("Pumpkin Dough"),
 	inventory_image = "farming_pumpkin_dough.png",
 })
 

@@ -1,4 +1,6 @@
 
+local S = mobs.intllib
+
 -- Cow by Krupnovpavel (additional texture by JurajVajda)
 
 mobs:register_mob("mobs_animal:cow", {
@@ -68,7 +70,7 @@ mobs:register_mob("mobs_animal:cow", {
 
 			if self.gotten == true then
 				minetest.chat_send_player(clicker:get_player_name(),
-						"Cow already milked!")
+						S("Cow already milked!"))
 				return
 			end
 
@@ -96,21 +98,14 @@ mobs:register_mob("mobs_animal:cow", {
 mobs:register_spawn("mobs_animal:cow",
 	{"default:dirt_with_grass", "ethereal:green_dirt"}, 20, 10, 15000, 1, 31000, true)
 
-mobs:register_egg("mobs_animal:cow", "Cow", "default_grass.png", 1)
+mobs:register_egg("mobs_animal:cow", S("Cow"), "default_grass.png", 1)
 
 -- compatibility
 mobs:alias_mob("mobs:cow", "mobs_animal:cow")
 
--- compatibility
-mobs:alias_mob("esmobs:bucket_milk", "mobs:bucket_milk")
-mobs:alias_mob("esmobs:cheese", "mobs:chese")
-mobs:alias_mob("esmobs:cheeseblock", "mobs:cheeseblock")
-
-
-
 -- bucket of milk
 minetest.register_craftitem(":mobs:bucket_milk", {
-	description = "Bucket of Milk",
+	description = S("Bucket of Milk"),
 	inventory_image = "mobs_bucket_milk.png",
 	stack_max = 1,
 	on_use = minetest.item_eat(8, 'bucket:bucket_empty'),
@@ -118,7 +113,7 @@ minetest.register_craftitem(":mobs:bucket_milk", {
 
 -- cheese wedge
 minetest.register_craftitem(":mobs:cheese", {
-	description = "Cheese",
+	description = S("Cheese"),
 	inventory_image = "mobs_cheese.png",
 	on_use = minetest.item_eat(4),
 })
@@ -133,7 +128,7 @@ minetest.register_craft({
 
 -- cheese block
 minetest.register_node(":mobs:cheeseblock", {
-	description = "Cheese Block",
+	description = S("Cheese Block"),
 	tiles = {"mobs_cheeseblock.png"},
 	is_ground_content = false,
 	groups = {crumbly = 3},

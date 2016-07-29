@@ -4,12 +4,13 @@
 	CC-BY-SA-3.0
 ]]
 
+local S = farming.intllib
+
 -- beans
 minetest.register_craftitem("farming:beans", {
-	description = "Green Beans",
+	description = S("Green Beans"),
 	inventory_image = "farming_beans.png",
 	on_use = minetest.item_eat(1),
-	stack_max = 64,
 
 	on_place = function(itemstack, placer, pointed_thing)
 
@@ -57,7 +58,7 @@ minetest.register_craft({
 
 -- beanpole
 minetest.register_node("farming:beanpole", {
-	description = "Bean Pole (place on soil before planting beans)",
+	description = S("Bean Pole (place on soil before planting beans)"),
 	drawtype = "plantlike",
 	tiles = {"farming_beanpole.png"},
 	inventory_image = "farming_beanpole.png",
@@ -69,7 +70,6 @@ minetest.register_node("farming:beanpole", {
 	drop = "farming:beanpole",
 	selection_box = farming.select,
 	groups = {snappy = 3, flammable = 2, attached_node = 1},
-	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults(),
 
 	on_place = function(itemstack, placer, pointed_thing)
@@ -140,7 +140,6 @@ local crop_def = {
 		snappy = 3, flammable = 3, not_in_creative_inventory = 1,
 		attached_node = 1, growing = 1
 	},
-	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults()
 }
 

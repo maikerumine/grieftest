@@ -124,9 +124,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 1,
 	clust_size     = 3,
-	height_min     = -80,
-	height_max     = 50,
-	noise_threshhold = 0.4,
+	y_min     = -80,
+	y_max     = 50,
+	noise_threshold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=150, y=150, z=150}, seed=23, octaves=3, persist=0.70}
 })
 
@@ -137,9 +137,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 1,
 	clust_size     = 4,
-	height_min     = -80,
-	height_max     = 50,
-	noise_threshhold = 0.4,
+	y_min     = -80,
+	y_max     = 50,
+	noise_threshold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 
@@ -152,9 +152,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 3,
 	clust_size     = 4,
-	height_min     = 50,
-	height_max     = 90,
-	noise_threshhold = 0.4,
+	y_min     = 50,
+	y_max     = 90,
+	noise_threshold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 
@@ -165,9 +165,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 8,
-	height_min     = 24,
-	height_max     = 50,
-	noise_threshhold = 0.4,
+	y_min     = 24,
+	y_max     = 50,
+	noise_threshold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 
@@ -178,9 +178,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 10,
-	height_min     = 10,
-	height_max     = 30,
-	noise_threshhold = 0.2,
+	y_min     = 10,
+	y_max     = 30,
+	noise_threshold = 0.2,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 
@@ -191,9 +191,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 4,
-	height_min     = -12,
-	height_max     = 7,
-	noise_threshhold = 0.4,
+	y_min     = -12,
+	y_max     = 7,
+	noise_threshold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 
@@ -204,9 +204,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 8,
 	clust_size     = 4,
-	height_min     = 34,
-	height_max     = 70,
-	noise_threshhold = 0.4,
+	y_min     = 34,
+	y_max     = 70,
+	noise_threshold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 
@@ -217,9 +217,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 4,
-	height_min     = 60,
-	height_max     = 96,
-	noise_threshhold = 0.4,
+	y_min     = 60,
+	y_max     = 96,
+	noise_threshold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.80}
 })
 
@@ -230,9 +230,9 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 8,
 	clust_size     = 4,
-	height_min     = 44,
-	height_max     = 70,
-	noise_threshhold = 0.4,
+	y_min     = 44,
+	y_max     = 70,
+	noise_threshold = 0.4,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 	minetest.register_ore({
@@ -257,9 +257,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 27,
 	clust_size     = 1,
-	height_min     = 5,
-	height_max     = 14,
-	noise_threshhold = 0.0,
+	y_min     = 5,
+	y_max     = 14,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 
@@ -270,9 +270,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores =27,
 	clust_size     = 1,
-	height_min     = 15,
-	height_max     = 17,
-	noise_threshhold = 0.0,
+	y_min     = 15,
+	y_max     = 17,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70}, 
 })
 
@@ -283,9 +283,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 27,
 	clust_size     = 6,
-	height_min     = 20,
-	height_max     = 29,
-	noise_threshhold = 0.0,
+	y_min     = 20,
+	y_max     = 29,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 
@@ -296,9 +296,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 8,
 	clust_size     = 2,
-	height_min     = 34,
-	height_max     = 37,
-	noise_threshhold = 0.0,
+	y_min     = 34,
+	y_max     = 37,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 
@@ -309,9 +309,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 1,
-	height_min     = 42,
-	height_max     = 43,
-	noise_threshhold = 0.0,
+	y_min     = 42,
+	y_max     = 43,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 minetest.register_ore({
@@ -321,9 +321,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 1,
-	height_min     = 43,
-	height_max     = 44,
-	noise_threshhold = 0.0,
+	y_min     = 43,
+	y_max     = 44,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 minetest.register_ore({
@@ -333,9 +333,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 1,
-	height_min     = 44,
-	height_max     = 45,
-	noise_threshhold = 0.0,
+	y_min     = 44,
+	y_max     = 45,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 minetest.register_ore({
@@ -345,9 +345,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 1,
-	height_min     = 45,
-	height_max     = 47,
-	noise_threshhold = 0.0,
+	y_min     = 45,
+	y_max     = 47,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 minetest.register_ore({
@@ -357,9 +357,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 1,
-	height_min     = 49,
-	height_max     = 52,
-	noise_threshhold = 0.0,
+	y_min     = 49,
+	y_max     = 52,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 minetest.register_ore({
@@ -369,9 +369,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 4,
-	height_min     = 53,
-	height_max     = 59,
-	noise_threshhold = 0.0,
+	y_min     = 53,
+	y_max     = 59,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 minetest.register_ore({
@@ -381,9 +381,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 8,
-	height_min     = 61,
-	height_max     = 70,
-	noise_threshhold = 0.0,
+	y_min     = 61,
+	y_max     = 70,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 minetest.register_ore({
@@ -393,9 +393,9 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 8,
-	height_min     = 66,
-	height_max     = 75,
-	noise_threshhold = 0.0,
+	y_min     = 66,
+	y_max     = 75,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 minetest.register_ore({
@@ -405,15 +405,13 @@ minetest.register_ore({
 	--clust_scarcity = 1,
 	--clust_num_ores = 100,
 	clust_size     = 8,
-	height_min     = 161,
-	height_max     = 170,
-	noise_threshhold = 0.0,
+	y_min     = 161,
+	y_max     = 170,
+	noise_threshold = 0.0,
 	noise_params =     {offset=0, scale=1, spread={x=3100, y=3100, z=3100}, seed=23, octaves=3, persist=0.70} ,
 })
 
 
-
---plzadamcode from minitest
 --
 -- Coal
 --
@@ -424,8 +422,8 @@ minetest.register_ore({
 	clust_scarcity = 500,
 	clust_num_ores = 8,
 	clust_size     = 3,
-	height_min     = -59,
-	height_max     = -12,
+	y_min     = -59,
+	y_max     = -12,
 })
 minetest.register_ore({
 	ore_type       = "scatter",
@@ -434,8 +432,8 @@ minetest.register_ore({
 	clust_scarcity = 1000,
 	clust_num_ores = 6,
 	clust_size     = 3,
-	height_min     = -11,
-	height_max     = 64,
+	y_min     = -11,
+	y_max     = 64,
 })
 minetest.register_ore({
 	ore_type       = "scatter",
@@ -444,8 +442,8 @@ minetest.register_ore({
 	clust_scarcity = 5000,
 	clust_num_ores = 4,
 	clust_size     = 2,
-	height_min     = 65,
-	height_max     = 67,
+	y_min     = 65,
+	y_max     = 67,
 })
 
 --
@@ -458,8 +456,8 @@ minetest.register_ore({
 	clust_scarcity = 830,
 	clust_num_ores = 5,
 	clust_size     = 3,
-	height_min     = -59,
-	height_max     = -10,
+	y_min     = -59,
+	y_max     = -10,
 })
 minetest.register_ore({
 	ore_type       = "scatter",
@@ -468,8 +466,8 @@ minetest.register_ore({
 	clust_scarcity = 1660,
 	clust_num_ores = 3,
 	clust_size     = 2,
-	height_min     = -9,
-	height_max     = 0,
+	y_min     = -9,
+	y_max     = 0,
 })
 
 --
@@ -482,8 +480,8 @@ minetest.register_ore({
 	clust_scarcity = 5000,
 	clust_num_ores = 5,
 	clust_size     = 3,
-	height_min     = -59,
-	height_max     = -35,
+	y_min     = -59,
+	y_max     = -35,
 })
 minetest.register_ore({
 	ore_type       = "scatter",
@@ -492,77 +490,78 @@ minetest.register_ore({
 	clust_scarcity = 10000,
 	clust_num_ores = 3,
 	clust_size     = 2,
-	height_min     = -35,
-	height_max     = -33,
+	y_min     = -35,
+	y_max     = -33,
 })
 
 --
 -- Diamond
 --
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_diamond",
-	wherein        = "default:stone",
-	clust_scarcity = 5000,
-	clust_num_ores = 4,
-	clust_size     = 3,
-	height_min     = -59,
-	height_max     = -52,
-})
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_diamond",
-	wherein        = "default:stone",
-	clust_scarcity = 10000,
-	clust_num_ores = 3,
-	clust_size     = 2,
-	height_min     = -55,
-	height_max     = -48,
-})
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:sand_with_diamond",
-	wherein        = "default:sand",
-	clust_scarcity = 10000,
-	clust_num_ores = 3,
-	clust_size     = 2,
-	height_min     = 85,
-	height_max     = 448,
-})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_diamond",
+		wherein        = "default:stone",
+		clust_scarcity = 5000,
+		clust_num_ores = 4,
+		clust_size     = 3,
+		y_min     = -59,
+		y_max     = -52,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_diamond",
+		wherein        = "default:stone",
+		clust_scarcity = 10000,
+		clust_num_ores = 3,
+		clust_size     = 2,
+		y_min     = -55,
+		y_max     = -48,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:sand_with_diamond",
+		wherein        = "default:sand",
+		clust_scarcity = 10000,
+		clust_num_ores = 3,
+		clust_size     = 2,
+		y_min     = 85,
+		y_max     = 448,
+	})
+
 --
 -- Mese
 --
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_mese",
-	wherein        = "default:stone",
-	clust_scarcity = 600,
-	clust_num_ores = 6,
-	clust_size     = 3,
-	height_min     = -59,
-	height_max     = -52,
-})
-minetest.register_ore({
-	ore_type       = "scatter",
-	ore            = "default:stone_with_mese",
-	wherein        = "default:stone",
-	clust_scarcity = 1200,
-	clust_num_ores = 4,
-	clust_size     = 3,
-	height_min     = -55,
-	height_max     = -53,
-})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_mese",
+		wherein        = "default:stone",
+		clust_scarcity = 600,
+		clust_num_ores = 6,
+		clust_size     = 3,
+		y_min     = -59,
+		y_max     = -52,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_mese",
+		wherein        = "default:stone",
+		clust_scarcity = 1200,
+		clust_num_ores = 4,
+		clust_size     = 3,
+		y_min     = -55,
+		y_max     = -53,
+	})
 
 --ES Node Registration and location
-minetest.register_ore({
+	minetest.register_ore({
 		    ore_type       = "scatter",
 		    ore            = "default:stone_with_emerald",
 		    wherein        = "default:stone",
 		    clust_scarcity = 34*34*34,
 		    clust_num_ores = 1,
 		    clust_size     = 2,
-		    height_min     = -60,
-		    height_max     = -24,
+		    y_min     = -60,
+		    y_max     = -24,
 	})
 
 	minetest.register_ore({
@@ -572,8 +571,8 @@ minetest.register_ore({
 		    clust_scarcity = 14*14*14,
 		    clust_num_ores = 2,
 		    clust_size     = 4,
-		    height_min     = -70,
-		    height_max     = -44,
+		    y_min     = -70,
+		    y_max     = -44,
 	})
 	
 	minetest.register_ore({
@@ -583,9 +582,11 @@ minetest.register_ore({
 		    clust_scarcity = 14*14*14,
 		    clust_num_ores = 2,
 		    clust_size     = 4,
-		    height_min     = 12,
-		    height_max     = 70,
+		    y_min     = 12,
+		    y_max     = 70,
 	})	
+	
+
 
 	-- Clay
 
@@ -871,9 +872,9 @@ minetest.register_ore({
 	    clust_scarcity = 10*10*10,
 	    clust_num_ores = 6,
 	    clust_size     = 5,
-	    height_min     = -3390,
-	    height_max     = -3000,
-	    --height_max     = NETHER_DEPTH,
+	    y_min     = -3390,
+	    y_max     = -3000,
+	    --y_max     = NETHER_DEPTH,
 	})
 
 	-- Slow Sand
@@ -958,7 +959,7 @@ minetest.register_ore({
 	
 	minetest.register_ore({
 		ore_type       = "scatter",
-		ore            = "fire:permanent_flame",
+		ore            = "default:underground_fire",
 		wherein        = "default:rack",
 		clust_scarcity =12 *22 * 12,
 		clust_num_ores = 5,
@@ -973,14 +974,85 @@ minetest.register_ore({
 	ore            = "default:nitherbrick",
 	wherein        ={"default:rack"},
 	clust_scarcity = 1,
-	clust_num_ores = 12,
-	clust_size     = 10,
-	height_min     = -3050,
-	height_max     = -4000,
-	noise_threshhold = 0.2,
+	clust_num_ores = 1,
+	clust_size     = 3,
+	y_min     = -3050,
+	y_max     = -4000,
+	noise_threshold = 0.2,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 
+--Realm1 generation
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_diamond",
+		wherein        = "default:stone",
+		clust_scarcity = 1000,
+		clust_num_ores = 30,
+		clust_size     = 9,
+		y_min     = -31000,
+		y_max     = -5000,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:diamondblock",
+		wherein        = "default:stone",
+		clust_scarcity = 10000,
+		clust_num_ores = 30,
+		clust_size     = 9,
+		y_min     = -31000,
+		y_max     = -5000,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_emerald",
+		wherein        = "default:stone",
+		clust_scarcity = 5000,
+		clust_num_ores = 36,
+		clust_size     = 9,
+		y_min     = -31000,
+		y_max     = -5000,
+	})	
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_iron",
+		wherein        = "default:stone",
+		clust_scarcity = 24 * 24 * 24,
+		clust_num_ores = 27,
+		clust_size     = 6,
+	y_min     = -31000,
+	y_max     = -5000,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:tree",
+		wherein        = "default:water_source",
+		clust_scarcity = 24 * 24 * 24,
+		clust_num_ores = 2,
+		clust_size     = 6,
+	y_min     = -5500,
+	y_max     = -5000,
+	})	
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_coal",
+		wherein        = "default:stone",
+		clust_scarcity = 8 * 8 * 8,
+		clust_num_ores = 8,
+		clust_size     = 3,
+	y_min     = -5500,
+	y_max     = -5000,
+	})
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:glowstone",
+		wherein        = "default:water_source",
+		clust_scarcity = 38 * 38 * 38,
+		clust_num_ores = 2,
+		clust_size     = 1,
+	y_min     = -5500,
+	y_max     = -5000,
+	})	
 	
 end
 --
@@ -1615,7 +1687,7 @@ function default.register_biomes()
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -3420,
+		y_min = -4000,
 		y_max = -3400,
 		heat_point = 50,
 		humidity_point = 50,
@@ -1628,16 +1700,57 @@ function default.register_biomes()
 		--depth_top = ,
 		--node_filler = "default:dummy",
 		--depth_filler = ,
-		node_stone =  "default:dummy",
+		node_stone =  "air",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
 		y_min = -5000,
-		y_max = -3421,
+		y_max = -4001,
 		heat_point = 50,
 		humidity_point = 50,
 	})	
+	
+	
+	--realm 2
+		minetest.register_biome({
+		name = "realm1",
+		--node_dust = "",
+		--node_top = "",
+		--depth_top = ,
+		--node_filler = "default:dummy",
+		--depth_filler = ,
+		node_stone =  "default:water_source",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -5500,
+		y_max = -5001,
+		heat_point = 50,
+		humidity_point = 50,
+	})	
+	
+		minetest.register_biome({
+		name = "realm1b",
+		--node_dust = "",
+		node_top = "default:dirt",
+		depth_top = 12,
+		node_filler = "default:sand",
+		depth_filler = 1,
+		node_stone =  "default:bedrock",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -5600,
+		y_max = -5551,
+		heat_point = 50,
+		humidity_point = 50,
+	})		
+	
+	
+	
 	
 	
 end
@@ -1670,7 +1783,7 @@ function default.register_mgv6_decorations()
 		y_max = 1,
 		decoration = "default:papyrus",
 		height = 2,
-		height_max = 4,
+		y_max = 4,
 		spawn_by = "default:water_source",
 		num_spawn_by = 1,
 	})
@@ -1693,7 +1806,7 @@ function default.register_mgv6_decorations()
 		y_max = 30,
 		decoration = "default:cactus",
 		height = 3,
-	        height_max = 4,
+	        y_max = 4,
 	})
 
 	-- Long grasses
@@ -2080,7 +2193,7 @@ function default.register_decorations()
 		y_max = 31000,
 		decoration = "default:cactus",
 		height = 2,
-		height_max = 5,
+		y_max = 5,
 	})
 
 	-- Papyrus
@@ -2229,8 +2342,8 @@ local function replace(old, new, min, max)
 			clust_scarcity = 1,
 			clust_num_ores = 1,
 			clust_size     = 1,
-			height_min     = min,
-			height_max     = max,
+			y_min     = min,
+			y_max     = max,
 		})
 	end
 end
@@ -2267,13 +2380,13 @@ replace("default:granite", "default:bedrock", -80, -64)
 replace("default:marble", "default:bedrock", -80, -64)
 replace("hardenedclay:hardened_clay_brown", "default:bedrock", -80, -64)
 
-
+--[[
 --dungeon swap
 replace("default:cobblestone", "default:nitherbrick", -3900, -2400)
 replace("default:mossycobble", "default:nitherbrick", -3900, -2400)
 replace("stairs:stair_cobble", "stairs:stair_nitherbrick", -3900, -2400)
 replace("stairs:stair_mossycobble", "stairs:stair_nitherbrick", -3900, -2400)
-
+]]
 
 local function bedrock(old)
 	minetest.register_ore({
@@ -2283,8 +2396,8 @@ local function bedrock(old)
 		clust_scarcity = 5,
 		clust_num_ores = 3,
 		clust_size     = 2,
-		height_min     = -64,
-		height_max     = -60,
+		y_min     = -64,
+		y_max     = -60,
 	})
 end
 bedrock("air")
@@ -2303,204 +2416,3 @@ bedrock("default:lava_flowing")
 bedrock("default:water_source")
 bedrock("default:water_flowing")
 
-
---[[
---paramats cavegen
---hacked by maikerumine
-
-
---params
-local TCAVE = 0.6
-local BLEND = 128
-
--- 3D noise
-
-local np_cave = {
-	offset = 0,
-	scale = 1,
-	spread = {x = 384, y = 128, z = 384}, -- squashed 3:1
-	seed = 59033,
-	octaves = 5,
-	persist = 0.7
-}
-
--- Stuff
-
-local yblmax = NETHER_DEPTH - BLEND * 2
-
-
--- Mapgen
-
--- Initialize noise object and localise noise buffer
-
-local nobj_cave = nil
-local nbuf_cave
-
-
--- Content ids
-
-local c_air = minetest.get_content_id("air")
-
-local c_stone_with_coal = minetest.get_content_id("default:stone_with_coal")
-local c_stone_with_iron = minetest.get_content_id("default:stone_with_iron")
-local c_stone_with_mese = minetest.get_content_id("default:stone_with_mese")
-local c_stone_with_diamond = minetest.get_content_id("default:stone_with_diamond")
-local c_stone_with_gold = minetest.get_content_id("default:stone_with_gold")
-local c_stone_with_copper = minetest.get_content_id("default:stone_with_copper")
-local c_mese = minetest.get_content_id("default:mese")
-
-local c_gravel = minetest.get_content_id("default:gravel")
-local c_dirt = minetest.get_content_id("default:dirt")
-local c_sand = minetest.get_content_id("default:sand")
-
-local c_cobble = minetest.get_content_id("default:cobble")
-local c_mossycobble = minetest.get_content_id("default:mossycobble")
-local c_marble = minetest.get_content_id("default:marble")
-local c_granite = minetest.get_content_id("default:granite")
-local c_stair_cobble = minetest.get_content_id("stairs:stair_cobble")
-
-local c_lava_source = minetest.get_content_id("default:lava_source")
-local c_lava_flowing = minetest.get_content_id("default:lava_flowing")
-local c_water_source = minetest.get_content_id("default:water_source")
-local c_water_flowing = minetest.get_content_id("default:water_flowing")
-
-local c_glowstone = minetest.get_content_id("default:glowstone")
-local c_nethersand = minetest.get_content_id("default:slowsand")
-local c_netherbrick = minetest.get_content_id("default:nitherbrick")
-local c_netherrack = minetest.get_content_id("default:rack")
-local c_netherfire = minetest.get_content_id("default:permanent_flame")
-local c_netherdiamond = minetest.get_content_id("default:rack_with_diamond")
-local c_quartz = minetest.get_content_id("default:quartz_ore")
-local c_netherquartz = minetest.get_content_id("default:quartz_ore")
-
-
-
-
-
-
--- On-generated function
-
-minetest.register_on_generated(function(minp, maxp, seed)
-	if minp.y > NETHER_DEPTH then
-		return
-	end
-
-	local t1 = os.clock()
-
-	local x1 = maxp.x
-	local y1 = maxp.y
-	local z1 = maxp.z
-	local x0 = minp.x
-	local y0 = minp.y
-	local z0 = minp.z
-
-	local vm, emin, emax = minetest.get_mapgen_object("voxelmanip")
-	local area = VoxelArea:new{MinEdge = emin, MaxEdge = emax}
-	local data = vm:get_data()
-
-	local x11 = emax.x -- Limits of mapchunk plus mapblock shell
-	local y11 = emax.y
-	local z11 = emax.z
-	local x00 = emin.x
-	local y00 = emin.y
-	local z00 = emin.z
-
-	local ystride = x1 - x0 + 1
-	local zstride = ystride * ystride
-	local chulens = {x = ystride, y = ystride, z = ystride}
-	local minposxyz = {x = x0, y = y0, z = z0}
-
-	nobj_cave = nobj_cave or minetest.get_perlin_map(np_cave, chulens)
-	local nvals_cave = nobj_cave:get3dMap_flat(minposxyz, nbuf_cave)
-
-	for y = y00, y11 do -- Y loop first to minimise tcave calculations
-		local tcave
-		local in_chunk_y = false
-		if y >= y0 and y <= y1 then
-			if y > yblmax then
-				tcave = TCAVE + ((y - yblmax) / BLEND) ^ 2
-			else
-				tcave = TCAVE
-			end
-			in_chunk_y = true
-		end
-
-		for z = z00, z11 do
-			local vi = area:index(x00, y, z) -- Initial voxelmanip index
-			local ni
-			local in_chunk_yz = in_chunk_y and z >= z0 and z <= z1
-
-			for x = x00, x11 do
-				if in_chunk_yz and x == x0 then
-					-- Initial noisemap index
-					ni = (z - z0) * zstride + (y - y0) * ystride + 1
-				end
-				local in_chunk_yzx = in_chunk_yz and x >= x0 and x <= x1 -- In mapchunk
-
-				local id = data[vi] -- Existing node
-				-- Cave air, cave liquids and dungeons are overgenerated,
-				-- convert these throughout mapchunk plus shell
-				if id == c_air or -- Air and liquids to air
-				--		id == c_lava_source or
-				--		id == c_lava_flowing or
-						id == c_water_source or
-						id == c_water_flowing then
-					data[vi] = c_air
-				-- Dungeons are preserved so we don't need
-				-- to check for cavern in the shell
-				elseif id == c_cobble or -- Dungeons (preserved) to netherbrick
-						id == c_mossycobble or
-						id == c_stair_cobble then
-					data[vi] = c_netherbrick
-				end
-
-				if in_chunk_yzx then -- In mapchunk
-					if nvals_cave[ni] > tcave then -- Only excavate cavern in mapchunk
-						data[vi] = c_air
-						
-					elseif id == c_mese then -- Mese block to lava
-						data[vi] = c_lava_source
-					elseif id == c_stone_with_iron then -- Iron block to fire
-						data[vi] = c_netherfire
-					elseif id == c_dirt then --Dirt block to Glowstone
-						data[vi] = c_glowstone
-					elseif id == c_granite then --Dirt block to Glowstone
-						data[vi] = c_netherbrick
-					elseif id == c_stone_with_diamond then --Netherdiamonds
-						data[vi] = c_netherdiamond
-					elseif id ==  c_lava_source then --LAVA!!
-						data[vi] =  c_lava_source
-					elseif id ==  c_quartz then --Quartz
-						data[vi] =  c_quartz
-					elseif id ==  c_netherquartz then --Quartz
-						data[vi] =  c_netherquartz
-					elseif id == c_stone_with_gold or -- Precious ores to glowstone
-						id == c_stone_with_mese then
-						data[vi] = c_glowstone
-					elseif id == c_gravel or -- Blob ore to nethersand
-							id == c_marble or
-							id == c_sand then
-						data[vi] = c_nethersand
-					else -- All else to netherstone
-						data[vi] = c_netherrack
-						
-					end
-
-					ni = ni + 1 -- Only increment noise index in mapchunk
-				end
-
-				vi = vi + 1
-			end
-		end
-	end
-
-	vm:set_data(data)
-	vm:set_lighting({day = 0, night = 0})
-	vm:calc_lighting()
-	vm:update_liquids()
-	vm:write_to_map()
-
-	local chugent = math.ceil((os.clock() - t1) * 1000)
-	print ("[nether] generate chunk " .. chugent .. " ms")
-end)
-]]

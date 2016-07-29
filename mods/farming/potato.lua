@@ -4,23 +4,23 @@
 	https://forum.minetest.net/viewtopic.php?id=3948
 ]]
 
+local S = farming.intllib
+
 -- potato
 minetest.register_craftitem("farming:potato", {
-	description = "Potato",
+	description = S("Potato"),
 	inventory_image = "farming_potato.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:potato_1")
 	end,
 	on_use = minetest.item_eat(1),
-	stack_max = 64,
 })
 
 -- baked potato
 minetest.register_craftitem("farming:baked_potato", {
-	description = "Baked Potato",
+	description = S("Baked Potato"),
 	inventory_image = "farming_baked_potato.png",
 	on_use = minetest.item_eat(6),
-	stack_max = 64,
 })
 
 minetest.register_craft({

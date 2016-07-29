@@ -10,6 +10,14 @@ This mod contains the API only for adding your own mobs into the world, so pleas
 https://forum.minetest.net/viewtopic.php?f=11&t=9917
 
 
+Crafts:
+
+ - Nametag (paper, black dye, string) can be used right-click on a tamed mob to give them a name.
+ - Nets can be used to right-click tamed mobs to pick them up and place inside inventory as a spawn egg.
+ - Magic Lasso is similar to nets but with a better chance of picking up larger mobs.
+ - Shears are used to right-click sheep and return 1-3 wool.
+
+
 Changelog:
 
 - 1.30- Added support for invisibility mod (mobs cant attack what they cant see), tweaked and tidied code

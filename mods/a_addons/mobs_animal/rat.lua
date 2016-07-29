@@ -1,4 +1,6 @@
 
+local S = mobs.intllib
+
 -- Rat by PilzAdam
 
 mobs:register_mob("mobs_animal:rat", {
@@ -41,6 +43,8 @@ mobs:register_mob("mobs_animal:rat", {
 		local pos = self.object:getpos()
 
 		print("rat pos", pos.x, pos.y, pos.z, dtime)
+
+		return false -- return but skip doing rest of API
 	end,
 ]]
 --[[
@@ -55,17 +59,14 @@ mobs:register_mob("mobs_animal:rat", {
 
 mobs:register_spawn("mobs_animal:rat", {"default:stone"}, 20, 5, 15000, 2, 0)
 
-mobs:register_egg("mobs_animal:rat", "Rat", "mobs_rat_inventory.png", 0)
+mobs:register_egg("mobs_animal:rat", S("Rat"), "mobs_rat_inventory.png", 0)
 
 -- compatibility
 mobs:alias_mob("mobs:rat", "mobs_animal:rat")
-mobs:alias_mob("esmobs:rat", "mobs_animal:rat")
-mobs:alias_mob("esmobs:rat_cooked", "mobsrat_cooked")
-
 
 -- cooked rat, yummy!
 minetest.register_craftitem(":mobs:rat_cooked", {
-	description = "Cooked Rat",
+	description = S("Cooked Rat"),
 	inventory_image = "mobs_cooked_rat.png",
 	on_use = minetest.item_eat(3),
 })
@@ -73,6 +74,6 @@ minetest.register_craftitem(":mobs:rat_cooked", {
 minetest.register_craft({
 	type = "cooking",
 	output = "mobs:rat_cooked",
-	recipe = "mobs_animal:rat",
+	recipe = "mobs:rat",
 	cooktime = 5,
 })

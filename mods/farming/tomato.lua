@@ -4,9 +4,11 @@
 	http://www.minecraftforum.net/forums/mapping-and-modding/minecraft-mods/1288375-food-plus-mod-more-food-than-you-can-imagine-v2-9)
 ]]
 
+local S = farming.intllib
+
 -- tomato
 minetest.register_craftitem("farming:tomato", {
-	description = "Tomato",
+	description = S("Tomato"),
 	inventory_image = "farming_tomato.png",
 	on_place = function(itemstack, placer, pointed_thing)
 		return farming.place_seed(itemstack, placer, pointed_thing, "farming:tomato_1")
@@ -28,7 +30,6 @@ local crop_def = {
 		snappy = 3, flammable = 2, plant = 1, attached_node = 1,
 		not_in_creative_inventory = 1, growing = 1
 	},
-	stack_max = 64,
 	sounds = default.node_sound_leaves_defaults()
 }
 

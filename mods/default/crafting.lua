@@ -1,4 +1,10 @@
 -- mods/default/crafting.lua
+minetest.register_craft({
+	output = "default:flint_and_steel",
+	recipe = {
+		{"default:flint", "default:steel_ingot"}
+	}
+})
 
 minetest.register_craft({
 	output = 'default:wood 4',

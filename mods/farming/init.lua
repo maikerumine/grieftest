@@ -1,5 +1,5 @@
 --[[
-	Minetest Farming Redo Mod 1.22 (31st March 2016)
+	Minetest Farming Redo Mod 1.22 (4th June 2016)
 	by TenPlus1
 	NEW growing routine by prestidigitator
 	auto-refill by crabman77
@@ -49,30 +49,15 @@ end
 
 local statistics = dofile(farming.path.."/statistics.lua")
 
-dofile(farming.path.."/soil.lua")
-dofile(farming.path.."/hoes.lua")
-dofile(farming.path.."/grass.lua")
-dofile(farming.path.."/wheat.lua")
-dofile(farming.path.."/cotton.lua")
-dofile(farming.path.."/carrot.lua")
-dofile(farming.path.."/potato.lua")
-dofile(farming.path.."/tomato.lua")
-dofile(farming.path.."/cucumber.lua")
-dofile(farming.path.."/corn.lua")
-dofile(farming.path.."/coffee.lua")
-dofile(farming.path.."/melon.lua")
-dofile(farming.path.."/sugar.lua")
-dofile(farming.path.."/pumpkin.lua")
-dofile(farming.path.."/cocoa.lua")
-dofile(farming.path.."/raspberry.lua")
-dofile(farming.path.."/blueberry.lua")
-dofile(farming.path.."/rhubarb.lua")
-dofile(farming.path.."/beanpole.lua")
-dofile(farming.path.."/grapes.lua")
-dofile(farming.path.."/barley.lua")
-dofile(farming.path.."/donut.lua")
-dofile(farming.path.."/mapgen.lua")
-dofile(farming.path.."/compatibility.lua") -- Farming Plus compatibility
+-- Intllib
+
+local S
+if minetest.get_modpath("intllib") then
+	S = intllib.Getter()
+else
+	S = function(s) return s end
+end
+farming.intllib = S
 
 -- Utility Functions
 
@@ -420,15 +405,15 @@ function farming.plant_growth_timer(pos, elapsed, node_name)
 			return true
 		end
 	else
-		local under = minetest.get_node_or_nil({ x = pos.x, y = pos.y - 1, z = pos.z })
+		local under = minetest.get_node({ x = pos.x, y = pos.y - 1, z = pos.z })
 
-		if not under or under.name ~= "farming:soil_wet" then
+		if minetest.get_item_group(under.name, "soil") < 3 then
 			return true
 		end
 	end
 
 	local growth
-	local light_pos = {x = pos.x, y = pos.y, z = pos.z}
+	local light_pos = {x = pos.x, y = pos.y + 1, z = pos.z}
 	local lambda = elapsed / STAGE_LENGTH_AVG
 
 	if lambda < 0.1 then
@@ -516,6 +501,7 @@ local can_refill_plant = {
 	["farming:beans_1"] = "farming:beans",
 	["farming:rhubarb_1"] = "farming:rhubarb",
 	["farming:cocoa_1"] = "farming:cocoa_beans",
+	["farming:barley_1"] = "farming:seed_barley",
 }
 
 function farming.refill_plant(player, plantname, index)
@@ -610,7 +596,7 @@ farming.register_plant = function(name, def)
 
 	-- Check def table
 	if not def.description then
-		def.description = "Seed"
+		def.description = S("Seed")
 	end
 
 	if not def.inventory_image then
@@ -663,7 +649,7 @@ farming.register_plant = function(name, def)
 
 		-- Last step doesn't need growing=1 so Abm never has to check these
 		if i == def.steps then
-			g = {snappy = 3, flammable = 2, plant = 1, not_in_creative_inventory = 1, attached_node = 1}
+			g.growing = 0
 		end
 
 		local node_name = mname .. ":" .. pname .. "_" .. i
@@ -681,7 +667,7 @@ farming.register_plant = function(name, def)
 			sounds = default.node_sound_leaves_defaults(),
 		})
 
-		register_plant_node(node_name)
+--		register_plant_node(node_name)
 	end
 
 	-- Return info
@@ -689,9 +675,29 @@ farming.register_plant = function(name, def)
 	return r
 end
 
---[[ Cotton (example, is already registered in cotton.lua)
-farming.register_plant("farming:cotton", {
-	description = "Cotton2 seed",
-	inventory_image = "farming_cotton_seed.png",
-	steps = 8,
-})]]
+-- load crops
+
+dofile(farming.path.."/soil.lua")
+dofile(farming.path.."/hoes.lua")
+dofile(farming.path.."/grass.lua")
+dofile(farming.path.."/wheat.lua")
+dofile(farming.path.."/cotton.lua")
+dofile(farming.path.."/carrot.lua")
+dofile(farming.path.."/potato.lua")
+dofile(farming.path.."/tomato.lua")
+dofile(farming.path.."/cucumber.lua")
+dofile(farming.path.."/corn.lua")
+dofile(farming.path.."/coffee.lua")
+dofile(farming.path.."/melon.lua")
+dofile(farming.path.."/sugar.lua")
+dofile(farming.path.."/pumpkin.lua")
+dofile(farming.path.."/cocoa.lua")
+dofile(farming.path.."/raspberry.lua")
+dofile(farming.path.."/blueberry.lua")
+dofile(farming.path.."/rhubarb.lua")
+dofile(farming.path.."/beanpole.lua")
+dofile(farming.path.."/grapes.lua")
+dofile(farming.path.."/barley.lua")
+dofile(farming.path.."/donut.lua")
+dofile(farming.path.."/mapgen.lua")
+dofile(farming.path.."/compatibility.lua") -- Farming Plus compatibility

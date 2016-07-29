@@ -497,7 +497,7 @@ minetest.register_node("tnt:gunpowder_burning", {
 
 minetest.register_abm({
 	nodenames = {"group:tnt", "tnt:gunpowder"},
-	neighbors = {"fire:basic_flame", "default:lava_source", "default:lava_flowing"},
+	neighbors = {"default:basic_flame", "default:lava_source", "default:lava_flowing"},
 	interval = 4,
 	chance = 1,
 	action = tnt.burn,

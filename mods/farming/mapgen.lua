@@ -6,8 +6,8 @@ local function register_plant(name, min, max, spawnby, num)
 		sidelen = 16,
 		noise_params = {
 			offset = 0,
-			scale = 0.0006,
-			spread = {x = 70, y = 70, z = 70},
+			scale = 0.006,
+			spread = {x = 100, y = 100, z = 100},
 			seed = 329,
 			octaves = 3,
 			persist = 0.6
