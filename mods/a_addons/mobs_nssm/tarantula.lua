@@ -1,0 +1,43 @@
+
+mobs:register_mob("nssm:tarantula", {
+	type = "monster",
+	hp_max = 70,
+	hp_min = 70,
+	collisionbox = {-0.5, 0.00, -0.5, 0.5, 1, 0.5},
+	visual = "mesh",
+	mesh = "tarantula_propower.x",
+	textures = {{"tarantula.png"}},
+	visual_size = {x=10, y=10},
+	makes_footstep_sound = true,
+	view_range = 30,
+	lifetimer = 500,
+	walk_velocity = 1.5,
+	run_velocity = 3.3,
+	rotate = 270,
+	sounds = {
+		random = "tarry",
+	},
+	damage = 14,
+	jump = true,
+	drops = {
+		{name = "default:mese_crystal_fragment", chance = 1, min = 1, max = 2},
+	},
+	armor = 60,
+	water_damage = 1,
+	lava_damage = 3,
+	reach = 4,
+	light_damage = 0,
+	attack_type = "dogfight",
+	animation = {
+		speed_normal = 20,
+		speed_run = 25,
+		stand_start = 1,
+		stand_end = 60,
+		walk_start = 100,
+		walk_end = 140,
+		run_start = 140,
+		run_end = 160,
+		punch_start = 180,
+		punch_end = 200,
+	}
+})
