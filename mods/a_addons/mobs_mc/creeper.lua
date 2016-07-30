@@ -107,8 +107,11 @@ mobs:register_mob("mobs_mc:creeper", {
 			end
 			]]
 })
-mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-
+--mobs:register_spawn("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+mobs:spawn_specific("mobs_mc:creeper", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 20, 20, 9000, 2, -310, 31000)
+--[[
+mobs:spawn_specific("nssm:sandworm", {"default:desert_sand", "default:desert_stone"}, {"air"},0, 20, 20, 9000, 2, -31000, 31000)
+]]
 
 
 -- compatibility

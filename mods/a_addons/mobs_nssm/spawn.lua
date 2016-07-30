@@ -34,8 +34,8 @@ mobs:spawn_specific("nssm:white_werewolf", {"default:dirt_with_snow","default:sn
 	0, 20, 60, 9000, 2, -31000, 31000)
 
 -- SKY
-mobs:spawn_specific("nssm:moonheron", {"air"}, {"air"},
-	0, 10, 100, 160000, 2, 10, 40)
+mobs:spawn_specific("nssm:moonheron", {"air"}, {"air"},0, 10, 100, 160000, 2, 10, 40)
+mobs:spawn_specific("nssm:moonheron", {"air"}, {"air"},0, 17, 100, 150000, 2, -5610, -3500)
 
 --mobs:spawn_specfic(name, nodes, neighbors, min_light, max_light, interval, chance,
 --	active_object_count, min_height, max_height, day_toggle)

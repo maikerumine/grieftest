@@ -81,7 +81,8 @@ mobs:register_mob("mobs_mc:zombie", {
 	view_range = 16,
 	attack_type = "dogfight",
 })
-mobs:register_spawn("mobs_mc:zombie", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+--mobs:register_spawn("mobs_mc:zombie", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
+mobs:spawn_specific("mobs_mc:zombie", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 20, 20, 9000, 2, -110, 31000)
 
 
 -- meat rotted
