@@ -17,10 +17,11 @@ mobs:register_mob("nssm:uloboros", {
 	sounds = {
 		random = "uloboros",
 	},
-	damage = 8,
+	damage = 3,
 	jump = true,
 	drops = {
 		{name = "default:mese_crystal_fragment", chance = 2, min = 1, max = 2},
+		{name = "nssm:crab_heavy_mace", chance = 19, min = 0, max = 1},
 	},
 	armor = 100,
 	water_damage = 1,

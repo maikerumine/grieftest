@@ -76,7 +76,7 @@ mobs:register_mob("mobs_mc:skeleton", {
 	dogshoot_count_max =3,
 })
 --mobs:register_spawn("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, 31000)
-mobs:spawn_specific("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 20, 20, 9000, 2, -110, 31000)
+mobs:spawn_specific("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 6, 20, 9000, 2, -110, 31000)
 
 
 mobs:register_mob("mobs_mc:skeleton2", {
@@ -149,7 +149,7 @@ mobs:register_mob("mobs_mc:skeleton2", {
 	dogshoot_count_max =6,
 })
 --mobs:register_spawn("mobs_mc:skeleton2", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"}, 7, -1, 5000, 4, -3000)
-mobs:spawn_specific("mobs_mc:skeleton2", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 20, 20, 9000, 2, -4010, -2100)
+mobs:spawn_specific("mobs_mc:skeleton2", {"group:crumbly", "group:cracky", "group:choppy", "group:snappy"},{"air"},0, 7, 20, 9000, 2, -4010, -2100)
 
 
 -- leather, feathers, etc.

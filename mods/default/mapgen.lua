@@ -42,9 +42,9 @@ minetest.register_alias("default:stone_with_copper", "default:stone_with_iron")
 minetest.register_alias("default:bedrock", "default:bedrock")
 
 
-local NETHER_DEPTH = -3100
-local NETHER_AMBIENT = 7
-local nether_created = false
+--local NETHER_DEPTH = -3100
+--local NETHER_AMBIENT = 7
+--local nether_created = false
 
 
 
@@ -2330,8 +2330,25 @@ elseif mg_params.mgname ~= "singlenode" then
 	default.register_ores()
 	default.register_decorations()
 end
+--[[
+
+--
+-- Detect mapgen to select functions  newest
+--
+
+local mg_name = minetest.get_mapgen_setting("mg_name")
+if mg_name == "v6" then
+	default.register_ores()
+	default.register_mgv6_decorations()
+else
+	default.register_biomes()
+	default.register_ores()
+	default.register_decorations()
+end
+]]
 
 
+--bedrock code
 
 local function replace(old, new, min, max)
 	for i=1,8 do

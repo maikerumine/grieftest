@@ -96,6 +96,7 @@ minetest.register_alias("quartz:pillar_horizontal", "default:pillar_horizontal")
 --alias to merge nether to default
 minetest.register_alias("nether:rack", "default:rack")
 minetest.register_alias("nether:quartz_ore", "default:quartz_ore")
+minetest.register_alias("nether:quartz_crystal", "default:quartz_crystal")
 minetest.register_alias("nether:brick", "default:nitherbrick")
 minetest.register_alias("nether:glowstone", "default:glowstone")
 minetest.register_alias("nether:glowstone_dust", "default:glowstone_dust")

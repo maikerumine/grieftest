@@ -14,6 +14,7 @@ dofile(path .. "/uloboros.lua")
 dofile(path .. "/werewolf.lua")
 dofile(path .. "/white_werewolf.lua")
 dofile(path .. "/mese_dragon.lua")
+dofile(path .. "/nssm_api.lua")
 
 -- items
 dofile(path .. "/nssm_materials.lua")

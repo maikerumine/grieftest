@@ -21,6 +21,7 @@ mobs:register_mob("nssm:ant_worker", {
 	jump = true,
 	drops = {
 		{name = "default:mese_crystal_fragment", chance = 3, min = 1, max = 2},
+		{name = "nssm:ant_sword", chance = 16, min = 0, max = 1},
 
 	},
 	armor = 90,

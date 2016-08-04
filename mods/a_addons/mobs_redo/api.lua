@@ -2320,7 +2320,9 @@ minetest.register_entity(name, {
 	on_step = mob_step,
 
 	on_punch = mob_punch,
-
+--nssm
+custom_attack = def.custom_attack or false,
+--nssm
 	on_activate = function(self, staticdata, dtime_s)
 		mob_activate(self, staticdata, dtime_s, def)
 	end,

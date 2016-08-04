@@ -901,6 +901,19 @@ minetest.register_craft({
 	burntime = 2,
 })
 
+minetest.register_craft({
+	output = 'default:dragon_block',
+	recipe = {
+		{'mobs_mc:skeleton2_head', 'mobs_mc:skeleton2_head', 'mobs_mc:skeleton2_head'},
+		{'', 'default:slowsand', ''},
+		{'', 'default:slowsand', ''},
+	}
+})
+
+
+
+
+
 -- Minetest 0.4 Mod: default
 
 minetest.register_craftitem("default:glowstone_dust", {

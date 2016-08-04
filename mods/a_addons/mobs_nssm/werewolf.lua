@@ -16,10 +16,11 @@ mobs:register_mob("nssm:werewolf", {
 	sounds = {
 		random = "werewolf",
 	},
-	damage = 8,
+	damage = 3,
 	jump = true,
 	drops = {
 		{name = "default:mese_crystal_fragment", chance = 1, min = 3, max = 4},
+		{name = "nssm:stoneater_pick", chance = 19, min = 0, max = 1},
 	},
 	armor = 100,
 	water_damage = 2,

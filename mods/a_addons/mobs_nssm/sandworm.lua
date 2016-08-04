@@ -15,10 +15,11 @@ mobs:register_mob("nssm:sandworm", {
 	fear_height = 3,
 	walk_velocity = 2,
 	run_velocity = 2,
-	damage = 8,
+	damage = 3,
 	jump = false,
 	drops = {
 		{name = "default:mese_crystal_fragment", chance = 2, min = 1, max = 3},
+		{name = "nssm:stoneater_pick", chance = 19, min = 0, max = 1},
 	},
 	armor = 90,
 	water_damage = 5,

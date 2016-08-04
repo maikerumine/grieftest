@@ -18,10 +18,11 @@ mobs:register_mob("nssm:moonheron", {
 		random = "moonheron",
 		distance =40,
 	},
-	damage = 10,
+	damage = 3,
 	jump = true,
 	drops = {
 		{name = "mobs:mese_crystal_fragment", chance = 1, min = 1, max = 1},
+		{name = "nssm:night_sword", chance = 19, min = 0, max = 1},
 	},
 	armor = 100,
 	floats = 1,

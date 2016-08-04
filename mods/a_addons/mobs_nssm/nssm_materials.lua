@@ -86,6 +86,8 @@ minetest.register_node("nssm:mese_meteor", {
 	paramtype = "light",
 	drop = "",
 	groups = {crumbly=1, falling_node=1, flammable = 2},
+	
+
 })
 minetest.register_abm({
 	nodenames = {"nssm:mese_meteor"},
@@ -102,9 +104,93 @@ minetest.register_abm({
 		minetest.set_node({x=pos.x, y=pos.y, z=pos.z+1}, {name = "fire:basic_flame"})
 		minetest.set_node({x=pos.x, y=pos.y+1, z=pos.z}, {name = "fire:basic_flame"})
 
-	end
+		--on_punch = function(self, pos)	
+			--mese_dragon = minetest.add_entity(self.object:getpos(), "nssm:mese_dragon")
+			--ent = mese_dragon:get_luaentity()
+		--end
+		
+		--on_punch = function(node,pos)
+			--mese_dragon = minetest.add_entity(node:getpos(), "nssm:mese_dragon")
+			--ent = mese_dragon:get_luaentity()
+		--end
+end	
 })
 
+--SPAWN BY BUILDING
+--Code from Andre "LAG"
+
+--redefine mese
+minetest.register_node(":default:mese", {
+	description = "MESE",
+	tiles = {"default_mese_block.png"},
+	is_ground_content = true,
+	groups = {cracky=1,level=3},
+	sounds = default.node_sound_stone_defaults(),
+	on_place = function(itemstack, placer, pointed_thing)
+		local stack = ItemStack("default:mese")
+		local pos = pointed_thing.above
+
+		if
+			minetest.get_node({x=pos.x+1,y=pos.y,z=pos.z}).name=="default:mese" and
+			minetest.get_node({x=pos.x+1,y=pos.y,z=pos.z+1}).name=="default:mese" and
+			minetest.get_node({x=pos.x+1,y=pos.y,z=pos.z-1}).name=="default:mese" and
+			minetest.get_node({x=pos.x-1,y=pos.y,z=pos.z}).name=="default:mese" and
+			minetest.get_node({x=pos.x-1,y=pos.y,z=pos.z+1}).name=="default:mese" and
+			minetest.get_node({x=pos.x-1,y=pos.y,z=pos.z-1}).name=="default:mese" and
+			minetest.get_node({x=pos.x,y=pos.y,z=pos.z+1}).name=="default:mese" and
+			minetest.get_node({x=pos.x,y=pos.y,z=pos.z-1}).name=="default:mese"
+		then
+			stack = ItemStack("nssm:mese_meteor")
+			--local mob = minetest.add_entity(pos, "nssm:mese_dragon")
+
+		end
+		local ret = minetest.item_place(stack, placer, pointed_thing)
+		if ret==nil then
+			return itemstack
+		else
+			return ItemStack("default:mese "..itemstack:get_count()-(1-ret:get_count()))
+		end
+	end,
+})
+
+	--redefine dragon_block
+minetest.register_node(":default:dragon_block", {
+	description = "Dragon Block -Use for spawning Mese Dragon",
+	drawtype = "glasslike",
+	tiles = {"default_dragon_block.png"},
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = false,
+	groups = {cracky = 3},
+	sounds = default.node_sound_glass_defaults(),
+	light_source = default.LIGHT_MAX,
+	stack_max = 64,
+	on_place = function(itemstack, placer, pointed_thing)
+		local stack = ItemStack("default:dragon_block")
+		local pos = pointed_thing.above
+		if
+			minetest.get_node({x=pos.x+1,y=pos.y,z=pos.z}).name=="default:dragon_block" and
+			minetest.get_node({x=pos.x+1,y=pos.y,z=pos.z+1}).name=="default:dragon_block" and
+			minetest.get_node({x=pos.x+1,y=pos.y,z=pos.z-1}).name=="default:dragon_block" and
+			minetest.get_node({x=pos.x-1,y=pos.y,z=pos.z}).name=="default:dragon_block" and
+			minetest.get_node({x=pos.x-1,y=pos.y,z=pos.z+1}).name=="default:dragon_block" and
+			minetest.get_node({x=pos.x-1,y=pos.y,z=pos.z-1}).name=="default:dragon_block" and
+			minetest.get_node({x=pos.x,y=pos.y,z=pos.z+1}).name=="default:dragon_block" and
+			minetest.get_node({x=pos.x,y=pos.y,z=pos.z-1}).name=="default:dragon_block"
+		then
+			stack = ItemStack("nssm:mese_meteor")
+			local mob = minetest.add_entity(pos, "nssm:mese_dragon")
+
+		end
+		local ret = minetest.item_place(stack, placer, pointed_thing)
+		if ret==nil then
+			return itemstack
+		else
+			return ItemStack("default:dragon_block "..itemstack:get_count()-(1-ret:get_count()))
+		end
+	end,
+})	
+	
 minetest.register_node("nssm:ant_dirt", {
 	description = "Ant Dirt",
 	tiles = {"ant_dirt.png"},
@@ -133,7 +219,7 @@ minetest.register_node("nssm:web", {
 })
 ]]
 --tools
-
+--mesedragon
 minetest.register_tool('nssm:sun_sword', {
 	description = 'Sun Sword',
 	inventory_image = 'sun_sword.png',
@@ -154,7 +240,7 @@ minetest.register_tool('nssm:sun_sword', {
 		end
 	end)
 })
-
+--spiders
 minetest.register_tool("nssm:masticone_fang_sword", {
 	description = "Masticone Fang Sword",
 	inventory_image = "masticone_fang_sword.png",
@@ -168,7 +254,7 @@ minetest.register_tool("nssm:masticone_fang_sword", {
 		damage_groups = {fleshy=8},
 	},
 })
-
+--heron
 minetest.register_tool("nssm:night_sword", {
 	description = "Night Sword",
 	inventory_image = "night_sword.png",
@@ -182,7 +268,7 @@ minetest.register_tool("nssm:night_sword", {
 		damage_groups = {fleshy=12},
 	},
 })
-
+--oct
 minetest.register_tool("nssm:crab_light_mace", {
 	description = "Light Crab Mace",
 	inventory_image = "crab_light_mace.png",
@@ -195,7 +281,7 @@ minetest.register_tool("nssm:crab_light_mace", {
 		damage_groups = {fleshy=8},
 	},
 })
-
+--uboloc
 minetest.register_tool("nssm:crab_heavy_mace", {
 	description = "Heavy Crab Mace",
 	inventory_image = "crab_heavy_mace.png",
@@ -220,6 +306,7 @@ minetest.register_node("nssm:rope", {
 	groups = {snappy=1},
 })
 ]]
+--werwolfe
 minetest.register_tool("nssm:stoneater_pick", {
 	description = "Stoneater Pickaxe",
 	inventory_image = "stoneater_pick.png",
@@ -232,7 +319,7 @@ minetest.register_tool("nssm:stoneater_pick", {
 		damage_groups = {fleshy=5},
 	},
 })
-
+--croc
 minetest.register_tool("nssm:mantis_sword", {
 	description = "Mantis Sword",
 	inventory_image = "mantis_sword.png",
@@ -246,7 +333,7 @@ minetest.register_tool("nssm:mantis_sword", {
 		damage_groups = {fleshy=6},
 	},
 })
-
+--ants
 minetest.register_tool("nssm:ant_sword", {
 	description = "Ant Sword",
 	inventory_image = "ant_sword.png",

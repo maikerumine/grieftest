@@ -15,11 +15,12 @@ mobs:register_mob("nssm:crocodile", {
 	view_range = 15,
 	walk_velocity = 1,
 	run_velocity = 1,
-	damage = 9,
+	damage = 2,
 	floats = 1,
 	jump = true,
 	drops = {
 		{name = "default:mese_crystal_fragment", chance = 1, min = 1, max = 2},
+		{name = "default:nssm:mantis_sword", chance = 12, min = 0, max = 1},
 	},
 	armor = 90,
 	reach = 2,

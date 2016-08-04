@@ -37,6 +37,7 @@ mobs:register_mob("nssm:mese_dragon", {
 		chance = 1,
 		min = 99,
 		max = 99},
+		{name = "nssm:sun_sword", chance = 1, min = 1, max = 1},
     },
 	armor = 60,
 	drawtype = "front",
@@ -51,7 +52,7 @@ mobs:register_mob("nssm:mese_dragon", {
 	--arrow = "mobs:fireball",
 	arrow = "nssm:fireball2",
 	reach = 5,
-	shoot_interval = 3,
+	shoot_interval = 0.5,
 	shoot_offset = -1,
 	animation = {
 		speed_normal = 15,
@@ -68,10 +69,14 @@ mobs:register_mob("nssm:mese_dragon", {
 		punch1_end = 370,
     dattack_start = 120,
     dattack_end = 160,
+    	--attacks_monsters = true,
+	--peaceful = false,
+	--group_attack = true,
 	},
-	--[[
+--[[
 	do_custom = function(self)
-		mobs:midas_ability(self, "default:mese_block", self.run_velocity,2, 3)
+		--mobs:midas_ability(self, "default:mese_block", self.run_velocity,2, 3)
+		mobs:midas_ability(self, "default:glass", self.run_velocity,2, 3)
 	end,
 
 	custom_attack = function(self)
@@ -107,15 +112,18 @@ mobs:register_mob("nssm:mese_dragon", {
 						local k = {x = s.x+dx, y=s.y+20, z=s.z+dz}
 						local n = minetest.env:get_node(k).name
 						if n=="air" and math.random(1,23)==1 then
-							minetest.env:set_node(k, {name="mobs:mese_meteor"})
+							minetest.env:set_node(k, {name="nssm:mese_meteor"})
 							nodeupdate(k)
 						end
 					end
 				end
 			end
 		end
-	end]]
+	end
+	]]
 })
+
+
 
 mobs:register_arrow("nssm:roar_of_the_dragon", {
 	visual = "sprite",
@@ -161,31 +169,42 @@ mobs:register_arrow("nssm:roar_of_the_dragon", {
 		end
 	end
 })
-
+--GOOD LUCK LOL!
 -- fireball (weapon)
 mobs:register_arrow(":nssm:fireball2", {
 	visual = "sprite",
-	visual_size = {x = 0.5, y = 0.5},
-	textures = {"mobs_fireball.png"},
+	visual_size = {x = 1.5, y = 1.5},
+	--textures = {"mobs_fireball.png"},
+	textures = {"mobs_skeleton2_front.png^[makealpha:255,255,255 "},
 	velocity = 6,
 
 	-- direct hit, no fire... just plenty of pain
 	hit_player = function(self, player)
+	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
 		player:punch(self.object, 1.0, {
-			full_punch_interval = 1.0,
+			full_punch_interval = 0.5,
 			damage_groups = {fleshy = 8},
 		}, nil)
+
 	end,
 
 	hit_mob = function(self, player)
+	minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
 		player:punch(self.object, 1.0, {
-			full_punch_interval = 1.0,
+			full_punch_interval = 0.5,
 			damage_groups = {fleshy = 8},
 		}, nil)
+		
 	end,
 
 	-- node hit, bursts into flame
 	hit_node = function(self, pos, node)
 		mobs:explosion(pos, 1, 1, 0)
+		--from tnt
+		minetest.sound_play("tnt_explode", {pos = pos, gain = 1.5, max_hear_distance = 2*64})
+		
 	end
 })
+
+
+

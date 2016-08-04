@@ -17,10 +17,12 @@ mobs:register_mob("nssm:tarantula", {
 	sounds = {
 		random = "tarry",
 	},
-	damage = 14,
+	damage = 3,
 	jump = true,
 	drops = {
 		{name = "default:mese_crystal_fragment", chance = 1, min = 1, max = 2},
+	
+		{name = "nssm:masticone_fang_sword", chance = 19, min = 0, max = 1},
 	},
 	armor = 60,
 	water_damage = 1,

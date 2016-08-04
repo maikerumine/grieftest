@@ -14,7 +14,7 @@ mobs:register_mob("nssm:octopus", {
 	fall_speed = -20,
 	walk_velocity = 1.5,
 	run_velocity = 3,
-	damage = 8,
+	damage = 2,
 	rotate = 270,
 	jump = false,
 	jump_chance = 0,
@@ -24,6 +24,7 @@ mobs:register_mob("nssm:octopus", {
 	},
 	drops = {
 		{name = "default:mese_crystal_fragment", chance = 1, min = 2, max = 3},
+		{name = "nssm:crab_light_mace", chance = 16, min = 0, max = 1},
 	},
 	armor = 100,
 	water_damage = 0,

@@ -1973,6 +1973,20 @@ minetest.register_node("default:meselamp", {
 	stack_max = 64,
 })
 
+
+--For nssm spawning dragon
+minetest.register_node("default:dragon_block", {
+	description = "Dragon Block -Use for spawning Mese Dragon",
+	drawtype = "glasslike",
+	tiles = {"default_dragon_block.png"},
+	paramtype = "light",
+	sunlight_propagates = true,
+	is_ground_content = false,
+	groups = {cracky = 3, oddly_breakable_by_hand = 3},
+	sounds = default.node_sound_glass_defaults(),
+	light_source = default.LIGHT_MAX,
+	stack_max = 64,
+})
 --
 -- Misc
 --
