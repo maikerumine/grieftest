@@ -1,5 +1,5 @@
 
--- Mobs Api (21st July 2016)
+-- Mobs Api (5th August 2016)
 
 mobs = {}
 mobs.mod = "redo"
@@ -38,7 +38,7 @@ local spawn_protected = tonumber(minetest.setting_get("mobs_spawn_protected")) o
 local remove_far = minetest.setting_getbool("remove_far_mobs")
 
 -- pathfinding settings
-local enable_pathfinding = false
+local enable_pathfinding = true
 local stuck_timeout = 3 -- how long before mob gets stuck in place and starts searching
 local stuck_path_timeout = 10 -- how long will mob follow path before giving up
 
@@ -2320,9 +2320,7 @@ minetest.register_entity(name, {
 	on_step = mob_step,
 
 	on_punch = mob_punch,
---nssm
-custom_attack = def.custom_attack or false,
---nssm
+
 	on_activate = function(self, staticdata, dtime_s)
 		mob_activate(self, staticdata, dtime_s, def)
 	end,
@@ -2376,7 +2374,7 @@ end -- END mobs:register_mob function
 -- global functions
 
 function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
-	interval, chance, active_object_count, min_height, max_height, day_toggle)
+	interval, chance, aoc, min_height, max_height, day_toggle)
 
 	-- chance override in minetest.conf for registered mob
 	local new_chance = tonumber(minetest.setting_get(name .. "_chance"))
@@ -2400,13 +2398,14 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light,
 		neighbors = neighbors,
 		interval = interval,
 		chance = chance,
-		catch_up = true,
+		catch_up = false,
 
-		action = function(pos, node, aoc, active_object_count_wider)
+		action = function(pos, node, active_object_count, active_object_count_wider)
 
 			-- do not spawn if too many active entities in area
-			if active_object_count_wider > active_object_count
+			if active_object_count_wider >= aoc
 			or not mobs.spawning_mobs[name] then
+
 				return
 			end
 
@@ -2491,6 +2490,25 @@ function mobs:register_spawn(name, nodes, max_light, min_light, chance, active_o
 
 	mobs:spawn_specific(name, nodes, {"air"}, min_light, max_light, 30,
 		chance, active_object_count, -31000, max_height, day_toggle)
+end
+
+-- MarkBu's spawn function
+function mobs:spawn(def)
+
+	local name = def.name
+	local nodes = def.nodes or {"group:soil", "group:stone"}
+	local neighbors = def.neighbors or {"air"}
+	local min_light = def.min_light or 0
+	local max_light = def.max_light or 15
+	local interval = def.interval or 30
+	local chance = def.chance or 5000
+	local active_object_count = def.active_object_count or 1
+	local min_height = def.min_height or -31000
+	local max_height = def.max_height or 31000
+	local day_toggle = def.day_toggle or nil
+
+	mobs:spawn_specific(name, nodes, neighbors, min_light, max_light, interval,
+		chance, active_object_count, min_height, max_height, day_toggle)
 end
 
 -- set content id's

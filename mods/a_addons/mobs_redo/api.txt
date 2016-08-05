@@ -152,6 +152,13 @@ These functions register a spawn algorithm for the mob. Without this function th
     'max_height' is the maximum height the mob can spawn
     'day_toggle' true for day spawning, false for night or nil for anytime
 
+... also a simpler way to handle mob spawns has been added with the mobs:spawn(def) command which uses above names to make settings clearer:
+
+    mobs:spawn({name = "mobs_monster:tree_monster",
+       nodes = {"group:leaves"},
+       max_light = 7,
+    })
+
 
 Players can override the spawn chance for each mob registered by adding a line to their minetest.conf file with a new value, the lower the value the more each mob will spawn e.g.
 
