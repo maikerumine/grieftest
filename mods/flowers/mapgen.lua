@@ -9,8 +9,8 @@ local function register_mgv6_flower(name)
 		sidelen = 16,
 		noise_params = {
 			offset = 0,
-			scale = 0.0006,
-			spread = {x = 200, y = 200, z = 200},
+			scale = 0.006,
+			spread = {x = 100, y = 100, z = 100},
 			seed = 436,
 			octaves = 3,
 			persist = 0.6
@@ -28,8 +28,8 @@ local function register_mgv6_mushroom(name)
 		sidelen = 16,
 		noise_params = {
 			offset = 0,
-			scale = 0.0004,
-			spread = {x = 200, y = 200, z = 200},
+			scale = 0.04,
+			spread = {x = 100, y = 100, z = 100},
 			seed = 7133,
 			octaves = 3,
 			persist = 0.6
@@ -48,9 +48,9 @@ local function register_mgv6_waterlily()
 		place_on = {"default:dirt"},
 		sidelen = 16,
 		noise_params = {
-			offset = -0.012,
-			scale = 0.003,
-			spread = {x = 200, y = 200, z = 200},
+			offset = -0.12,
+			scale = 0.3,
+			spread = {x = 100, y = 100, z = 100},
 			seed = 33,
 			octaves = 3,
 			persist = 0.7
@@ -87,8 +87,8 @@ local function register_flower(seed, name)
 		place_on = {"default:dirt_with_grass"},
 		sidelen = 16,
 		noise_params = {
-			offset = -0.0015,
-			scale = 0.0025,
+			offset = -0.015,
+			scale = 0.025,
 			spread = {x = 200, y = 200, z = 200},
 			seed = seed,
 			octaves = 3,
@@ -109,7 +109,7 @@ local function register_mushroom(name)
 		sidelen = 16,
 		noise_params = {
 			offset = 0,
-			scale = 0.0006,
+			scale = 0.006,
 			spread = {x = 200, y = 200, z = 200},
 			seed = 2,
 			octaves = 3,
@@ -128,8 +128,8 @@ local function register_waterlily()
 		place_on = {"default:dirt"},
 		sidelen = 16,
 		noise_params = {
-			offset = -0.012,
-			scale = 0.003,
+			offset = -0.12,
+			scale = 0.3,
 			spread = {x = 200, y = 200, z = 200},
 			seed = 33,
 			octaves = 3,

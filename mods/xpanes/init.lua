@@ -162,7 +162,6 @@ xpanes.register_pane("pane", {
 	wield_image = "default_glass.png",
 	sounds = default.node_sound_glass_defaults(),
 	groups = {snappy=2, cracky=3, oddly_breakable_by_hand=3, pane=1},
-	stack_max = 64,
 	recipe = {
 		{"default:glass", "default:glass", "default:glass"},
 		{"default:glass", "default:glass", "default:glass"}
@@ -175,7 +174,6 @@ xpanes.register_pane("bar", {
 	inventory_image = "xpanes_bar.png",
 	wield_image = "xpanes_bar.png",
 	groups = {cracky=2, pane=1},
-	stack_max = 64,
 	sounds = default.node_sound_stone_defaults(),
 	recipe = {
 		{"default:steel_ingot", "default:steel_ingot", "default:steel_ingot"},

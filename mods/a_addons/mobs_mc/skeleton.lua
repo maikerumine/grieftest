@@ -81,7 +81,7 @@ mobs:spawn_specific("mobs_mc:skeleton", {"group:crumbly", "group:cracky", "group
 
 mobs:register_mob("mobs_mc:skeleton2", {
 	type = "monster",
-	hp_max = 60,
+	hp_max = 160,
 	collisionbox = {-0.4, -0.01, -0.4, 0.4, 1.9, 0.4},
 	pathfinding = true,
 	group_attack = true,
@@ -141,7 +141,7 @@ mobs:register_mob("mobs_mc:skeleton2", {
 	view_range = 16,
 	attack_type = "dogshoot",
 	arrow = "mobs:arrow_entity",
-	shoot_interval = 0.75,
+	shoot_interval = 0.5,
 	shoot_offset = 1,
 	--'dogshoot_switch' allows switching between shoot and dogfight modes inside dogshoot using timer (1 = shoot, 2 = dogfight)
 	--'dogshoot_count_max' number of seconds before switching above modes.

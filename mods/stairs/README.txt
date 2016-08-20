@@ -1,5 +1,4 @@
-Minetest Game mod: stairs
-=========================
+Stairs Redo 0.1 based on Minetest 0.4 mod: stairs
 
 License of source code:
 -----------------------
@@ -24,3 +23,4 @@ Everything not listed in here:
 Copyright (C) 2010-2012 celeron55, Perttu Ahola <celeron55@gmail.com>
 
 
+Note: This mod has been changed by TenPlus1 to include other blocks from different mods as well as corner stairs...
