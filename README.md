@@ -1,3 +1,24 @@
+
+GRIEFTEST!
+
+A MC like game with added realms.
+Craft portal to nether with obsidian.
+Craft a portal to Emerald realm with Emeraldblock.
+Find Emeralds in savanna regions.
+Has overworld limits like minecraft with bedrock and build height limit.
+Has added monsters from NSSm mobs, you can craft a mese monster but dont.  :)
+Use axe to get trees.
+Use shovel to get dirt / sand.
+Punch leaves to make sticks.
+Fight mobs to get steel and other items.
+Mobs can drop heads.
+
+
+Created by maikerumine.
+
+
+
+
 Minetest Game [minetest_game]
 =============================
 The main subgame for the Minetest engine
