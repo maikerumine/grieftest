@@ -2613,7 +2613,7 @@ function default.register_decorations()
 	--Brown Mushroom
 	minetest.register_decoration({
 		deco_type = "schematic",
-		place_on = {"default:mycelium", "default:mycelium_snow"},
+		place_on = {"default:mycelium", "default:mycelium_snow", "default:dirt"},
 		sidelen = 80,
 		fill_ratio = 0.002,
 		biomes = {"mooshroom", "mooshroom_cold", "deciduous_forest"},

@@ -8,7 +8,7 @@ skins.type = { SPRITE=0, MODEL=1 }
 
 skins.skins = {}
 skins.default = function()
-	return "character_39"
+	return "character_22"
 end
 
 skins.get_type = function(texture)
