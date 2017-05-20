@@ -47,25 +47,12 @@ dofile(minetest.get_modpath("default").."/tools.lua")
 dofile(minetest.get_modpath("default").."/craftitems.lua")
 dofile(minetest.get_modpath("default").."/crafting.lua")
 dofile(minetest.get_modpath("default").."/mapgen.lua")
---dofile(minetest.get_modpath("default").."/over_mines.lua")
---dofile(minetest.get_modpath("default").."/under_mines.lua")
 dofile(minetest.get_modpath("default").."/player.lua")
 dofile(minetest.get_modpath("default").."/portal.lua")
 dofile(minetest.get_modpath("default").."/portal2.lua")
 dofile(minetest.get_modpath("default").."/trees.lua")
+dofile(minetest.get_modpath("default").."/torch.lua")
 dofile(minetest.get_modpath("default").."/aliases.lua")
 dofile(minetest.get_modpath("default").."/legacy.lua")
 
 
---disable sneak on player join to make more interesting mining
-
---Sent: 31 Jan 2016, 10:53
---From: rnd
---To: maikerumine
---to make stuff happen when player joins ( in this case disable sneak) add somewhere
---in some init.lua ( doesnt really matter which one, for sake of order put in your mod in visible place)
------------------------------------------
-minetest.register_on_joinplayer(function(player)
-player:set_physics_override({sneak=false})
-end)
---------------------------------------------------

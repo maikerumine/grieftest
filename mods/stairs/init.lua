@@ -17,6 +17,7 @@ stairs.dirt = default.node_sound_dirt_defaults()
 stairs.stone = default.node_sound_stone_defaults()
 stairs.glass = default.node_sound_glass_defaults()
 stairs.leaves = default.node_sound_leaves_defaults()
+stairs.metal = default.node_sound_metal_defaults()
 stairs.wool = default.node_sound_wool_defaults() -- Xanadu only
 --stairs.wool = stairs.leaves
 
@@ -204,7 +205,7 @@ function stairs.register_invcorner(subname, recipeitem, groups, images, descript
 		"stairs:invcorner_" .. subname, "stairs:invcorner_" .. subname}
 	})
 end
-
+--[[
 -- Node will be called stairs:slope_<subname>
 function stairs.register_slope(subname, recipeitem, groups, images, description, snds, alpha)
 	groups.slab = 1
@@ -253,7 +254,7 @@ function stairs.register_slope(subname, recipeitem, groups, images, description,
 		recipe = {"stairs:slope_" .. subname, "stairs:slope_" .. subname}
 	})
 end
-
+]]
 -- Nodes will be called stairs:{stair,slab}_<subname>
 function stairs.register_stair_and_slab(subname, recipeitem, groups, images,
 		desc_stair, desc_slab, sounds, alpha)
@@ -271,8 +272,8 @@ function stairs.register_all(subname, recipeitem, groups, images, desc, snds, al
 	stairs.register_corner(subname, recipeitem, groups, images, str .. desc, snds, alpha)
 	str = " Inverted Corner"
 	stairs.register_invcorner(subname, recipeitem, groups, images, str .. desc, snds, alpha)
-	str = " Slope"
-	stairs.register_slope(subname, recipeitem, groups, images, str .. desc, snds, alpha)
+	--str = " Slope"
+	--stairs.register_slope(subname, recipeitem, groups, images, str .. desc, snds, alpha)
 end
 
 -- Helper
@@ -295,19 +296,19 @@ stairs.register_all("junglewood", "default:junglewood",
 
 stairs.register_all("pine_wood", "default:pinewood",
 	{choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	{"default_pine_wood.png"},
+	{"default_sprucewood.png"},
 	"Pine Wood",
 	stairs.wood)
 
 stairs.register_all("acacia_wood", "default:acacia_wood",
 	{choppy = 2, oddly_breakable_by_hand = 1, flammable = 3},
-	{"default_acacia_wood.png"},
+	{"default_acaciawood.png"},
 	"Acacia Wood",
 	stairs.wood)
 
 stairs.register_all("aspen_wood", "default:aspen_wood",
 	{choppy = 2, oddly_breakable_by_hand = 2, flammable = 3},
-	{"default_aspen_wood.png"},
+	{"default_planks_birch.png"},
 	"Aspen Wood",
 	stairs.wood)
 
@@ -353,20 +354,20 @@ stairs.register_all("steelblock", "default:steelblock",
 	{cracky = 1, level = 2},
 	{"default_steel_block.png"},
 	"Steel",
-	stairs.stone)
-
+	stairs.metal)
+--[[
 stairs.register_all("copperblock", "default:copperblock",
 	{cracky = 1, level = 2},
 	{"default_copper_block.png"},
 	"Copper",
-	stairs.stone)
+	stairs.metal)
 
 stairs.register_all("bronzeblock", "default:bronzeblock",
 	{cracky = 1, level = 2},
 	{"default_bronze_block.png"},
 	"Bronze",
-	stairs.stone)
-
+	stairs.metal)
+]]
 stairs.register_all("mese", "default:mese",
 	{cracky = 1, level = 2},
 	{"default_mese_block.png"},
@@ -377,7 +378,7 @@ stairs.register_all("goldblock", "default:goldblock",
 	{cracky = 1},
 	{"default_gold_block.png"},
 	"Gold",
-	stairs.stone)
+	stairs.metal)
 
 stairs.register_all("diamondblock", "default:diamondblock",
 	{cracky = 1, level = 3},
@@ -393,7 +394,8 @@ stairs.register_all("stone", "default:stone",
 
 stairs.register_all("desert_stone", "default:desert_stone",
 	{cracky = 3},
-	{"default_desert_stone.png"},
+	--{"default_desert_stone.png"},
+	{"default_redsandstone_top.png", "default_redsandstone_bottom.png", "default_redsandstone_normal.png"},
 	"Desert Stone",
 	stairs.stone)
 
@@ -447,7 +449,8 @@ stairs.register_all("stonebrick", "default:stonebrick",
 
 stairs.register_all("desert_stonebrick", "default:desert_stonebrick",
 	{cracky = 3},
-	{"default_desert_stone_brick.png"},
+	--{"default_desert_stone_brick.png"},
+	{"default_redsandstone_top.png", "default_redsandstone_bottom.png", "default_redsandstone_carved.png"},
 	"Desert Stone Brick",
 	stairs.stone)
 
@@ -535,7 +538,7 @@ stairs.register_all("straw", "farming:straw",
 end
 
 --= Mobs Mod
-
+--[[
 if mobs and mobs.mod and mobs.mod == "redo" then
 
 grp = {crumbly = 3, flammable = 2}
@@ -553,7 +556,7 @@ stairs.register_all("honey_block", "mobs:honey_block",
 	stairs.dirt)
 
 end
-
+]]
 --= Lapis Mod
 
 if minetest.get_modpath("lapis") then

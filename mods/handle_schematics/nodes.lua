@@ -1,0 +1,145 @@
+
+
+
+---------------------------------------------------------------------------------------
+-- helper node that is used during construction of a house; scaffolding
+---------------------------------------------------------------------------------------
+
+-- this node can be crafted
+minetest.register_node("handle_schematics:support", {
+        description = "support structure for buildings",
+        tiles = {"handle_schematics_support.png"},
+	groups = {snappy=3,choppy=3,oddly_breakable_by_hand=3},
+	visual_scale = 1.2,
+        walkable = false,
+        climbable = true,
+        paramtype = "light",
+        drawtype = "plantlike",
+--	-- the small selection box allows the player to dig one or two nodes below
+--	selection_box = {
+--                type = "fixed",
+--                fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 0.5, 2 / 16}
+--        },
+})
+
+
+minetest.register_craft({
+	output = "handle_schematics:support 4",
+	recipe = {
+		{"group:stick", "", "group:stick" }
+        }
+})
+
+
+-- always handle the bottommost support node first
+handle_schematics.place_node_using_support_setup = function(pos, node, clicker, itemstack, pointed_thing )
+	if not( default.can_interact_with_node(clicker, pos)) then
+		return itemstack;
+	end
+
+	-- pass right-clicks on to support nodes below (else some floor nodes may not be reachable)
+	local node_below = minetest.get_node( {x=pos.x, y=pos.y-1, z=pos.z} );
+	if( node_below and node_below.name and node_below.name == "handle_schematics:support_setup" ) then
+		return handle_schematics.place_node_using_support_setup({x=pos.x, y=pos.y-1, z=pos.z}, node_below, clicker, itemstack, pointed_thing );
+	end
+
+	local meta = minetest.get_meta( pos );
+	local node_wanted = meta:get_string( "node_wanted" );
+	local param2_wanted = meta:get_int( "param2_wanted" );
+
+	if( not(meta) or not(node_wanted) or node_wanted == "" or not(clicker)) then
+		return itemstack;
+	end
+
+	local node_really_wanted = node_wanted;
+
+	-- some nodes like i.e. dirt with grass or stone with coal cannot be obtained;
+	-- in such a case we ask for the drop
+	node_really_wanted = handle_schematics.get_what_player_can_provide( node_wanted );
+
+	-- the player might be wielding the requested item
+	if( itemstack and itemstack:get_name() and itemstack:get_name()==node_really_wanted and itemstack:get_count()>0 ) then
+		itemstack:take_item();
+
+	-- clicker does not have an inventory; it might be a mob
+	elseif( not( clicker.get_inventory )) then
+		return itemstack;
+
+	-- ...or it might be found elsewhere in the player's inventory
+	elseif(not( clicker:get_inventory():contains_item("main", node_really_wanted ))) then
+		if( clicker:is_player()) then
+			local descr = "-?-";
+			if( minetest.registered_items[ node_really_wanted ] ) then
+				descr = minetest.registered_items[ node_really_wanted ].description;
+				if( not( descr )) then
+					descr = minetest.registered_items[ node_really_wanted ].name;
+				end
+			end
+
+			minetest.chat_send_player( clicker:get_player_name(),
+				"You have no "..( descr or "such node").." ["..node_really_wanted.."].");
+		end
+		return itemstack;
+	end
+	-- give the player some feedback (might scroll a bit..)
+	if( clicker:is_player()
+	   and minetest.registered_nodes[ node_really_wanted ]
+	   and minetest.registered_nodes[ node_really_wanted ].description) then
+		minetest.chat_send_player( clicker:get_player_name(),
+			"Placed "..( minetest.registered_nodes[ node_really_wanted ].description or node_really_wanted)..".");
+	end
+	-- take the item from the player (provided it actually is a player and not a mob)
+	if( clicker.get_inventory ) then
+		clicker:get_inventory():remove_item("main", node_really_wanted.." 1");
+	end
+
+	minetest.remove_node( pos );
+	minetest.set_node( pos, { name =  node_wanted, param1 = 0, param2 = param2_wanted } );
+
+	return itemstack;
+end
+
+
+-- this node will only be placed by spawning a house with handle_schematics
+minetest.register_node("handle_schematics:support_setup", {
+        description = "support structure for buildings (configured)",
+        tiles = {"handle_schematics_support.png"},
+	groups = {snappy=3,choppy=3,oddly_breakable_by_hand=3},
+	visual_scale = 1.2,
+        walkable = false,
+        climbable = true,
+        paramtype = "light",
+        drawtype = "plantlike",
+	-- after it is digged, the node looses its information and becomes a normal, unconfigured one
+	-- -> changed to no drop because it is automaticly placed in almost unlimited amount
+	drop = "", --"handle_schematics:support",
+	-- note: mobs that want to use this function ought to provide "clicker" in a way so that clicker:get_inventory
+	--       can get used (at least if they want to have a limited inventory)
+	on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
+				handle_schematics.place_node_using_support_setup(pos, node, clicker, itemstack, pointed_thing );
+			end
+})
+
+
+-- no craft receipe for this node as it's only an indicator that the player shall dig here
+minetest.register_node("handle_schematics:dig_here", {
+	description = "dig the node below this one",
+	tiles = {"default_tool_mesepick.png^[colorize:#FF0000^[transformFXR90"},
+	inventory_image = "default_tool_mesepick.png^[colorize:#FF0000^[transformFXR90";
+	-- falling node; will notice if the node below it is beeing digged; cannot be destroyed the normal way
+	groups = {snappy=3,choppy=3,oddly_breakable_by_hand=3}, --{falling_node = 1},
+	-- no drop because it is only an indicator and automaticly placed
+	drop = "",
+	visual_scale = 0.6,
+	walkable = false,
+	climbable = true,
+	paramtype = "light",
+	drawtype = "torchlike",
+	-- this node's purpose is to indicate that the player shall dig here;
+	-- that requires beeing able to actually aim at that node below
+	selection_box = {
+                type = "fixed",
+                fixed = {-2 / 16, -0.5, -2 / 16, 2 / 16, 6 / 16, 2 / 16}
+        },
+
+})

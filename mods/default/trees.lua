@@ -17,7 +17,7 @@ function default.can_grow(pos)
 		return false
 	end
 	local light_level = minetest.get_node_light(pos)
-	if not light_level or light_level < 13 then
+	if not light_level or light_level < 10 then
 		return false
 	end
 	return true

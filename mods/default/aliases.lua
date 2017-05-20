@@ -88,10 +88,10 @@ minetest.register_alias("vines:shears", "mobs:shears")
 --alias to remove old quartz from maps
 minetest.register_alias("quartz:quartz_crystal", "default:quartz_crystal")
 minetest.register_alias("quartz:quartz_ore", "default:quartz_ore")
-minetest.register_alias("quartz:block", "default:block")
-minetest.register_alias("quartz:chiseled", "default:chiseled")
-minetest.register_alias("quartz:pillar", "default:pillar")
-minetest.register_alias("quartz:pillar_horizontal", "default:pillar_horizontal")
+minetest.register_alias("quartz:block", "default:quartz_block")
+minetest.register_alias("quartz:chiseled", "default:quartz_chiseled")
+minetest.register_alias("quartz:pillar", "default:quartz_pillar")
+minetest.register_alias("quartz:pillar_horizontal", "default:quartz_pillar_horizontal")
 
 --alias to merge nether to default
 minetest.register_alias("nether:rack", "default:rack")
@@ -113,9 +113,38 @@ minetest.register_alias("fire:permanent_flame", "default:underground_fire")
 minetest.register_alias("fire:basic_flame", "default:basic_flame")
 minetest.register_alias("fire:flint_and_steel", "default:flint_and_steel")
 
+--MC2 Andisite, granite, diorite
+minetest.register_alias("default:marble", "default:andesite")
+minetest.register_alias("stairs:slab_marble", "stairs:slab_andesite")
+minetest.register_alias("default:marble_bricks", "default:andesite_smooth")
+minetest.register_alias("stairs:slab_marble_bricks", "stairs:slab_andesite_smooth")
+minetest.register_alias("stairs:stair_marble_bricks", "stairs:stair_andesite_smooth")
+minetest.register_alias("default:granite_bricks", "default:granite_smooth")
+minetest.register_alias("stairs:slab_granite_bricks", "stairs:slab_granite_smooth")
+minetest.register_alias("stairs:stair_granite_bricks", "stairs:stair_granite_smooth")
 
+--MC2 jukebox
+minetest.register_alias("jdukebox:box", "mcl_jukebox:jukebox")
+minetest.register_alias("jdukebox:disc_1", "mcl_jukebox:record_1")
+minetest.register_alias("jdukebox:disc_2", "mcl_jukebox:record_2")
+minetest.register_alias("jdukebox:disc_3", "mcl_jukebox:record_3")
+minetest.register_alias("jdukebox:disc_4", "mcl_jukebox:record_4")
+minetest.register_alias("jdukebox:disc_5", "mcl_jukebox:record_5")
+minetest.register_alias("jdukebox:disc_6", "mcl_jukebox:record_6")
+minetest.register_alias("jdukebox:disc_7", "mcl_jukebox:record_7")
+minetest.register_alias("jdukebox:disc_8", "mcl_jukebox:record_8")
 
+--MC2 boats
+minetest.register_alias("boats:boat", "mcl_boats:boat_spruce")
 
+--MC2 chests
+minetest.register_alias("default:chest", "mcl_chests:chest")
 
+--nssm
+minetest.register_alias("nssm:ant_dirt", "default:coarse_dirt")
 
-
+--armor
+minetest.register_alias("3d_armor:helmet_wood", "3d_armor:helmet_leather")
+minetest.register_alias("3d_armor:chestplate_wood", "3d_armor:chestplate_leather")
+minetest.register_alias("3d_armor:leggings_wood", "3d_armor:leggings_leather")
+minetest.register_alias("3d_armor:boots_wood", "3d_armor:boots_leather")

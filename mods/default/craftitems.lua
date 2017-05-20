@@ -138,7 +138,7 @@ minetest.register_craftitem("default:book", {
 
 minetest.register_craftitem("default:book_written", {
 	description = "Book With Text",
-	inventory_image = "default_book_written.png",
+	inventory_image = "mcl_books_book_written.png",
 	groups = {book = 1, not_in_creative_inventory = 1},
 	stack_max = 1,
 	on_use = book_on_use,
@@ -196,6 +196,22 @@ minetest.register_alias("default:iron_lump", "default:stone_with_iron")
 --	stack_max = 64,
 --})
 
+minetest.register_craftitem("default:iron_nugget", {
+	description = "Iron Nugget",
+	_doc_items_longdesc = "Iron nuggets are very small pieces of molten iron; the main purpose is to create iron ingots.",
+	inventory_image = "default_iron_nugget.png",
+	stack_max = 64,
+	groups = { craftitem=1 },
+})
+
+minetest.register_craftitem("default:gold_nugget", {
+	description = "Gold Nugget",
+	_doc_items_longdesc = "Gold nuggets are very small pieces of molten gold; the main purpose is to create gold ingots.",
+	inventory_image = "default_gold_nugget.png",
+	stack_max = 64,
+	groups = { craftitem=1 },
+})
+
 minetest.register_craftitem("default:mese_crystal", {
 	description = "Mese Crystal",
 	inventory_image = "default_mese_crystal.png",
@@ -205,6 +221,12 @@ minetest.register_craftitem("default:mese_crystal", {
 minetest.register_craftitem("default:gold_lump", {
 	description = "Gold Lump",
 	inventory_image = "default_gold_lump.png",
+	stack_max = 64,
+})
+
+minetest.register_craftitem("default:emerald_crystal", {
+	description = "Emerald Crystal",
+	inventory_image = "default_emerald.png",
 	stack_max = 64,
 })
 
@@ -256,6 +278,14 @@ minetest.register_craftitem("default:flint", {
 	stack_max = 64,
 })
 
+
+minetest.register_craftitem("default:bowl",{
+	description = "Bowl",
+	_doc_items_longdesc = "Bowls are mainly used to hold tasty soups.",
+	inventory_image = "default_bowl.png",
+	stack_max = 64,
+	groups = { craftitem = 1 },
+})
 
 -- Nether and Realm Craftitems
 minetest.register_craftitem(":default:mese_crystal_fragment", {

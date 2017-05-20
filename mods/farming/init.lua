@@ -147,7 +147,7 @@ end
 
 local STAGE_LENGTH_AVG = 160.0
 local STAGE_LENGTH_DEV = STAGE_LENGTH_AVG / 6
-local MIN_LIGHT = 13
+local MIN_LIGHT = 10
 local MAX_LIGHT = 1000
 
 --- Determines plant name and stage from node.

@@ -120,7 +120,7 @@ minetest.register_abm({
 	end,
 })
 
-
+--[[
 --
 -- Mushrooms
 --
@@ -206,7 +206,7 @@ minetest.register_alias("flowers:mushroom_spores_brown", "flowers:mushroom_brown
 minetest.register_alias("flowers:mushroom_spores_red", "flowers:mushroom_red")
 minetest.register_alias("flowers:mushroom_fertile_brown", "flowers:mushroom_brown")
 minetest.register_alias("flowers:mushroom_fertile_red", "flowers:mushroom_red")
-
+]]
 
 --
 -- Waterlily

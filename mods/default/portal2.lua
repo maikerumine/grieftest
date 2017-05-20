@@ -329,7 +329,7 @@ minetest.register_node("default:portal2", {
 
 minetest.register_node(":default:emeraldblock", {
 	description = "Emerald Block",
-	tiles = {"emerald_block.png"},
+	tiles = {"default_emerald_block.png"},
 	is_ground_content = false,
 	sounds = default.node_sound_stone_defaults(),
 	groups = {cracky = 1, level = 2},
