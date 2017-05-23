@@ -6,6 +6,40 @@
 
 --dofile(minetest.get_modpath("mobs").."/api.lua")
 
+--###################
+--################### SPIDER
+--###################
+
+mobs:register_mob("mobs_mc:38spider", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "spider.b3d",
+	textures = {
+		{"spider.png"},
+	},
+	visual_size = {x=3, y=3},
+	walk_velocity = 0.6,
+	run_velocity = 2,
+	jump = true,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 40,		stand_end = 80,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+
+mobs:register_egg("mobs_mc:38spider", "Spider", "spider_inv.png", 0)
+
+
 -- Spider by AspireMint (fishyWET (CC-BY-SA 3.0 license for texture)
 mobs:register_mob("mobs_mc:spider", {
 	type = "monster",
