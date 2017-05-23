@@ -1105,6 +1105,21 @@ minetest.register_ore({
 	y_min     = -5500,
 	y_max     = -5000,
 	})	
+
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "default:nitherbrick",
+	wherein        = {"default:water_source","default:lava_source","default:rack"},
+	clust_scarcity = 1,
+	clust_num_ores = 12,
+	clust_size     = 4,
+	y_min     = -5600,
+	y_max     = -3100,
+	noise_threshold = 0.4,
+	noise_params = {offset=0, scale=15, spread={x=300, y=100, z=300}, seed=24, octaves=3, persist=0.70}
+})
+
 	
 end
 --
