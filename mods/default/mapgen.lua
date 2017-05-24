@@ -2537,7 +2537,7 @@ function default.register_decorations()
 
 	minetest.register_decoration({
 		deco_type = "schematic",
-		place_on = {"default:desert_sand"},
+		place_on = {"default:desert_sand", "default:sand"},
 		sidelen = 16,
 		noise_params = {
 			offset = -0.0003,
@@ -2559,7 +2559,7 @@ function default.register_decorations()
 
 	minetest.register_decoration({
 		deco_type = "simple",
-		place_on = {"default:desert_sand"},
+		place_on = {"default:desert_sand", "default:sand"},
 		sidelen = 16,
 		noise_params = {
 			offset = -0.0003,
@@ -2652,10 +2652,10 @@ function default.register_decorations()
 	--Brown Mushroom
 	minetest.register_decoration({
 		deco_type = "schematic",
-		place_on = {"default:mycelium", "default:mycelium_snow", "default:dirt"},
+		place_on = {"default:mycelium", "default:mycelium_snow"},
 		sidelen = 80,
 		fill_ratio = 0.002,
-		biomes = {"mooshroom", "mooshroom_cold", "deciduous_forest"},
+		biomes = {"mooshroom", "mooshroom_cold"},
 		y_min = -6000,
 		y_max = 31000,
 		schematic = minetest.get_modpath("mcl_mushrooms").."/schematics/mushroom_brown.mts",
@@ -2663,7 +2663,63 @@ function default.register_decorations()
 		rotation = "random",
 	})
 
+		--Brown Mushroom
+	minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = { "default:dirt_with_grass"},
+		sidelen = 80,
+		fill_ratio = 0.0002,
+		biomes = { "deciduous_forest"},
+		y_min = -6000,
+		y_max = 31000,
+		schematic = minetest.get_modpath("mcl_mushrooms").."/schematics/mushroom_brown.mts",
+		flags = "place_center_x",
+		rotation = "random",
+	})
 	
+	
+	-- Bush
+
+	minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = {"default:dirt_with_grass", "default:dirt_with_snow"},
+		sidelen = 16,
+		noise_params = {
+			offset = -0.004,
+			scale = 0.01,
+			spread = {x = 100, y = 100, z = 100},
+			seed = 137,
+			octaves = 3,
+			persist = 0.7,
+		},
+		biomes = {"snowy_grassland", "grassland", "deciduous_forest",
+			"floatland_grassland"},
+		y_min = 1,
+		y_max = 31000,
+		schematic = minetest.get_modpath("default") .. "/schematics/bush.mts",
+		flags = "place_center_x, place_center_z",
+	})
+
+	-- Acacia bush
+
+	minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = {"default:dirt_with_dry_grass"},
+		sidelen = 16,
+		noise_params = {
+			offset = -0.004,
+			scale = 0.01,
+			spread = {x = 100, y = 100, z = 100},
+			seed = 90155,
+			octaves = 3,
+			persist = 0.7,
+		},
+		biomes = {"savanna"},
+		y_min = 1,
+		y_max = 31000,
+		schematic = minetest.get_modpath("default") .. "/schematics/acacia_bush.mts",
+		flags = "place_center_x, place_center_z",
+	})	
 	
 	-- Grasses
 
@@ -2713,6 +2769,33 @@ function default.register_decorations()
 		y_max = 31000,
 		decoration = "default:dry_shrub",
 	})
+
+	-- Coral reef
+
+	minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = {"default:sand"},
+		noise_params = {
+			offset = -0.15,
+			scale = 0.1,
+			spread = {x = 100, y = 100, z = 100},
+			seed = 7013,
+			octaves = 3,
+			persist = 1,
+		},
+		biomes = {
+			"desert_ocean",
+			"savanna_ocean",
+			"rainforest_ocean",
+		},
+		y_min = -8,
+		y_max = -2,
+		schematic = minetest.get_modpath("default") .. "/schematics/corals.mts",
+		flags = "place_center_x, place_center_z",
+		rotation = "random",
+	})
+
+
 	
 	
 --stones

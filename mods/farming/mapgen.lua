@@ -7,7 +7,28 @@ local function register_plant(name, min, max, spawnby, num)
 		noise_params = {
 			offset = 0,
 			scale = 0.006,
-			spread = {x = 100, y = 100, z = 100},
+			spread = {x = 180, y = 180, z = 180},
+			seed = 329,
+			octaves = 3,
+			persist = 0.6
+		},
+		y_min = min,
+		y_max = max,
+		decoration = "farming:" .. name,
+		spawn_by = spawnby,
+		num_spawn_by = num,
+	})
+end
+
+local function register_melon(name, min, max, spawnby, num)
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = {"default:dirt_with_rainforest_litter"},
+		sidelen = 16,
+		noise_params = {
+			offset = 0,
+			scale = 0.006,
+			spread = {x = 70, y = 70, z = 70},
 			seed = 329,
 			octaves = 3,
 			persist = 0.6
@@ -28,7 +49,7 @@ function farming.register_mgv6_decorations()
 	register_plant("corn_7", 12, 22, "", -1)
 	register_plant("corn_8", 10, 20, "", -1)
 	register_plant("coffee_5", 20, 45, "", -1)
-	register_plant("melon_8", 1, 20, "group:water", 1)
+	register_melon("melon_8", 1, 20, "group:water", 1)
 	register_plant("pumpkin_8", 1, 20, "group:water", 1)
 	register_plant("raspberry_4", 3, 10, "", -1)
 	register_plant("rhubarb_3", 3, 15, "", -1)
@@ -46,7 +67,7 @@ function farming.register_mgv7_decorations()
 	register_plant("corn_7", 12, 22, "", -1)
 	register_plant("corn_8", 10, 20, "", -1)
 	register_plant("coffee_5", 20, 45, "", -1)
-	register_plant("melon_8", 1, 6, "", -1)
+	register_melon("melon_8", 1, 6, "", -1)
 	register_plant("pumpkin_8", 1, 6, "", -1)
 	register_plant("raspberry_4", 3, 10, "", -1)
 	register_plant("rhubarb_3", 3, 15, "", -1)
