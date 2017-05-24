@@ -1106,18 +1106,42 @@ minetest.register_ore({
 	y_max     = -5000,
 	})	
 
+	minetest.register_ore({
+		ore_type       = "scatter",
+		ore            = "default:stone_with_emerald",
+		wherein        = "default:water_source",
+		clust_scarcity = 68 * 68 * 68,
+		clust_num_ores = 2,
+		clust_size     = 1,
+	y_min     = -5530,
+	y_max     = -5420,
+	})
+	
 
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:nitherbrick",
-	wherein        = {"default:water_source","default:lava_source","default:rack"},
-	clust_scarcity = 1,
-	clust_num_ores = 12,
-	clust_size     = 4,
-	y_min     = -5600,
-	y_max     = -3100,
-	noise_threshold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=300, y=100, z=300}, seed=24, octaves=3, persist=0.70}
+	wherein        = {"default:water_source","default:lava_source","default:rack", "air"},
+	clust_scarcity = 1,  --higher the less
+	clust_num_ores = 372,  --amount
+	clust_size     = 13,  --depth
+	y_min     = -5090,
+	y_max     = -5060,
+	noise_threshold = 0.02,
+	noise_params = {offset=4, scale=1, spread={x=50, y=122, z=50}, seed=24, octaves=3, persist=0.70}
+})
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "default:rack",
+	wherein        = {"default:water_source","default:lava_source","default:rack", "air"},
+	clust_scarcity = 1,  --higher the less
+	clust_num_ores = 372,  --amount
+	clust_size     = 3,  --depth
+	y_min     = -5090,
+	y_max     = -5060,
+	noise_threshold = 0.8,
+	noise_params = {offset=0, scale=1, spread={x=50, y=122, z=50}, seed=2464, octaves=3, persist=0.70}
 })
 
 	
