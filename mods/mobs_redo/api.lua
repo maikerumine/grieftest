@@ -1603,7 +1603,8 @@ local do_states = function(self, dtime)
 
 					pos.y = pos.y - 1
 
-					mobs:explosion(pos, radius, 1, 1, self.sounds.explode)
+					--mobs:explosion(pos, radius, 1, 1, self.sounds.explode)
+					mobs:explosion(pos, radius, fire, smoke, self.sounds.explode)
 
 					self.object:remove()
 
@@ -2486,6 +2487,8 @@ minetest.register_entity(name, {
 	pathfinding = def.pathfinding,
 	immune_to = def.immune_to or {},
 	explosion_radius = def.explosion_radius,
+	explosion_fire = def.explosion_fire,
+	explosion_smoke = def.explosion_smoke,
 	custom_attack = def.custom_attack,
 	double_melee_attack = def.double_melee_attack,
 	dogshoot_switch = def.dogshoot_switch,

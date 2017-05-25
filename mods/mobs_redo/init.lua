@@ -11,9 +11,9 @@ dofile(path .. "/mount.lua")
 dofile(path .. "/crafts.lua")
 
 -- Mob Spawner
-dofile(path .. "/spawner.lua")
+--dofile(path .. "/spawner.lua")
 
 -- Lucky Blocks
-dofile(path .. "/lucky_block.lua")
+--dofile(path .. "/lucky_block.lua")
 
 print ("[MOD] Mobs Redo loaded")
