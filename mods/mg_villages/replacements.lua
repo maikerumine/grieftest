@@ -138,6 +138,8 @@ mg_villages.replace_materials = function( replacements, pr, original_materials, 
 	end
 
 
+	
+
 	-- nothing found which could be used
 	if( #known_materials < 1 ) then
 		return;
@@ -440,7 +442,7 @@ mg_villages.replacements_nore = function( housetype, pr, replacements )
 --		{'default:'},
 		{'stairs:stair_stonebrick',  'stairs:slab_stonebrick', 'default:stonebrick'},
 		{'stairs:stair_',       'stairs:slab_',      'default:'     },
-		{'stonebrick', 'desert_stonebrick','sandstonebrick', 'sandstone','stone','desert_stone','stone_flat','desert_stone_flat','stone_bricks','desert_strone_bricks'},
+		{'stonebrick', 'desert_stonebrick','sandstonebrick', 'sandstone','stone','desert_stone','stone_flat','desert_stone_flat','stone_bricks','desert_stone_bricks', "default:obsidianbrick"},
 		'stonebrick');
 
       -- replace the wood as well
@@ -548,7 +550,7 @@ mg_villages.replacements_chateau = function( housetype, pr, replacements )
 		-- all three shapes of roof parts have to fit together
 		{ 'cottages:roof_straw',    'cottages:roof_connector_straw',   'cottages:roof_flat_straw' },
 		{ 'stairs:stair_',          'stairs:stair_',                   'stairs:slab_'},
-		{'cobble', 'stonebrick', 'desert_cobble', 'desert_stonebrick', 'stone'},
+		{'cobble', 'stonebrick', 'desert_cobble', 'desert_stonebrick', 'stone', 'obsidianbrick'},
 		'stonebrick');
          table.insert( replacements, { 'cottages:glass_pane', 'default:glass' });
       end
@@ -576,7 +578,7 @@ mg_villages.replacements_chateau = function( housetype, pr, replacements )
       local mfs2 = mg_villages.replace_materials( replacements, pr,
 		{'stairs:stair_cobble',  'stairs:slab_cobble', 'default:cobble'},
 		{'stairs:stair_',        'stairs:slab_',       'default:'      },
-		{ 'cobble', 'brick', 'clay', 'desert_cobble', 'desert_stone', 'desert_stonebrick', 'sandstone', 'sandstonebrick', 'stonebrick' },
+		{ 'cobble', 'brick', 'clay', 'desert_cobble', 'desert_stone', 'desert_stonebrick', 'sandstone', 'sandstonebrick', 'stonebrick', "default:obsidianbrick" },
 		'cobble');
 
       return replacements;

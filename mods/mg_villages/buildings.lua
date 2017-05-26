@@ -14,21 +14,21 @@ mg_villages.all_buildings_list = {}
 local buildings = {
 
 -- the houses the mod came with
-	{yoff= 0, scm="house", orients={2},                 typ='house',    weight={nore=1,   single=2   },         inh=4},
+	{yoff= 0, scm="house", orients={2},                 typ='house',    weight={nore=1  },         inh=4},
 	{yoff= 0, scm="wheat_field",                        typ='field',    weight={nore=1   }, inh=-1},
 	{yoff= 0, scm="cotton_field",                       typ='field',    weight={nore=1   }, inh=-1},
 	{yoff= 1, scm="lamp", no_rotate=true,               typ='deco',     weight={nore=1/5 }},
 	{yoff=-5, scm="well", no_rotate=true, pervillage=1, typ='well',     weight={nore=1   }},
 	{yoff= 0, scm="fountain", pervillage=3,             typ='fountain', weight={nore=1/4 },             axis=1},
-	{yoff= 0, scm="small_house", orients={3},           typ='house',    weight={nore=1,   single=2   }, axis=1, inh=2},
-	{yoff= 0, scm="house_with_garden", orients={1},     typ='house',    weight={nore=1,   single=2   }, axis=1, inh=3},
+	{yoff= 0, scm="small_house", orients={3},           typ='house',    weight={nore=1   }, axis=1, inh=2},
+	{yoff= 0, scm="house_with_garden", orients={1},     typ='house',    weight={nore=1   }, axis=1, inh=3},
 	{yoff= 0, scm="church", orients={3}, pervillage=1,  typ='church',   weight={nore=1   },             axis=1, inh=-1},
-	{yoff= 0, scm="tower", orients={0},                 typ='tower',    weight={nore=1/7, single=1   },         inh=-1},
-	{yoff= 0, scm="forge", orients={0}, pervillage=2,   typ='forge',    weight={nore=1,   single=1/3 },         inh=-1},
+	{yoff= 0, scm="tower", orients={0},                 typ='tower',    weight={nore=1/7  },         inh=-1},
+	{yoff= 0, scm="forge", orients={0}, pervillage=2,   typ='forge',    weight={nore=1 },         inh=-1},
 	{yoff= 0, scm="library", orients={1}, pervillage=2, typ='secular',  weight={nore=1               }, axis=1, inh=-1},
-	{yoff= 0, scm="inn", orients={1}, pervillage=4,     typ='tavern',   weight={nore=1/2, single=1/3 }, axis=1, inh=-1}, -- has room for 4 guests
-	{yoff= 0, scm="pub", orients={3}, pervillage=2,     typ='tavern',   weight={nore=1/3, single=1/3 }, axis=1, inh=-1},
-
+	{yoff= 0, scm="inn", orients={1}, pervillage=4,     typ='tavern',   weight={nore=1/2 }, axis=1, inh=-1}, -- has room for 4 guests
+	{yoff= 0, scm="pub", orients={3}, pervillage=2,     typ='tavern',   weight={nore=1/3 }, axis=1, inh=-1},
+	{yoff=-1, scm="chateau_without_garden", orients={0,1,2,3}, pervillage=2,  typ='mansion',  weight={nore=1,   single=1}, inh=8},
 
 -- log cabins by Sokomine (requiring cottages, glasspanes)
 	{yoff= 0, scm="logcabin1",    orients={1}, weight={logcabin=1,   single=1}, axis=1, inh=2, typ='hut'},
@@ -194,21 +194,25 @@ local buildings = {
 
 
    -- Houses from Taokis Structure I/O Mod (see https://forum.minetest.net/viewtopic.php?id=5524)
-	{scm="default_town_farm",          yoff= -1, orients={1}, farming_plus=0, avoid='',     typ='field',  weight={taoki=1,   single=1}, axis=1},
-	{scm="default_town_house_large_1", yoff= -4, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/4, single=1}, axis=1, inh=10},
-	{scm="default_town_house_large_2", yoff= -4, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/4, single=1}, axis=1, inh=8},
-	{scm="default_town_house_medium",  yoff= -4, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/2, single=1}, axis=1, inh=6},
-	{scm="default_town_house_small",   yoff= -4, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1,   single=1},   axis=1, inh=4},
-	{scm="default_town_house_tiny_1",  yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1,   single=1},   axis=1, inh=3},
-	{scm="default_town_house_tiny_2",  yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1,   single=1},   axis=1, inh=3},
-	{scm="default_town_house_tiny_3",  yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1,   single=1},   axis=1, inh=2},
+	{scm="default_town_farm",          yoff= -1, orients={1}, farming_plus=0, avoid='',     typ='field',  weight={taoki=1,}, axis=1},
+	{scm="default_town_house_large_1", yoff= -4, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/4}, axis=1, inh=10},
+	{scm="default_town_house_large_2", yoff= -4, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/4}, axis=1, inh=8},
+	{scm="default_town_house_medium",  yoff= -4, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/2}, axis=1, inh=6},
+	{scm="default_town_house_small",   yoff= -4, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1, },   axis=1, inh=4},
+	{scm="default_town_house_tiny_1",  yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1, },   axis=1, inh=3},
+	{scm="default_town_house_tiny_2",  yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1},   axis=1, inh=3},
+	{scm="default_town_house_tiny_3",  yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1},   axis=1, inh=2},
 	{scm="default_town_park",          yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='deco',   weight={taoki=1            },   axis=1},
-	{scm="default_town_tower",         yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='tower',  weight={taoki=1/6, single=1}, axis=1, inh=-1},
+	{scm="default_town_tower",         yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='tower',  weight={taoki=1/6}, axis=1, inh=-1},
 	{scm="default_town_well",          yoff= -6, orients={1}, farming_plus=0, avoid='',     typ='well',   weight={taoki=1/4          }, axis=1},
 	{scm="default_town_fountain",      yoff=  1, orients={1}, farming_plus=0, avoid='',     typ='fountain',weight={taoki=1/4          }, axis=1},
 	-- the hotel seems to be only the middle section of the building; it's build for another spawning algorithm
---	{scm="default_town_hotel",         yoff= -1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/5}},
-
+	{scm="default_town_hotel",         yoff= 1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/5}},
+--maikerumine added thius:
+	-- the hotel seems to be only the middle section of the building; it's build for another spawning algorithm
+	--{scm="chateau_without_garden",     yoff=-1, orients={1}, farming_plus=0, avoid='',     typ='house',  weight={taoki=1/5}},
+	--because it is nice
+	
 	{scm="tent_tiny_1",                yoff=0, orients={3}, farming_plus=0, avoid='',        typ='tent',    weight={tent=1,   single=1},   inh=1},
 	{scm="tent_tiny_2",                yoff=0, orients={3}, farming_plus=0, avoid='',        typ='tent',    weight={tent=1,   single=1},   inh=1},
 	{scm="tent_big_1",                 yoff=0, orients={3}, farming_plus=0, avoid='',        typ='tent',    weight={tent=1,   single=1}},           -- no sleeping place
@@ -250,7 +254,9 @@ local buildings = {
 	{scm="house_medieval_fancy_1_90", yoff= 0, orients={0}, farming_plus=0, avoid='', typ='farm_full', weight={medieval=1/4, single=1  }, inh=6},
 	{scm="cow_shed_1_270",            yoff= 0, orients={0}, farming_plus=0, avoid='', typ='shed',      weight={medieval=1/4, single=1  }, inh=-1},
 	{scm="shed_with_forge_v2_1_0",    yoff= 0, orients={0}, farming_plus=0, avoid='', typ='forge',     weight={medieval=1,single=1/2}, inh=1},
-}
+
+	
+	}
 
 
 -- read the data files and fill in information like size and nodes that need on_construct to be called after placing;

@@ -6,10 +6,10 @@ mg_villages.ENABLE_VILLAGES = true;
 
 -- generate one random building for each mg_villages.INVERSE_HOUSE_DENSITY th mapchunk;
 -- set to 0 in order to disable spawning of these lone buildings outside villages
-mg_villages.INVERSE_HOUSE_DENSITY = 0;
+mg_villages.INVERSE_HOUSE_DENSITY = 70;  --higher the less
 
 -- cover some villages with artificial snow; probability: 1/mg_villages.artificial_snow_probability
-mg_villages.artificial_snow_probability = 10;
+mg_villages.artificial_snow_probability = 40;
 
 -- if set to true, soil around villaes will get special soil-snow instead of plant + snow cover
 mg_villages.use_soil_snow = false;
@@ -30,7 +30,7 @@ mg_villages.REQUIRE_PRIV_FOR_TELEPORT = true;
 mg_villages.ENABLE_PROTECTION = false;
 
 -- the first village - the one the player spawns in - will be of this type
-mg_villages.FIRST_VILLAGE_TYPE = 'medieval';
+mg_villages.FIRST_VILLAGE_TYPE = 'nore';
 
 -- the mapgen will disregard mapchunks where min.y > mg_villages.MAX_HEIGHT_TREATED;
 -- you can set this value to 64 if you have a slow machine and a mapgen which does not create extreme mountains
@@ -179,15 +179,16 @@ mg_villages.UNDO_CAVEGEN_AND_MUDFLOW = true;
 
 -- internal variables for village generation
 
-mg_villages.VILLAGE_CHECK_RADIUS = 2
-mg_villages.VILLAGE_CHECK_COUNT = 1
---mg_villages.VILLAGE_CHANCE = 28
+mg_villages.VILLAGE_CHECK_RADIUS = 2  --was2
+mg_villages.VILLAGE_CHECK_COUNT = 1  --was1
+--mg_villages.VILLAGE_CHANCE = 28/vmap
+
 --mg_villages.VILLAGE_MIN_SIZE = 20
 --mg_villages.VILLAGE_MAX_SIZE = 40
-mg_villages.VILLAGE_CHANCE = 28
+mg_villages.VILLAGE_CHANCE = 55
 -- min and max size are only used in case of them beeing not provided by the village type (see buildings.lua)
-mg_villages.VILLAGE_MIN_SIZE = 25
-mg_villages.VILLAGE_MAX_SIZE = 90 --55
+mg_villages.VILLAGE_MIN_SIZE = 23
+mg_villages.VILLAGE_MAX_SIZE = 55 --55
 mg_villages.FIRST_ROADSIZE = 3
 mg_villages.BIG_ROAD_CHANCE = 0
 
