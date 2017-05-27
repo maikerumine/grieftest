@@ -1,5 +1,5 @@
 screwdriver = {}
-
+--[[
 local function nextrange(x, max)
 	x = x + 1
 	if x > max then
@@ -86,11 +86,12 @@ screwdriver.handler = function(itemstack, user, pointed_thing, mode, uses)
 
 	return itemstack
 end
-
+]]
 -- Screwdriver
 minetest.register_tool("screwdriver:screwdriver", {
 	description = "Screwdriver (left-click rotates face, right-click rotates axis)",
 	inventory_image = "screwdriver.png",
+	--[[
 	on_use = function(itemstack, user, pointed_thing)
 		screwdriver.handler(itemstack, user, pointed_thing, screwdriver.ROTATE_FACE, 200)
 		return itemstack
@@ -99,6 +100,7 @@ minetest.register_tool("screwdriver:screwdriver", {
 		screwdriver.handler(itemstack, user, pointed_thing, screwdriver.ROTATE_AXIS, 200)
 		return itemstack
 	end,
+	]]
 })
 
 

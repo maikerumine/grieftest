@@ -1,6 +1,6 @@
 -- Parameters
 
-local NETHER_DEPTH = -2800
+local NETHER_DEPTH = -3000
 local TCAVE = 0.6
 local nobj_cave = nil
 -- 3D noise
