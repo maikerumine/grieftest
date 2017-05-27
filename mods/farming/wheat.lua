@@ -55,19 +55,26 @@ minetest.register_craftitem("farming:flour", {
 	description = S("Flour"),
 	inventory_image = "farming_flour.png",
 })
-
+--[[
 minetest.register_craft({
 	type = "shapeless",
 	output = "farming:flour",
 	recipe = {"farming:wheat", "farming:wheat", "farming:wheat", "farming:wheat"}
 })
-
+]]
 -- bread
 minetest.register_craftitem("farming:bread", {
 	description = S("Bread"),
 	inventory_image = "farming_bread.png",
 	on_use = minetest.item_eat(5),
 })
+
+minetest.register_craft({
+	output = "farming:bread",
+	type = "shapeless",
+	recipe =  {"farming:wheat", "farming:wheat", "farming:wheat"},
+})
+
 
 minetest.register_craft({
 	type = "cooking",

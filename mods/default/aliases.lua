@@ -134,6 +134,12 @@ minetest.register_alias("jdukebox:disc_6", "mcl_jukebox:record_6")
 minetest.register_alias("jdukebox:disc_7", "mcl_jukebox:record_7")
 minetest.register_alias("jdukebox:disc_8", "mcl_jukebox:record_8")
 
+--GoldenApple
+minetest.register_alias("golden_apple:golden_apple", "default:golden_apple")
+
+--Enderchest
+minetest.register_alias("enderchest:enderchest", "default:enderchest")
+
 --MC2 boats
 minetest.register_alias("boats:boat", "mcl_boats:boat_spruce")
 
@@ -148,3 +154,92 @@ minetest.register_alias("3d_armor:helmet_wood", "3d_armor:helmet_leather")
 minetest.register_alias("3d_armor:chestplate_wood", "3d_armor:chestplate_leather")
 minetest.register_alias("3d_armor:leggings_wood", "3d_armor:leggings_leather")
 minetest.register_alias("3d_armor:boots_wood", "3d_armor:boots_leather")
+
+
+--farming oh boy...
+--tomato
+minetest.register_alias("farming:tomato", "farming:carrot")
+minetest.register_alias("farming:tomato_1", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:tomato_2", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:tomato_3", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:tomato_4", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:tomato_5", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:tomato_6", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:tomato_7", "mcl_flowers:tallgrass")
+
+--cucumber
+minetest.register_alias("farming:cucumber", "farming:carrot")
+minetest.register_alias("farming:cucumber_1", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:cucumber_2", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:cucumber_3", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:cucumber_4", "mcl_flowers:tallgrass")
+
+--raspberry
+minetest.register_alias("farming:raspberries", "farming:carrot")
+minetest.register_alias("farming:smoothie_raspberry", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:raspberry_1", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:raspberry_2", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:raspberry_3", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:raspberry_4", "mcl_flowers:tallgrass")
+
+--blueberry
+minetest.register_alias("farming:blueberries", "farming:carrot")
+minetest.register_alias("farming:muffin_blueberry", "farming:bread")
+minetest.register_alias("farming:blueberry_1", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:blueberry_2", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:blueberry_3", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:blueberry_4", "mcl_flowers:tallgrass")
+
+--rhubarb
+minetest.register_alias("farming:rhubarb", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:rhubarb_pie", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:rhubarb_1", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:rhubarb_2", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:rhubarb_3", "mcl_flowers:tallgrass")
+
+--beans
+minetest.register_alias("farming:beanpole", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:beans", "farming:carrot")
+minetest.register_alias("farming:beanbush", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:beanpole_1", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:beanpole_2", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:beanpole_3", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:beanpole_4", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:beanpole_5", "mcl_flowers:tallgrass")
+
+--grapes
+minetest.register_alias("farming:grapes", "farming:carrot")
+minetest.register_alias("farming:trellis", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapebush", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapes_1", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapes_2", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapes_3", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapes_4", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapes_5", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapes_6", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapes_7", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:grapes_8", "mcl_flowers:tallgrass")
+
+--barley
+minetest.register_alias("farming:barley", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:barley_1", "farming:seed_wheat")
+minetest.register_alias("farming:barley_2", "farming:seed_wheat")
+minetest.register_alias("farming:barley_3", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:barley_4", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:barley_5", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:barley_6", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:barley_7", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:seed_barley", "farming:seed_wheat")
+
+--coffee
+minetest.register_alias("farming:coffee", "farming:carrot")
+minetest.register_alias("farming:coffee_cup_hot", "farming:carrot")
+minetest.register_alias("farming:coffee_cup", "farming:carrot")
+minetest.register_alias("farming:drinking_cup", "farming:carrot")
+minetest.register_alias("farming:coffee_beans", "farming:carrot")
+minetest.register_alias("farming:coffee_1", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:coffee_2", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:coffee_3", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:coffee_4", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:coffee_5", "mcl_flowers:tallgrass")
+

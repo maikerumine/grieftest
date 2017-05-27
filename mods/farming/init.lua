@@ -147,7 +147,7 @@ end
 
 local STAGE_LENGTH_AVG = 160.0
 local STAGE_LENGTH_DEV = STAGE_LENGTH_AVG / 6
-local MIN_LIGHT = 10
+local MIN_LIGHT = 12
 local MAX_LIGHT = 1000
 
 --- Determines plant name and stage from node.
@@ -484,24 +484,24 @@ end
 
 -- refill placed plant by crabman (26/08/2015)
 local can_refill_plant = {
-	["farming:blueberry_1"] = "farming:blueberries",
+	--["farming:blueberry_1"] = "farming:blueberries",
 	["farming:carrot_1"] = "farming:carrot",
-	["farming:coffee_1"] = "farming:coffee_beans",
+	--["farming:coffee_1"] = "farming:coffee_beans",
 	["farming:corn_1"] =  "farming:corn",
 	["farming:cotton_1"] = "farming:seed_cotton",
-	["farming:cucumber_1"] = "farming:cucumber",
+	--["farming:cucumber_1"] = "farming:cucumber",
 	["farming:melon_1"] = "farming:melon_slice",
 	["farming:potato_1"] = "farming:potato",
 	["farming:pumpkin_1"] = "farming:pumpkin_slice",
-	["farming:raspberry_1"] = "farming:raspberries",
-	["farming:rhubarb_1"] = "farming:rhubarb",
-	["farming:tomato_1"] = "farming:tomato",
+	--["farming:raspberry_1"] = "farming:raspberries",
+	--["farming:rhubarb_1"] = "farming:rhubarb",
+	--["farming:tomato_1"] = "farming:tomato",
 	["farming:wheat_1"] = "farming:seed_wheat",
-	["farming:grapes_1"] = "farming:grapes",
-	["farming:beans_1"] = "farming:beans",
-	["farming:rhubarb_1"] = "farming:rhubarb",
+	--["farming:grapes_1"] = "farming:grapes",
+	--["farming:beans_1"] = "farming:beans",
+	--["farming:rhubarb_1"] = "farming:rhubarb",
 	["farming:cocoa_1"] = "farming:cocoa_beans",
-	["farming:barley_1"] = "farming:seed_barley",
+	--["farming:barley_1"] = "farming:seed_barley",
 }
 
 function farming.refill_plant(player, plantname, index)
@@ -684,20 +684,20 @@ dofile(farming.path.."/wheat.lua")
 dofile(farming.path.."/cotton.lua")
 dofile(farming.path.."/carrot.lua")
 dofile(farming.path.."/potato.lua")
-dofile(farming.path.."/tomato.lua")
-dofile(farming.path.."/cucumber.lua")
+--dofile(farming.path.."/tomato.lua")
+--dofile(farming.path.."/cucumber.lua")
 dofile(farming.path.."/corn.lua")
-dofile(farming.path.."/coffee.lua")
+--dofile(farming.path.."/coffee.lua")
 dofile(farming.path.."/melon.lua")
 dofile(farming.path.."/sugar.lua")
 dofile(farming.path.."/pumpkin.lua")
 dofile(farming.path.."/cocoa.lua")
-dofile(farming.path.."/raspberry.lua")
-dofile(farming.path.."/blueberry.lua")
-dofile(farming.path.."/rhubarb.lua")
-dofile(farming.path.."/beanpole.lua")
-dofile(farming.path.."/grapes.lua")
-dofile(farming.path.."/barley.lua")
+--dofile(farming.path.."/raspberry.lua")
+--dofile(farming.path.."/blueberry.lua")
+--dofile(farming.path.."/rhubarb.lua")
+--dofile(farming.path.."/beanpole.lua")
+--dofile(farming.path.."/grapes.lua")
+--dofile(farming.path.."/barley.lua")
 dofile(farming.path.."/donut.lua")
 dofile(farming.path.."/mapgen.lua")
-dofile(farming.path.."/compatibility.lua") -- Farming Plus compatibility
+--dofile(farming.path.."/compatibility.lua") -- Farming Plus compatibility

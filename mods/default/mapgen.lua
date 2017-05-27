@@ -1800,7 +1800,7 @@ function default.register_biomes(upper_limit)
 		y_min = -1,
 		y_max = 50,
 		heat_point = 96,
-		humidity_point = 95,
+		humidity_point = 55,
 	})
 
 		minetest.register_biome({
@@ -1820,7 +1820,7 @@ function default.register_biomes(upper_limit)
 		y_min = 56,
 		y_max = 900,
 		heat_point = 96,
-		humidity_point = 95,
+		humidity_point = 55,
 	})
 
 	
