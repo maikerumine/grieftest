@@ -74,7 +74,7 @@ minetest.register_node("farming:melon_7", table.copy(crop_def))
 -- stage 8 (final)
 crop_def.drawtype = "nodebox"
 crop_def.description = S("Melon")
-crop_def.tiles = {"farming_melon_top.png", "farming_melon_top.png", "farming_melon_side.png"}
+crop_def.tiles = {"farming_melon_top.png", "farming_melon_top.png", "farming_melon_side.png", "farming_melon_side.png", "farming_melon_side.png", "farming_melon_side.png"}
 crop_def.selection_box = {-.5, -.5, -.5, .5, .5, .5}
 crop_def.walkable = true
 crop_def.groups = {snappy = 1, oddly_breakable_by_hand = 1, flammable = 2, plant = 1}
