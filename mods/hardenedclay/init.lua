@@ -22,6 +22,7 @@ for _, color in pairs(colors) do
 		description = color.." Stained Clay",
 		tiles = {"hardened_clay_stained_"..nodecolor..".png"},
 		groups = {cracky=3},
+		sounds = default.node_sound_stone_defaults(),
 		stack_max = 64,
 	})
 	minetest.register_craft({

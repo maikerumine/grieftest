@@ -155,6 +155,8 @@ minetest.register_alias("3d_armor:chestplate_wood", "3d_armor:chestplate_leather
 minetest.register_alias("3d_armor:leggings_wood", "3d_armor:leggings_leather")
 minetest.register_alias("3d_armor:boots_wood", "3d_armor:boots_leather")
 
+--screwdriver
+minetest.register_alias("screwdriver:screwdriver", "default:bowl")
 
 --farming oh boy...
 --tomato
@@ -165,7 +167,8 @@ minetest.register_alias("farming:tomato_3", "mcl_flowers:tallgrass")
 minetest.register_alias("farming:tomato_4", "mcl_flowers:tallgrass")
 minetest.register_alias("farming:tomato_5", "mcl_flowers:tallgrass")
 minetest.register_alias("farming:tomato_6", "mcl_flowers:tallgrass")
-minetest.register_alias("farming:tomato_7", "mcl_flowers:tallgrass")
+minetest.register_alias("farming:tomato_7", "default:apple")
+minetest.register_alias("farming:tomato_8", "default:apple")
 
 --cucumber
 minetest.register_alias("farming:cucumber", "farming:carrot")

@@ -121,65 +121,95 @@ minetest.register_ore({
 	ore_type       = "blob",
 	ore            = "default:mossycobble",
 	wherein        = "default:podzol",
-		clust_scarcity = 15*15*15,
-		clust_num_ores = 13,
-		clust_size     = 8,
-	y_min     = 5,
-	y_max     = 250,
-	noise_threshold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=150, y=150, z=150}, seed=23, octaves=3, persist=0.70}
+		clust_scarcity  = 16 * 16 * 16,
+		clust_size      = 5,
+		y_min           = -70,
+		y_max           = 31000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.2,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 17676,
+			octaves = 1,
+			persist = 0.0
+		},
 })
 
 minetest.register_ore({
 	ore_type       = "blob",
 	ore            = "default:andesite",
 	wherein        = "default:stone",
-		clust_scarcity = 15*15*15,
-		clust_num_ores = 33,
-		clust_size     = 5,
-	y_min     = -80,
-	y_max     = 50,
-	noise_threshold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=150, y=150, z=150}, seed=23, octaves=3, persist=0.70}
+		clust_scarcity  = 16 * 16 * 16,
+		clust_size      = 5,
+		y_min           = -70,
+		y_max           = 31000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.2,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 17676,
+			octaves = 1,
+			persist = 0.0
+		},
 })
 
 minetest.register_ore({
 	ore_type       = "blob",
 	ore            = "default:diorite",
 	wherein        = "default:stone",
-		clust_scarcity = 15*15*15,
-		clust_num_ores = 33,
-		clust_size     = 5,
-	y_min     = -80,
-	y_max     = 50,
-	noise_threshold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=150, y=150, z=150}, seed=23, octaves=3, persist=0.70}
+		clust_scarcity  = 16 * 16 * 16,
+		clust_size      = 5,
+		y_min           = -70,
+		y_max           = 31000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.2,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 17676,
+			octaves = 1,
+			persist = 0.0
+		},
 })
 
 minetest.register_ore({
 	ore_type       = "blob",
 	ore            = "default:granite",
 	wherein        = "default:stone",
-		clust_scarcity = 15*15*15,
-		clust_num_ores = 33,
-		clust_size     = 5,
-	y_min     = -80,
-	y_max     = 50,
-	noise_threshold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
+		clust_scarcity  = 16 * 16 * 16,
+		clust_size      = 5,
+		y_min           = -70,
+		y_max           = 31000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.2,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 17676,
+			octaves = 1,
+			persist = 0.0
+		},
 })
 
 minetest.register_ore({
 	ore_type       = "blob",
 	ore            = "default:fossil",
 	wherein        = "default:sandstone",
-		clust_scarcity = 15*15*15,
-		clust_num_ores = 16,
-		clust_size     = 12,
-	y_min     = -80,
-	y_max     = -20,
-	noise_threshold = 0.4,
-	noise_params = {offset=0, scale=15, spread={x=230, y=230, z=230}, seed=24, octaves=3, persist=0.70}
+		clust_scarcity  = 16 * 16 * 16,
+		clust_size      = 5,
+		y_min           = -70,
+		y_max           = 31000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.2,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 17676,
+			octaves = 1,
+			persist = 0.0
+		},
 })
 
 
@@ -265,30 +295,44 @@ minetest.register_ore({
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:desert_sand",
-	wherein        = {"default:desert_stone"},
+	wherein        = {"default:desert_stone", "hardenedclay:hardened_clay_brown"},
 	clust_scarcity = 1,
-	clust_num_ores = 8,
-	clust_size     = 4,
+	clust_num_ores = 12,
+	clust_size     = 10,
 	y_min     = 44,
 	y_max     = 70,
-	noise_threshold = 0.4,
+	noise_threshold = 0.7,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
 	minetest.register_ore({
 		ore_type       = "blob",
 		ore            = "default:lava_source",
-		wherein        = "default:stone",
+		wherein        = "hardenedclay:hardened_clay_brown",
 		clust_scarcity = 15*15*10,
 		clust_num_ores = 2,
 		clust_size     = 2,
 		y_min          = -62,
-		y_max          = 2140,
+		y_max          = 50,
 	})
 
 --HARDENED CLAY FOR MESA :)
 --maikerumine
 
 --MESA STRATA
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "default:desert_sand",
+	wherein        = {"default:desert_stone", "hardenedclay:hardened_clay_brown"},
+	clust_scarcity = 1,
+	clust_num_ores = 8,
+	clust_size     = 4,
+	y_min     = 4,
+	y_max     = 70,
+	noise_threshold = 0.4,
+	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
+})
+
+
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "hardenedclay:hardened_clay_gray",
@@ -1026,10 +1070,23 @@ minetest.register_ore({
 	ore            = "default:nitherbrick",
 	wherein        ={"default:rack"},
 	clust_scarcity = 1,
-	clust_num_ores = 1,
-	clust_size     = 3,
+	clust_num_ores = 12,
+	clust_size     = 10,
 	y_min     = -3050,
 	y_max     = -4000,
+	noise_threshold = 0.2,
+	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
+})
+
+minetest.register_ore({
+	ore_type       = "sheet",
+	ore            = "air",
+	wherein        ={"default:rack"},
+	clust_scarcity = 1,
+	clust_num_ores = 12,
+	clust_size     = 10,
+	y_min     = 10,
+	y_max     = 30,
 	noise_threshold = 0.2,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
@@ -2480,6 +2537,28 @@ function default.register_decorations()
 		rotation = "random",
 	})
 
+	
+minetest.register_decoration({
+		deco_type = "schematic",
+		place_on = {"default:sand"},
+		sidelen = 16,
+		noise_params = {
+			offset = 0,
+			scale = 0.0002,
+			spread = {x = 250, y = 250, z = 250},
+			seed = 2,
+			octaves = 3,
+			persist = 0.66
+		},
+		biomes = {"savanna"},
+		y_min = 7,
+		y_max = 31000,
+		schematic = minetest.get_modpath("default").."/schematics/acacia_tree.mts",
+		flags = "place_center_x, place_center_z",
+		rotation = "random",
+	})
+	
+	
 	-- Aspen tree and log
 
 	minetest.register_decoration({
@@ -2990,7 +3069,7 @@ function default.register_decorations()
 		deco_type = "simple",
 		place_on = {"default:dirt_with_grass", "default:podzol"},
 		sidelen = 8,
-		fill_ratio = 0.001,
+		fill_ratio = 0.01,
 		y_min = 1,
 		y_max = 50,
 		decoration = "mcl_flowers:tallgrass",

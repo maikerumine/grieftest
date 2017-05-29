@@ -348,7 +348,7 @@ minetest.register_craft({
 
 minetest.register_craft({
 	output = "default:iron_nugget 9",
-	recipe = {{"default:iron_ingot"}},
+	recipe = {{"default:steel_ingot"}},
 })
 
 minetest.register_craft({
@@ -361,7 +361,7 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = "default:iron_ingot",
+	output = "default:steel_ingot",
 	recipe = {
 		{"default:iron_nugget", "default:iron_nugget", "default:iron_nugget"},
 		{"default:iron_nugget", "default:iron_nugget", "default:iron_nugget"},
