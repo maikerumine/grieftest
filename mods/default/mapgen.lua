@@ -1064,7 +1064,27 @@ minetest.register_ore({
 		y_max           = -3000,
 	})
 
-
+--brick
+	minetest.register_ore({
+		ore_type        = "blob",
+		ore             = "default:nitherbrick",
+		wherein         = {"default:rack", "default:lava_source",
+			"default:desert_stone"},
+		clust_scarcity  = 13 * 13 * 13,
+		clust_size      = 5,
+		y_min           = -3390,
+		y_max           = -3000,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.1,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 16,
+			octaves = 1,
+			persist = 0.0
+		},
+	})
+	
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:nitherbrick",
@@ -1174,7 +1194,7 @@ minetest.register_ore({
 	y_max     = -5420,
 	})
 	
-
+--[[
 minetest.register_ore({
 	ore_type       = "sheet",
 	ore            = "default:nitherbrick",
@@ -1200,7 +1220,7 @@ minetest.register_ore({
 	noise_threshold = 0.8,
 	noise_params = {offset=0, scale=1, spread={x=50, y=122, z=50}, seed=2464, octaves=3, persist=0.70}
 })
-
+]]
 	
 end
 --
@@ -2969,7 +2989,7 @@ minetest.register_decoration({
 		noise_params = {
 			offset = -0.01,
 			scale = 0.03,
-			spread = {x = 500, y = 500, z = 500},
+			spread = {x = 50, y = 50, z = 50},
 			seed = 420,
 			octaves = 2,
 			persist = 0.6,
@@ -3049,7 +3069,7 @@ minetest.register_decoration({
 	-- Tall grass
 	minetest.register_decoration({
 		deco_type = "simple",
-		place_on = {"default:dirt_with_grass"},
+		place_on = {"default:dirt_with_grass", "default:podzol"},
 		sidelen = 8,
 		noise_params = {
 			offset = 0.01,
@@ -3090,7 +3110,7 @@ minetest.register_decoration({
 			noise_params = {
 				offset = offset,
 				scale = 0.006,
-				spread = {x = 100, y = 100, z = 100},
+				spread = {x = 400, y = 400, z = 400},
 				seed = seed,
 				octaves = 3,
 				persist = 0.6

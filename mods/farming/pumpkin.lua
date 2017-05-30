@@ -131,7 +131,7 @@ local crop_def = {
 	tiles = {"farming_pumpkin_1.png"},
 	paramtype = "light",
 	sunlight_propagates = true,
-	waving = 1,
+	--waving = 1,
 	walkable = false,
 	buildable_to = true,
 	drop = "",
@@ -171,8 +171,13 @@ crop_def.tiles = {"farming_pumpkin_7.png"}
 minetest.register_node("farming:pumpkin_7", table.copy(crop_def))
 
 -- stage 8 (final)
-crop_def.tiles = {"farming_pumpkin_8.png"}
+crop_def.drawtype = "nodebox"
+crop_def.description = S("Pumpkin")
+crop_def.tiles = {"farming_pumpkin_top.png", "farming_pumpkin_top.png", "farming_pumpkin_side.png"}
+crop_def.selection_box = {-.5, -.5, -.5, .5, .5, .5}
+crop_def.walkable = true
 crop_def.groups.growing = 0
+crop_def.groups = {snappy = 1, oddly_breakable_by_hand = 1, flammable = 2, plant = 1}
 crop_def.drop = {
 	items = {
 		{items = {'farming:pumpkin_slice 9'}, rarity = 1},

@@ -35,14 +35,14 @@ local stuff = {
 --	{"seaplants",				"kelpgreen",				0,					"a Green Kelp.",				26,			5},
 	{"3d_armor",				"boots_steel",				"random",			"some very old Boots.",			31,			2},
 	{"3d_armor",				"leggings_gold",			"random",			"some very old Leggings.",		33,			5},
-	{"3d_armor",				"chestplate_bronze",		"random",			"a very old ChestPlate.",		38,			5},
+	{"3d_armor",				"chestplate_leather",		"random",			"a very old ChestPlate.",		38,			5},
 	{"fishing",					"pole_wood",				"randomtools",		"an old Fishing Pole.",			43,			10},
-	{"3d_armor",				"boots_wood",				"random",			"some very old Boots.",			53,			5},
+	{"3d_armor",				"boots_leather",				"random",			"some very old Boots.",			53,			5},
 --	{"maptools",				"gold_coin",				0,					"a Gold Coin.",					58,			1},
 	{"3d_armor",				"helmet_diamond",			"random",			"a very old Helmet.",			59,			1},
 --	{"shields",					"shield_enhanced_cactus",	"random",			"a very old Shield.",			60,			2},
-	{"default",					"sword_bronze",				"random",			"a very old Sword.",			62,			2},
-	{"default",					"sword_mese",				"random",			"a very old Sword.",			64,			2},
+--	{"default",					"sword_bronze",				"random",			"a very old Sword.",			62,			2},
+	{"default",					"sword_gold",				"random",			"a very old Sword.",			64,			2},
 --	{"default",					"sword_nyan",				"random",			"a very old Sword.",			66,			2},
 --	nom mod						nom item					durabilité 			message dans le chat		 				-- fin 67
 --															de l'objet

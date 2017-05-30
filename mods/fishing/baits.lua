@@ -31,4 +31,4 @@ fishing_setting.baits["fishing:bluewhite_raw"] = { ["bait"] = "fishing:bluewhite
 
 fishing_setting.baits["fishing:exoticfish_raw"] = { ["bait"] = "fishing:exoticfish_raw", ["bobber"] = "fishing:bobber_shark_entity",["texture"] = "fishing_exoticfish_raw.png", ["hungry"] = 50 }
 
-fishing_setting.baits["esmobs:meat_raw"] = { ["bait"] = "esmobs:meat_raw", ["bobber"] = "fishing:bobber_shark_entity",["texture"] = "fishing_exoticfish_raw.png", ["hungry"] = 50 }
+fishing_setting.baits["esmobs:meat_raw"] = { ["bait"] = "mobs:meat_raw", ["bobber"] = "fishing:bobber_shark_entity",["texture"] = "fishing_exoticfish_raw.png", ["hungry"] = 50 }

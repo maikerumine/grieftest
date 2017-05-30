@@ -38,16 +38,54 @@ local boat = {
 	-- lowering it causes the boat to fall through the world if underwater
 	collisionbox = {-0.5, -0.35, -0.5, 0.5, 0.3, 0.5},
 	visual = "mesh",
-	mesh = "boats_boat.obj",
-	textures = {"default_wood.png"},
-
+	--mesh = "boats_boat.obj",
+	mesh = "boat.b3d",
+	--textures = {"default_wood.png"},
+	textures = {"boat.png"},
+	visual_size = {x=3, y=3},
+	  rotate = -180,
+		animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
 	driver = nil,
 	v = 0,
 	last_v = 0,
 	removed = false
 }
 
+--[[
+--###################
+--################### BOAT
+--###################
 
+mobs:register_mob("amc:81boat", {
+	type = "animal",
+	passive = true,
+    runaway = true,
+    stepheight = 1.2,
+	hp_min = 30,
+	hp_max = 60,
+	armor = 150,
+    collisionbox = {-0.35, -0.01, -0.35, 0.35, 2, 0.35},
+    rotate = -180,
+	visual = "mesh",
+	mesh = "boat.b3d",
+    textures = {{"boat.png"},{"boat1.png"},{"boat2.png"},{"boat3.png"},{"boat4.png"},{"boat5.png"},{"boat6.png"},},
+	visual_size = {x=3, y=3},
+	walk_velocity = 0.6,
+	run_velocity = 2,
+	jump = true,
+	animation = {
+		speed_normal = 25,		speed_run = 50,
+		stand_start = 0,		stand_end = 0,
+		walk_start = 0,		walk_end = 40,
+		run_start = 0,		run_end = 40,
+	},
+})
+]]
 function boat.on_rightclick(self, clicker)
 	if not clicker or not clicker:is_player() then
 		return
