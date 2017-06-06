@@ -1061,22 +1061,6 @@ minetest.register_craft({
 })
 
 minetest.register_craft({
-	output = 'default:sandstonesmooth 4',
-	recipe = {
-		{'default:sandstone','default:sandstone'},
-		{'default:sandstone','default:sandstone'},
-	}
-})
-
-minetest.register_craft({
-	output = 'default:redsandstonesmooth 4',
-	recipe = {
-		{'default:redsandstone','default:redsandstone'},
-		{'default:redsandstone','default:redsandstone'},
-	}
-})
-
-minetest.register_craft({
 	output = 'default:granite_smooth 4',
 	recipe = {
 		{'default:granite', 'default:granite'},
