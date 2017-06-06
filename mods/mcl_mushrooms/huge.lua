@@ -1,5 +1,5 @@
 local template = {
-	groups = {choppy = 2,  flammable = 3, wood = 1,cracky = 1, huge_mushroom =1},
+	groups = {choppy = 2,  flammable = 3, wood = 1,cracky = 1, huge_mushroom =1, not_in_creative_inventory=1},
 	sounds = default.node_sound_wood_defaults(),
 	is_ground_content = true,
 	_mcl_blast_resistance = 1,

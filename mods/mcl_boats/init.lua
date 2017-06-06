@@ -148,9 +148,10 @@ function boat.on_punch(self, puncher)
 	if not self.driver then
 		self.removed = true
 		local inv = puncher:get_inventory()
-		if not minetest.setting_getbool("creative_mode")
-				or not inv:contains_item("main", "boats:boat") then
-			local leftover = inv:add_item("main", "boats:boat")
+		if not (creative and creative.is_enabled_for
+				and creative.is_enabled_for(puncher:get_player_name()))
+				or not inv:contains_item("main", "mcl_boats:boat") then
+			local leftover = inv:add_item("main", "mcl_boats:boat")
 			-- if no room in inventory add a replacement boat to the world
 			if not leftover:is_empty() then
 				minetest.add_item(self.object:getpos(), leftover)
@@ -170,9 +171,9 @@ function boat.on_step(self, dtime)
 		local ctrl = self.driver:get_player_control()
 		local yaw = self.object:getyaw()
 		if ctrl.up then
-			self.v = self.v + 1.1
+			self.v = self.v + 0.1
 		elseif ctrl.down then
-			self.v = self.v - 1.1--was0.1
+			self.v = self.v - 0.1
 		end
 		if ctrl.left then
 			if self.v < 0 then
@@ -200,8 +201,8 @@ function boat.on_step(self, dtime)
 		self.v = 0
 		return
 	end
-	if math.abs(self.v) > 7 then  --was5
-		self.v = 7 * get_sign(self.v)
+	if math.abs(self.v) > 5 then
+		self.v = 5 * get_sign(self.v)
 	end
 
 	local p = self.object:getpos()
@@ -249,6 +250,8 @@ function boat.on_step(self, dtime)
 	self.object:setvelocity(new_velo)
 	self.object:setacceleration(new_acce)
 end
+
+
 
 
 
