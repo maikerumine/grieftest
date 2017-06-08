@@ -58,5 +58,6 @@ dofile(minetest.get_modpath("default").."/trees.lua")
 dofile(minetest.get_modpath("default").."/torch.lua")
 dofile(minetest.get_modpath("default").."/aliases.lua")
 dofile(minetest.get_modpath("default").."/legacy.lua")
+dofile(minetest.get_modpath("default").."/mapfix.lua")
 
 
