@@ -138,7 +138,8 @@ minetest.register_alias("jdukebox:disc_8", "mcl_jukebox:record_8")
 minetest.register_alias("golden_apple:golden_apple", "default:golden_apple")
 
 --Enderchest
-minetest.register_alias("enderchest:enderchest", "default:enderchest")
+minetest.register_alias("enderchest:enderchest", "mcl_chests:ender_chest")
+minetest.register_alias("default:enderchest", "mcl_chests:ender_chest")
 
 --MC2 boats
 minetest.register_alias("boats:boat", "mcl_boats:boat_spruce")
@@ -157,6 +158,10 @@ minetest.register_alias("3d_armor:boots_wood", "3d_armor:boots_leather")
 
 --screwdriver
 minetest.register_alias("screwdriver:screwdriver", "default:bowl")
+
+--MC2 beds
+minetest.register_alias("beds:fancy_bed", "beds:bed")
+
 
 --farming oh boy...
 --tomato

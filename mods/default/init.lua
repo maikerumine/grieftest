@@ -24,12 +24,12 @@ function default.get_hotbar_bg(x,y)
 	return out
 end
 
-default.gui_survival_form = "size[8,8.5]"..
+default.gui_survival_form = "size[9,8.5]"..
 			default.gui_bg..
 			default.gui_bg_img..
 			default.gui_slots..
-			"list[current_player;main;0,4.25;8,1;]"..
-			"list[current_player;main;0,5.5;8,3;8]"..
+			"list[current_player;main;0,4.25;9,1;]"..  --9 was 8
+			"list[current_player;main;0,5.5;9,3;9]"..  --9 was 8
 			"list[current_player;craft;1.75,0.5;3,3;]"..
 			"list[current_player;craftpreview;5.75,1.5;1,1;]"..
 			"image[4.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
@@ -37,6 +37,18 @@ default.gui_survival_form = "size[8,8.5]"..
 			"listring[current_player;craft]"..
 			default.get_hotbar_bg(0,4.25)
 
+			
+minetest.register_on_joinplayer(function(player)
+	--init inventory
+	player:get_inventory():set_width("main", 9)
+	player:get_inventory():set_size("main", 36)
+
+end)			
+			
+			
+			
+			
+			
 -- Load files
 dofile(minetest.get_modpath("default").."/functions.lua")
 dofile(minetest.get_modpath("default").."/rnd_antigrief.lua")
@@ -44,7 +56,7 @@ dofile(minetest.get_modpath("default").."/nodes.lua")
 dofile(minetest.get_modpath("default").."/fire.lua")
 dofile(minetest.get_modpath("default").."/furnace.lua")
 dofile(minetest.get_modpath("default").."/goldenapple.lua")
-dofile(minetest.get_modpath("default").."/enderchest.lua")
+--dofile(minetest.get_modpath("default").."/enderchest.lua")
 dofile(minetest.get_modpath("default").."/dropondeath.lua")
 dofile(minetest.get_modpath("default").."/killme.lua")
 dofile(minetest.get_modpath("default").."/tools.lua")
@@ -59,5 +71,6 @@ dofile(minetest.get_modpath("default").."/torch.lua")
 dofile(minetest.get_modpath("default").."/aliases.lua")
 dofile(minetest.get_modpath("default").."/legacy.lua")
 dofile(minetest.get_modpath("default").."/mapfix.lua")
+dofile(minetest.get_modpath("default").."/builtin.lua")
 
 

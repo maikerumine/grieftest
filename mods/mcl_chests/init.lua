@@ -250,7 +250,6 @@ minetest.register_node("mcl_chests:"..basename.."_right", {
 
 		"size[9,11.5]"..
 		"background[-0.19,-0.25;9.41,12.5;crafting_inventory_chest_large.png]"..
-		--"background[-0.19,-0.25;9.41,12.5;default_large_chest_bg.png]"..
 		mcl_vars.inventory_header..
 		"list[nodemeta:"..pos_other.x..","..pos_other.y..","..pos_other.z..";main;0,0.5;9,3;]"..
 		"list[nodemeta:"..pos.x..","..pos.y..","..pos.z..";main;0,3.5;9,3;]"..
@@ -267,12 +266,12 @@ minetest.register_node("mcl_chests:"..basename.."_right", {
 	end,
 	mesecons = mesecons,
 })
-
+--[[
 if minetest.get_modpath("doc") then
 	doc.add_entry_alias("nodes", "mcl_chests:"..basename, "nodes", "mcl_chests:"..basename.."_left")
 	doc.add_entry_alias("nodes", "mcl_chests:"..basename, "nodes", "mcl_chests:"..basename.."_right")
 end
-
+]]
 end
 
 register_chest("chest",
@@ -435,9 +434,9 @@ minetest.register_craft({
 	recipe = 'mcl_chests:trapped_chest',
 	burntime = 15
 })
---[[
+
 minetest.register_node("mcl_chests:ender_chest", {
-	description = "Ender Chest",
+	description = "Ender Chest -If broken will drop 8 obsidian.  Careful",
 	_doc_items_longdesc = "Ender chests grant you access to a single personal interdimensional inventory with 27 slots. This inventory is the same no matter from which ender chest you access it from. If you put one item into one ender chest, you will find it in all other ender chests worldwide. Each player will only see their own items, but not the items of other players.",
 	_doc_items_usagehelp = "Rightclick the ender chest to access your personal interdimensional inventory.",
 	tiles = {"mcl_chests_ender_chest_top.png", "mcl_chests_ender_chest_bottom.png",
@@ -445,13 +444,14 @@ minetest.register_node("mcl_chests:ender_chest", {
 		"mcl_chests_ender_chest_back.png", "mcl_chests_ender_chest_front.png"},
 	-- Note: The “container” group is missing here because the ender chest does not
 	-- have an inventory on its own
-	groups = {pickaxey=1, deco_block=1, material_stone=1},
+	groups = {cracky=1,level=2},
 	is_ground_content = false,
 	paramtype = "light",
 	light_source = 7,
 	paramtype2 = "facedir",
-	sounds = mcl_sounds.node_sound_stone_defaults(),
-	drop = "mcl_core:obsidian 8",
+	sounds = default.node_sound_wood_defaults(),
+	stack_max = 64,
+	drop = "default:obsidian 8",
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		meta:set_string("formspec", 
@@ -459,10 +459,10 @@ minetest.register_node("mcl_chests:ender_chest", {
 				mcl_vars.inventory_header..
 				"background[-0.19,-0.25;9.41,10.48;crafting_inventory_chest.png]"..
 				"image[0,-0.2;5,0.75;fnt_ender_chest.png]"..
-				"list[current_player;enderchest;0,0.5;9,3;]"..
-				"list[current_player;main;0,4.5;9,3;9]"..
+				"list[current_player;ender;0,0.5;9,3;]"..  --was enderchest
+				"list[current_player;main;0,4.5;9,3;9]"..  
 				"list[current_player;main;0,7.74;9,1;]"..
-				"listring[current_player;enderchest]"..
+				"listring[current_player;ender]".. --was enderchest
 				"listring[current_player;main]")
 	end,
 	_mcl_blast_resistance = 3000,
@@ -471,18 +471,48 @@ minetest.register_node("mcl_chests:ender_chest", {
 
 minetest.register_on_joinplayer(function(player)
 	local inv = player:get_inventory()
-	inv:set_size("enderchest", 9*3)
+	inv:set_size("ender", 9*4)  --was9*3  was enderchest
 end)
 
 minetest.register_craft({
 	output = 'mcl_chests:ender_chest',
 	recipe = {
-		{'mcl_core:obsidian', 'mcl_core:obsidian', 'mcl_core:obsidian'},
-		{'mcl_core:obsidian', 'mcl_end:ender_eye', 'mcl_core:obsidian'},
-		{'mcl_core:obsidian', 'mcl_core:obsidian', 'mcl_core:obsidian'},
+		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
+		{'default:obsidian', 'mobs_mc:ender_eye',    'default:obsidian'},
+		{'default:obsidian', 'default:obsidian', 'default:obsidian'},
 	}
 })
-]]
+
+--maikerumine code
+minetest.register_abm({
+	nodenames = {"default:enderchest"},
+	interval = 1,
+	chance = 2,
+	action = function(pos, node)
+		minetest.add_particlespawner(
+			16, --amount
+			4, --time
+			{x=pos.x-0.5, y=pos.y-0.5, z=pos.z-0.5}, --minpos
+			{x=pos.x+0.5, y=pos.y+0.5, z=pos.z+0.5}, --maxpos
+			{x=-0.5, y=-0.5, z=-0.5}, --minvel
+			{x=0.5, y=0.5, z=0.5}, --maxvel
+			{x=0,y=0,z=0}, --minacc
+			{x=0,y=0,z=0}, --maxacc
+			0.5, --minexptime
+			3, --maxexptime
+			1, --minsize
+			2, --maxsize
+			false, --collisiondetection
+			--"nether_particle.png" --texture
+			"default_mese_crystal.png" --texture
+		)
+	end,
+})
+
+
+
+
+
 -- Shulker boxes
 local boxtypes = {
 	white = "White Shulker Box",

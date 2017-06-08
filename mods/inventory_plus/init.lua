@@ -68,11 +68,11 @@ inventory_plus.get_formspec = function(player, page)
 	end
 
 	-- default inventory page
-	local formspec = "size[8,7.5]"
+	local formspec = "size[9,7.5]"
 		.. default.gui_bg
 		.. default.gui_bg_img
 		.. default.gui_slots
-		.. "list[current_player;main;0,3.5;8,4;]"
+		.. "list[current_player;main;0,3.5;9,4;]"
 
 	-- craft page
 	if page == "craft" then
@@ -116,7 +116,7 @@ inventory_plus.get_formspec = function(player, page)
 
 			x = x + 2
 
-			if x == 8 then
+			if x == 9 then
 				x = 0
 				y = y + 1
 			end
