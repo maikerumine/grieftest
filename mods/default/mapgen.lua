@@ -42,13 +42,6 @@ minetest.register_alias("default:stone_with_copper", "default:stone_with_iron")
 minetest.register_alias("default:bedrock", "default:bedrock")
 
 
---local NETHER_DEPTH = -3100
---local NETHER_AMBIENT = 7
---local nether_created = false
-
-
-
-
 --
 -- Register ores
 --
@@ -197,7 +190,7 @@ minetest.register_ore({
 	ore_type       = "blob",
 	ore            = "default:fossil",
 	wherein        = "default:sandstone",
-		clust_scarcity  = 16 * 16 * 16,
+		clust_scarcity  = 36 * 36 * 36,
 		clust_size      = 5,
 		y_min           = -70,
 		y_max           = 31000,
@@ -1000,7 +993,7 @@ minetest.register_ore({
 	minetest.register_ore({
 		ore_type        = "blob",
 		ore             = "default:glowstone",
-		wherein         = {"default:rack", "air"},
+		wherein         = {"default:rack"},
 		clust_scarcity  = 26 * 26 * 26,
 		clust_size      = 5,
 		y_min           = -3390,
@@ -1092,8 +1085,8 @@ minetest.register_ore({
 	clust_scarcity = 1,
 	clust_num_ores = 12,
 	clust_size     = 10,
-	y_min     = -3050,
-	y_max     = -4000,
+	y_min     = -3390,
+	y_max     = -3200,
 	noise_threshold = 0.2,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
@@ -1103,10 +1096,10 @@ minetest.register_ore({
 	ore            = "air",
 	wherein        ={"default:rack"},
 	clust_scarcity = 1,
-	clust_num_ores = 12,
+	clust_num_ores = 32,
 	clust_size     = 10,
-	y_min     = 10,
-	y_max     = 30,
+	y_min           = -3390,
+	y_max           = -3000,
 	noise_threshold = 0.2,
 	noise_params = {offset=0, scale=15, spread={x=130, y=130, z=130}, seed=24, octaves=3, persist=0.70}
 })
@@ -1221,7 +1214,26 @@ minetest.register_ore({
 	noise_params = {offset=0, scale=1, spread={x=50, y=122, z=50}, seed=2464, octaves=3, persist=0.70}
 })
 ]]
-	
+	-- endstone???  TODO make a mapgen
+
+	minetest.register_ore({
+		ore_type        = "blob",
+		ore             = "default:end_stone",
+		wherein         = {"default:void", "default:end_stone","default:stone","air","ignore"},
+		clust_scarcity  = 30 * 30 * 30,  	--was26
+		clust_size      = 17,				--was5
+		y_min           = -6150,
+		y_max           = -6110,
+		noise_threshold = 0.0,
+		noise_params    = {
+			offset = 0.5,
+			scale = 0.1,
+			spread = {x = 5, y = 5, z = 5},
+			seed = 16,
+			octaves = 1,
+			persist = 0.0
+		},
+	})	
 end
 --
 -- Register biomes
@@ -1922,29 +1934,6 @@ function default.register_biomes(upper_limit)
 		humidity_point = 65,
 	})
 	
-	
---[[
-	-- Underground
-
-	minetest.register_biome({
-		name = "underground",
-		--node_dust = "",
-		--node_top = "",
-		--depth_top = ,
-		--node_filler = "",
-		--depth_filler = ,
-		--node_stone = "",
-		--node_water_top = "",
-		--depth_water_top = ,
-		--node_water = "",
-		--node_river_water = "",
-		y_min = -31000,
-		y_max = -113,
-		heat_point = 50,
-		humidity_point = 50,
-	})
-	]]
-	
 	-- Underground
 	--MAPGEN REALMS
 	minetest.register_biome({
@@ -2006,7 +1995,7 @@ function default.register_biomes(upper_limit)
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
-		--node_filler = "default:rack",
+		node_filler = "default:rack",
 		--depth_filler = ,
 		node_stone =  "default:rack",
 		--node_water_top = "",
@@ -2024,7 +2013,7 @@ function default.register_biomes(upper_limit)
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
-		--node_filler = "default:lava_source",
+		node_filler = "default:lava_source",
 		--depth_filler = ,
 		node_stone =  "default:lava_source",
 		--node_water_top = "",
@@ -2042,7 +2031,7 @@ function default.register_biomes(upper_limit)
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
-		--node_filler = "default:bedrock",
+		node_filler = "default:bedrock",
 		--depth_filler = ,
 		node_stone =  "default:bedrock",
 		--node_water_top = "",
@@ -2060,7 +2049,7 @@ function default.register_biomes(upper_limit)
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
-		--node_filler = "default:dummy",
+		node_filler = "default:dummy",
 		--depth_filler = ,
 		node_stone =  "air",
 		--node_water_top = "",
@@ -2076,7 +2065,7 @@ function default.register_biomes(upper_limit)
 	
 	--realm 2
 		minetest.register_biome({
-		name = "realm1",
+		name = "realm2",
 		--node_dust = "",
 		--node_top = "",
 		--depth_top = ,
@@ -2094,7 +2083,7 @@ function default.register_biomes(upper_limit)
 	})	
 	
 		minetest.register_biome({
-		name = "realm1b",
+		name = "realm2b",
 		--node_dust = "",
 		node_top = "default:dirt",
 		depth_top = 12,
@@ -2111,7 +2100,42 @@ function default.register_biomes(upper_limit)
 		humidity_point = 50,
 	})		
 	
+	--realm 3  "end"
+		minetest.register_biome({
+		name = "realm3",
+		--node_dust = "",
+		--node_top = "",
+		--depth_top = ,
+		node_filler = "default:end_stone",
+		--depth_filler = ,
+		node_stone =  "default:void",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -6400,
+		y_max = -6000,
+		heat_point = 50,
+		humidity_point = 50,
+	})	
 	
+		minetest.register_biome({
+		name = "realm3b",
+		node_dust = "ignore",
+		node_top = "ignore",
+		depth_top = 12,
+		node_filler = "ignore",
+		depth_filler = 1,
+		node_stone =  "ignore",
+		--node_water_top = "",
+		--depth_water_top = ,
+		--node_water = "",
+		--node_river_water = "",
+		y_min = -6550,
+		y_max = -6099,
+		heat_point = 50,
+		humidity_point = 50,
+	})		
 	
 	
 	
@@ -3095,7 +3119,15 @@ minetest.register_decoration({
 		decoration = "mcl_flowers:tallgrass",
 	})
 
-
+	minetest.register_decoration({
+		deco_type = "simple",
+		place_on = {"default:end_stone"},
+		sidelen = 8,
+		fill_ratio = 0.01,
+		y_min = -7000,
+		y_max = -6000,
+		decoration = "default:chorus_flower",
+	})
 
 
 
@@ -3222,13 +3254,18 @@ replace("default:granite", "default:bedrock", -80, -64)
 replace("default:marble", "default:bedrock", -80, -64)
 replace("hardenedclay:hardened_clay_brown", "default:bedrock", -80, -64)
 
---[[
+
 --dungeon swap
 replace("default:cobblestone", "default:nitherbrick", -3900, -2400)
 replace("default:mossycobble", "default:nitherbrick", -3900, -2400)
 replace("stairs:stair_cobble", "stairs:stair_nitherbrick", -3900, -2400)
 replace("stairs:stair_mossycobble", "stairs:stair_nitherbrick", -3900, -2400)
-]]
+
+replace("default:cobblestone", "default:purpur_block", -6900, -4400)
+replace("default:mossycobble", "default:purpur_block", -6900, -4400)
+replace("stairs:stair_cobble", "stairs:stair_purpur_block", -6900, -4400)
+replace("stairs:stair_mossycobble", "stairs:stair_purpur_block", -6900, -4400)
+
 
 local function bedrock(old)
 	minetest.register_ore({

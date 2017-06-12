@@ -72,7 +72,7 @@ minetest.register_abm({
 	interval = 8,
 	chance = 1,
 	action = function (pos, node, active_object_count, active_object_count_wider)
-		if weather == "rain" and minetest.get_node_light(pos, 0.5) > 3 then
+		if weather2 == "rain" and minetest.get_node_light(pos, 0.5) > 3 then
 			minetest.remove_node(pos)
 		end
 	end

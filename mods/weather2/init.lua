@@ -1,4 +1,4 @@
--- Weather:
+-- weather2:
 -- * rain
 -- * snow
 -- * wind (not implemented)
@@ -53,7 +53,7 @@ set_sky = function()
 	end
 end
 
-weather = read_weather()
+weather2 = read_weather()
 minetest.register_globalstep(function(dtime)
 	set_sky()
 end)
@@ -77,6 +77,6 @@ minetest.register_globalstep(function(dtime)
 	end
 end)
 
-dofile(minetest.get_modpath("weather").."/rain.lua")
-dofile(minetest.get_modpath("weather").."/snow.lua")
-dofile(minetest.get_modpath("weather").."/command.lua")
+dofile(minetest.get_modpath("weather2").."/rain.lua")
+dofile(minetest.get_modpath("weather2").."/snow.lua")
+dofile(minetest.get_modpath("weather2").."/command.lua")

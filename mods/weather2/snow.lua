@@ -52,7 +52,7 @@ local snow_box =
 }
 
 -- Snow cover
-minetest.register_node("weather:snow_cover", {
+minetest.register_node("weather2:snow_cover", {
 	tiles = {"weather_snow_cover.png"},
 	drawtype = "nodebox",
 	paramtype = "light",

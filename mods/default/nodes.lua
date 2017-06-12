@@ -2218,6 +2218,21 @@ minetest.register_node("default:cloud", {
 	groups = {not_in_creative_inventory = 1},
 })
 
+minetest.register_node("default:void", {
+	description = "Void (you hacker you!)",
+	inventory_image = "mcl_core_void.png",
+	wield_image = "mcl_core_void.png",
+	drawtype = "airlike",
+	paramtype = "light",
+	sunlight_propagates = true,
+	walkable = false,
+	pointable = false,
+	diggable = false,
+	buildable_to = true,
+	air_equivalent = true,
+	drop = "",
+	groups = {not_in_creative_inventory=1},
+})
 
 -- Minetest 0.4 Mod: default
 
@@ -2441,36 +2456,3 @@ if enable_horizontal_pillar then
 	})
 end
 
---[[
---Compatibility with stairsplus
-
-if minetest.get_modpath("moreblocks") and enable_stairsplus then
-	register_stair_slab_panel_micro("quartz", "block", "default:quartz_block",
-	{cracky=3},
-	
-	{"quartz_block.png"},
-	"Quartz Block",
-	"block",
-	0)
-
-	register_stair_slab_panel_micro("quartz", "chiseled", "default:quartz_chiseled",
-	{cracky=3},
-	
-	{"quartz_chiseled.png"},
-	"Chiseled Quartz",
-	"chiseled",
-	0)
-
-	register_stair_slab_panel_micro("quartz", "pillar", "default:quartz_pillar",
-	{cracky=3},
-	
-	{"quartz_pillar_top.png", "quartz_pillar_top.png", "quartz_pillar_side.png"},
-	"Quartz Pillar",
-	"pillar",
-	0)
-
-	table.insert(circular_saw.known_stairs, "default:quartz_block")
-	table.insert(circular_saw.known_stairs, "default:quartz_chiseled")
-	table.insert(circular_saw.known_stairs, "default:quartz_pillar")
-end
-]]
