@@ -5,7 +5,7 @@
 
 local function active_formspec(fuel_percent, item_percent)
 	local formspec = 
-		"size[8,8.5]"..
+		"size[9,8.5]"..
 		default.gui_bg..
 		default.gui_bg_img..
 		default.gui_slots..
@@ -16,8 +16,8 @@ local function active_formspec(fuel_percent, item_percent)
 		"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[lowpart:"..
 		(item_percent)..":gui_furnace_arrow_fg.png^[transformR270]"..
 		"list[current_name;dst;4.75,0.96;2,2;]"..
-		"list[current_player;main;0,4.25;8,1;]"..
-		"list[current_player;main;0,5.5;8,3;8]"..
+		"list[current_player;main;0,4.25;9,1;]"..
+		"list[current_player;main;0,5.5;9,3;9]"..
 		"listring[current_name;dst]"..
 		"listring[current_player;main]"..
 		"listring[current_name;src]"..
@@ -27,7 +27,7 @@ local function active_formspec(fuel_percent, item_percent)
 end
 
 local inactive_formspec =
-	"size[8,8.5]"..
+	"size[9,8.5]"..
 	default.gui_bg..
 	default.gui_bg_img..
 	default.gui_slots..
@@ -36,8 +36,8 @@ local inactive_formspec =
 	"image[2.75,1.5;1,1;default_furnace_fire_bg.png]"..
 	"image[3.75,1.5;1,1;gui_furnace_arrow_bg.png^[transformR270]"..
 	"list[current_name;dst;4.75,0.96;2,2;]"..
-	"list[current_player;main;0,4.25;8,1;]"..
-	"list[current_player;main;0,5.5;8,3;8]"..
+	"list[current_player;main;0,4.25;9,1;]"..
+	"list[current_player;main;0,5.5;9,3;9]"..
 	"listring[current_name;dst]"..
 	"listring[current_player;main]"..
 	"listring[current_name;src]"..

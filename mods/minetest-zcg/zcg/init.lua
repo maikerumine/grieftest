@@ -103,7 +103,7 @@ zcg.formspec = function(pn)
 	local page = zcg.users[pn].page  --GLOBAL
 	local alt = zcg.users[pn].alt  --GLOBAL
 	local current_item = zcg.users[pn].current_item  --GLOBAL
-	local formspec = "size[8,7.5]"
+	local formspec = "size[9,7.5]"
 	.. "button[0,0;2,.5;main;Back]"
 	if zcg.users[pn].history.index > 1 then
 		formspec = formspec .. "image_button[0,1;1,1;zcg_previous.png;zcg_previous;;false;false;zcg_previous_press.png]"
@@ -146,13 +146,13 @@ zcg.formspec = function(pn)
 	end
 	
 	-- Node list
-	local npp = 8*3 -- nodes per page
+	local npp = 9*3 -- nodes per page
 	local i = 0 -- for positionning buttons
 	local s = 0 -- for skipping pages
 	for _, name in ipairs(zcg.itemlist) do
 		if s < page*npp then s = s+1 else
 			if i >= npp then break end
-			formspec = formspec .. "item_image_button["..(i%8)..","..(math.floor(i/8)+3.5)..";1,1;"..name..";zcg:"..name..";]"
+			formspec = formspec .. "item_image_button["..(i%9)..","..(math.floor(i/9)+3.5)..";1,1;"..name..";zcg:"..name..";]"
 			i = i+1
 		end
 	end

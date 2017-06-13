@@ -18,7 +18,7 @@ default.gui_slots = "listcolors[#00000069;#5A5A5A;#141318;#30434C;#FFF]"
 
 function default.get_hotbar_bg(x,y)
 	local out = ""
-	for i=0,7,1 do
+	for i=0,8,1 do
 		out = out .."image["..x+i..","..y..";1,1;gui_hb_bg.png]"
 	end
 	return out
@@ -45,7 +45,15 @@ minetest.register_on_joinplayer(function(player)
 
 end)			
 			
-			
+-- large_hotbar: Makes the hotbar larger
+-- Copyright (c) 2015 Calinou
+-- CC0 1.0 Universal
+
+custom_hotbar_size = tonumber(minetest.setting_get("large_hotbar.size"))
+
+minetest.register_on_joinplayer(function(player)
+  player:hud_set_hotbar_itemcount(custom_hotbar_size or 9)
+end)			
 			
 			
 			

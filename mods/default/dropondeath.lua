@@ -14,4 +14,5 @@ end
 minetest.register_on_dieplayer(function(player)
     drop_inventory(player, "main")
     drop_inventory(player, "craft")
+    drop_inventory(player, "armor")
 end)

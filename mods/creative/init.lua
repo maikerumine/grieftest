@@ -105,14 +105,14 @@ creative.formspec_add = ""
 creative.set_creative_formspec = function(player, start_i)
 	local player_name = player:get_player_name()
 	local inv = player_inventory[player_name]
-	local pagenum = math.floor(start_i / (3*8) + 1)
-	local pagemax = math.ceil(inv.size / (3*8))
+	local pagenum = math.floor(start_i / (3*9) + 1)
+	local pagemax = math.ceil(inv.size / (3*9))
 
 	player:set_inventory_formspec([[
-		size[8,8.6]
+		size[9,8.6]
 		image[4.06,3.4;0.8,0.8;creative_trash_icon.png]
-		list[current_player;main;0,4.7;8,1;]
-		list[current_player;main;0,5.85;8,3;8]
+		list[current_player;main;0,4.7;9,1;]
+		list[current_player;main;0,5.85;9,3;9]
 		list[detached:creative_trash;main;4,3.3;1,1;]
 		listring[]
 		tablecolumns[color;text;color;text]
@@ -128,7 +128,7 @@ creative.set_creative_formspec = function(player, start_i)
 		"field[0.3,3.5;2.2,1;creative_filter;;" .. minetest.formspec_escape(inv.filter) .. "]" ..
 		"listring[detached:creative_" .. player_name .. ";main]" ..
 		"tabheader[0,0;creative_tabs;Crafting,All,Nodes,Tools,Items;" .. tostring(inv.tab_id) .. ";true;false]" ..
-		"list[detached:creative_" .. player_name .. ";main;0,0;8,3;" .. tostring(start_i) .. "]" ..
+		"list[detached:creative_" .. player_name .. ";main;0,0;9,3;" .. tostring(start_i) .. "]" ..
 		"table[6.05,3.35;1.15,0.5;pagenum;#FFFF00," .. tostring(pagenum) .. ",#FFFFFF,/ " .. tostring(pagemax) .. "]" ..
 		default.get_hotbar_bg(0,4.7) ..
 		default.gui_bg .. default.gui_bg_img .. default.gui_slots
@@ -138,11 +138,11 @@ end
 
 creative.set_crafting_formspec = function(player)
 	player:set_inventory_formspec([[
-		size[8,8.6]
+		size[9,8.6]
 		list[current_player;craft;2,0.75;3,3;]
 		list[current_player;craftpreview;6,1.75;1,1;]
-		list[current_player;main;0,4.7;8,1;]
-		list[current_player;main;0,5.85;8,3;8]
+		list[current_player;main;0,4.7;9,1;]
+		list[current_player;main;0,5.85;9,3;9]
 		list[detached:creative_trash;main;0,2.75;1,1;]
 		image[0.06,2.85;0.8,0.8;creative_trash_icon.png]
 		image[5,1.75;1,1;gui_furnace_arrow_bg.png^[transformR270]

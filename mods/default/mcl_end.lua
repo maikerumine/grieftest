@@ -244,14 +244,14 @@ minetest.register_craftitem("default:chorus_fruit_popped", {
 	groups = { craftitem = 1 },
 	stack_max = 64,
 })
-
+--[[
 minetest.register_craftitem("default:ender_eye", {
 	description = "Eye of Ender",
 	wield_image = "mcl_end_ender_eye.png",
 	inventory_image = "mcl_end_ender_eye.png",
 	stack_max = 64,
 })
-
+]]
 
 -- Crafting recipes
 minetest.register_craft({
@@ -277,13 +277,13 @@ minetest.register_craft({
 		{"default:chorus_fruit_popped"},
 	},
 })
-
+--[[
 minetest.register_craft({
 	type = "shapeless",
 	output = "default:ender_eye",
 	recipe = {"mobs_mc:blaze_powder", "farorb:farorb"},
 })
-
+]]
 minetest.register_craft({
 	type = "cooking",
 	output = "default:chorus_fruit_popped",

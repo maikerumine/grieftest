@@ -116,7 +116,7 @@ inventory_plus.get_formspec = function(player, page)
 
 			x = x + 2
 
-			if x == 9 then
+			if x == 8 then
 				x = 0
 				y = y + 1
 			end

@@ -1198,7 +1198,7 @@ minetest.register_node("default:stone_with_gold", {
 	description = "Gold Ore",
 	tiles = {"default_stone.png^default_mineral_gold.png"},
 	groups = {cracky = 2},
-	drop = "default:gold_lump",
+	--drop = "default:gold_lump",
 	sounds = default.node_sound_stone_defaults(),
 	stack_max = 64,
 })

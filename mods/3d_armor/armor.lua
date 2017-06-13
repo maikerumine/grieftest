@@ -2,8 +2,8 @@ ARMOR_INIT_DELAY = 1
 ARMOR_INIT_TIMES = 1
 ARMOR_BONES_DELAY = 1
 ARMOR_UPDATE_TIME = 1
---ARMOR_DROP = minetest.get_modpath("bones") ~= nil
-ARMOR_DROP = false
+ARMOR_DROP = minetest.get_modpath("bones") ~= nil
+ARMOR_DROP = true
 ARMOR_DESTROY = false
 ARMOR_LEVEL_MULTIPLIER = 0.5
 ARMOR_HEAL_MULTIPLIER = 0
