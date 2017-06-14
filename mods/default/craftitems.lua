@@ -391,6 +391,17 @@ minetest.register_craftitem("default:quartz_crystal", {
 	description = "Quartz Crystal",
 	inventory_image = "quartz_crystal_full.png",
 	stack_max = 64,
+	--end
+	on_place = function(stack,_, pt)
+		if pt.under and minetest.get_node(pt.under).name == "default:purpur_block" then
+			done3 = make_end_portal(pt.under)  --broken please fix for y
+			if done3 and not minetest.setting_getbool("creative_mode") then
+				stack:take_item()
+				--stack:add_wear(1000)
+			end
+		end
+		return stack
+	end,
 })
 minetest.register_craftitem("default:quartz_crystal_piece", {
 	description = "Quartz Crystal Piece",

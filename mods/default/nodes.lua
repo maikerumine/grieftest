@@ -2232,6 +2232,7 @@ minetest.register_node("default:void", {
 	air_equivalent = true,
 	drop = "",
 	groups = {not_in_creative_inventory=1},
+	light_source = default.LIGHT_MAX, --test only
 })
 
 -- Minetest 0.4 Mod: default

@@ -1222,7 +1222,7 @@ minetest.register_ore({
 		wherein         = {"default:void", "default:end_stone","default:stone","air","ignore"},
 		clust_scarcity  = 30 * 30 * 30,  	--was26
 		clust_size      = 17,				--was5
-		y_min           = -6150,
+		y_min           = -6470,
 		y_max           = -6110,
 		noise_threshold = 0.0,
 		noise_params    = {
@@ -2109,11 +2109,12 @@ function default.register_biomes(upper_limit)
 		node_filler = "default:end_stone",
 		--depth_filler = ,
 		node_stone =  "default:void",
+		--node_stone =  "air",
 		--node_water_top = "",
 		--depth_water_top = ,
 		--node_water = "",
 		--node_river_water = "",
-		y_min = -6400,
+		y_min = -6470,
 		y_max = -6000,
 		heat_point = 50,
 		humidity_point = 50,

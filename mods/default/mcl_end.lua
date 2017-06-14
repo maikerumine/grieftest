@@ -4,6 +4,7 @@ minetest.register_node("default:end_stone", {
 	tiles = {"mcl_end_end_stone.png"},
 	stack_max = 64,
 	groups = {cracky=2, stone = 1},
+	--light_source = default.LIGHT_MAX - 7, --test only
 	sounds = default.node_sound_stone_defaults(),
 })
 
@@ -108,7 +109,7 @@ minetest.register_node("default:end_rod", {
 
 	sounds = default.node_sound_glass_defaults(),
 })
-
+--[[
 minetest.register_node("default:dragon_egg", {
 	description = "Dragon Egg",
 	tiles = {
@@ -155,7 +156,7 @@ local chorus_flower_box = {
 		{-0.375, -0.5, -0.375, 0.375, -0.375, 0.375},
 	}
 }
-
+]]
 minetest.register_node("default:chorus_flower", {
 	description = "Chorus Flower",
 	tiles = {
